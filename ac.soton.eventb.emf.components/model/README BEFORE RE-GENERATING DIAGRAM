@@ -1,0 +1,19 @@
+
+
+Creating gmfgen from gmfmap resets some configurations therefore it is necessary to restore these settings
+ in components.gmfgen before re-generating diagram code. This can be done by doing a text compare with the
+ previous version and merging back any previous settings.
+ For example, 
+ Various statemachine class names keep getting reset to e.g. statemachine2??
+ open diagram behaviours are removed from statemachine parts
+ fixed foreground / background should be removed to allow appearance properties and preferences to be used.
+ [NOTE: if you save gmfgen with a text editor it is seen as a text file in the navigator. Make sure it is seen as a gmfgen file (by opening and saving 
+ using the gmfgen editor) before re-creating from gmfmap.  Otherwise the new version is not merged correctly.]
+ 
+ In the diagram plug-in the MANIFEST.MF and plugin.xml files do not update unless the old versions are removed.
+ Therefore, rename these files before re-generating and merge back in any customisations (e.g. property sheet extensions) using text compare
+ 
+ The diagram generation uses custom dynamic templates. These should be updated to customise the generated code. 
+ However, this is not always done and some hand customisations may exist. These are listed in 'diagramCustomisation' file. 
+ After re-generating, go through the hand customisations and check whether those methods need to be updated to reflect changes
+  as they won't have been updated by the re-generation. (e.g. if you added new nodes to the diagram some hand customisations WILL need to be updated)
