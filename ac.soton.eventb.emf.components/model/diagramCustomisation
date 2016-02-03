@@ -1,0 +1,545 @@
+
+
+ In  Component and Connector edit parts ( in inner class *Figure) - to give a gradient colour rendering
+----------
+
+		/**
+		 * 
+		 * This is added to give a gradient to the colour rendering
+		 * 
+		 * @custom
+		 */
+		protected void fillShape(Graphics graphics) {
+			// Backup the graphics colors
+			Color bgColor = graphics.getBackgroundColor();
+			Color fgColor = graphics.getForegroundColor();
+			// Set the graphics color
+			graphics.setBackgroundColor(ColorConstants.white);
+			graphics.setForegroundColor(getBackgroundColor());
+			// Restore the original colors
+			graphics.fillGradient(getBounds(), true);
+			graphics.setBackgroundColor(bgColor);
+			graphics.setForegroundColor(fgColor);
+		}
+
+
+
+--------------------------------------------------------------------------------------
+In ConnectorEditPart - override the following method to retun a fixed point for 
+anchoring links. The fixed point is one or other end corner
+--------------------------------------------------------------------------------------
+	
+	@Override
+	public ConnectionAnchor getSourceConnectionAnchor(
+			ConnectionEditPart connEditPart) {
+		return new ChopboxAnchor(ConnectorEditPart.this.getFigure()){
+			/**
+			 * returns the sharp corner Point on one or other end of the connector
+			 * whichever the reference is closest to
+			 * 
+			 * @param reference
+			 *            The reference point
+			 * @return The anchor location
+			 */
+			@Override
+			public Point getLocation(Point reference) {
+				Rectangle r = Rectangle.SINGLETON;
+				r.setBounds(getBox());
+				getOwner().translateToAbsolute(r);
+				float centerX = r.x + 0.5f * r.width;
+				float centerY = r.y + 0.5f * r.height;
+				float x = r.x;
+				if (reference.x > centerX){
+					x = x + r.width;
+				}
+				return new Point(Math.round(x), Math.round(centerY));				
+			}
+		};
+	}
+	
+
+--------------------------------------------------------------------------------------
+In ComponentsVisualIDRegistry, added this new static method (based on getNodeVisualID)
+ *** NEEDS TO BE UPDATED WHENEVER NEW NODE ELEMENTS ARE ADDED TO THE DIAGRAM ***
+--------------------------------------------------------------------------------------
+
+	/**
+	 * Checks that the visualId is valid for representing the domain element in the containerView
+	 * 
+	 * (Customisation - use instead of getNodeVisualID which cannot support two collections of the same domain element type in the same container)
+	 * 
+	 * @param containerView
+	 * @param domainElement
+	 * @param visualID
+	 * @return
+	 */
+	public static boolean isNodeVisualIDFor(View containerView,
+			EObject domainElement, int visualID) {
+		if (domainElement == null) {
+			return false;
+		}
+		String containerModelID = ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry
+				.getModelID(containerView);
+		if (!ComponentDiagramEditPart.MODEL_ID.equals(containerModelID)) {
+			return false;
+		}
+		int containerVisualID;
+		if (ComponentDiagramEditPart.MODEL_ID.equals(containerModelID)) {
+			containerVisualID = ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry
+					.getVisualID(containerView);
+		} else {
+			if (containerView instanceof Diagram) {
+				containerVisualID = ComponentDiagramEditPart.VISUAL_ID;
+			} else {
+				return false;
+			}
+		}
+		switch (containerVisualID) {
+		case ComponentDiagramEditPart.VISUAL_ID:
+			if (ComponentsPackage.eINSTANCE.getComponent().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ComponentEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ConnectorEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			break;
+		case ComponentStatemachinesEditPart.VISUAL_ID:
+			if (StatemachinesPackage.eINSTANCE.getStatemachine().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (StatemachineEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (StatemachinesPackage.eINSTANCE.getStatemachine().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (SynchronousStatemachineEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (StatemachinesPackage.eINSTANCE.getStatemachine().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ProcessStatemachineEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			break;
+		case ComponentOperationsEditPart.VISUAL_ID:
+			if (ComponentsPackage.eINSTANCE.getPortWake().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (PortWakeEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getSelfWake().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (SelfWakeEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getMethod().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (MethodEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getExternal().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ExternalEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getTransition().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (TransitionEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			break;
+		case ComponentSubcomponentsEditPart.VISUAL_ID:
+			if (ComponentsPackage.eINSTANCE.getComponent().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (SubcomponentEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			break;
+		case ComponentWakeQueuesEditPart.VISUAL_ID:
+			if (ComponentsPackage.eINSTANCE.getWakeQueue().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (WakeQueueEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			break;
+		}
+		return false;
+	}	
+	
+--------------------------------------------------------------------------------------	
+In ComponentsDiagramUpdater, altered this method to use the new method above:
+--------------------------------------------------------------------------------------
+	/**
+	 * Customised to allow several collections of state machines in the same compartment
+	 * @generated NOT
+	 */
+	public static List<ComponentsNodeDescriptor> getComponentStatemachines_7004SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Component modelElement = (Component) containerView.getElement();
+		LinkedList<ComponentsNodeDescriptor> result = new LinkedList<ComponentsNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getProcessStatemachines()
+				.iterator(); it.hasNext();) {
+			Statemachine childElement = (Statemachine) it.next();
+			if (ComponentsVisualIDRegistry.isNodeVisualIDFor(view,
+					childElement, ProcessStatemachineEditPart.VISUAL_ID)) {
+				result.add(new ComponentsNodeDescriptor(childElement,
+						ProcessStatemachineEditPart.VISUAL_ID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getSynchronousStatemachines()
+				.iterator(); it.hasNext();) {
+			Statemachine childElement = (Statemachine) it.next();
+			if (ComponentsVisualIDRegistry.isNodeVisualIDFor(view,
+					childElement, SynchronousStatemachineEditPart.VISUAL_ID)) {
+				result.add(new ComponentsNodeDescriptor(childElement,
+						SynchronousStatemachineEditPart.VISUAL_ID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getAsynchronousStatemachines()
+				.iterator(); it.hasNext();) {
+			Statemachine childElement = (Statemachine) it.next();
+			if (ComponentsVisualIDRegistry.isNodeVisualIDFor(view,
+					childElement, StatemachineEditPart.VISUAL_ID)) {
+				result.add(new ComponentsNodeDescriptor(childElement,
+						StatemachineEditPart.VISUAL_ID));
+				continue;
+			}
+		}
+		return result;
+	}	
+--------------------------------------------------------------------------------------	
+In ComponentsViewProvider, altered this method to use the new method above:
+--------------------------------------------------------------------------------------
+	/**
+	 * 
+	 * This has been changed to use ''isVisualIDFor' instead of getVisualID.
+	 * The generated code does not work if several collections of similar type are contained in the same container
+	 * 
+	 * @generated NOT
+	 * 
+	 */
+	protected boolean provides(CreateNodeViewOperation op) {
+		if (op.getContainerView() == null) {
+			return false;
+		}
+		IElementType elementType = getSemanticElementType(op
+				.getSemanticAdapter());
+		EObject domainElement = getSemanticElement(op.getSemanticAdapter());
+		int visualID;
+		if (op.getSemanticHint() == null) {
+			// Semantic hint is not specified. Can be a result of call from CanonicalEditPolicy.
+			// In this situation there should be NO elementType, visualID will be determined
+			// by VisualIDRegistry.getNodeVisualID() for domainElement.
+			if (elementType != null || domainElement == null) {
+				return false;
+			}
+			visualID = ComponentsVisualIDRegistry.getNodeVisualID(
+					op.getContainerView(), domainElement);
+		} else {
+			visualID = ComponentsVisualIDRegistry.getVisualID(op
+					.getSemanticHint());
+			if (elementType != null) {
+				if (!ComponentsElementTypes.isKnownElementType(elementType)
+						|| (!(elementType instanceof IHintedType))) {
+					return false; // foreign element type
+				}
+				String elementTypeHint = ((IHintedType) elementType)
+						.getSemanticHint();
+				if (!op.getSemanticHint().equals(elementTypeHint)) {
+					return false; // if semantic hint is specified it should be the same as in element type
+				}
+				if (domainElement != null
+				//						&& visualID != ComponentsVisualIDRegistry
+				//								.getNodeVisualID(op.getContainerView(),
+				//										domainElement)) {
+						&& !ComponentsVisualIDRegistry.isNodeVisualIDFor(
+								op.getContainerView(), domainElement, visualID)) {
+					return false; // visual id for node EClass should match visual id from element type
+				}
+			} else {
+				if (!ComponentDiagramEditPart.MODEL_ID
+						.equals(ComponentsVisualIDRegistry.getModelID(op
+								.getContainerView()))) {
+					return false; // foreign diagram
+				}
+				switch (visualID) {
+				case ConnectorEditPart.VISUAL_ID:
+				case ProcessStatemachineEditPart.VISUAL_ID:
+				case SynchronousStatemachineEditPart.VISUAL_ID:
+				case PortWakeEditPart.VISUAL_ID:
+				case SelfWakeEditPart.VISUAL_ID:
+				case MethodEditPart.VISUAL_ID:
+				case ExternalEditPart.VISUAL_ID:
+				case TransitionEditPart.VISUAL_ID:
+				case ComponentEditPart.VISUAL_ID:
+				case StatemachineEditPart.VISUAL_ID:
+				case SubcomponentEditPart.VISUAL_ID:
+				case WakeQueueEditPart.VISUAL_ID:
+					if (domainElement == null
+					//							|| visualID != ComponentsVisualIDRegistry
+					//									.getNodeVisualID(op.getContainerView(),
+					//											domainElement)) {
+							|| !ComponentsVisualIDRegistry.isNodeVisualIDFor(
+									op.getContainerView(), domainElement,
+									visualID)) {
+						return false; // visual id in semantic hint should match visual id for domain element
+					}
+					break;
+				default:
+					return false;
+				}
+			}
+		}
+		return ComponentEditPart.VISUAL_ID == visualID
+				|| ConnectorEditPart.VISUAL_ID == visualID
+				|| ProcessStatemachineEditPart.VISUAL_ID == visualID
+				|| SynchronousStatemachineEditPart.VISUAL_ID == visualID
+				|| StatemachineEditPart.VISUAL_ID == visualID
+				|| PortWakeEditPart.VISUAL_ID == visualID
+				|| SelfWakeEditPart.VISUAL_ID == visualID
+				|| MethodEditPart.VISUAL_ID == visualID
+				|| ExternalEditPart.VISUAL_ID == visualID
+				|| TransitionEditPart.VISUAL_ID == visualID
+				|| SubcomponentEditPart.VISUAL_ID == visualID
+				|| WakeQueueEditPart.VISUAL_ID == visualID;
+	}
+
+--------------------------------------------------------------------------------------	
+In ComponentsDiagramEditor added this partListener to auto save when the diagram editor loses focus:
+--------------------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////////////////////
+	
+	/**
+	 * This listens for when the outline becomes active 
+	 * <!-- begin-user-doc -->
+	 * It also listens for possible deactivation of the editor (i.e. deactivation of the
+	 * content outline view, property sheets or the editor itself) and if the subsequent 
+	 * activation confirms that none of these associated views are being activated,
+	 *  and the editor is dirty, all changes are automatically saved.
+	 * This prevents editor conflicts if the same resource is edited with another editor.
+	 *  <!-- end-user-doc -->
+	 * 
+	 * @custom
+	 */
+	protected IPartListener deactivationPartListener = new IPartListener() {
+		
+		private boolean deactivated = false;
+		
+		public void partActivated(IWorkbenchPart p) {
+			if (p instanceof PropertySheet) {
+				IPage cp = ((PropertySheet) p).getCurrentPage();
+				if (cp instanceof PropertiesBrowserPage && ((PropertiesBrowserPage)cp).getContributor() == ComponentsDiagramEditor.this){
+					deactivated = false;
+				}
+			} else if (p == ComponentsDiagramEditor.this) {
+				deactivated = false;
+			}
+			if (deactivated && isDirty()) doSave(new NullProgressMonitor());
+		}
+
+		public void partBroughtToTop(IWorkbenchPart p) {
+			// Ignore.
+		}
+
+		public void partClosed(IWorkbenchPart p) {
+			// Ignore.
+		}
+
+		@Override
+		public void partDeactivated(IWorkbenchPart p) {
+			if (p instanceof PropertySheet) {
+				IPage cp = ((PropertySheet) p).getCurrentPage();
+				if (cp instanceof PropertiesBrowserPage && ((PropertiesBrowserPage)cp).getContributor() == ComponentsDiagramEditor.this){
+					deactivated = true;
+				}
+			} else if (p == ComponentsDiagramEditor.this) {
+				deactivated = true;
+			}
+		}
+
+		public void partOpened(IWorkbenchPart p) {
+			// Ignore.
+		}
+	};
+
+	/**
+	 * Add the deactivation part Listener to the Page
+	 * @custom
+	 */
+	@Override
+	public void setInput(IEditorInput input) {
+		super.setInput(input);
+		getSite().getPage().addPartListener(deactivationPartListener);
+	}
+
+	/**
+	 * Remove the deactivation part Listener from the Page
+	 * @custom
+	 */
+	@Override
+	public void dispose() {
+		super.dispose();
+		getSite().getPage().removePartListener(deactivationPartListener);
+	}
+		
+	
+--------------------------------------------------------------------------------------	
+In ComponentsSheetLabelProvider, altered this method to indicate whether a Statemachine is synchronous or Asynchronous:
+--------------------------------------------------------------------------------------
+
+	/**
+	 * customised to provide a more informative title. 
+	 * e.g. indicate kind of statemachine, append name from domain model
+	 * 
+	 * @generated NOT
+	 */
+	public String getText(Object element) {
+		element = unwrap(element);
+		if (element instanceof ComponentsNavigatorGroup) {
+			return ((ComponentsNavigatorGroup) element).getGroupName();
+		}
+
+		String result = ""; //default empty string
+
+		//obtain type part
+		IElementType etype = getElementType(element);
+		if (etype != null)
+			result = etype.getDisplayName();
+
+		//obtain contextual part if any
+		if (element instanceof ProcessStatemachineEditPart) {
+			result = "Process " + result;
+		} else if (element instanceof SynchronousStatemachineEditPart) {
+			result = "Synchronous " + result;
+		} else if (element instanceof StatemachineEditPart) {
+			result = "Asynchronous " + result;
+		} else if (element instanceof ConnectorSenderEditPart) {
+			result = "Sender";
+		} else if (element instanceof ConnectorReceiversEditPart) {
+			result = "Receiver";
+		}
+
+		//append name of domain model element where possible
+		EObject domainObject = getDomainObject(element);
+		if (domainObject instanceof EventBNamed) {
+			result = result + " : " + ((EventBNamed) domainObject).getName();
+		} else if (domainObject instanceof EventBLabeled) {
+			result = result + " : " + ((EventBLabeled) domainObject).getLabel();
+		}
+
+		return result;
+	}
+
+	
+--------------------------------------------------------------------------------------	
+In SynchronousStatemachineEditPart, added a cache for the special synchronous statemachine icon and 
+altered this method to use it
+--------------------------------------------------------------------------------------
+	/**
+	 * A special icon used for synchronous statemachines to distinguish them from normal asynchronous ones
+	 * @custom
+	 */
+	protected Image iconImage = (Image) ComponentsDiagramEditorPlugin
+			.findImageDescriptor(
+					"/ac.soton.eventb.emf.components.edit/icons/full/obj16/SynchronousStatemachine.gif")
+			.createImage();
+
+	public void dispose() {
+		iconImage.dispose();
+	}
+	
+	
+	/**
+	 * This has been customised to return a special icon for Synchronised Statemachines
+	 * @generated NOT
+	 */
+	protected Image getLabelIcon() {
+		return iconImage;
+		// ORIGINAL GENERATED CODE:
+		//		EObject parserElement = getParserElement();
+		//		if (parserElement == null) {
+		//			return null;
+		//		}				
+		//return ComponentsElementTypes.getImage(parserElement.eClass());
+	}
+
+--------------------------------------------------------------------------------------	
+In ComponentsDiagramEditor, altered this method due to npe on document provider
+--------------------------------------------------------------------------------------	
+	
+	/**
+	 * @generated NOT
+	 * was getting npe from getDocumentProvider() returning null
+	 */
+	public TransactionalEditingDomain getEditingDomain() {
+		IDocument document = (getEditorInput() != null && getDocumentProvider() != null) ? getDocumentProvider()
+				.getDocument(getEditorInput()) : null;
+		if (document instanceof IDiagramDocument) {
+			return ((IDiagramDocument) document).getEditingDomain();
+		}
+		return super.getEditingDomain();
+	}
+	
+	
+	
+--------------------------------------------------------------------------------------	
+In ConnectorTypeEditPart, altered this method to override the default font and use the Rodin Maths Font
+--------------------------------------------------------------------------------------	
+	
+	/**
+	 * This has been customised to override the default font and use the Rodin Math Font
+	 * 
+	 * @generated NOT
+	 */
+	private static final String RodinMathFontName = JFaceResources.getFont(PreferenceConstants.RODIN_MATH_FONT).getFontData()[0].getName();
+	
+	protected void refreshFont() {
+		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
+				NotationPackage.eINSTANCE.getFontStyle());
+		if (style != null) { 
+			FontData fontData = new FontData(
+					RodinMathFontName, //style.getFontName(),					<<<<<<<<<<<<<<<<<<<<<CUSTOMISED
+					style.getFontHeight(), (style.isBold() ? SWT.BOLD
+							: SWT.NORMAL)
+							| (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
+			setFont(fontData);
+		}
+	}
+	
+
+--------------------------------------------------------------------------------------
+??????????????????????????????????????????????????????????????????????????????????????	
+In ComponentEditPart, looks like this method has been changed but not set generated NOT
+--------------------------------------------------------------------------------------		
+	
+	/**
+	 * @generated
+	 */
+	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());				//OLD VERSION
+//				new CreationEditPolicyWithCustomReparent(
+//						ComponentsVisualIDRegistry.TYPED_INSTANCE));
+		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new ComponentItemSemanticEditPolicy());
+		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenComponentDiagramEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+	}
+	

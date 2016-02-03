@@ -1,0 +1,209 @@
+//// custom ///
+
+
+Component
+----------
+This used to prevent renaming of refined components (i.e. force the name to be the same as the refined component like the connector does with inherits)
+However, this was removed at request of NE.
+	
+	
+Connector
+---------
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * the name of this connector is set to be the same as the name of the connector it inherits from
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setInherits(Connector newInherits) {
+		Connector oldInherits = inherits;
+		inherits = newInherits;
+		if (inherits != null) super.setName(inherits.getName()); //custom
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
+	}
+
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * if inherits is set this does nothing
+	 * otherwise set the name of this component.
+	 * <!-- end-user-doc -->
+	 * @custom
+	 */
+	@Override
+	public void setName(String name) {
+		if (getInherits() instanceof Connector)	return;
+		else super.setName(name);
+	}
+	
+	
+	
+
+AbstractComponentOperationImpl
+------------------------------
+	
+
+	/* 
+	 * Customised to fix problem with notification of label change on EReference 'elaborates' change.
+	 */
+	@Override
+	public void eNotify(Notification notification) {
+		super.eNotify(notification);
+		
+		int type = notification.getEventType();
+		Object feature = notification.getFeature();
+		if (ComponentsPackage.Literals.ABSTRACT_COMPONENT_OPERATION__ELABORATES.equals(feature)
+				&& (type == Notification.ADD || type == Notification.ADD_MANY
+						|| type == Notification.REMOVE || type == Notification.REMOVE_MANY))
+			if (eNotificationRequired())
+				eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_COMPONENT_OPERATION__LABEL, notification.getOldValue(), notification.getNewValue()));
+			
+	}
+	
+
+////modified////
+
+
+
+
+
+
+
+AbstractComponentOperationImpl
+------------------------------
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getLabel() {
+		if (getElaborates() instanceof EventBNamed){
+			return ((EventBNamed) getElaborates()).getName();
+		}else if (getElaborates() instanceof EventBLabeled){
+			return ((EventBLabeled) getElaborates()).getLabel();
+		}else return "<no label - fix elaborates>";
+	}
+	
+	
+	
+	ConnectorImpl
+---------------
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getType() {
+		if (getInherits() instanceof Connector)	return inherits.getType();
+		else return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setType(String newType) {
+		if (getInherits() instanceof Connector)	return;
+		String oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getInitialValue() {
+		if (getInherits() instanceof Connector)	return inherits.getInitialValue();
+		return initialValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setInitialValue(String newInitialValue) {
+		if (getInherits() instanceof Connector)	return;
+		String oldInitialValue = initialValue;
+		initialValue = newInitialValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, initialValue));
+	}
+	
+	
+
+
+
+
+
+
+
+
+
+
+////// old version //////
+ComponentImpl
+---------------
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getName() {
+		return doGetName();	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setName(String newName) {
+		doSetName(newName);
+	}
+	
+RefinedComponentImpl
+--------------------
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getLabel() {
+		if (getRefines() instanceof EventBNamed){
+			return ((EventBNamed) getRefines()).getName();
+		}else if (getRefines() instanceof EventBLabeled){
+			return ((EventBLabeled) getRefines()).getLabel();
+		}else return " ";
+	}	
+
+
+InheritedConnectorImpl
+----------------------
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getLabel() {
+		if (getInherits() instanceof EventBNamed){
+			return ((EventBNamed) getInherits()).getName();
+		}else if (getInherits() instanceof EventBLabeled){
+			return ((EventBLabeled) getInherits()).getLabel();
+		}else return " ";
+	}
+
+
+	
+
+	

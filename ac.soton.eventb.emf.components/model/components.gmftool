@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="componentsPalette">
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Component"
+        description="Create new Component">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Asynchronous"
+        description="Create new Asynchronous Statemachine">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Synchronous"
+        description="Create new Synchronous Statemachine">
+      <smallIcon
+          xsi:type="gmftool:BundleImage"
+          path="/icons/full/obj16/SynchronousStatemachine.gif"
+          bundle="ac.soton.eventb.emf.components.edit"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Process"
+        description="Create new Process Statemachine">
+      <smallIcon
+          xsi:type="gmftool:BundleImage"
+          path="/icons/full/obj16/ProcessStatemachine.gif"
+          bundle="ac.soton.eventb.emf.components.edit"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Wake Queue"
+        description="Create new Wake Queue">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:PaletteSeparator"
+        title="Operations"
+        description="Component Operations"/>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Port Wake"
+        description="Create new connector triggered (Port Wake) operation">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Self Wake"
+        description="Create new component triggered (Self Wake) operation">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Method"
+        description="Create new called (Method) operation">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="External "
+        description="Create new environment triggered (Extenal) operation">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Transition"
+        description="Create new statemachine triggered (Transition) operation">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:PaletteSeparator"
+        title="Connections"
+        description="Inter-Component Connections"/>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Connector"
+        description="Create new Connector">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Sender"
+        description="Create new Sender">
+      <smallIcon
+          xsi:type="gmftool:BundleImage"
+          path="/icons/full/obj16/Sender.gif"
+          bundle="ac.soton.eventb.emf.components.edit"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Receiver"
+        description="Create new Receiver">
+      <smallIcon
+          xsi:type="gmftool:BundleImage"
+          path="/icons/full/obj16/Receiver.gif"
+          bundle="ac.soton.eventb.emf.components.edit"/>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

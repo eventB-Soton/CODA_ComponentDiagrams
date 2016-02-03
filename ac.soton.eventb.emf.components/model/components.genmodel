@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2011&#xD;University of Southampton.&#xD;All rights reserved. This program and the accompanying materials  are made&#xD;available under the terms of the Eclipse Public License v1.0 which accompanies this &#xD;distribution, and is available at http://www.eclipse.org/legal/epl-v10.html&#xA;"
+    modelDirectory="/ac.soton.eventb.emf.components/src" modelPluginID="ac.soton.eventb.emf.components"
+    templateDirectory="/org.eventb.emf.core/templates" dynamicTemplates="true" modelName="Components"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="6.0"
+    editPluginID="ac.soton.eventb.emf.components.edit" editorPluginID="ac.soton.eventb.emf.components.editor"
+    tableProviders="true" usedGenPackages="../../ac.soton.eventb.emf.diagrams/model/diagrams.genmodel#//diagrams platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eventb.emf.core/model/eventbcore.genmodel#//core ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension ../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines">
+  <foreignModel>components.ecore</foreignModel>
+  <genPackages prefix="Components" basePackage="ac.soton.eventb.emf" disposableProviderFactory="true"
+      extensibleProviderFactory="true" childCreationExtenders="true" fileExtensions="comp"
+      ecorePackage="components.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="components.ecore#//WakeKind">
+      <genEnumLiterals ecoreEnumLiteral="components.ecore#//WakeKind/AddEvent"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="components.ecore#//AbstractComponentModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentModel/components"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentModel/connectors"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//Component">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Component/refines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/operations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/wakeQueues"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Component/inConnectors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Component/outConnectors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/asynchronousStatemachines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/synchronousStatemachines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/processStatemachines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Invariants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Initialisations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Sets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Axioms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Constants"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//Connector">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/sender"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/receivers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Connector/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Connector/initialValue"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/inherits"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="components.ecore#//AbstractComponentOperation"
+        labelFeature="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentOperation/elaborates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentOperation/calls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentOperation/sends"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentOperation/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentOperation/wakes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentOperation/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentOperation/guards"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentOperation/witnesses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//AbstractComponentOperation/convergence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//AbstractComponentOperation/extended"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractComponentOperation/refines"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//Method" labelFeature="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label"/>
+    <genClasses ecoreClass="components.ecore#//PortWake" labelFeature="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//PortWake/receives"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//DataPacket">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//DataPacket/connector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//DataPacket/value"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//DelayedDataPacket">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//DelayedDataPacket/delay"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//SelfWake" labelFeature="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//SelfWake/queue"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//External" labelFeature="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label"/>
+    <genClasses ecoreClass="components.ecore#//WakeEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//WakeEvent/delay_min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//WakeEvent/wakeKind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//WakeEvent/delay_max"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//WakeEvent/queue"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//Transition" labelFeature="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label"/>
+    <genClasses ecoreClass="components.ecore#//OperationGuard"/>
+    <genClasses ecoreClass="components.ecore#//OperationAction"/>
+    <genClasses ecoreClass="components.ecore#//OperationWitness"/>
+    <genClasses ecoreClass="components.ecore#//ComponentInvariant"/>
+    <genClasses ecoreClass="components.ecore#//ComponentVariable"/>
+    <genClasses ecoreClass="components.ecore#//ComponentInitialisation"/>
+    <genClasses ecoreClass="components.ecore#//ComponentSet"/>
+    <genClasses ecoreClass="components.ecore#//ComponentConstant"/>
+    <genClasses ecoreClass="components.ecore#//ComponentAxiom"/>
+    <genClasses ecoreClass="components.ecore#//WakeQueue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//WakeQueue/refines"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

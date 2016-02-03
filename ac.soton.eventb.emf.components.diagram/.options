@@ -1,0 +1,7 @@
+# Tracing options for the ac.soton.eventb.emf.components.diagram plug-in
+
+# Common issues
+ac.soton.eventb.emf.components.diagram/debug=false
+
+# Visual IDs
+ac.soton.eventb.emf.components.diagram/debug/visualID=false
