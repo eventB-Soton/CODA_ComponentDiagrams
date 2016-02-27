@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="shortcut icon" href="icons/pyfav.png" type="image/png" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="start" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="first" />
+<link href="index.html" rel="contents" title="Contents" />
+<link rel="index" title="Index" />
+<link href="sec-component_diagrams-running.html" rel="next" />
+<link href="sect0001.html" rel="prev" />
+<link href="sec-component_diagrams-introduction.html" rel="parent" />
+<meta name="aesop" content="information" />
+<title>2.2 The CODA Meta-model</title>
+</head>
+<body>
+<div class="navigation">
+<div id="top-navigation-panel" xml:id="top-navigation-panel">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="2.1 Basis" href="sect0001.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="2 introduction" href="sec-component_diagrams-introduction.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Running the Tool" href="sec-component_diagrams-running.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sect0001.html" class="sectref" rel="prev">Basis</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-introduction.html" class="sectref" rel="parent">introduction</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-running.html" class="sectref" rel="next">Running the Tool</a></span>
+</div>
+<hr /></div>
+</div>
+
+
+
+<div><h2 id="a0000000003">2.2 The CODA Meta-model</h2>
+<p> Key: </p><ul class="itemize">
+<li><p>RED - Concrete Meta-class, </p></li><li><p>YELLOW - Abstract Meta-class, </p></li><li><p>GREEN - Referenced meta-class from another domain meta-model </p></li>
+</ul><p>Figure 1 - The CODA Meta-model </p><p>The CODA Meta-model (Figure 1) defines an abstract syntax for the modelling language. The boxes (called meta-classes) represent classes of elements that a particular CODA model might have. In the diagram, the meta-classes are colour coded as follows. Green indicates a referenced meta-class from another, more general, meta-model (i.e. not part of CODA), yellow indicates an abstract meta-class which can not be instantiated directly, but may be instantiated through one of its concrete specialised meta-classes and red indicates a concrete CODA meta-class that can be directly instantiated. These meta-classes are linked in three different kinds of ways: </p><ul class="itemize">
+<li><p>Generalisation indicates that instances of the source class are also instances of the target class. The targets properties are inherited by any meta-classes that specialise it. For example, the meta-classes, <em>PortWake</em>, <em>SelfWake</em>, <em>Method</em> etc. all specialise <em>AbstractComponentOperation</em> so that operation properties such as <em>sends</em> and <em>wakes</em> do not have to be defined repeatedly. </p></li><li><p>Containment indicates that instances of the source meta-class own instances of the target meta-class in a parent-child relationship. For example, any <em>Component</em> may own a collection of<em>AbstractComponentOperation</em>, which is referred to collectively as its <em>operations</em>. </p></li><li><p>Reference indicates that instances of the source meta-class may reference instances of the target meta-class. For example, any <em>AbstractComponentOperation</em> may reference several<em>Methods</em> via its <em>calls</em> property although it does not contain them as children. </p></li>
+</ul></div>
+
+
+
+<div class="navigation">
+<div class="online-navigation">
+<hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="2.1 Basis" href="sect0001.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="2 introduction" href="sec-component_diagrams-introduction.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Running the Tool" href="sec-component_diagrams-running.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sect0001.html" class="sectref" rel="prev">Basis</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-introduction.html" class="sectref" rel="parent">introduction</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-running.html" class="sectref" rel="next">Running the Tool</a></span>
+</div>
+</div>
+<hr />
+<!--
+<span class="release-info">Release 2.4.3, documentation updated on 29 March 2006.</span>
+-->
+</div>
+<!--End of Navigation Panel-->
+<!--
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+-->
+</body>
+</html>

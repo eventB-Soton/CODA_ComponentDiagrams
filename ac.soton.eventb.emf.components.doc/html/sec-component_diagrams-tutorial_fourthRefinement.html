@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="shortcut icon" href="icons/pyfav.png" type="image/png" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="start" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="first" />
+<link href="index.html" rel="contents" title="Contents" />
+<link rel="index" title="Index" />
+<link href="sect0007.html" rel="next" />
+<link href="sec-component_diagrams-tutorial_thirdRefinement.html" rel="prev" />
+<link href="sec-component_diagrams-tutorial.html" rel="parent" />
+<meta name="aesop" content="information" />
+<title>6.5 The Fourth Refinement</title>
+</head>
+<body>
+<div class="navigation">
+<div id="top-navigation-panel" xml:id="top-navigation-panel">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="6.4 The Third Refinement" href="sec-component_diagrams-tutorial_thirdRefinement.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="6 Tutorial" href="sec-component_diagrams-tutorial.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Further Refinements" href="sect0007.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sec-component_diagrams-tutorial_thirdRefinement.html" class="sectref" rel="prev">The Third Refinement</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-tutorial.html" class="sectref" rel="parent">Tutorial</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sect0007.html" class="sectref" rel="next">Further Refinements</a></span>
+</div>
+<hr /></div>
+</div>
+
+
+
+<div><h2 id="sec:component_diagrams-tutorial_fourthRefinement">6.5 The Fourth Refinement</h2>
+<p>The washing machine sub-system is now further partitioned into 2 components: the drum sub-system and an abstract component representing the remaining washing machine sub-system, following the pattern of previous refinements. The component diagram is shown in Figure 40. Three boolean connectors pass messages from the washing machine sub-system to the drum to open and close the hot or cold water valves and to switch the drain pump on or off. Two further natural number connectors pass the water level and the water temperature back from the drum to the washing machine sub-system. </p><p>Figure 40 - Fourth Refinement of Washing Machine </p><p>The state machine for the drum sub-system is shown in Figure 41. </p><p>Figure 41 - Fourth Refinement : State-machine for the Drum Component </p><p>The washing machine state machine is now further refined to manage the filling and emptying of the drum by monitoring the water level as shown in Figure 42. </p><p>Figure 42 - Fourth Refinement : Refined State-machine of the Washing Machine </p><p>The value TRUE is sent on the coldFill connector as shown in Figure 43. </p><p>Figure 43 - Fourth Refinement : Port Send on the coldFill Connector </p><p>The drum sub-system receives the value on the coldFill connector and starts filling the drum (Figure 44). </p><p>Figure 44 - Fourth Refinement : Port Wake on the coldFill Connector </p><p>The drum sub-system sends the value of water level and water temperature repeatedly at unit delay intervals using the self-wake operation sendLevel of Figure 45. </p><p>Figure 45 - Fourth Refinement : Self Wake to Repeatedly Send on level and temp Connectors </p><p>The washing machine sub-system switches off the water valve when it detects that the water level associated with the PID has been reached, as shown in Figure 46. </p><p>Figure 46 - Fourth Refinement : Guarded Port Wake to Respond when Level Reached </p><p>The model checker is run again to show absence of deadlock. Note that because of the added complexity of this refinement, not all operations are covered (Figure 47). Sufficient operations, however, have been covered to give confidence that filling operation is performing satisfactorily. </p><p>Figure 47 - ProB Model Checking Coverage for the Fourth Refinement </p></div>
+
+
+
+<div class="navigation">
+<div class="online-navigation">
+<hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="6.4 The Third Refinement" href="sec-component_diagrams-tutorial_thirdRefinement.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="6 Tutorial" href="sec-component_diagrams-tutorial.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Further Refinements" href="sect0007.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sec-component_diagrams-tutorial_thirdRefinement.html" class="sectref" rel="prev">The Third Refinement</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-tutorial.html" class="sectref" rel="parent">Tutorial</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sect0007.html" class="sectref" rel="next">Further Refinements</a></span>
+</div>
+</div>
+<hr />
+<!--
+<span class="release-info">Release 2.4.3, documentation updated on 29 March 2006.</span>
+-->
+</div>
+<!--End of Navigation Panel-->
+<!--
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+-->
+</body>
+</html>

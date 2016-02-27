@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<toc version="1.0"> 
+<tocitem>CODA Component Diagrams User Manual
+    <tocitem target="sec:component_diagrams-context">Context
+        
+    </tocitem><tocitem target="sec:component_diagrams-introduction">introduction
+        <tocitem target="a0000000002">Basis
+            
+        </tocitem><tocitem target="a0000000003">The CODA Meta-model
+            
+        </tocitem>
+    </tocitem><tocitem target="sec:component_diagrams-running">Running the Tool
+        
+    </tocitem><tocitem target="sec:component_diagrams-buildingModels">Building Models
+        
+    </tocitem><tocitem target="sec:component_diagrams-validation">Validation and Simulation
+        <tocitem target="a0000000004">Static Validation of diagram
+            
+        </tocitem><tocitem target="a0000000005">Model checking using ProB
+            
+        </tocitem><tocitem target="a0000000006">State-machine Animation
+            
+        </tocitem><tocitem target="a0000000007">Simulation of Component model
+            
+        </tocitem>
+    </tocitem><tocitem target="sec:component_diagrams-tutorial">Tutorial
+        <tocitem target="sec:component_diagrams-tutorial_topLevelAbstractModel">The Top-level Abstract Model
+            
+        </tocitem><tocitem target="sec:component_diagrams-tutorial_firstRefinement">The First Refinement
+            
+        </tocitem><tocitem target="sec:component_diagrams-tutorial_secondRefinement">The Second Refinement
+            
+        </tocitem><tocitem target="sec:component_diagrams-tutorial_thirdRefinement">The Third Refinement
+            
+        </tocitem><tocitem target="sec:component_diagrams-tutorial_fourthRefinement">The Fourth Refinement
+            
+        </tocitem><tocitem target="a0000000008">Further Refinements
+            
+        </tocitem><tocitem target="a0000000009">Running the Oracle Simulator
+            
+        </tocitem><tocitem target="a0000000010">Conclusion
+            
+        </tocitem>
+    </tocitem><tocitem target="sec:component_diagrams-ioLevel">I/O level Refinement
+        
+    </tocitem><tocitem target="sec:component_diagrams-refactoring">Refactoring
+        <tocitem target="a0000000011">Enabling Refactoring
+            
+        </tocitem><tocitem target="a0000000012">Automatic Archiving
+            
+        </tocitem><tocitem target="a0000000013">Decorator
+            
+        </tocitem><tocitem target="a0000000014">Refactoring Menu: Commit and Revert
+            
+        </tocitem><tocitem target="a0000000015">Resources: Change Records and Reporting
+            
+        </tocitem>
+    </tocitem><tocitem target="sec:component_diagrams-translation">Translation to Event-B
+        
+    </tocitem><tocitem target="sec:component_diagrams-legal">Legal
+        <tocitem target="sec:component_diagrams-user-agreement">CODA Software User Agreement
+            
+        </tocitem>
+    </tocitem>
+</tocitem>
+</toc>

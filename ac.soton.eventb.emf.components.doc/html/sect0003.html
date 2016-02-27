@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="shortcut icon" href="icons/pyfav.png" type="image/png" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="start" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="first" />
+<link href="index.html" rel="contents" title="Contents" />
+<link rel="index" title="Index" />
+<link href="sect0004.html" rel="next" />
+<link href="sec-component_diagrams-validation.html" rel="prev" />
+<link href="sec-component_diagrams-validation.html" rel="parent" />
+<meta name="aesop" content="information" />
+<title>5.1 Static Validation of diagram</title>
+</head>
+<body>
+<div class="navigation">
+<div id="top-navigation-panel" xml:id="top-navigation-panel">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="5 Validation and Simulation" href="sec-component_diagrams-validation.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="5 Validation and Simulation" href="sec-component_diagrams-validation.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Model checking using ProB" href="sect0004.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sec-component_diagrams-validation.html" class="sectref" rel="prev">Validation and Simulation</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-validation.html" class="sectref" rel="parent">Validation and Simulation</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sect0004.html" class="sectref" rel="next">Model checking using ProB</a></span>
+</div>
+<hr /></div>
+</div>
+
+
+
+<div><h2 id="a0000000004">5.1 Static Validation of diagram</h2>
+<p> The static model validation checks that the model is well formed. The validation can be invoked at any time by clicking the V icon in the toolbar menu (see Figure 5). The validation is also invoked as a preliminary check when the generator is invoked. The validation rules fall into two categories; omissions that result in a meaningless model (reported as errors) and contraventions of the conventions of the components modelling notation that nevertheless can be translated to a meaningful Event-B model (reported as warnings). If the validation results in errors the generation does not proceed. If the validation raises warnings but no errors the generation proceeds. Note that model validation does not attempt to verify consistency properties of the model that will be checked by the Event-B static checker. The following validation rules are applied: </p><p>5.1.1 Errors </p><ul class="itemize">
+<li><p>The label of any labelled element (e.g. operations adopt a label from the events that they elaborate) shall not be null. </p></li><li><p>The name of any named element (e.g. Component, Connector) shall not be null. </p></li><li><p>The connector reference of a DataPacket (used in port sends and port wakes) shall not be null. </p></li><li><p>The value reference of a DataPacket shall not be null. </p></li><li><p>The delay value of a DelayedDataPacket (used in port sends) shall not be null. </p></li><li><p>The delay value of a WakeEvent shall not be null. </p></li><li><p>The wakeKind value of a WakeEvent shall not be null. </p></li><li><p>The type value of a Connector shall not be null. </p></li><li><p>The initial value of a Connector shall not be null. </p></li>
+</ul><p>5.1.2 Warnings </p><ul class="itemize">
+<li><p>An operation shall only send data to a connector that is an outgoing connector for the component that contains the operation </p></li><li><p>An operation shall only call methods that are contained in the component that contains the calling operation or in one of its sub-components. </p></li><li><p>A PortWake operation shall have at least one port wakeup. </p></li><li><p>A PortWake operation shall only receive port wakeups from a connector that is an incoming connector for the component that contains the PortWake operation. </p></li>
+</ul></div>
+
+
+
+<div class="navigation">
+<div class="online-navigation">
+<hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="5 Validation and Simulation" href="sec-component_diagrams-validation.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="5 Validation and Simulation" href="sec-component_diagrams-validation.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Model checking using ProB" href="sect0004.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sec-component_diagrams-validation.html" class="sectref" rel="prev">Validation and Simulation</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-validation.html" class="sectref" rel="parent">Validation and Simulation</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sect0004.html" class="sectref" rel="next">Model checking using ProB</a></span>
+</div>
+</div>
+<hr />
+<!--
+<span class="release-info">Release 2.4.3, documentation updated on 29 March 2006.</span>
+-->
+</div>
+<!--End of Navigation Panel-->
+<!--
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+-->
+</body>
+</html>

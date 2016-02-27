@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="plasTeX - http://plastex.sf.net/">
+<!-- Sitemap 1.0 -->
+</head>
+<body>
+<object type="text/site properties">
+   <param name="Auto Generated" value="Yes">
+</object>
+<ul>
+    <li><object type="text/sitemap">
+        <param name="Name" value="CODA Component Diagrams User Manual">
+        <param name="Local" value="index.html">
+        
+    </object></li>
+    <ul>
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="Context">
+          <param name="Local" value="sec-component_diagrams-context.html">
+          <param name="ImageNumber" value="11">
+      </object></li>
+      
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="introduction">
+          <param name="Local" value="sec-component_diagrams-introduction.html">
+          
+      </object></li>
+      <ul>
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Basis">
+             <param name="Local" value="sect0001.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="The CODA Meta-model">
+             <param name="Local" value="sect0002.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+      </ul>
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="Running the Tool">
+          <param name="Local" value="sec-component_diagrams-running.html">
+          <param name="ImageNumber" value="11">
+      </object></li>
+      
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="Building Models">
+          <param name="Local" value="sec-component_diagrams-buildingModels.html">
+          <param name="ImageNumber" value="11">
+      </object></li>
+      
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="Validation and Simulation">
+          <param name="Local" value="sec-component_diagrams-validation.html">
+          
+      </object></li>
+      <ul>
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Static Validation of diagram">
+             <param name="Local" value="sect0003.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Model checking using ProB">
+             <param name="Local" value="sect0004.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="State-machine Animation">
+             <param name="Local" value="sect0005.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Simulation of Component model">
+             <param name="Local" value="sect0006.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+      </ul>
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="Tutorial">
+          <param name="Local" value="sec-component_diagrams-tutorial.html">
+          
+      </object></li>
+      <ul>
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="The Top-level Abstract Model">
+             <param name="Local" value="sec-component_diagrams-tutorial_topLevelAbstractModel.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="The First Refinement">
+             <param name="Local" value="sec-component_diagrams-tutorial_firstRefinement.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="The Second Refinement">
+             <param name="Local" value="sec-component_diagrams-tutorial_secondRefinement.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="The Third Refinement">
+             <param name="Local" value="sec-component_diagrams-tutorial_thirdRefinement.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="The Fourth Refinement">
+             <param name="Local" value="sec-component_diagrams-tutorial_fourthRefinement.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Further Refinements">
+             <param name="Local" value="sect0007.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Running the Oracle Simulator">
+             <param name="Local" value="sect0008.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Conclusion">
+             <param name="Local" value="sect0009.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+      </ul>
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="I/O level Refinement">
+          <param name="Local" value="sec-component_diagrams-ioLevel.html">
+          <param name="ImageNumber" value="11">
+      </object></li>
+      
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="Refactoring">
+          <param name="Local" value="sec-component_diagrams-refactoring.html">
+          
+      </object></li>
+      <ul>
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Enabling Refactoring">
+             <param name="Local" value="sect0010.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Automatic Archiving">
+             <param name="Local" value="sect0011.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Decorator">
+             <param name="Local" value="sect0012.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Refactoring Menu: Commit and Revert">
+             <param name="Local" value="sect0013.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Resources: Change Records and Reporting">
+             <param name="Local" value="sect0014.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+      </ul>
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="Translation to Event-B">
+          <param name="Local" value="sec-component_diagrams-translation.html">
+          <param name="ImageNumber" value="11">
+      </object></li>
+      
+      
+      <li><object type="text/sitemap">
+          <param name="Name" value="Legal">
+          <param name="Local" value="sec-component_diagrams-legal.html">
+          
+      </object></li>
+      <ul>
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="CODA Software User Agreement">
+             <param name="Local" value="sec-component_diagrams-user-agreement.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+      </ul>
+      
+    </ul>
+</ul>
+</body>
+</html>

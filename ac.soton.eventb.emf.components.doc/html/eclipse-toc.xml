@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<toc topic="html/index.html" label="CODA Component Diagrams User Manual">
+    <topic label="Context" href="html/sec-component_diagrams-context.html" /><topic label="introduction" href="html/sec-component_diagrams-introduction.html">
+       <topic label="Basis" href="html/sect0001.html" /><topic label="The CODA Meta-model" href="html/sect0002.html" />
+    </topic><topic label="Running the Tool" href="html/sec-component_diagrams-running.html" /><topic label="Building Models" href="html/sec-component_diagrams-buildingModels.html" /><topic label="Validation and Simulation" href="html/sec-component_diagrams-validation.html">
+       <topic label="Static Validation of diagram" href="html/sect0003.html" /><topic label="Model checking using ProB" href="html/sect0004.html" /><topic label="State-machine Animation" href="html/sect0005.html" /><topic label="Simulation of Component model" href="html/sect0006.html" />
+    </topic><topic label="Tutorial" href="html/sec-component_diagrams-tutorial.html">
+       <topic label="The Top-level Abstract Model" href="html/sec-component_diagrams-tutorial_topLevelAbstractModel.html" /><topic label="The First Refinement" href="html/sec-component_diagrams-tutorial_firstRefinement.html" /><topic label="The Second Refinement" href="html/sec-component_diagrams-tutorial_secondRefinement.html" /><topic label="The Third Refinement" href="html/sec-component_diagrams-tutorial_thirdRefinement.html" /><topic label="The Fourth Refinement" href="html/sec-component_diagrams-tutorial_fourthRefinement.html" /><topic label="Further Refinements" href="html/sect0007.html" /><topic label="Running the Oracle Simulator" href="html/sect0008.html" /><topic label="Conclusion" href="html/sect0009.html" />
+    </topic><topic label="I/O level Refinement" href="html/sec-component_diagrams-ioLevel.html" /><topic label="Refactoring" href="html/sec-component_diagrams-refactoring.html">
+       <topic label="Enabling Refactoring" href="html/sect0010.html" /><topic label="Automatic Archiving" href="html/sect0011.html" /><topic label="Decorator" href="html/sect0012.html" /><topic label="Refactoring Menu: Commit and Revert" href="html/sect0013.html" /><topic label="Resources: Change Records and Reporting" href="html/sect0014.html" />
+    </topic><topic label="Translation to Event-B" href="html/sec-component_diagrams-translation.html" /><topic label="Legal" href="html/sec-component_diagrams-legal.html">
+       <topic label="CODA Software User Agreement" href="html/sec-component_diagrams-user-agreement.html" />
+    </topic>
+</toc>

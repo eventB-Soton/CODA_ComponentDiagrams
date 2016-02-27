@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="shortcut icon" href="icons/pyfav.png" type="image/png" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="start" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="first" />
+<link href="index.html" rel="contents" title="Contents" />
+<link rel="index" title="Index" />
+<link href="sec-component_diagrams-validation.html" rel="next" />
+<link href="sec-component_diagrams-running.html" rel="prev" />
+<link href="index.html" rel="parent" />
+<meta name="aesop" content="information" />
+<title>4 Building Models</title>
+</head>
+<body>
+<div class="navigation">
+<div id="top-navigation-panel" xml:id="top-navigation-panel">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="3 Running the Tool" href="sec-component_diagrams-running.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="CODA Component Diagrams User Manual" href="index.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Validation and Simulation" href="sec-component_diagrams-validation.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sec-component_diagrams-running.html" class="sectref" rel="prev">Running the Tool</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="index.html" class="sectref" rel="parent">CODA Component Diagrams User Manual</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-validation.html" class="sectref" rel="next">Validation and Simulation</a></span>
+</div>
+<hr /></div>
+</div>
+
+
+
+<div><h1 id="sec:component_diagrams-buildingModels">4 Building Models</h1>
+<p>A CODA model is an Event-B model with component models as child elements of Event-B machines. Therefore, the first step is to create an Event-B project with an Event-B machine in it. To add a component model, right click on the Event-B machine and from the context menu (Figure 4), select <b class="bfseries"><tt class="ttfamily">Add Component</tt></b>, and provide a name for the top-level component. Note that component models exist within components; therefore the top-level element is a single <em>root</em> component which will contain the component model. </p><p>Figure 4 - Adding a Component Model to a Machine </p><p>The component can now be opened for editing with the Component Diagram editor (Figure 5) by double clicking on it in the navigator tree. Figure 5 - The Component Diagram Editor </p><p>A component is created by clicking the Component item in the tool palette and then clicking on the canvas in the desired position for the component. (N.b. do not hold the mouse button on while doing this, just click and let go). Name the component either on the diagram or in the properties sheet name field. </p><p>A connector channel is created in a similar way. A link should be added to indicate which component sends on the connector. This is done by clicking on the Sender item in the tool palette and then click &amp; hold on the connector and dragging the link to the sending component. Similarly links can be added to indicate the receivers of the connector. (In both cases the link must be started from the connector and finished at a component). </p><p>Operations are added to a component by clicking on one of the tool palette operations and then clicking in the operations container of the parent component (Figure 6). The different kinds of operation are briefly introduced in this section and illustrated in more detail in the tutorial section. Note that operations cannot be named because they derive their labels from the name of the events that they elaborate. The event elaboration property must be set in the properties editor using either the Add Event button (to link to an existing event) or the Create &amp; Add button to create a new event and link to it). </p><p>CODA models are based on Event-B and must be converted into equivalent Event-B models in order to perform verification. The Event-B generator is run by clicking the <b class="bfseries">B</b> icon in the toolbar menu (see Figure 5). </p><p>Event-B models consist of events that perform actions when their guards are true. CODA operations contribute guards and actions to an event that already exists in the underlying Event-B model. Operations may have ordinary guards and actions expressed in the Event-B notation but they may also have special kinds of guards and actions that are appropriate for the component modelling language. Furthermore, the operations themselves are specialised into several kinds for the component modelling language, which requires further guards and actions to be generated in the underlying Event-B. The following paragraphs introduce the specialised kinds of operations and the specialised kinds of guards and actions. Figure 6 - Adding an Operation to a Component </p><p>Having created operations they can be configured to send and receive on the connectors by adding port-send actions (Figure 7) and port-wake operations with port-wake guards. A port-send action represents the action of sending data over a connector and can be added to any operation in a component that has an outgoing connection to the connector. A port-wake operation is needed in the receiving component of the connector in order to respond to the receipt of data on the connector. These port-wake operations must have port-wake guards that define what connector data they respond to. </p><p>Figure 7 - Adding a Send Action to an Operation </p><p>Similarly, self-wake actions can be added to any operation and self-wake operations must be added to service them. A self-wake action represents the scheduling of a component wake-up at some future time and can be added to any operation in a component. A self-wake operation is needed in the component to respond to the component wake-up. </p><p>Method call actions can be added to operations and method operations must be added to service the calls. A method call action immediately enables a particular method operation, which must then complete within the same clock cycle. </p><p>External operations represent events that occur in the environment that the model must respond to. The timing of these events is uncontrolled and therefore not synchronised to the clock in any way. These events may perform any of the operation actions (port-wake, self-wake, method calls) described here. </p><p>Data can be defined in the properties by selecting a component that represents the scope of the data (currently this scoping is not enforced). Note that the diagram canvas represents a root component and this may be the most appropriate place for global data. If any sets, constants or axioms are defined in this way an Event-B Context will be automatically generated to contain them. </p><p>State-machines may be added to components. Double clicking on the state-machine icon/name in the component opens a state-machine diagram. Since the state-machine diagram is a standard Rodin plugin (rather than part of the CODA specific tool) component behaviour such as port sends etc. cannot be added on the state-machine transitions. For this reason a special kind of component operation (Transition) is available in the component diagram. Transition operations must link to an event that is also linked to a state-machine transition. They enable component behaviour to be added to the components state-machine transitions. </p><p>Two kinds of state-machine are available. Asynchronous state-machines are not linked to the clock whereas synchronous state-machines are tightly linked to the clock so that, while enabled, only one transition may be taken on each clock tick. </p></div>
+
+
+
+<div class="navigation">
+<div class="online-navigation">
+<hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="3 Running the Tool" href="sec-component_diagrams-running.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="CODA Component Diagrams User Manual" href="index.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Validation and Simulation" href="sec-component_diagrams-validation.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sec-component_diagrams-running.html" class="sectref" rel="prev">Running the Tool</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="index.html" class="sectref" rel="parent">CODA Component Diagrams User Manual</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-validation.html" class="sectref" rel="next">Validation and Simulation</a></span>
+</div>
+</div>
+<hr />
+<!--
+<span class="release-info">Release 2.4.3, documentation updated on 29 March 2006.</span>
+-->
+</div>
+<!--End of Navigation Panel-->
+<!--
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+-->
+</body>
+</html>

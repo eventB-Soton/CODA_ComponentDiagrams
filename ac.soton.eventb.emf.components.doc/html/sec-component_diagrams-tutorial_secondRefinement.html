@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="shortcut icon" href="icons/pyfav.png" type="image/png" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="start" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="first" />
+<link href="index.html" rel="contents" title="Contents" />
+<link rel="index" title="Index" />
+<link href="sec-component_diagrams-tutorial_thirdRefinement.html" rel="next" />
+<link href="sec-component_diagrams-tutorial_firstRefinement.html" rel="prev" />
+<link href="sec-component_diagrams-tutorial.html" rel="parent" />
+<meta name="aesop" content="information" />
+<title>6.3 The Second Refinement</title>
+</head>
+<body>
+<div class="navigation">
+<div id="top-navigation-panel" xml:id="top-navigation-panel">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="6.2 The First Refinement" href="sec-component_diagrams-tutorial_firstRefinement.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="6 Tutorial" href="sec-component_diagrams-tutorial.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="The Third Refinement" href="sec-component_diagrams-tutorial_thirdRefinement.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sec-component_diagrams-tutorial_firstRefinement.html" class="sectref" rel="prev">The First Refinement</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-tutorial.html" class="sectref" rel="parent">Tutorial</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-tutorial_thirdRefinement.html" class="sectref" rel="next">The Third Refinement</a></span>
+</div>
+<hr /></div>
+</div>
+
+
+
+<div><h2 id="sec:component_diagrams-tutorial_secondRefinement">6.3 The Second Refinement</h2>
+<p>The washing machine sub-system component is now further refined, as shown in Figure 26, into two components, the DOOR sub-system and an abstract component, WM, that represents the rest of the washing machine sub-system. Two connectors enable communication between these two components. The first, lock, passes a Boolean signal to the DOOR sub-system to lock the door. The second, doorPosition, informs the Washing Machine sub-system when the door is opened or closed. </p><p>Figure 26 - Second Refinement of Washing Machine </p><p>Note that the DOOR component has two external operations, closeDoor and openDoor, which represent the interaction of the user with the door. Care is needed in this refinement to ensure that the system cannot get into an unsafe state; the door should always be locked when the washing machine is washing, rinsing or spinning so that the user cannot inadvertently open the door and release potentially very hot water. The state-machine for the washing machine is refined to split the WASHING state into sub-states LOCKINGDOOR and INPROGRESS and IDLE into UNLOCKINGDOOR and IDLEWAITING, Figure 27. This is necessary to accommodate the new transitions concerned with locking and unlocking the door. </p><p>Figure 27 - Second Refinement : Refined State-machine of the Washing Machine </p><p>An invariant, DOORLOCKED = TRUE, is introduced in the sub-system state machine for states INPROGRESS, RINSING and SPINNING. The state machine for the door sub-system is shown in Figure 28. The door may be open (DOOROPEN) in which case any instructions to lock the door are ignored (ignoreLock) or it may be closed (DOORCLOSED). When the door is closed it may be unlocked (DOORUNLOCKED) or locked (DOORLOCKED). Note that the transitions unlockDoor and lockDoor are drawn with the superstate DOORCLOSED as their source indicating that they can fire irrespective of whether the door is locked or not. </p><p>Figure 28 - Second Refinement : State-machine for the Door Component </p><p>The washing machine sub-system sends a message via the lock connector to the door sub-system to lock the door if it has received a message from the door via the doorPosition connector indicating that the door is closed. The washing machine sub-system then initiates a self-wake, delayed by 3 time units, as shown in Figure 29. If the door is still closed at the self-wake, as indicated by the guard WM_doorPosition = CLOSED, then it is assumed that the door is locked and the system can proceed to the INPROGRESS state. The alternative transition (Figure 27) is abortWash which has the negated guard WM_doorPosition <img src="images/img-0001.png" alt="$\neq $" style="vertical-align:&images/img-0001.png-depth;&px;; 
+                                     width:&images/img-0001.png-width;&px;; 
+                                     height:&images/img-0001.png-height;&px;" class="math gen" /> CLOSED. </p><p>Figure 29 - Second Refinement : Self Wake to Check Door Locked </p><p>The proof obligations generated for the safety invariant are difficult to discharge. It is a good idea at this stage to proceed immediately to animation and model checking, to ensure that the model behaves as expected. Model checking does indeed show immediately that the safety invariant is violated and provides a counterexample in the history pane as shown in Figure 30. </p><p>Figure 30 - Counterexample Discovered by ProB </p><p>Although the refinement models the latency that certainly exists between the washing machine sub-system and door sub-system, it allows the user to open and close the door repeatedly in zero-time. Modelling this Zeno Behaviour is unrealistic and results in a scenario where the user can close the door and then open it again immediately just before it is locked. The solution is to model more realistically the latency that must exist in the opening and closing of the door by introducing a delay on the External Event, closeDoor, as shown in Figure 31. The guard <b class="bfseries"><tt class="ttfamily">current_time <img src="images/img-0002.png" alt="$&gt;$" style="vertical-align:&images/img-0002.png-depth;&px;; 
+                                     width:&images/img-0002.png-width;&px;; 
+                                     height:&images/img-0002.png-height;&px;" class="math gen" /> DOOR_latency</tt></b>, where DOOR_latency is a variable that is set to current_time + 1 by any preceding door open or close events, ensures that two door events cannot occur on consecutive clock ticks. This corresponds to an assumption that the systems time response makes it impossible to open and close the door without it being detected. This is sufficient to ensure that any changes of door state are successfully transmitted to the WM component. </p><p>Figure 31 - Introducing Latency to the Door Operations </p><p>The model checker is re-run to verify that the invariant violation has been addressed and that there is no deadlock, as shown in Figure 32. Note now, that the model checking results show that not all operations have been covered, though examination of the guards and actions of these uncovered operations show that none are material to the invariant violation being investigated. Although not a proof, model checking with operation coverage gives confidence that the model is behaving as expected. </p><p>Figure 32 - ProB Model Checking Coverage for the Second Refinement </p><p>To improve operation coverage, it is a good idea to try the alternative Breadth First Search option. Figure 33 shows the improved coverage results and Figure 34 shows how this option is set. </p><p>Figure 33 - ProB Model Checking Coverage for the Second Refinement : Breadth First </p><p>Figure 34 - Configuration for ProB Model Checker Breadth First Option </p></div>
+
+
+
+<div class="navigation">
+<div class="online-navigation">
+<hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="6.2 The First Refinement" href="sec-component_diagrams-tutorial_firstRefinement.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="6 Tutorial" href="sec-component_diagrams-tutorial.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="The Third Refinement" href="sec-component_diagrams-tutorial_thirdRefinement.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sec-component_diagrams-tutorial_firstRefinement.html" class="sectref" rel="prev">The First Refinement</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-tutorial.html" class="sectref" rel="parent">Tutorial</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-tutorial_thirdRefinement.html" class="sectref" rel="next">The Third Refinement</a></span>
+</div>
+</div>
+<hr />
+<!--
+<span class="release-info">Release 2.4.3, documentation updated on 29 March 2006.</span>
+-->
+</div>
+<!--End of Navigation Panel-->
+<!--
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+-->
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="shortcut icon" href="icons/pyfav.png" type="image/png" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="start" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="first" />
+<link href="index.html" rel="contents" title="Contents" />
+<link rel="index" title="Index" />
+<link href="sect0014.html" rel="next" />
+<link href="sect0012.html" rel="prev" />
+<link href="sec-component_diagrams-refactoring.html" rel="parent" />
+<meta name="aesop" content="information" />
+<title>8.4 Refactoring Menu: Commit and Revert</title>
+</head>
+<body>
+<div class="navigation">
+<div id="top-navigation-panel" xml:id="top-navigation-panel">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="8.3 Decorator" href="sect0012.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Resources: Change Records and Reporting" href="sect0014.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sect0012.html" class="sectref" rel="prev">Decorator</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sect0014.html" class="sectref" rel="next">Resources: Change Records and Reporting</a></span>
+</div>
+<hr /></div>
+</div>
+
+
+
+<div><h2 id="a0000000014">8.4 Refactoring Menu: Commit and Revert</h2>
+<p> The Commit and Revert actions are accessed from a pop-up context menu, by right clicking on a machine that has outstanding uncommitted changes. </p><p>Figure 57 - Context menu for Commit/Revert. </p><p><b class="bfseries">Commit</b> - When Commit is selected for a machine that has outstanding uncommitted changes, firstly an information and confirmation message appears. This gives the user a chance to cancel since the Commit operation is a significant process that can only be reversed by restoring from archive. </p><p>Figure 58 - Commit confirmation message. If ok is selected on Mi, the following steps will be taken </p><ol class="enumerate">
+<li value="1"><p>any open diagrams will be closed, </p></li><li value="2"><p>the project will be archived, </p></li><li value="3"><p>the recorded changes for Mi will be propagated to the next level refinement Mi+1 (if any), </p></li><li value="4"><p>the changes made to the refinement Mi+1 will be recorded, </p></li><li value="5"><p>the previous change records for Mi will be deleted, </p></li><li value="6"><p>all diagrams of the previous model Mi will be generated, </p></li><li value="7"><p>steps 3 to 6 will be repeated for the refinement Mi+1, </p></li><li value="8"><p>a report of the complete process will be saved. </p></li>
+</ol><p><b class="bfseries">Revert</b> - When Revert is selected for a machine that has outstanding uncommitted changes, firstly an information message appears. This gives the user a chance to cancel since the Revert operation is a significant process that cannot be reversed. </p><p>Figure 59 - Revert confirmation message. If ok is selected on a machine Mi, the following steps will be taken </p><ol class="enumerate">
+<li value="1"><p>any open diagrams will be closed, </p></li><li value="2"><p>the changes made to Mi will be reverted taking the model back to its original state, </p></li><li value="3"><p>the change records for Mi will be deleted, </p></li><li value="4"><p>all diagrams of Mi will be generated. </p></li>
+</ol><p><b class="bfseries">No Changes</b> - If Commit or Revert are selected for a machine that has no recorded changes, an appropriate message is displayed and no further action is taken. </p><p>Figure 60 - No changes error message. </p></div>
+
+
+
+<div class="navigation">
+<div class="online-navigation">
+<hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="8.3 Decorator" href="sect0012.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Resources: Change Records and Reporting" href="sect0014.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sect0012.html" class="sectref" rel="prev">Decorator</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sect0014.html" class="sectref" rel="next">Resources: Change Records and Reporting</a></span>
+</div>
+</div>
+<hr />
+<!--
+<span class="release-info">Release 2.4.3, documentation updated on 29 March 2006.</span>
+-->
+</div>
+<!--End of Navigation Panel-->
+<!--
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+-->
+</body>
+</html>

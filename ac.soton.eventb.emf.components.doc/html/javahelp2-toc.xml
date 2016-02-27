@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD  JavaHelp TOC Version 2.0//EN"
+  "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<toc version="2.0">
+<tocitem text="CODA Component Diagrams User Manual">
+    <tocitem target="sec:component_diagrams-context" text="Context" /><tocitem target="sec:component_diagrams-introduction" text="introduction">
+        <tocitem target="a0000000002" text="Basis" /><tocitem target="a0000000003" text="The CODA Meta-model" />
+    </tocitem><tocitem target="sec:component_diagrams-running" text="Running the Tool" /><tocitem target="sec:component_diagrams-buildingModels" text="Building Models" /><tocitem target="sec:component_diagrams-validation" text="Validation and Simulation">
+        <tocitem target="a0000000004" text="Static Validation of diagram" /><tocitem target="a0000000005" text="Model checking using ProB" /><tocitem target="a0000000006" text="State-machine Animation" /><tocitem target="a0000000007" text="Simulation of Component model" />
+    </tocitem><tocitem target="sec:component_diagrams-tutorial" text="Tutorial">
+        <tocitem target="sec:component_diagrams-tutorial_topLevelAbstractModel" text="The Top-level Abstract Model" /><tocitem target="sec:component_diagrams-tutorial_firstRefinement" text="The First Refinement" /><tocitem target="sec:component_diagrams-tutorial_secondRefinement" text="The Second Refinement" /><tocitem target="sec:component_diagrams-tutorial_thirdRefinement" text="The Third Refinement" /><tocitem target="sec:component_diagrams-tutorial_fourthRefinement" text="The Fourth Refinement" /><tocitem target="a0000000008" text="Further Refinements" /><tocitem target="a0000000009" text="Running the Oracle Simulator" /><tocitem target="a0000000010" text="Conclusion" />
+    </tocitem><tocitem target="sec:component_diagrams-ioLevel" text="I/O level Refinement" /><tocitem target="sec:component_diagrams-refactoring" text="Refactoring">
+        <tocitem target="a0000000011" text="Enabling Refactoring" /><tocitem target="a0000000012" text="Automatic Archiving" /><tocitem target="a0000000013" text="Decorator" /><tocitem target="a0000000014" text="Refactoring Menu: Commit and Revert" /><tocitem target="a0000000015" text="Resources: Change Records and Reporting" />
+    </tocitem><tocitem target="sec:component_diagrams-translation" text="Translation to Event-B" /><tocitem target="sec:component_diagrams-legal" text="Legal">
+        <tocitem target="sec:component_diagrams-user-agreement" text="CODA Software User Agreement" />
+    </tocitem>
+</tocitem>
+</toc>

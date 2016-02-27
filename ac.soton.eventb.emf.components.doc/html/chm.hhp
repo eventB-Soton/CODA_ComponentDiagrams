@@ -1,0 +1,51 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=component_diagrams-user_manual.chm
+Contents file=chm.hhc
+Default Window=Help
+Default topic=index.html
+Display compile progress=Yes
+Error log file=help.log
+Full-text search=Yes
+Index file=chm.hhk
+Language=0x0 
+Title=CODA Component Diagrams User Manual
+
+[WINDOWS]
+Help="CODA Component Diagrams User Manual","chm.hhc","chm.hhk","index.html","index.html",,,,,0x73520,,0x383e,[200,200,1000,800],,,,,,,0
+
+[FILES]
+sect0007.html
+sect0014.html
+sec-component_diagrams-tutorial_secondRefinement.html
+sect0003.html
+sec-component_diagrams-running.html
+sec-component_diagrams-tutorial_thirdRefinement.html
+sect0009.html
+sec-component_diagrams-user-agreement.html
+sect0013.html
+sec-component_diagrams-buildingModels.html
+sect0006.html
+sec-component_diagrams-tutorial_firstRefinement.html
+sec-component_diagrams-refactoring.html
+sec-component_diagrams-introduction.html
+sect0004.html
+sec-component_diagrams-context.html
+sect0005.html
+sect0008.html
+sect0002.html
+sec-component_diagrams-validation.html
+sec-component_diagrams-legal.html
+sec-component_diagrams-tutorial_fourthRefinement.html
+sec-component_diagrams-tutorial_topLevelAbstractModel.html
+sect0011.html
+sec-component_diagrams-tutorial.html
+index.html
+sec-component_diagrams-translation.html
+sect0001.html
+sec-component_diagrams-ioLevel.html
+sect0010.html
+sect0012.html
+
+
+[MERGE FILES]

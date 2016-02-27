@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="shortcut icon" href="icons/pyfav.png" type="image/png" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="start" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="first" />
+<link href="index.html" rel="contents" title="Contents" />
+<link rel="index" title="Index" />
+<link href="sec-component_diagrams-context.html" rel="next" />
+
+
+<meta name="aesop" content="information" />
+<title>CODA Component Diagrams User Manual</title>
+</head>
+<body>
+<div class="navigation">
+<div id="top-navigation-panel" xml:id="top-navigation-panel">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><img src="icons/blank.png" width="32" height="32" border="0" /></td>
+<td class="online-navigation"><img src="icons/blank.png" width="32" height="32" border="0" /></td>
+<td class="online-navigation"><a title="Context" href="sec-component_diagrams-context.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+
+
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-context.html" class="sectref" rel="next">Context</a></span>
+</div>
+<hr /></div>
+</div>
+
+<div><div class="titlepage">
+<h1>CODA Component Diagrams User Manual</h1>
+<p>
+<div>Colin Snook and John Colley<br />University of Southampton</div>
+</p>
+<p>Version 3.0.0<br />February 27, 2016</p>
+
+</div></div>
+
+<div class="contents">
+<hr />
+<ul>
+<li><a href="sec-component_diagrams-context.html">1 Context</a>
+   
+</li><li><a href="sec-component_diagrams-introduction.html">2 introduction</a>
+   <ul>
+   <li><a href="sect0001.html">2.1 Basis</a>
+       
+   </li><li><a href="sect0002.html">2.2 The CODA Meta-model</a>
+       
+   </li>
+   </ul>
+</li><li><a href="sec-component_diagrams-running.html">3 Running the Tool</a>
+   
+</li><li><a href="sec-component_diagrams-buildingModels.html">4 Building Models</a>
+   
+</li><li><a href="sec-component_diagrams-validation.html">5 Validation and Simulation</a>
+   <ul>
+   <li><a href="sect0003.html">5.1 Static Validation of diagram</a>
+       
+   </li><li><a href="sect0004.html">5.2 Model checking using ProB</a>
+       
+   </li><li><a href="sect0005.html">5.3 State-machine Animation</a>
+       
+   </li><li><a href="sect0006.html">5.4 Simulation of Component model</a>
+       
+   </li>
+   </ul>
+</li><li><a href="sec-component_diagrams-tutorial.html">6 Tutorial</a>
+   <ul>
+   <li><a href="sec-component_diagrams-tutorial_topLevelAbstractModel.html">6.1 The Top-level Abstract Model</a>
+       
+   </li><li><a href="sec-component_diagrams-tutorial_firstRefinement.html">6.2 The First Refinement</a>
+       
+   </li><li><a href="sec-component_diagrams-tutorial_secondRefinement.html">6.3 The Second Refinement</a>
+       
+   </li><li><a href="sec-component_diagrams-tutorial_thirdRefinement.html">6.4 The Third Refinement</a>
+       
+   </li><li><a href="sec-component_diagrams-tutorial_fourthRefinement.html">6.5 The Fourth Refinement</a>
+       
+   </li><li><a href="sect0007.html">6.6 Further Refinements</a>
+       
+   </li><li><a href="sect0008.html">6.7 Running the Oracle Simulator</a>
+       
+   </li><li><a href="sect0009.html">6.8 Conclusion</a>
+       
+   </li>
+   </ul>
+</li><li><a href="sec-component_diagrams-ioLevel.html">7 I/O level Refinement</a>
+   
+</li><li><a href="sec-component_diagrams-refactoring.html">8 Refactoring</a>
+   <ul>
+   <li><a href="sect0010.html">8.1 Enabling Refactoring</a>
+       
+   </li><li><a href="sect0011.html">8.2 Automatic Archiving</a>
+       
+   </li><li><a href="sect0012.html">8.3 Decorator</a>
+       
+   </li><li><a href="sect0013.html">8.4 Refactoring Menu: Commit and Revert</a>
+       
+   </li><li><a href="sect0014.html">8.5 Resources: Change Records and Reporting</a>
+       
+   </li>
+   </ul>
+</li><li><a href="sec-component_diagrams-translation.html">9 Translation to Event-B</a>
+   
+</li><li><a href="sec-component_diagrams-legal.html">10 Legal</a>
+   <ul>
+   <li><a href="sec-component_diagrams-user-agreement.html">10.1 CODA Software User Agreement</a>
+       
+   </li>
+   </ul>
+</li>
+
+
+
+</ul>
+</div>
+
+<div class="navigation">
+<div class="online-navigation">
+<hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><img src="icons/blank.png" width="32" height="32" border="0" /></td>
+<td class="online-navigation"><img src="icons/blank.png" width="32" height="32" border="0" /></td>
+<td class="online-navigation"><a title="Context" href="sec-component_diagrams-context.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+
+
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-context.html" class="sectref" rel="next">Context</a></span>
+</div>
+</div>
+<hr />
+<!--
+<span class="release-info">Release 2.4.3, documentation updated on 29 March 2006.</span>
+-->
+</div>
+<!--End of Navigation Panel-->
+<!--
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+-->
+</body>
+</html>
