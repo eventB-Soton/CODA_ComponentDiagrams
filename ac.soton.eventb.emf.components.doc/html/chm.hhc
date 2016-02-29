@@ -216,20 +216,13 @@
       <li><object type="text/sitemap">
           <param name="Name" value="Translation to Event-B">
           <param name="Local" value="sec-component_diagrams-translation.html">
-          <param name="ImageNumber" value="11">
-      </object></li>
-      
-      
-      <li><object type="text/sitemap">
-          <param name="Name" value="Legal">
-          <param name="Local" value="sec-component_diagrams-legal.html">
           
       </object></li>
       <ul>
          
          <li><object type="text/sitemap">
-             <param name="Name" value="CODA Software User Agreement">
-             <param name="Local" value="sec-component_diagrams-user-agreement.html">
+             <param name="Name" value="Current time">
+             <param name="Local" value="sect0015.html">
              <param name="ImageNumber" value="11">
          </object></li>
          

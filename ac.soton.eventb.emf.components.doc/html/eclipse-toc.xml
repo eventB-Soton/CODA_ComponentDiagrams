@@ -8,7 +8,7 @@
        <topic label="The Top-level Abstract Model" href="html/sec-component_diagrams-tutorial_topLevelAbstractModel.html" /><topic label="The First Refinement" href="html/sec-component_diagrams-tutorial_firstRefinement.html" /><topic label="The Second Refinement" href="html/sec-component_diagrams-tutorial_secondRefinement.html" /><topic label="The Third Refinement" href="html/sec-component_diagrams-tutorial_thirdRefinement.html" /><topic label="The Fourth Refinement" href="html/sec-component_diagrams-tutorial_fourthRefinement.html" /><topic label="Further Refinements" href="html/sect0007.html" /><topic label="Running the Oracle Simulator" href="html/sect0008.html" /><topic label="Conclusion" href="html/sect0009.html" />
     </topic><topic label="I/O level Refinement" href="html/sec-component_diagrams-ioLevel.html" /><topic label="Refactoring" href="html/sec-component_diagrams-refactoring.html">
        <topic label="Enabling Refactoring" href="html/sect0010.html" /><topic label="Automatic Archiving" href="html/sect0011.html" /><topic label="Decorator" href="html/sect0012.html" /><topic label="Refactoring Menu: Commit and Revert" href="html/sect0013.html" /><topic label="Resources: Change Records and Reporting" href="html/sect0014.html" />
-    </topic><topic label="Translation to Event-B" href="html/sec-component_diagrams-translation.html" /><topic label="Legal" href="html/sec-component_diagrams-legal.html">
-       <topic label="CODA Software User Agreement" href="html/sec-component_diagrams-user-agreement.html" />
+    </topic><topic label="Translation to Event-B" href="html/sec-component_diagrams-translation.html">
+       <topic label="Current time" href="html/sect0015.html" />
     </topic>
 </toc>

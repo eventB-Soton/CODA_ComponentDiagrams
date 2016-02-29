@@ -11,8 +11,8 @@
         <tocitem target="sec:component_diagrams-tutorial_topLevelAbstractModel" text="The Top-level Abstract Model" /><tocitem target="sec:component_diagrams-tutorial_firstRefinement" text="The First Refinement" /><tocitem target="sec:component_diagrams-tutorial_secondRefinement" text="The Second Refinement" /><tocitem target="sec:component_diagrams-tutorial_thirdRefinement" text="The Third Refinement" /><tocitem target="sec:component_diagrams-tutorial_fourthRefinement" text="The Fourth Refinement" /><tocitem target="a0000000008" text="Further Refinements" /><tocitem target="a0000000009" text="Running the Oracle Simulator" /><tocitem target="a0000000010" text="Conclusion" />
     </tocitem><tocitem target="sec:component_diagrams-ioLevel" text="I/O level Refinement" /><tocitem target="sec:component_diagrams-refactoring" text="Refactoring">
         <tocitem target="a0000000011" text="Enabling Refactoring" /><tocitem target="a0000000012" text="Automatic Archiving" /><tocitem target="a0000000013" text="Decorator" /><tocitem target="a0000000014" text="Refactoring Menu: Commit and Revert" /><tocitem target="a0000000015" text="Resources: Change Records and Reporting" />
-    </tocitem><tocitem target="sec:component_diagrams-translation" text="Translation to Event-B" /><tocitem target="sec:component_diagrams-legal" text="Legal">
-        <tocitem target="sec:component_diagrams-user-agreement" text="CODA Software User Agreement" />
+    </tocitem><tocitem target="sec:component_diagrams-translation" text="Translation to Event-B">
+        <tocitem target="a0000000016" text="Current time" />
     </tocitem>
 </tocitem>
 </toc>
