@@ -87,6 +87,129 @@ AbstractComponentOperationImpl
 		}else return "<no label - fix elaborates>";
 	}
 	
+
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * convergence is derived from the elaborated events
+	 * if there is at least one elaborated event and all the 
+	 * elaborated events have the same convergence then that convergence
+	 * is returned. Otherwise null is returned.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Convergence getConvergence() {
+		Convergence convergence;
+		if (getElaborates().isEmpty()) convergence = null;
+		else {
+			convergence = getElaborates().get(0).getConvergence();
+			for (Event e : getElaborates()){
+				if (convergence != e.getConvergence()){
+					convergence = null;
+				}
+			}
+		}
+		return convergence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * This sets the convergence of all the elaborated events
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setConvergence(Convergence newConvergence) {
+		for (Event e : getElaborates()){
+			e.setConvergence(newConvergence);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Does nothing. Convergence is derived from the elaborated events
+	 * and cannot be un set
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void unsetConvergence() {
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * convergence is derived from the elaborated events
+	 * if there is at least one elaborated event and all the 
+	 * elaborated events have the same convergence then the convergence
+	 * is considered to be set. Otherwise it is considered un-set.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isSetConvergence() {
+		return getConvergence()!= null;
+	}
+
+	
+	private boolean extended;
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * 	if Extended is considered set, it is returned, otherwise null
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isExtended() {
+		return isSetExtended() ?
+				extended
+				:
+				null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * This sets the extended of all the elaborated events
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setExtended(boolean newExtended) {
+		for (Event e : getElaborates()){
+			e.setExtended(newExtended);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Does nothing. Extended is derived from the elaborated events
+	 * and cannot be un-set
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void unsetExtended() {
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * extended is derived from the elaborated events
+	 * if there is at least one elaborated event and all the 
+	 * elaborated events have the same extended then the extended
+	 * is considered to be set. Otherwise it is considered un-set.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isSetExtended() {
+		if (elaborates.isEmpty()) return false;
+		else {
+			extended = elaborates.get(0).isExtended();
+			for (Event e : elaborates){
+				if (extended != e.isExtended()){
+					return false;
+				}
+			}
+			return true;
+		}
+	}
+	
+	
 	
 	
 	ConnectorImpl
