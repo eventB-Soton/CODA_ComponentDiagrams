@@ -162,6 +162,9 @@ public class ComponentsUtils {
 	}
 
 	/**
+	 * returns a subset of the given connectors that are also inputs to the given component
+	 * the component is not assumed to be loaded in the same resource as the list of connectors
+	 * 
 	 * @param component
 	 * @param connectors
 	 * @return
@@ -169,16 +172,21 @@ public class ComponentsUtils {
 	public static Connector[] getInputConnector(Component component,
 			Connector[] connectors) {
 		List<Connector> result = new ArrayList<Connector>();
+
 		for (Connector connector : connectors) {
 			EList<Component> receivers = connector.getReceivers();
 			if (isContains(receivers, component)) {
 				result.add(connector);
 			}
 		}
+
 		return result.toArray(new Connector[result.size()]);
 	}
 
 	/**
+	 * returns a subset of the given connectors that are also outputs from the given component
+	 * the component is not assumed to be loaded in the same resource as the list of connectors
+	 * 
 	 * @param component
 	 * @param connectors
 	 * @return
@@ -186,12 +194,14 @@ public class ComponentsUtils {
 	public static Connector[] getOutputConnector(Component component,
 			Connector[] connectors) {
 		List<Connector> result = new ArrayList<Connector>();
+		
 		for (Connector connector : connectors) {
 			Component sender = connector.getSender();
 			if (isSame(sender, component)) {
 				result.add(connector);
 			}
 		}
+		
 		return result.toArray(new Connector[result.size()]);
 	}
 
