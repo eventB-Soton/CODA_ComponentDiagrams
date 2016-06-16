@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eventb.emf.core.AbstractExtension;
@@ -37,6 +36,8 @@ import ac.soton.eventb.emf.components.ComponentSet;
 import ac.soton.eventb.emf.components.ComponentVariable;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.Connector;
+import ac.soton.eventb.emf.components.InPort;
+import ac.soton.eventb.emf.components.OutPort;
 import ac.soton.eventb.emf.components.WakeQueue;
 import ac.soton.eventb.emf.diagrams.Diagram;
 import ac.soton.eventb.statemachines.Statemachine;
@@ -54,8 +55,6 @@ import ac.soton.eventb.statemachines.Statemachine;
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getRefines <em>Refines</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getWakeQueues <em>Wake Queues</em>}</li>
- *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getInConnectors <em>In Connectors</em>}</li>
- *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getOutConnectors <em>Out Connectors</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getAsynchronousStatemachines <em>Asynchronous Statemachines</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getSynchronousStatemachines <em>Synchronous Statemachines</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getProcessStatemachines <em>Process Statemachines</em>}</li>
@@ -65,6 +64,8 @@ import ac.soton.eventb.statemachines.Statemachine;
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getSets <em>Sets</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getAxioms <em>Axioms</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getConstants <em>Constants</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getInPorts <em>In Ports</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getOutPorts <em>Out Ports</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,26 +148,6 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	 * @ordered
 	 */
 	protected EList<WakeQueue> wakeQueues;
-
-	/**
-	 * The cached value of the '{@link #getInConnectors() <em>In Connectors</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInConnectors()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Connector> inConnectors;
-
-	/**
-	 * The cached value of the '{@link #getOutConnectors() <em>Out Connectors</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOutConnectors()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Connector> outConnectors;
 
 	/**
 	 * The cached value of the '{@link #getAsynchronousStatemachines() <em>Asynchronous Statemachines</em>}' containment reference list.
@@ -257,6 +238,26 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	 * @ordered
 	 */
 	protected EList<ComponentConstant> constants;
+
+	/**
+	 * The cached value of the '{@link #getInPorts() <em>In Ports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInPorts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<InPort> inPorts;
+
+	/**
+	 * The cached value of the '{@link #getOutPorts() <em>Out Ports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutPorts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OutPort> outPorts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -389,30 +390,6 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Connector> getInConnectors() {
-		if (inConnectors == null) {
-			inConnectors = new EObjectWithInverseResolvingEList.ManyInverse<Connector>(Connector.class, this, ComponentsPackage.COMPONENT__IN_CONNECTORS, ComponentsPackage.CONNECTOR__RECEIVERS);
-		}
-		return inConnectors;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Connector> getOutConnectors() {
-		if (outConnectors == null) {
-			outConnectors = new EObjectWithInverseResolvingEList<Connector>(Connector.class, this, ComponentsPackage.COMPONENT__OUT_CONNECTORS, ComponentsPackage.CONNECTOR__SENDER);
-		}
-		return outConnectors;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Statemachine> getAsynchronousStatemachines() {
 		if (asynchronousStatemachines == null) {
 			asynchronousStatemachines = new EObjectContainmentEList.Resolving<Statemachine>(Statemachine.class, this, ComponentsPackage.COMPONENT__ASYNCHRONOUS_STATEMACHINES);
@@ -521,16 +498,23 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ComponentsPackage.COMPONENT__IN_CONNECTORS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInConnectors()).basicAdd(otherEnd, msgs);
-			case ComponentsPackage.COMPONENT__OUT_CONNECTORS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutConnectors()).basicAdd(otherEnd, msgs);
+	public EList<InPort> getInPorts() {
+		if (inPorts == null) {
+			inPorts = new EObjectContainmentEList.Resolving<InPort>(InPort.class, this, ComponentsPackage.COMPONENT__IN_PORTS);
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+		return inPorts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<OutPort> getOutPorts() {
+		if (outPorts == null) {
+			outPorts = new EObjectContainmentEList.Resolving<OutPort>(OutPort.class, this, ComponentsPackage.COMPONENT__OUT_PORTS);
+		}
+		return outPorts;
 	}
 
 	/**
@@ -549,10 +533,6 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
 			case ComponentsPackage.COMPONENT__WAKE_QUEUES:
 				return ((InternalEList<?>)getWakeQueues()).basicRemove(otherEnd, msgs);
-			case ComponentsPackage.COMPONENT__IN_CONNECTORS:
-				return ((InternalEList<?>)getInConnectors()).basicRemove(otherEnd, msgs);
-			case ComponentsPackage.COMPONENT__OUT_CONNECTORS:
-				return ((InternalEList<?>)getOutConnectors()).basicRemove(otherEnd, msgs);
 			case ComponentsPackage.COMPONENT__ASYNCHRONOUS_STATEMACHINES:
 				return ((InternalEList<?>)getAsynchronousStatemachines()).basicRemove(otherEnd, msgs);
 			case ComponentsPackage.COMPONENT__SYNCHRONOUS_STATEMACHINES:
@@ -571,6 +551,10 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return ((InternalEList<?>)getAxioms()).basicRemove(otherEnd, msgs);
 			case ComponentsPackage.COMPONENT__CONSTANTS:
 				return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
+			case ComponentsPackage.COMPONENT__IN_PORTS:
+				return ((InternalEList<?>)getInPorts()).basicRemove(otherEnd, msgs);
+			case ComponentsPackage.COMPONENT__OUT_PORTS:
+				return ((InternalEList<?>)getOutPorts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -596,10 +580,6 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return getOperations();
 			case ComponentsPackage.COMPONENT__WAKE_QUEUES:
 				return getWakeQueues();
-			case ComponentsPackage.COMPONENT__IN_CONNECTORS:
-				return getInConnectors();
-			case ComponentsPackage.COMPONENT__OUT_CONNECTORS:
-				return getOutConnectors();
 			case ComponentsPackage.COMPONENT__ASYNCHRONOUS_STATEMACHINES:
 				return getAsynchronousStatemachines();
 			case ComponentsPackage.COMPONENT__SYNCHRONOUS_STATEMACHINES:
@@ -618,6 +598,10 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return getAxioms();
 			case ComponentsPackage.COMPONENT__CONSTANTS:
 				return getConstants();
+			case ComponentsPackage.COMPONENT__IN_PORTS:
+				return getInPorts();
+			case ComponentsPackage.COMPONENT__OUT_PORTS:
+				return getOutPorts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -652,14 +636,6 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 			case ComponentsPackage.COMPONENT__WAKE_QUEUES:
 				getWakeQueues().clear();
 				getWakeQueues().addAll((Collection<? extends WakeQueue>)newValue);
-				return;
-			case ComponentsPackage.COMPONENT__IN_CONNECTORS:
-				getInConnectors().clear();
-				getInConnectors().addAll((Collection<? extends Connector>)newValue);
-				return;
-			case ComponentsPackage.COMPONENT__OUT_CONNECTORS:
-				getOutConnectors().clear();
-				getOutConnectors().addAll((Collection<? extends Connector>)newValue);
 				return;
 			case ComponentsPackage.COMPONENT__ASYNCHRONOUS_STATEMACHINES:
 				getAsynchronousStatemachines().clear();
@@ -697,6 +673,14 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				getConstants().clear();
 				getConstants().addAll((Collection<? extends ComponentConstant>)newValue);
 				return;
+			case ComponentsPackage.COMPONENT__IN_PORTS:
+				getInPorts().clear();
+				getInPorts().addAll((Collection<? extends InPort>)newValue);
+				return;
+			case ComponentsPackage.COMPONENT__OUT_PORTS:
+				getOutPorts().clear();
+				getOutPorts().addAll((Collection<? extends OutPort>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -727,12 +711,6 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 			case ComponentsPackage.COMPONENT__WAKE_QUEUES:
 				getWakeQueues().clear();
 				return;
-			case ComponentsPackage.COMPONENT__IN_CONNECTORS:
-				getInConnectors().clear();
-				return;
-			case ComponentsPackage.COMPONENT__OUT_CONNECTORS:
-				getOutConnectors().clear();
-				return;
 			case ComponentsPackage.COMPONENT__ASYNCHRONOUS_STATEMACHINES:
 				getAsynchronousStatemachines().clear();
 				return;
@@ -760,6 +738,12 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 			case ComponentsPackage.COMPONENT__CONSTANTS:
 				getConstants().clear();
 				return;
+			case ComponentsPackage.COMPONENT__IN_PORTS:
+				getInPorts().clear();
+				return;
+			case ComponentsPackage.COMPONENT__OUT_PORTS:
+				getOutPorts().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -784,10 +768,6 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return operations != null && !operations.isEmpty();
 			case ComponentsPackage.COMPONENT__WAKE_QUEUES:
 				return wakeQueues != null && !wakeQueues.isEmpty();
-			case ComponentsPackage.COMPONENT__IN_CONNECTORS:
-				return inConnectors != null && !inConnectors.isEmpty();
-			case ComponentsPackage.COMPONENT__OUT_CONNECTORS:
-				return outConnectors != null && !outConnectors.isEmpty();
 			case ComponentsPackage.COMPONENT__ASYNCHRONOUS_STATEMACHINES:
 				return asynchronousStatemachines != null && !asynchronousStatemachines.isEmpty();
 			case ComponentsPackage.COMPONENT__SYNCHRONOUS_STATEMACHINES:
@@ -806,6 +786,10 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return axioms != null && !axioms.isEmpty();
 			case ComponentsPackage.COMPONENT__CONSTANTS:
 				return constants != null && !constants.isEmpty();
+			case ComponentsPackage.COMPONENT__IN_PORTS:
+				return inPorts != null && !inPorts.isEmpty();
+			case ComponentsPackage.COMPONENT__OUT_PORTS:
+				return outPorts != null && !outPorts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

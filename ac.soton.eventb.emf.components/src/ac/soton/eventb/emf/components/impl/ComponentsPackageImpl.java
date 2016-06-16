@@ -24,6 +24,7 @@ import org.eventb.emf.core.machine.MachinePackage;
 
 import ac.soton.eventb.emf.components.AbstractComponentModel;
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
+import ac.soton.eventb.emf.components.AbstractPort;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentAxiom;
 import ac.soton.eventb.emf.components.ComponentConstant;
@@ -37,10 +38,12 @@ import ac.soton.eventb.emf.components.Connector;
 import ac.soton.eventb.emf.components.DataPacket;
 import ac.soton.eventb.emf.components.DelayedDataPacket;
 import ac.soton.eventb.emf.components.External;
+import ac.soton.eventb.emf.components.InPort;
 import ac.soton.eventb.emf.components.Method;
 import ac.soton.eventb.emf.components.OperationAction;
 import ac.soton.eventb.emf.components.OperationGuard;
 import ac.soton.eventb.emf.components.OperationWitness;
+import ac.soton.eventb.emf.components.OutPort;
 import ac.soton.eventb.emf.components.PortWake;
 import ac.soton.eventb.emf.components.SelfWake;
 import ac.soton.eventb.emf.components.Transition;
@@ -225,6 +228,27 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass abstractPortEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inPortEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass outPortEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum wakeKindEEnum = null;
 
 	/**
@@ -368,7 +392,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_InConnectors() {
+	public EReference getComponent_AsynchronousStatemachines() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -377,7 +401,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_OutConnectors() {
+	public EReference getComponent_SynchronousStatemachines() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -386,7 +410,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_AsynchronousStatemachines() {
+	public EReference getComponent_ProcessStatemachines() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -395,7 +419,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_SynchronousStatemachines() {
+	public EReference getComponent_Invariants() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -404,7 +428,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_ProcessStatemachines() {
+	public EReference getComponent_Variables() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -413,7 +437,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Invariants() {
+	public EReference getComponent_Initialisations() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -422,7 +446,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Variables() {
+	public EReference getComponent_Sets() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -431,7 +455,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Initialisations() {
+	public EReference getComponent_Axioms() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -440,7 +464,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Sets() {
+	public EReference getComponent_Constants() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -449,7 +473,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Axioms() {
+	public EReference getComponent_InPorts() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -458,7 +482,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Constants() {
+	public EReference getComponent_OutPorts() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -881,6 +905,60 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAbstractPort() {
+		return abstractPortEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractPort_Type() {
+		return (EAttribute)abstractPortEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInPort() {
+		return inPortEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInPort_InConnector() {
+		return (EReference)inPortEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOutPort() {
+		return outPortEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutPort_OutConnector() {
+		return (EReference)outPortEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getWakeKind() {
 		return wakeKindEEnum;
 	}
@@ -921,8 +999,6 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createEReference(componentEClass, COMPONENT__REFINES);
 		createEReference(componentEClass, COMPONENT__OPERATIONS);
 		createEReference(componentEClass, COMPONENT__WAKE_QUEUES);
-		createEReference(componentEClass, COMPONENT__IN_CONNECTORS);
-		createEReference(componentEClass, COMPONENT__OUT_CONNECTORS);
 		createEReference(componentEClass, COMPONENT__ASYNCHRONOUS_STATEMACHINES);
 		createEReference(componentEClass, COMPONENT__SYNCHRONOUS_STATEMACHINES);
 		createEReference(componentEClass, COMPONENT__PROCESS_STATEMACHINES);
@@ -932,6 +1008,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createEReference(componentEClass, COMPONENT__SETS);
 		createEReference(componentEClass, COMPONENT__AXIOMS);
 		createEReference(componentEClass, COMPONENT__CONSTANTS);
+		createEReference(componentEClass, COMPONENT__IN_PORTS);
+		createEReference(componentEClass, COMPONENT__OUT_PORTS);
 
 		connectorEClass = createEClass(CONNECTOR);
 		createEReference(connectorEClass, CONNECTOR__SENDER);
@@ -999,6 +1077,15 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		wakeQueueEClass = createEClass(WAKE_QUEUE);
 		createEReference(wakeQueueEClass, WAKE_QUEUE__REFINES);
 
+		abstractPortEClass = createEClass(ABSTRACT_PORT);
+		createEAttribute(abstractPortEClass, ABSTRACT_PORT__TYPE);
+
+		inPortEClass = createEClass(IN_PORT);
+		createEReference(inPortEClass, IN_PORT__IN_CONNECTOR);
+
+		outPortEClass = createEClass(OUT_PORT);
+		createEReference(outPortEClass, OUT_PORT__OUT_CONNECTOR);
+
 		// Create enums
 		wakeKindEEnum = createEEnum(WAKE_KIND);
 	}
@@ -1064,6 +1151,9 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		componentConstantEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
 		componentAxiomEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedDerivedPredicateElement());
 		wakeQueueEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
+		abstractPortEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
+		inPortEClass.getESuperTypes().add(this.getAbstractPort());
+		outPortEClass.getESuperTypes().add(this.getAbstractPort());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(abstractComponentModelEClass, AbstractComponentModel.class, "AbstractComponentModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1074,8 +1164,6 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEReference(getComponent_Refines(), this.getComponent(), null, "refines", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Operations(), this.getAbstractComponentOperation(), null, "operations", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_WakeQueues(), this.getWakeQueue(), null, "wakeQueues", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_InConnectors(), this.getConnector(), this.getConnector_Receivers(), "inConnectors", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_OutConnectors(), this.getConnector(), this.getConnector_Sender(), "outConnectors", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_AsynchronousStatemachines(), theStatemachinesPackage.getStatemachine(), null, "asynchronousStatemachines", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_SynchronousStatemachines(), theStatemachinesPackage.getStatemachine(), null, "synchronousStatemachines", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_ProcessStatemachines(), theStatemachinesPackage.getStatemachine(), null, "processStatemachines", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1085,10 +1173,12 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEReference(getComponent_Sets(), this.getComponentSet(), null, "Sets", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Axioms(), this.getComponentAxiom(), null, "Axioms", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_Constants(), this.getComponentConstant(), null, "Constants", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_InPorts(), this.getInPort(), null, "inPorts", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_OutPorts(), this.getOutPort(), null, "outPorts", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnector_Sender(), this.getComponent(), this.getComponent_OutConnectors(), "sender", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnector_Receivers(), this.getComponent(), this.getComponent_InConnectors(), "receivers", null, 0, -1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Sender(), this.getOutPort(), this.getOutPort_OutConnector(), "sender", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Receivers(), this.getInPort(), this.getInPort_InConnector(), "receivers", null, 0, -1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_Type(), theEcorePackage.getEString(), "type", "\u2115", 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_InitialValue(), theEcorePackage.getEString(), "initialValue", "0", 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConnector_Inherits(), this.getConnector(), null, "inherits", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1151,6 +1241,15 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		initEClass(wakeQueueEClass, WakeQueue.class, "WakeQueue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWakeQueue_Refines(), this.getWakeQueue(), null, "refines", null, 0, 1, WakeQueue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(abstractPortEClass, AbstractPort.class, "AbstractPort", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAbstractPort_Type(), theEcorePackage.getEString(), "type", "\u2115", 0, 1, AbstractPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(inPortEClass, InPort.class, "InPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInPort_InConnector(), this.getConnector(), this.getConnector_Receivers(), "inConnector", null, 0, 1, InPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(outPortEClass, OutPort.class, "OutPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutPort_OutConnector(), this.getConnector(), this.getConnector_Sender(), "outConnector", null, 0, 1, OutPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(wakeKindEEnum, WakeKind.class, "WakeKind");

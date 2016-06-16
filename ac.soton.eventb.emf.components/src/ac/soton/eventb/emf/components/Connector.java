@@ -43,7 +43,7 @@ public interface Connector extends EventBNamedCommentedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Sender</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.Component#getOutConnectors <em>Out Connectors</em>}'.
+	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.OutPort#getOutConnector <em>Out Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sender</em>' reference isn't clear,
@@ -51,13 +51,13 @@ public interface Connector extends EventBNamedCommentedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sender</em>' reference.
-	 * @see #setSender(Component)
+	 * @see #setSender(OutPort)
 	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getConnector_Sender()
-	 * @see ac.soton.eventb.emf.components.Component#getOutConnectors
-	 * @model opposite="outConnectors"
+	 * @see ac.soton.eventb.emf.components.OutPort#getOutConnector
+	 * @model opposite="outConnector"
 	 * @generated
 	 */
-	Component getSender();
+	OutPort getSender();
 
 	/**
 	 * Sets the value of the '{@link ac.soton.eventb.emf.components.Connector#getSender <em>Sender</em>}' reference.
@@ -67,12 +67,12 @@ public interface Connector extends EventBNamedCommentedElement {
 	 * @see #getSender()
 	 * @generated
 	 */
-	void setSender(Component value);
+	void setSender(OutPort value);
 
 	/**
 	 * Returns the value of the '<em><b>Receivers</b></em>' reference list.
-	 * The list contents are of type {@link ac.soton.eventb.emf.components.Component}.
-	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.Component#getInConnectors <em>In Connectors</em>}'.
+	 * The list contents are of type {@link ac.soton.eventb.emf.components.InPort}.
+	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.InPort#getInConnector <em>In Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Receivers</em>' reference list isn't clear,
@@ -81,11 +81,11 @@ public interface Connector extends EventBNamedCommentedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Receivers</em>' reference list.
 	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getConnector_Receivers()
-	 * @see ac.soton.eventb.emf.components.Component#getInConnectors
-	 * @model opposite="inConnectors"
+	 * @see ac.soton.eventb.emf.components.InPort#getInConnector
+	 * @model opposite="inConnector"
 	 * @generated
 	 */
-	EList<Component> getReceivers();
+	EList<InPort> getReceivers();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.

@@ -10,6 +10,7 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
+import ac.soton.eventb.emf.components.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -63,7 +64,7 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 	 */
 	public static ComponentsFactory init() {
 		try {
-			ComponentsFactory theComponentsFactory = (ComponentsFactory)EPackage.Registry.INSTANCE.getEFactory("http://soton.ac.uk/models/eventb/components/2014"); 
+			ComponentsFactory theComponentsFactory = (ComponentsFactory)EPackage.Registry.INSTANCE.getEFactory("http://soton.ac.uk/models/eventb/components/2016"); 
 			if (theComponentsFactory != null) {
 				return theComponentsFactory;
 			}
@@ -112,6 +113,8 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 			case ComponentsPackage.COMPONENT_CONSTANT: return createComponentConstant();
 			case ComponentsPackage.COMPONENT_AXIOM: return createComponentAxiom();
 			case ComponentsPackage.WAKE_QUEUE: return createWakeQueue();
+			case ComponentsPackage.IN_PORT: return createInPort();
+			case ComponentsPackage.OUT_PORT: return createOutPort();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -345,6 +348,26 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 	public WakeQueue createWakeQueue() {
 		WakeQueueImpl wakeQueue = new WakeQueueImpl();
 		return wakeQueue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InPort createInPort() {
+		InPortImpl inPort = new InPortImpl();
+		return inPort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OutPort createOutPort() {
+		OutPortImpl outPort = new OutPortImpl();
+		return outPort;
 	}
 
 	/**

@@ -22,9 +22,10 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eventb.emf.core.impl.EventBNamedCommentedElementImpl;
 
-import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.Connector;
+import ac.soton.eventb.emf.components.InPort;
+import ac.soton.eventb.emf.components.OutPort;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,7 +60,7 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * @generated
 	 * @ordered
 	 */
-	protected Component sender;
+	protected OutPort sender;
 
 	/**
 	 * The cached value of the '{@link #getReceivers() <em>Receivers</em>}' reference list.
@@ -69,7 +70,7 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Component> receivers;
+	protected EList<InPort> receivers;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -154,10 +155,10 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component getSender() {
+	public OutPort getSender() {
 		if (sender != null && sender.eIsProxy()) {
 			InternalEObject oldSender = (InternalEObject)sender;
-			sender = (Component)eResolveProxy(oldSender);
+			sender = (OutPort)eResolveProxy(oldSender);
 			if (sender != oldSender) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ComponentsPackage.CONNECTOR__SENDER, oldSender, sender));
@@ -171,7 +172,7 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component basicGetSender() {
+	public OutPort basicGetSender() {
 		return sender;
 	}
 
@@ -180,8 +181,8 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSender(Component newSender, NotificationChain msgs) {
-		Component oldSender = sender;
+	public NotificationChain basicSetSender(OutPort newSender, NotificationChain msgs) {
+		OutPort oldSender = sender;
 		sender = newSender;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__SENDER, oldSender, newSender);
@@ -195,13 +196,13 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSender(Component newSender) {
+	public void setSender(OutPort newSender) {
 		if (newSender != sender) {
 			NotificationChain msgs = null;
 			if (sender != null)
-				msgs = ((InternalEObject)sender).eInverseRemove(this, ComponentsPackage.COMPONENT__OUT_CONNECTORS, Component.class, msgs);
+				msgs = ((InternalEObject)sender).eInverseRemove(this, ComponentsPackage.OUT_PORT__OUT_CONNECTOR, OutPort.class, msgs);
 			if (newSender != null)
-				msgs = ((InternalEObject)newSender).eInverseAdd(this, ComponentsPackage.COMPONENT__OUT_CONNECTORS, Component.class, msgs);
+				msgs = ((InternalEObject)newSender).eInverseAdd(this, ComponentsPackage.OUT_PORT__OUT_CONNECTOR, OutPort.class, msgs);
 			msgs = basicSetSender(newSender, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -214,9 +215,9 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Component> getReceivers() {
+	public EList<InPort> getReceivers() {
 		if (receivers == null) {
-			receivers = new EObjectWithInverseResolvingEList.ManyInverse<Component>(Component.class, this, ComponentsPackage.CONNECTOR__RECEIVERS, ComponentsPackage.COMPONENT__IN_CONNECTORS);
+			receivers = new EObjectWithInverseResolvingEList<InPort>(InPort.class, this, ComponentsPackage.CONNECTOR__RECEIVERS, ComponentsPackage.IN_PORT__IN_CONNECTOR);
 		}
 		return receivers;
 	}
@@ -347,8 +348,8 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 		switch (featureID) {
 			case ComponentsPackage.CONNECTOR__SENDER:
 				if (sender != null)
-					msgs = ((InternalEObject)sender).eInverseRemove(this, ComponentsPackage.COMPONENT__OUT_CONNECTORS, Component.class, msgs);
-				return basicSetSender((Component)otherEnd, msgs);
+					msgs = ((InternalEObject)sender).eInverseRemove(this, ComponentsPackage.OUT_PORT__OUT_CONNECTOR, OutPort.class, msgs);
+				return basicSetSender((OutPort)otherEnd, msgs);
 			case ComponentsPackage.CONNECTOR__RECEIVERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReceivers()).basicAdd(otherEnd, msgs);
 		}
@@ -405,11 +406,11 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ComponentsPackage.CONNECTOR__SENDER:
-				setSender((Component)newValue);
+				setSender((OutPort)newValue);
 				return;
 			case ComponentsPackage.CONNECTOR__RECEIVERS:
 				getReceivers().clear();
-				getReceivers().addAll((Collection<? extends Component>)newValue);
+				getReceivers().addAll((Collection<? extends InPort>)newValue);
 				return;
 			case ComponentsPackage.CONNECTOR__TYPE:
 				setType((String)newValue);
@@ -433,7 +434,7 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ComponentsPackage.CONNECTOR__SENDER:
-				setSender((Component)null);
+				setSender((OutPort)null);
 				return;
 			case ComponentsPackage.CONNECTOR__RECEIVERS:
 				getReceivers().clear();

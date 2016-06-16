@@ -217,6 +217,24 @@ public interface ComponentsFactory extends EFactory {
 	WakeQueue createWakeQueue();
 
 	/**
+	 * Returns a new object of class '<em>In Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>In Port</em>'.
+	 * @generated
+	 */
+	InPort createInPort();
+
+	/**
+	 * Returns a new object of class '<em>Out Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Out Port</em>'.
+	 * @generated
+	 */
+	OutPort createOutPort();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

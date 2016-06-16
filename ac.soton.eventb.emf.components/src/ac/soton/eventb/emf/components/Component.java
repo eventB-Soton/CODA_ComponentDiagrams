@@ -28,8 +28,6 @@ import ac.soton.eventb.statemachines.Statemachine;
  *   <li>{@link ac.soton.eventb.emf.components.Component#getRefines <em>Refines</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Component#getOperations <em>Operations</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Component#getWakeQueues <em>Wake Queues</em>}</li>
- *   <li>{@link ac.soton.eventb.emf.components.Component#getInConnectors <em>In Connectors</em>}</li>
- *   <li>{@link ac.soton.eventb.emf.components.Component#getOutConnectors <em>Out Connectors</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Component#getAsynchronousStatemachines <em>Asynchronous Statemachines</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Component#getSynchronousStatemachines <em>Synchronous Statemachines</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Component#getProcessStatemachines <em>Process Statemachines</em>}</li>
@@ -39,6 +37,8 @@ import ac.soton.eventb.statemachines.Statemachine;
  *   <li>{@link ac.soton.eventb.emf.components.Component#getSets <em>Sets</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Component#getAxioms <em>Axioms</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Component#getConstants <em>Constants</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.Component#getInPorts <em>In Ports</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.Component#getOutPorts <em>Out Ports</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,42 +111,6 @@ public interface Component extends EventBNamedCommentedElement, AbstractComponen
 	 * @generated
 	 */
 	EList<WakeQueue> getWakeQueues();
-
-	/**
-	 * Returns the value of the '<em><b>In Connectors</b></em>' reference list.
-	 * The list contents are of type {@link ac.soton.eventb.emf.components.Connector}.
-	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.Connector#getReceivers <em>Receivers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>In Connectors</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>In Connectors</em>' reference list.
-	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getComponent_InConnectors()
-	 * @see ac.soton.eventb.emf.components.Connector#getReceivers
-	 * @model opposite="receivers"
-	 * @generated
-	 */
-	EList<Connector> getInConnectors();
-
-	/**
-	 * Returns the value of the '<em><b>Out Connectors</b></em>' reference list.
-	 * The list contents are of type {@link ac.soton.eventb.emf.components.Connector}.
-	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.Connector#getSender <em>Sender</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Out Connectors</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Out Connectors</em>' reference list.
-	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getComponent_OutConnectors()
-	 * @see ac.soton.eventb.emf.components.Connector#getSender
-	 * @model opposite="sender"
-	 * @generated
-	 */
-	EList<Connector> getOutConnectors();
 
 	/**
 	 * Returns the value of the '<em><b>Asynchronous Statemachines</b></em>' containment reference list.
@@ -294,5 +258,37 @@ public interface Component extends EventBNamedCommentedElement, AbstractComponen
 	 * @generated
 	 */
 	EList<ComponentConstant> getConstants();
+
+	/**
+	 * Returns the value of the '<em><b>In Ports</b></em>' containment reference list.
+	 * The list contents are of type {@link ac.soton.eventb.emf.components.InPort}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Ports</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Ports</em>' containment reference list.
+	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getComponent_InPorts()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<InPort> getInPorts();
+
+	/**
+	 * Returns the value of the '<em><b>Out Ports</b></em>' containment reference list.
+	 * The list contents are of type {@link ac.soton.eventb.emf.components.OutPort}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Ports</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Ports</em>' containment reference list.
+	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getComponent_OutPorts()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<OutPort> getOutPorts();
 
 } // Component

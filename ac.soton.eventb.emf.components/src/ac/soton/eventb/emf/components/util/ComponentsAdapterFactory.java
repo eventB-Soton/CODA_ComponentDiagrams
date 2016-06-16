@@ -10,6 +10,7 @@
  */
 package ac.soton.eventb.emf.components.util;
 
+import ac.soton.eventb.emf.components.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -204,6 +205,18 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseWakeQueue(WakeQueue object) {
 				return createWakeQueueAdapter();
+			}
+			@Override
+			public Adapter caseAbstractPort(AbstractPort object) {
+				return createAbstractPortAdapter();
+			}
+			@Override
+			public Adapter caseInPort(InPort object) {
+				return createInPortAdapter();
+			}
+			@Override
+			public Adapter caseOutPort(OutPort object) {
+				return createOutPortAdapter();
 			}
 			@Override
 			public Adapter caseEventBObject(EventBObject object) {
@@ -590,6 +603,48 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWakeQueueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.emf.components.AbstractPort <em>Abstract Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ac.soton.eventb.emf.components.AbstractPort
+	 * @generated
+	 */
+	public Adapter createAbstractPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.emf.components.InPort <em>In Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ac.soton.eventb.emf.components.InPort
+	 * @generated
+	 */
+	public Adapter createInPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.emf.components.OutPort <em>Out Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ac.soton.eventb.emf.components.OutPort
+	 * @generated
+	 */
+	public Adapter createOutPortAdapter() {
 		return null;
 	}
 

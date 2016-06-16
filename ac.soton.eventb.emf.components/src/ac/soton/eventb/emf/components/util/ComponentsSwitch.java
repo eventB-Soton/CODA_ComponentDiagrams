@@ -10,6 +10,7 @@
  */
 package ac.soton.eventb.emf.components.util;
 
+import ac.soton.eventb.emf.components.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -414,6 +415,44 @@ public class ComponentsSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ComponentsPackage.ABSTRACT_PORT: {
+				AbstractPort abstractPort = (AbstractPort)theEObject;
+				T result = caseAbstractPort(abstractPort);
+				if (result == null) result = caseEventBNamedCommentedElement(abstractPort);
+				if (result == null) result = caseEventBCommentedElement(abstractPort);
+				if (result == null) result = caseEventBNamed(abstractPort);
+				if (result == null) result = caseEventBElement(abstractPort);
+				if (result == null) result = caseEventBCommented(abstractPort);
+				if (result == null) result = caseEventBObject(abstractPort);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.IN_PORT: {
+				InPort inPort = (InPort)theEObject;
+				T result = caseInPort(inPort);
+				if (result == null) result = caseAbstractPort(inPort);
+				if (result == null) result = caseEventBNamedCommentedElement(inPort);
+				if (result == null) result = caseEventBCommentedElement(inPort);
+				if (result == null) result = caseEventBNamed(inPort);
+				if (result == null) result = caseEventBElement(inPort);
+				if (result == null) result = caseEventBCommented(inPort);
+				if (result == null) result = caseEventBObject(inPort);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.OUT_PORT: {
+				OutPort outPort = (OutPort)theEObject;
+				T result = caseOutPort(outPort);
+				if (result == null) result = caseAbstractPort(outPort);
+				if (result == null) result = caseEventBNamedCommentedElement(outPort);
+				if (result == null) result = caseEventBCommentedElement(outPort);
+				if (result == null) result = caseEventBNamed(outPort);
+				if (result == null) result = caseEventBElement(outPort);
+				if (result == null) result = caseEventBCommented(outPort);
+				if (result == null) result = caseEventBObject(outPort);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -745,6 +784,51 @@ public class ComponentsSwitch<T> {
 	 * @generated
 	 */
 	public T caseWakeQueue(WakeQueue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Port</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractPort(AbstractPort object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>In Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>In Port</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInPort(InPort object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Out Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Out Port</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOutPort(OutPort object) {
 		return null;
 	}
 

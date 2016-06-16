@@ -10,6 +10,7 @@
  */
 package ac.soton.eventb.emf.components.util;
 
+import ac.soton.eventb.emf.components.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
@@ -173,6 +174,12 @@ public class ComponentsValidator extends EObjectValidator {
 				return validateComponentAxiom((ComponentAxiom)value, diagnostics, context);
 			case ComponentsPackage.WAKE_QUEUE:
 				return validateWakeQueue((WakeQueue)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_PORT:
+				return validateAbstractPort((AbstractPort)value, diagnostics, context);
+			case ComponentsPackage.IN_PORT:
+				return validateInPort((InPort)value, diagnostics, context);
+			case ComponentsPackage.OUT_PORT:
+				return validateOutPort((OutPort)value, diagnostics, context);
 			case ComponentsPackage.WAKE_KIND:
 				return validateWakeKind((WakeKind)value, diagnostics, context);
 			default:
@@ -1087,6 +1094,33 @@ public class ComponentsValidator extends EObjectValidator {
 	 */
 	public boolean validateWakeQueue(WakeQueue wakeQueue, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(wakeQueue, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractPort(AbstractPort abstractPort, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractPort, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInPort(InPort inPort, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(inPort, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOutPort(OutPort outPort, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(outPort, diagnostics, context);
 	}
 
 	/**

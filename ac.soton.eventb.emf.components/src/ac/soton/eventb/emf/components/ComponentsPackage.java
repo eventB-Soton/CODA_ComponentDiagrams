@@ -61,7 +61,7 @@ public interface ComponentsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://soton.ac.uk/models/eventb/components/2014";
+	String eNS_URI = "http://soton.ac.uk/models/eventb/components/2016";
 
 	/**
 	 * The package namespace name.
@@ -262,31 +262,13 @@ public interface ComponentsPackage extends EPackage {
 	int COMPONENT__WAKE_QUEUES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>In Connectors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT__IN_CONNECTORS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Out Connectors</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT__OUT_CONNECTORS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 7;
-
-	/**
 	 * The feature id for the '<em><b>Asynchronous Statemachines</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__ASYNCHRONOUS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 8;
+	int COMPONENT__ASYNCHRONOUS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous Statemachines</b></em>' containment reference list.
@@ -295,7 +277,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SYNCHRONOUS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 9;
+	int COMPONENT__SYNCHRONOUS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Process Statemachines</b></em>' containment reference list.
@@ -304,7 +286,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PROCESS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 10;
+	int COMPONENT__PROCESS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Invariants</b></em>' containment reference list.
@@ -313,7 +295,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__INVARIANTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 11;
+	int COMPONENT__INVARIANTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -322,7 +304,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__VARIABLES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 12;
+	int COMPONENT__VARIABLES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Initialisations</b></em>' containment reference list.
@@ -331,7 +313,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__INITIALISATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 13;
+	int COMPONENT__INITIALISATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Sets</b></em>' containment reference list.
@@ -340,7 +322,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SETS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 14;
+	int COMPONENT__SETS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Axioms</b></em>' containment reference list.
@@ -349,7 +331,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__AXIOMS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 15;
+	int COMPONENT__AXIOMS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Constants</b></em>' containment reference list.
@@ -358,7 +340,25 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__CONSTANTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 16;
+	int COMPONENT__CONSTANTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>In Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__IN_PORTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Out Ports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__OUT_PORTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 16;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -3198,6 +3198,351 @@ public interface ComponentsPackage extends EPackage {
 	int WAKE_QUEUE_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.AbstractPortImpl <em>Abstract Port</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.components.impl.AbstractPortImpl
+	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractPort()
+	 * @generated
+	 */
+	int ABSTRACT_PORT = 22;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__ANNOTATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__EXTENSIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__ATTRIBUTES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__REFERENCE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__GENERATED = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__LOCAL_GENERATED = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__LOCAL_GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__INTERNAL_ID = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__COMMENT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__TYPE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.InPortImpl <em>In Port</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.components.impl.InPortImpl
+	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getInPort()
+	 * @generated
+	 */
+	int IN_PORT = 23;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__ANNOTATIONS = ABSTRACT_PORT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__EXTENSIONS = ABSTRACT_PORT__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__ATTRIBUTES = ABSTRACT_PORT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__REFERENCE = ABSTRACT_PORT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__GENERATED = ABSTRACT_PORT__GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__LOCAL_GENERATED = ABSTRACT_PORT__LOCAL_GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__INTERNAL_ID = ABSTRACT_PORT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__COMMENT = ABSTRACT_PORT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__NAME = ABSTRACT_PORT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__TYPE = ABSTRACT_PORT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>In Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__IN_CONNECTOR = ABSTRACT_PORT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>In Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT_FEATURE_COUNT = ABSTRACT_PORT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.OutPortImpl <em>Out Port</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.components.impl.OutPortImpl
+	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getOutPort()
+	 * @generated
+	 */
+	int OUT_PORT = 24;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__ANNOTATIONS = ABSTRACT_PORT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__EXTENSIONS = ABSTRACT_PORT__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__ATTRIBUTES = ABSTRACT_PORT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__REFERENCE = ABSTRACT_PORT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__GENERATED = ABSTRACT_PORT__GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__LOCAL_GENERATED = ABSTRACT_PORT__LOCAL_GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__INTERNAL_ID = ABSTRACT_PORT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__COMMENT = ABSTRACT_PORT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__NAME = ABSTRACT_PORT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__TYPE = ABSTRACT_PORT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Out Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__OUT_CONNECTOR = ABSTRACT_PORT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Out Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT_FEATURE_COUNT = ABSTRACT_PORT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.WakeKind <em>Wake Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3205,7 +3550,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getWakeKind()
 	 * @generated
 	 */
-	int WAKE_KIND = 22;
+	int WAKE_KIND = 25;
 
 
 	/**
@@ -3282,28 +3627,6 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_WakeQueues();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.Component#getInConnectors <em>In Connectors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>In Connectors</em>'.
-	 * @see ac.soton.eventb.emf.components.Component#getInConnectors()
-	 * @see #getComponent()
-	 * @generated
-	 */
-	EReference getComponent_InConnectors();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.Component#getOutConnectors <em>Out Connectors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Out Connectors</em>'.
-	 * @see ac.soton.eventb.emf.components.Component#getOutConnectors()
-	 * @see #getComponent()
-	 * @generated
-	 */
-	EReference getComponent_OutConnectors();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ac.soton.eventb.emf.components.Component#getAsynchronousStatemachines <em>Asynchronous Statemachines</em>}'.
@@ -3403,6 +3726,28 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComponent_Constants();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ac.soton.eventb.emf.components.Component#getInPorts <em>In Ports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>In Ports</em>'.
+	 * @see ac.soton.eventb.emf.components.Component#getInPorts()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_InPorts();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ac.soton.eventb.emf.components.Component#getOutPorts <em>Out Ports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Out Ports</em>'.
+	 * @see ac.soton.eventb.emf.components.Component#getOutPorts()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_OutPorts();
 
 	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.Connector <em>Connector</em>}'.
@@ -3891,6 +4236,69 @@ public interface ComponentsPackage extends EPackage {
 	EReference getWakeQueue_Refines();
 
 	/**
+	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.AbstractPort <em>Abstract Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Port</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractPort
+	 * @generated
+	 */
+	EClass getAbstractPort();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.components.AbstractPort#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractPort#getType()
+	 * @see #getAbstractPort()
+	 * @generated
+	 */
+	EAttribute getAbstractPort_Type();
+
+	/**
+	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.InPort <em>In Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>In Port</em>'.
+	 * @see ac.soton.eventb.emf.components.InPort
+	 * @generated
+	 */
+	EClass getInPort();
+
+	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.InPort#getInConnector <em>In Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>In Connector</em>'.
+	 * @see ac.soton.eventb.emf.components.InPort#getInConnector()
+	 * @see #getInPort()
+	 * @generated
+	 */
+	EReference getInPort_InConnector();
+
+	/**
+	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.OutPort <em>Out Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Out Port</em>'.
+	 * @see ac.soton.eventb.emf.components.OutPort
+	 * @generated
+	 */
+	EClass getOutPort();
+
+	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.OutPort#getOutConnector <em>Out Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Out Connector</em>'.
+	 * @see ac.soton.eventb.emf.components.OutPort#getOutConnector()
+	 * @see #getOutPort()
+	 * @generated
+	 */
+	EReference getOutPort_OutConnector();
+
+	/**
 	 * Returns the meta object for enum '{@link ac.soton.eventb.emf.components.WakeKind <em>Wake Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3983,22 +4391,6 @@ public interface ComponentsPackage extends EPackage {
 		EReference COMPONENT__WAKE_QUEUES = eINSTANCE.getComponent_WakeQueues();
 
 		/**
-		 * The meta object literal for the '<em><b>In Connectors</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPONENT__IN_CONNECTORS = eINSTANCE.getComponent_InConnectors();
-
-		/**
-		 * The meta object literal for the '<em><b>Out Connectors</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPONENT__OUT_CONNECTORS = eINSTANCE.getComponent_OutConnectors();
-
-		/**
 		 * The meta object literal for the '<em><b>Asynchronous Statemachines</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4069,6 +4461,22 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT__CONSTANTS = eINSTANCE.getComponent_Constants();
+
+		/**
+		 * The meta object literal for the '<em><b>In Ports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__IN_PORTS = eINSTANCE.getComponent_InPorts();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Ports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__OUT_PORTS = eINSTANCE.getComponent_OutPorts();
 
 		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -4477,6 +4885,60 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference WAKE_QUEUE__REFINES = eINSTANCE.getWakeQueue_Refines();
+
+		/**
+		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.AbstractPortImpl <em>Abstract Port</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ac.soton.eventb.emf.components.impl.AbstractPortImpl
+		 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractPort()
+		 * @generated
+		 */
+		EClass ABSTRACT_PORT = eINSTANCE.getAbstractPort();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_PORT__TYPE = eINSTANCE.getAbstractPort_Type();
+
+		/**
+		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.InPortImpl <em>In Port</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ac.soton.eventb.emf.components.impl.InPortImpl
+		 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getInPort()
+		 * @generated
+		 */
+		EClass IN_PORT = eINSTANCE.getInPort();
+
+		/**
+		 * The meta object literal for the '<em><b>In Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IN_PORT__IN_CONNECTOR = eINSTANCE.getInPort_InConnector();
+
+		/**
+		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.OutPortImpl <em>Out Port</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ac.soton.eventb.emf.components.impl.OutPortImpl
+		 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getOutPort()
+		 * @generated
+		 */
+		EClass OUT_PORT = eINSTANCE.getOutPort();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUT_PORT__OUT_CONNECTOR = eINSTANCE.getOutPort_OutConnector();
 
 		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.WakeKind <em>Wake Kind</em>}' enum.
