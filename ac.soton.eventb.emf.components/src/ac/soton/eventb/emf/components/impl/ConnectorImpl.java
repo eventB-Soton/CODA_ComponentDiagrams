@@ -10,10 +10,14 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
+import ac.soton.eventb.emf.components.Component;
+
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -34,11 +38,13 @@ import ac.soton.eventb.emf.components.OutPort;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getSender <em>Sender</em>}</li>
- *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getReceivers <em>Receivers</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getSendPort <em>Send Port</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getReceivePorts <em>Receive Ports</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getType <em>Type</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getInherits <em>Inherits</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getReceivers <em>Receivers</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getSender <em>Sender</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,24 +59,24 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
-	 * The cached value of the '{@link #getSender() <em>Sender</em>}' reference.
+	 * The cached value of the '{@link #getSendPort() <em>Send Port</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSender()
+	 * @see #getSendPort()
 	 * @generated
 	 * @ordered
 	 */
-	protected OutPort sender;
+	protected OutPort sendPort;
 
 	/**
-	 * The cached value of the '{@link #getReceivers() <em>Receivers</em>}' reference list.
+	 * The cached value of the '{@link #getReceivePorts() <em>Receive Ports</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReceivers()
+	 * @see #getReceivePorts()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<InPort> receivers;
+	protected EList<InPort> receivePorts;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -155,16 +161,16 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OutPort getSender() {
-		if (sender != null && sender.eIsProxy()) {
-			InternalEObject oldSender = (InternalEObject)sender;
-			sender = (OutPort)eResolveProxy(oldSender);
-			if (sender != oldSender) {
+	public OutPort getSendPort() {
+		if (sendPort != null && sendPort.eIsProxy()) {
+			InternalEObject oldSendPort = (InternalEObject)sendPort;
+			sendPort = (OutPort)eResolveProxy(oldSendPort);
+			if (sendPort != oldSendPort) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ComponentsPackage.CONNECTOR__SENDER, oldSender, sender));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ComponentsPackage.CONNECTOR__SEND_PORT, oldSendPort, sendPort));
 			}
 		}
-		return sender;
+		return sendPort;
 	}
 
 	/**
@@ -172,8 +178,8 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OutPort basicGetSender() {
-		return sender;
+	public OutPort basicGetSendPort() {
+		return sendPort;
 	}
 
 	/**
@@ -181,11 +187,11 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSender(OutPort newSender, NotificationChain msgs) {
-		OutPort oldSender = sender;
-		sender = newSender;
+	public NotificationChain basicSetSendPort(OutPort newSendPort, NotificationChain msgs) {
+		OutPort oldSendPort = sendPort;
+		sendPort = newSendPort;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__SENDER, oldSender, newSender);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__SEND_PORT, oldSendPort, newSendPort);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -196,18 +202,18 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSender(OutPort newSender) {
-		if (newSender != sender) {
+	public void setSendPort(OutPort newSendPort) {
+		if (newSendPort != sendPort) {
 			NotificationChain msgs = null;
-			if (sender != null)
-				msgs = ((InternalEObject)sender).eInverseRemove(this, ComponentsPackage.OUT_PORT__OUT_CONNECTOR, OutPort.class, msgs);
-			if (newSender != null)
-				msgs = ((InternalEObject)newSender).eInverseAdd(this, ComponentsPackage.OUT_PORT__OUT_CONNECTOR, OutPort.class, msgs);
-			msgs = basicSetSender(newSender, msgs);
+			if (sendPort != null)
+				msgs = ((InternalEObject)sendPort).eInverseRemove(this, ComponentsPackage.OUT_PORT__OUT_CONNECTOR, OutPort.class, msgs);
+			if (newSendPort != null)
+				msgs = ((InternalEObject)newSendPort).eInverseAdd(this, ComponentsPackage.OUT_PORT__OUT_CONNECTOR, OutPort.class, msgs);
+			msgs = basicSetSendPort(newSendPort, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__SENDER, newSender, newSender));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__SEND_PORT, newSendPort, newSendPort));
 	}
 
 	/**
@@ -215,11 +221,33 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InPort> getReceivers() {
-		if (receivers == null) {
-			receivers = new EObjectWithInverseResolvingEList<InPort>(InPort.class, this, ComponentsPackage.CONNECTOR__RECEIVERS, ComponentsPackage.IN_PORT__IN_CONNECTOR);
+	public EList<InPort> getReceivePorts() {
+		if (receivePorts == null) {
+			receivePorts = new EObjectWithInverseResolvingEList<InPort>(InPort.class, this, ComponentsPackage.CONNECTOR__RECEIVE_PORTS, ComponentsPackage.IN_PORT__IN_CONNECTOR);
 		}
-		return receivers;
+		return receivePorts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Component getSender() {
+		Component sender = basicGetSender();
+		return sender != null && sender.eIsProxy() ? (Component)eResolveProxy((InternalEObject)sender) : sender;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * returns the component that owns the OutPort connected to this connector via the SendPort association,
+	 * or null if that connection does not exist
+	 * 	 (sender is a derived, volatile, transient, unmodifiable relationship)
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Component basicGetSender() {
+		return (Component) (getSendPort() == null? null : getSendPort().eContainer());
 	}
 
 	/**
@@ -257,7 +285,7 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * 	 * if inherits is set, the initial value cannot be changed and is always set to the same as the inherited connector
+	 * 	if inherits is set, the initial value cannot be changed and is always set to the same as the inherited connector
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -339,6 +367,23 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * returns an unmodifiable list of the components that own the InPorts connected to this connector via the ReceivePorts association
+	 * 	 (Receivers is a derived, volatile, transient, unmodifiable relationship)
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Component> getReceivers() {
+		ArrayList<Component> receivers = new ArrayList<Component>();
+		for (InPort inp : this.getReceivePorts()){
+			if (inp.eContainer() instanceof Component){
+				receivers.add((Component) inp.eContainer());
+			}
+		}
+		return new BasicEList.UnmodifiableEList<Component>(receivers.size(), receivers.toArray());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -346,12 +391,12 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ComponentsPackage.CONNECTOR__SENDER:
-				if (sender != null)
-					msgs = ((InternalEObject)sender).eInverseRemove(this, ComponentsPackage.OUT_PORT__OUT_CONNECTOR, OutPort.class, msgs);
-				return basicSetSender((OutPort)otherEnd, msgs);
-			case ComponentsPackage.CONNECTOR__RECEIVERS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReceivers()).basicAdd(otherEnd, msgs);
+			case ComponentsPackage.CONNECTOR__SEND_PORT:
+				if (sendPort != null)
+					msgs = ((InternalEObject)sendPort).eInverseRemove(this, ComponentsPackage.OUT_PORT__OUT_CONNECTOR, OutPort.class, msgs);
+				return basicSetSendPort((OutPort)otherEnd, msgs);
+			case ComponentsPackage.CONNECTOR__RECEIVE_PORTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReceivePorts()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -364,10 +409,10 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ComponentsPackage.CONNECTOR__SENDER:
-				return basicSetSender(null, msgs);
-			case ComponentsPackage.CONNECTOR__RECEIVERS:
-				return ((InternalEList<?>)getReceivers()).basicRemove(otherEnd, msgs);
+			case ComponentsPackage.CONNECTOR__SEND_PORT:
+				return basicSetSendPort(null, msgs);
+			case ComponentsPackage.CONNECTOR__RECEIVE_PORTS:
+				return ((InternalEList<?>)getReceivePorts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -380,11 +425,11 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ComponentsPackage.CONNECTOR__SENDER:
-				if (resolve) return getSender();
-				return basicGetSender();
-			case ComponentsPackage.CONNECTOR__RECEIVERS:
-				return getReceivers();
+			case ComponentsPackage.CONNECTOR__SEND_PORT:
+				if (resolve) return getSendPort();
+				return basicGetSendPort();
+			case ComponentsPackage.CONNECTOR__RECEIVE_PORTS:
+				return getReceivePorts();
 			case ComponentsPackage.CONNECTOR__TYPE:
 				return getType();
 			case ComponentsPackage.CONNECTOR__INITIAL_VALUE:
@@ -392,6 +437,11 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 			case ComponentsPackage.CONNECTOR__INHERITS:
 				if (resolve) return getInherits();
 				return basicGetInherits();
+			case ComponentsPackage.CONNECTOR__RECEIVERS:
+				return getReceivers();
+			case ComponentsPackage.CONNECTOR__SENDER:
+				if (resolve) return getSender();
+				return basicGetSender();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -405,12 +455,12 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ComponentsPackage.CONNECTOR__SENDER:
-				setSender((OutPort)newValue);
+			case ComponentsPackage.CONNECTOR__SEND_PORT:
+				setSendPort((OutPort)newValue);
 				return;
-			case ComponentsPackage.CONNECTOR__RECEIVERS:
-				getReceivers().clear();
-				getReceivers().addAll((Collection<? extends InPort>)newValue);
+			case ComponentsPackage.CONNECTOR__RECEIVE_PORTS:
+				getReceivePorts().clear();
+				getReceivePorts().addAll((Collection<? extends InPort>)newValue);
 				return;
 			case ComponentsPackage.CONNECTOR__TYPE:
 				setType((String)newValue);
@@ -433,11 +483,11 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ComponentsPackage.CONNECTOR__SENDER:
-				setSender((OutPort)null);
+			case ComponentsPackage.CONNECTOR__SEND_PORT:
+				setSendPort((OutPort)null);
 				return;
-			case ComponentsPackage.CONNECTOR__RECEIVERS:
-				getReceivers().clear();
+			case ComponentsPackage.CONNECTOR__RECEIVE_PORTS:
+				getReceivePorts().clear();
 				return;
 			case ComponentsPackage.CONNECTOR__TYPE:
 				setType(TYPE_EDEFAULT);
@@ -460,16 +510,20 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ComponentsPackage.CONNECTOR__SENDER:
-				return sender != null;
-			case ComponentsPackage.CONNECTOR__RECEIVERS:
-				return receivers != null && !receivers.isEmpty();
+			case ComponentsPackage.CONNECTOR__SEND_PORT:
+				return sendPort != null;
+			case ComponentsPackage.CONNECTOR__RECEIVE_PORTS:
+				return receivePorts != null && !receivePorts.isEmpty();
 			case ComponentsPackage.CONNECTOR__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case ComponentsPackage.CONNECTOR__INITIAL_VALUE:
 				return INITIAL_VALUE_EDEFAULT == null ? initialValue != null : !INITIAL_VALUE_EDEFAULT.equals(initialValue);
 			case ComponentsPackage.CONNECTOR__INHERITS:
 				return isSetInherits();
+			case ComponentsPackage.CONNECTOR__RECEIVERS:
+				return !getReceivers().isEmpty();
+			case ComponentsPackage.CONNECTOR__SENDER:
+				return basicGetSender() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -37,7 +37,7 @@ public interface OutPort extends AbstractPort {
 
 	/**
 	 * Returns the value of the '<em><b>Out Connector</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.Connector#getSender <em>Sender</em>}'.
+	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.Connector#getSendPort <em>Send Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Out Connector</em>' reference isn't clear,
@@ -47,8 +47,8 @@ public interface OutPort extends AbstractPort {
 	 * @return the value of the '<em>Out Connector</em>' reference.
 	 * @see #setOutConnector(Connector)
 	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getOutPort_OutConnector()
-	 * @see ac.soton.eventb.emf.components.Connector#getSender
-	 * @model opposite="sender"
+	 * @see ac.soton.eventb.emf.components.Connector#getSendPort
+	 * @model opposite="sendPort"
 	 * @generated
 	 */
 	Connector getOutConnector();

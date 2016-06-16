@@ -32,13 +32,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Constants"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/inPorts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/outPorts"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference components.ecore#//Component/inConnectors"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference components.ecore#//Component/outConnectors"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//Connector">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/sender"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/receivers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/sendPort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/receivePorts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Connector/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Connector/initialValue"/>
       <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/inherits"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference components.ecore#//Connector/receivers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/sender"/>
     </genClasses>
     <genClasses image="false" ecoreClass="components.ecore#//AbstractComponentOperation"
         labelFeature="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label">

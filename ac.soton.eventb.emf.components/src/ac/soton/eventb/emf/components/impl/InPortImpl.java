@@ -122,9 +122,9 @@ public class InPortImpl extends AbstractPortImpl implements InPort {
 		if (newInConnector != inConnector) {
 			NotificationChain msgs = null;
 			if (inConnector != null)
-				msgs = ((InternalEObject)inConnector).eInverseRemove(this, ComponentsPackage.CONNECTOR__RECEIVERS, Connector.class, msgs);
+				msgs = ((InternalEObject)inConnector).eInverseRemove(this, ComponentsPackage.CONNECTOR__RECEIVE_PORTS, Connector.class, msgs);
 			if (newInConnector != null)
-				msgs = ((InternalEObject)newInConnector).eInverseAdd(this, ComponentsPackage.CONNECTOR__RECEIVERS, Connector.class, msgs);
+				msgs = ((InternalEObject)newInConnector).eInverseAdd(this, ComponentsPackage.CONNECTOR__RECEIVE_PORTS, Connector.class, msgs);
 			msgs = basicSetInConnector(newInConnector, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -142,7 +142,7 @@ public class InPortImpl extends AbstractPortImpl implements InPort {
 		switch (featureID) {
 			case ComponentsPackage.IN_PORT__IN_CONNECTOR:
 				if (inConnector != null)
-					msgs = ((InternalEObject)inConnector).eInverseRemove(this, ComponentsPackage.CONNECTOR__RECEIVERS, Connector.class, msgs);
+					msgs = ((InternalEObject)inConnector).eInverseRemove(this, ComponentsPackage.CONNECTOR__RECEIVE_PORTS, Connector.class, msgs);
 				return basicSetInConnector((Connector)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

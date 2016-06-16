@@ -21,11 +21,13 @@ import org.eventb.emf.core.EventBNamedCommentedElement;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ac.soton.eventb.emf.components.Connector#getSender <em>Sender</em>}</li>
- *   <li>{@link ac.soton.eventb.emf.components.Connector#getReceivers <em>Receivers</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.Connector#getSendPort <em>Send Port</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.Connector#getReceivePorts <em>Receive Ports</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Connector#getType <em>Type</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Connector#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Connector#getInherits <em>Inherits</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.Connector#getReceivers <em>Receivers</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.Connector#getSender <em>Sender</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,8 +44,53 @@ public interface Connector extends EventBNamedCommentedElement {
 	String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
-	 * Returns the value of the '<em><b>Sender</b></em>' reference.
+	 * Returns the value of the '<em><b>Send Port</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.OutPort#getOutConnector <em>Out Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Send Port</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Send Port</em>' reference.
+	 * @see #setSendPort(OutPort)
+	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getConnector_SendPort()
+	 * @see ac.soton.eventb.emf.components.OutPort#getOutConnector
+	 * @model opposite="outConnector"
+	 * @generated
+	 */
+	OutPort getSendPort();
+
+	/**
+	 * Sets the value of the '{@link ac.soton.eventb.emf.components.Connector#getSendPort <em>Send Port</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Send Port</em>' reference.
+	 * @see #getSendPort()
+	 * @generated
+	 */
+	void setSendPort(OutPort value);
+
+	/**
+	 * Returns the value of the '<em><b>Receive Ports</b></em>' reference list.
+	 * The list contents are of type {@link ac.soton.eventb.emf.components.InPort}.
+	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.InPort#getInConnector <em>In Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Receive Ports</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Receive Ports</em>' reference list.
+	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getConnector_ReceivePorts()
+	 * @see ac.soton.eventb.emf.components.InPort#getInConnector
+	 * @model opposite="inConnector"
+	 * @generated
+	 */
+	EList<InPort> getReceivePorts();
+
+	/**
+	 * Returns the value of the '<em><b>Sender</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sender</em>' reference isn't clear,
@@ -51,41 +98,11 @@ public interface Connector extends EventBNamedCommentedElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sender</em>' reference.
-	 * @see #setSender(OutPort)
 	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getConnector_Sender()
-	 * @see ac.soton.eventb.emf.components.OutPort#getOutConnector
-	 * @model opposite="outConnector"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	OutPort getSender();
-
-	/**
-	 * Sets the value of the '{@link ac.soton.eventb.emf.components.Connector#getSender <em>Sender</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sender</em>' reference.
-	 * @see #getSender()
-	 * @generated
-	 */
-	void setSender(OutPort value);
-
-	/**
-	 * Returns the value of the '<em><b>Receivers</b></em>' reference list.
-	 * The list contents are of type {@link ac.soton.eventb.emf.components.InPort}.
-	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.InPort#getInConnector <em>In Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Receivers</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Receivers</em>' reference list.
-	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getConnector_Receivers()
-	 * @see ac.soton.eventb.emf.components.InPort#getInConnector
-	 * @model opposite="inConnector"
-	 * @generated
-	 */
-	EList<InPort> getReceivers();
+	Component getSender();
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -193,5 +210,21 @@ public interface Connector extends EventBNamedCommentedElement {
 	 * @generated
 	 */
 	boolean isSetInherits();
+
+	/**
+	 * Returns the value of the '<em><b>Receivers</b></em>' reference list.
+	 * The list contents are of type {@link ac.soton.eventb.emf.components.Component}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Receivers</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Receivers</em>' reference list.
+	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getConnector_Receivers()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<Component> getReceivers();
 
 } // Connector

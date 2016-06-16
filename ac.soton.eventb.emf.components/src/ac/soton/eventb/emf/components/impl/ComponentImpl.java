@@ -10,10 +10,12 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -66,6 +68,8 @@ import ac.soton.eventb.statemachines.Statemachine;
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getConstants <em>Constants</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getInPorts <em>In Ports</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getOutPorts <em>Out Ports</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getInConnectors <em>In Connectors</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getOutConnectors <em>Out Connectors</em>}</li>
  * </ul>
  * </p>
  *
@@ -519,6 +523,41 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * returns an unmodifiable list of the connectors that connect to the InPorts of this component
+	 * 	 (InConnectors is a derived, volatile, transient, unmodifiable relationship)
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Connector> getInConnectors() {
+		ArrayList<Connector> inConnectors = new ArrayList<Connector>();
+		for (InPort inp : getInPorts()){
+			if (inp.getInConnector()!= null){
+				inConnectors.add(inp.getInConnector());
+			}
+		}
+		return new BasicEList.UnmodifiableEList<Connector>(inConnectors.size(), inConnectors.toArray());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * 	 returns an unmodifiable list of the connectors that connect to the OutPorts of this component
+	 * 	 (OutConnectors is a derived, volatile, transient, unmodifiable relationship)
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Connector> getOutConnectors() {
+		ArrayList<Connector> outConnectors = new ArrayList<Connector>();
+		for (OutPort inp : getOutPorts()){
+			if (inp.getOutConnector()!= null){
+				outConnectors.add(inp.getOutConnector());
+			}
+		}
+		return new BasicEList.UnmodifiableEList<Connector>(outConnectors.size(), outConnectors.toArray());
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -602,6 +641,10 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return getInPorts();
 			case ComponentsPackage.COMPONENT__OUT_PORTS:
 				return getOutPorts();
+			case ComponentsPackage.COMPONENT__IN_CONNECTORS:
+				return getInConnectors();
+			case ComponentsPackage.COMPONENT__OUT_CONNECTORS:
+				return getOutConnectors();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -790,6 +833,10 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return inPorts != null && !inPorts.isEmpty();
 			case ComponentsPackage.COMPONENT__OUT_PORTS:
 				return outPorts != null && !outPorts.isEmpty();
+			case ComponentsPackage.COMPONENT__IN_CONNECTORS:
+				return !getInConnectors().isEmpty();
+			case ComponentsPackage.COMPONENT__OUT_CONNECTORS:
+				return !getOutConnectors().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

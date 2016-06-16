@@ -361,13 +361,31 @@ public interface ComponentsPackage extends EPackage {
 	int COMPONENT__OUT_PORTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>In Connectors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__IN_CONNECTORS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Out Connectors</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__OUT_CONNECTORS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 18;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 17;
+	int COMPONENT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 19;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -461,22 +479,22 @@ public interface ComponentsPackage extends EPackage {
 	int CONNECTOR__NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Sender</b></em>' reference.
+	 * The feature id for the '<em><b>Send Port</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SENDER = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 0;
+	int CONNECTOR__SEND_PORT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Receivers</b></em>' reference list.
+	 * The feature id for the '<em><b>Receive Ports</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__RECEIVERS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
+	int CONNECTOR__RECEIVE_PORTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -506,13 +524,31 @@ public interface ComponentsPackage extends EPackage {
 	int CONNECTOR__INHERITS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Receivers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__RECEIVERS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Sender</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SENDER = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 5;
+	int CONNECTOR_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.AbstractComponentOperationImpl <em>Abstract Component Operation</em>}' class.
@@ -3750,6 +3786,28 @@ public interface ComponentsPackage extends EPackage {
 	EReference getComponent_OutPorts();
 
 	/**
+	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.Component#getInConnectors <em>In Connectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>In Connectors</em>'.
+	 * @see ac.soton.eventb.emf.components.Component#getInConnectors()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_InConnectors();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.Component#getOutConnectors <em>Out Connectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Out Connectors</em>'.
+	 * @see ac.soton.eventb.emf.components.Component#getOutConnectors()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_OutConnectors();
+
+	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.Connector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3758,6 +3816,28 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.Connector#getSendPort <em>Send Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Send Port</em>'.
+	 * @see ac.soton.eventb.emf.components.Connector#getSendPort()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_SendPort();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.Connector#getReceivePorts <em>Receive Ports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Receive Ports</em>'.
+	 * @see ac.soton.eventb.emf.components.Connector#getReceivePorts()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_ReceivePorts();
 
 	/**
 	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.Connector#getSender <em>Sender</em>}'.
@@ -3769,17 +3849,6 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConnector_Sender();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.Connector#getReceivers <em>Receivers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Receivers</em>'.
-	 * @see ac.soton.eventb.emf.components.Connector#getReceivers()
-	 * @see #getConnector()
-	 * @generated
-	 */
-	EReference getConnector_Receivers();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.components.Connector#getType <em>Type</em>}'.
@@ -3813,6 +3882,17 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConnector_Inherits();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.Connector#getReceivers <em>Receivers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Receivers</em>'.
+	 * @see ac.soton.eventb.emf.components.Connector#getReceivers()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Receivers();
 
 	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.AbstractComponentOperation <em>Abstract Component Operation</em>}'.
@@ -4479,6 +4559,22 @@ public interface ComponentsPackage extends EPackage {
 		EReference COMPONENT__OUT_PORTS = eINSTANCE.getComponent_OutPorts();
 
 		/**
+		 * The meta object literal for the '<em><b>In Connectors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__IN_CONNECTORS = eINSTANCE.getComponent_InConnectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Connectors</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__OUT_CONNECTORS = eINSTANCE.getComponent_OutConnectors();
+
+		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.ConnectorImpl <em>Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4489,20 +4585,28 @@ public interface ComponentsPackage extends EPackage {
 		EClass CONNECTOR = eINSTANCE.getConnector();
 
 		/**
+		 * The meta object literal for the '<em><b>Send Port</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__SEND_PORT = eINSTANCE.getConnector_SendPort();
+
+		/**
+		 * The meta object literal for the '<em><b>Receive Ports</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__RECEIVE_PORTS = eINSTANCE.getConnector_ReceivePorts();
+
+		/**
 		 * The meta object literal for the '<em><b>Sender</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference CONNECTOR__SENDER = eINSTANCE.getConnector_Sender();
-
-		/**
-		 * The meta object literal for the '<em><b>Receivers</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONNECTOR__RECEIVERS = eINSTANCE.getConnector_Receivers();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -4527,6 +4631,14 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONNECTOR__INHERITS = eINSTANCE.getConnector_Inherits();
+
+		/**
+		 * The meta object literal for the '<em><b>Receivers</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__RECEIVERS = eINSTANCE.getConnector_Receivers();
 
 		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.AbstractComponentOperationImpl <em>Abstract Component Operation</em>}' class.

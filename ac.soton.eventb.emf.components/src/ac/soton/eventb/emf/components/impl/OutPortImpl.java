@@ -122,9 +122,9 @@ public class OutPortImpl extends AbstractPortImpl implements OutPort {
 		if (newOutConnector != outConnector) {
 			NotificationChain msgs = null;
 			if (outConnector != null)
-				msgs = ((InternalEObject)outConnector).eInverseRemove(this, ComponentsPackage.CONNECTOR__SENDER, Connector.class, msgs);
+				msgs = ((InternalEObject)outConnector).eInverseRemove(this, ComponentsPackage.CONNECTOR__SEND_PORT, Connector.class, msgs);
 			if (newOutConnector != null)
-				msgs = ((InternalEObject)newOutConnector).eInverseAdd(this, ComponentsPackage.CONNECTOR__SENDER, Connector.class, msgs);
+				msgs = ((InternalEObject)newOutConnector).eInverseAdd(this, ComponentsPackage.CONNECTOR__SEND_PORT, Connector.class, msgs);
 			msgs = basicSetOutConnector(newOutConnector, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -142,7 +142,7 @@ public class OutPortImpl extends AbstractPortImpl implements OutPort {
 		switch (featureID) {
 			case ComponentsPackage.OUT_PORT__OUT_CONNECTOR:
 				if (outConnector != null)
-					msgs = ((InternalEObject)outConnector).eInverseRemove(this, ComponentsPackage.CONNECTOR__SENDER, Connector.class, msgs);
+					msgs = ((InternalEObject)outConnector).eInverseRemove(this, ComponentsPackage.CONNECTOR__SEND_PORT, Connector.class, msgs);
 				return basicSetOutConnector((Connector)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

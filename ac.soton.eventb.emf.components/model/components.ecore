@@ -55,14 +55,18 @@
         eType="#//InPort" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outPorts" upperBound="-1"
         eType="#//OutPort" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inConnectors" upperBound="-1"
+        eType="#//Connector" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outConnectors" upperBound="-1"
+        eType="#//Connector" changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="hasName&#xA;hasType&#xA;hasInitialValue&#xA;hasSender&#xA;hasReceiver"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sender" eType="#//OutPort"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendPort" eType="#//OutPort"
         eOpposite="#//OutPort/outConnector"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="receivers" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receivePorts" upperBound="-1"
         eType="#//InPort" eOpposite="#//InPort/inConnector"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="ℕ"/>
@@ -70,6 +74,10 @@
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inherits" eType="#//Connector"
         unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receivers" upperBound="-1"
+        eType="#//Component" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sender" eType="#//Component"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractComponentOperation" abstract="true"
       eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBCommentedElement ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.ecore#//EventBLabeled">
@@ -166,10 +174,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InPort" eSuperTypes="#//AbstractPort">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inConnector" eType="#//Connector"
-        eOpposite="#//Connector/receivers"/>
+        eOpposite="#//Connector/receivePorts"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutPort" eSuperTypes="#//AbstractPort">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outConnector" eType="#//Connector"
-        eOpposite="#//Connector/sender"/>
+        eOpposite="#//Connector/sendPort"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -37,7 +37,7 @@ public interface InPort extends AbstractPort {
 
 	/**
 	 * Returns the value of the '<em><b>In Connector</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.Connector#getReceivers <em>Receivers</em>}'.
+	 * It is bidirectional and its opposite is '{@link ac.soton.eventb.emf.components.Connector#getReceivePorts <em>Receive Ports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>In Connector</em>' reference isn't clear,
@@ -47,8 +47,8 @@ public interface InPort extends AbstractPort {
 	 * @return the value of the '<em>In Connector</em>' reference.
 	 * @see #setInConnector(Connector)
 	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getInPort_InConnector()
-	 * @see ac.soton.eventb.emf.components.Connector#getReceivers
-	 * @model opposite="receivers"
+	 * @see ac.soton.eventb.emf.components.Connector#getReceivePorts
+	 * @model opposite="receivePorts"
 	 * @generated
 	 */
 	Connector getInConnector();

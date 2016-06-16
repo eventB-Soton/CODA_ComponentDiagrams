@@ -39,6 +39,8 @@ import ac.soton.eventb.statemachines.Statemachine;
  *   <li>{@link ac.soton.eventb.emf.components.Component#getConstants <em>Constants</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Component#getInPorts <em>In Ports</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.Component#getOutPorts <em>Out Ports</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.Component#getInConnectors <em>In Connectors</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.Component#getOutConnectors <em>Out Connectors</em>}</li>
  * </ul>
  * </p>
  *
@@ -290,5 +292,37 @@ public interface Component extends EventBNamedCommentedElement, AbstractComponen
 	 * @generated
 	 */
 	EList<OutPort> getOutPorts();
+
+	/**
+	 * Returns the value of the '<em><b>In Connectors</b></em>' reference list.
+	 * The list contents are of type {@link ac.soton.eventb.emf.components.Connector}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Connectors</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Connectors</em>' reference list.
+	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getComponent_InConnectors()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<Connector> getInConnectors();
+
+	/**
+	 * Returns the value of the '<em><b>Out Connectors</b></em>' reference list.
+	 * The list contents are of type {@link ac.soton.eventb.emf.components.Connector}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Connectors</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Connectors</em>' reference list.
+	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getComponent_OutConnectors()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<Connector> getOutConnectors();
 
 } // Component
