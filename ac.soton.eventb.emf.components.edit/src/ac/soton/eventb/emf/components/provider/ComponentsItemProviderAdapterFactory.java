@@ -63,7 +63,7 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -573,6 +573,52 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ac.soton.eventb.emf.components.InPort} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InPortItemProvider inPortItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ac.soton.eventb.emf.components.InPort}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInPortAdapter() {
+		if (inPortItemProvider == null) {
+			inPortItemProvider = new InPortItemProvider(this);
+		}
+
+		return inPortItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ac.soton.eventb.emf.components.OutPort} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OutPortItemProvider outPortItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ac.soton.eventb.emf.components.OutPort}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOutPortAdapter() {
+		if (outPortItemProvider == null) {
+			outPortItemProvider = new OutPortItemProvider(this);
+		}
+
+		return outPortItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -718,6 +764,8 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 		if (componentConstantItemProvider != null) componentConstantItemProvider.dispose();
 		if (componentAxiomItemProvider != null) componentAxiomItemProvider.dispose();
 		if (wakeQueueItemProvider != null) wakeQueueItemProvider.dispose();
+		if (inPortItemProvider != null) inPortItemProvider.dispose();
+		if (outPortItemProvider != null) outPortItemProvider.dispose();
 	}
 
 	/**
@@ -1040,6 +1088,22 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 						(createChildParameter
 							(CorePackage.Literals.ANNOTATION__CONTENTS,
 							 ComponentsFactory.eINSTANCE.createWakeQueue()));
+
+				
+				annotation = ComponentsPackage.Literals.IN_PORT.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
+				if (annotation == null  || annotation.getReferences().contains(object.eClass()))
+					newChildDescriptors.add
+						(createChildParameter
+							(CorePackage.Literals.ANNOTATION__CONTENTS,
+							 ComponentsFactory.eINSTANCE.createInPort()));
+
+				
+				annotation = ComponentsPackage.Literals.OUT_PORT.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
+				if (annotation == null  || annotation.getReferences().contains(object.eClass()))
+					newChildDescriptors.add
+						(createChildParameter
+							(CorePackage.Literals.ANNOTATION__CONTENTS,
+							 ComponentsFactory.eINSTANCE.createOutPort()));
 
 				return null;
 			}

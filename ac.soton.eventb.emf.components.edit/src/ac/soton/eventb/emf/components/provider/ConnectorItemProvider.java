@@ -54,7 +54,7 @@ public class ConnectorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -77,13 +77,59 @@ public class ConnectorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSenderPropertyDescriptor(object);
-			addReceiversPropertyDescriptor(object);
+			addSendPortPropertyDescriptor(object);
+			addReceivePortsPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addInitialValuePropertyDescriptor(object);
 			addInheritsPropertyDescriptor(object);
+			addReceiversPropertyDescriptor(object);
+			addSenderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Send Port feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSendPortPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Connector_sendPort_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_sendPort_feature", "_UI_Connector_type"),
+				 ComponentsPackage.Literals.CONNECTOR__SEND_PORT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Receive Ports feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReceivePortsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Connector_receivePorts_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_receivePorts_feature", "_UI_Connector_type"),
+				 ComponentsPackage.Literals.CONNECTOR__RECEIVE_PORTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -122,9 +168,9 @@ public class ConnectorItemProvider
 				 getString("_UI_Connector_receivers_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_receivers_feature", "_UI_Connector_type"),
 				 ComponentsPackage.Literals.CONNECTOR__RECEIVERS,
-				 true,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2011
+ * Copyright (c) 2011-2016
  * University of Southampton.
  * All rights reserved. This program and the accompanying materials  are made
  * available under the terms of the Eclipse Public License v1.0 which accompanies this 
@@ -11,11 +11,16 @@
 package ac.soton.eventb.emf.components.provider;
 
 
+import ac.soton.eventb.emf.components.ComponentsPackage;
+import ac.soton.eventb.emf.components.InPort;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -24,16 +29,14 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import ac.soton.eventb.emf.components.Transition;
-
 /**
- * This is the item provider adapter for a {@link ac.soton.eventb.emf.components.Transition} object.
+ * This is the item provider adapter for a {@link ac.soton.eventb.emf.components.InPort} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TransitionItemProvider
-	extends AbstractComponentOperationItemProvider
+public class InPortItemProvider
+	extends AbstractPortItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -54,7 +57,7 @@ public class TransitionItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TransitionItemProvider(AdapterFactory adapterFactory) {
+	public InPortItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,19 +72,42 @@ public class TransitionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addInConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns Transition.gif.
+	 * This adds a property descriptor for the In Connector feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInConnectorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InPort_inConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InPort_inConnector_feature", "_UI_InPort_type"),
+				 ComponentsPackage.Literals.IN_PORT__IN_CONNECTOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns InPort.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Transition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InPort"));
 	}
 
 	/**
@@ -92,10 +118,10 @@ public class TransitionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Transition)object).getLabel());
+		String label = ((InPort)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Transition_type") :
-			getString("_UI_Transition_type") + " " + label;
+			getString("_UI_InPort_type") :
+			getString("_UI_InPort_type") + " " + label;
 	}
 
 	/**

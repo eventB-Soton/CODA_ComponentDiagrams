@@ -55,7 +55,7 @@ public class ComponentItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -144,9 +144,9 @@ public class ComponentItemProvider
 				 getString("_UI_Component_inConnectors_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Component_inConnectors_feature", "_UI_Component_type"),
 				 ComponentsPackage.Literals.COMPONENT__IN_CONNECTORS,
-				 true,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));
@@ -166,9 +166,9 @@ public class ComponentItemProvider
 				 getString("_UI_Component_outConnectors_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Component_outConnectors_feature", "_UI_Component_type"),
 				 ComponentsPackage.Literals.COMPONENT__OUT_CONNECTORS,
-				 true,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));
@@ -199,6 +199,8 @@ public class ComponentItemProvider
 			childrenFeatures.add(ComponentsPackage.Literals.COMPONENT__SETS);
 			childrenFeatures.add(ComponentsPackage.Literals.COMPONENT__AXIOMS);
 			childrenFeatures.add(ComponentsPackage.Literals.COMPONENT__CONSTANTS);
+			childrenFeatures.add(ComponentsPackage.Literals.COMPONENT__IN_PORTS);
+			childrenFeatures.add(ComponentsPackage.Literals.COMPONENT__OUT_PORTS);
 		}
 		return childrenFeatures;
 	}
@@ -270,6 +272,8 @@ public class ComponentItemProvider
 			case ComponentsPackage.COMPONENT__SETS:
 			case ComponentsPackage.COMPONENT__AXIOMS:
 			case ComponentsPackage.COMPONENT__CONSTANTS:
+			case ComponentsPackage.COMPONENT__IN_PORTS:
+			case ComponentsPackage.COMPONENT__OUT_PORTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -381,6 +385,16 @@ public class ComponentItemProvider
 			(createChildParameter
 				(ComponentsPackage.Literals.COMPONENT__CONSTANTS,
 				 ComponentsFactory.eINSTANCE.createComponentConstant()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ComponentsPackage.Literals.COMPONENT__IN_PORTS,
+				 ComponentsFactory.eINSTANCE.createInPort()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ComponentsPackage.Literals.COMPONENT__OUT_PORTS,
+				 ComponentsFactory.eINSTANCE.createOutPort()));
 	}
 
 	/**
