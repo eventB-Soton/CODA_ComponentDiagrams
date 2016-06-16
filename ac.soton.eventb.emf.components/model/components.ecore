@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="components" nsURI="http://soton.ac.uk/models/eventb/components/2014"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="components" nsURI="http://soton.ac.uk/models/eventb/components/2016"
     nsPrefix="components">
   <eClassifiers xsi:type="ecore:EClass" name="AbstractComponentModel" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
@@ -18,10 +18,6 @@
         eType="#//AbstractComponentOperation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wakeQueues" upperBound="-1"
         eType="#//WakeQueue" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inConnectors" upperBound="-1"
-        eType="#//Connector" eOpposite="#//Connector/receivers"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outConnectors" upperBound="-1"
-        eType="#//Connector" eOpposite="#//Connector/sender"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asynchronousStatemachines"
         upperBound="-1" eType="ecore:EClass ../../ac.soton.eventb.statemachines/model/statemachines.ecore#//Statemachine"
         containment="true">
@@ -55,15 +51,19 @@
         eType="#//ComponentAxiom" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Constants" upperBound="-1"
         eType="#//ComponentConstant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inPorts" upperBound="-1"
+        eType="#//InPort" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outPorts" upperBound="-1"
+        eType="#//OutPort" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="hasName&#xA;hasType&#xA;hasInitialValue&#xA;hasSender&#xA;hasReceiver"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sender" eType="#//Component"
-        eOpposite="#//Component/outConnectors"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sender" eType="#//OutPort"
+        eOpposite="#//OutPort/outConnector"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receivers" upperBound="-1"
-        eType="#//Component" eOpposite="#//Component/inConnectors"/>
+        eType="#//InPort" eOpposite="#//InPort/inConnector"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="ℕ"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
@@ -159,5 +159,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="ComponentAxiom" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedDerivedPredicateElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="WakeQueue" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="refines" eType="#//WakeQueue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractPort" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral="ℕ"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InPort" eSuperTypes="#//AbstractPort">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inConnector" eType="#//Connector"
+        eOpposite="#//Connector/receivers"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutPort" eSuperTypes="#//AbstractPort">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outConnector" eType="#//Connector"
+        eOpposite="#//Connector/sender"/>
   </eClassifiers>
 </ecore:EPackage>

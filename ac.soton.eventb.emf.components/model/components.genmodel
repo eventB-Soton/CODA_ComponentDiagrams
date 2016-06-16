@@ -21,8 +21,6 @@
       <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Component/refines"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/operations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/wakeQueues"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Component/inConnectors"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Component/outConnectors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/asynchronousStatemachines"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/synchronousStatemachines"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/processStatemachines"/>
@@ -32,6 +30,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Sets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Axioms"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/Constants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/inPorts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//Component/outPorts"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//Connector">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/sender"/>
@@ -87,6 +87,15 @@
     <genClasses ecoreClass="components.ecore#//ComponentAxiom"/>
     <genClasses ecoreClass="components.ecore#//WakeQueue">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//WakeQueue/refines"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//AbstractPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//AbstractPort/type"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//InPort">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//InPort/inConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//OutPort">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//OutPort/outConnector"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
