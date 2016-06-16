@@ -10,11 +10,12 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eventb.emf.core.impl.EventBNamedCommentedDerivedPredicateElementImpl;
-
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.OperationGuard;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eventb.emf.core.impl.EventBNamedCommentedDerivedPredicateElementImpl;
 
 /**
  * <!-- begin-user-doc -->

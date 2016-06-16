@@ -10,10 +10,10 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
-import org.eclipse.emf.ecore.EClass;
-
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.Transition;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

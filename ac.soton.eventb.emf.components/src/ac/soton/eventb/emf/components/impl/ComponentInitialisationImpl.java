@@ -10,11 +10,12 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eventb.emf.core.impl.EventBNamedCommentedActionElementImpl;
-
 import ac.soton.eventb.emf.components.ComponentInitialisation;
 import ac.soton.eventb.emf.components.ComponentsPackage;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eventb.emf.core.impl.EventBNamedCommentedActionElementImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -10,22 +10,6 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-import org.eventb.emf.core.impl.EventBCommentedElementImpl;
-import org.eventb.emf.core.machine.Convergence;
-import org.eventb.emf.core.machine.Event;
-
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.DelayedDataPacket;
@@ -34,9 +18,32 @@ import ac.soton.eventb.emf.components.OperationAction;
 import ac.soton.eventb.emf.components.OperationGuard;
 import ac.soton.eventb.emf.components.OperationWitness;
 import ac.soton.eventb.emf.components.WakeEvent;
+
 import ac.soton.eventb.emf.core.extension.coreextension.CoreextensionPackage;
 import ac.soton.eventb.emf.core.extension.coreextension.EventBLabeled;
 import ac.soton.eventb.emf.core.extension.coreextension.TypedParameter;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eventb.emf.core.impl.EventBCommentedElementImpl;
+
+import org.eventb.emf.core.machine.Convergence;
+import org.eventb.emf.core.machine.Event;
 
 /**
  * <!-- begin-user-doc -->
@@ -231,8 +238,7 @@ public abstract class AbstractComponentOperationImpl extends EventBCommentedElem
 			result.add(event.getName());
 		return result.toString().replaceAll("(^.)|(.$)", "");
 	}
-	
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,7 +335,6 @@ public abstract class AbstractComponentOperationImpl extends EventBCommentedElem
 		return witnesses;
 	}
 
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * convergence is derived from the elaborated events

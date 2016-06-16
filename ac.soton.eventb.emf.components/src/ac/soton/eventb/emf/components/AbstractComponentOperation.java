@@ -10,13 +10,15 @@
  */
 package ac.soton.eventb.emf.components;
 
-import org.eclipse.emf.common.util.EList;
-import org.eventb.emf.core.EventBCommentedElement;
-import org.eventb.emf.core.machine.Convergence;
-import org.eventb.emf.core.machine.Event;
-
 import ac.soton.eventb.emf.core.extension.coreextension.EventBLabeled;
 import ac.soton.eventb.emf.core.extension.coreextension.TypedParameter;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eventb.emf.core.EventBCommentedElement;
+
+import org.eventb.emf.core.machine.Convergence;
+import org.eventb.emf.core.machine.Event;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,7 +76,7 @@ public interface AbstractComponentOperation extends EventBCommentedElement, Even
 	 * The list contents are of type {@link ac.soton.eventb.emf.components.Method}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Calls</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Calls</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
