@@ -16,7 +16,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://soton.ac.uk/models/eventb/components/2014"
+            uri="http://soton.ac.uk/models/eventb/components/2016"
             class="ac.soton.eventb.emf.components.ComponentsPackage"
             genModel="model/components.genmodel"/>
    </extension>
