@@ -340,7 +340,7 @@ http://www.eclipse.org/legal/epl-v10.html
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <metamodelType
                id="ac.soton.eventb.emf.components.diagram.Component_1000"
                name="%metatype.name.Component_1000"
@@ -350,7 +350,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <specializationType
                id="ac.soton.eventb.emf.components.diagram.Component_2005"
                name="%metatype.name.Component_2005"
@@ -359,7 +359,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="2005"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <metamodelType
                id="ac.soton.eventb.emf.components.diagram.Connector_2006"
                name="%metatype.name.Connector_2006"
@@ -397,7 +397,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="3017"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <metamodelType
                id="ac.soton.eventb.emf.components.diagram.PortWake_3008"
                name="%metatype.name.PortWake_3008"
@@ -407,7 +407,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="3008"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <metamodelType
                id="ac.soton.eventb.emf.components.diagram.SelfWake_3009"
                name="%metatype.name.SelfWake_3009"
@@ -417,7 +417,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="3009"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <metamodelType
                id="ac.soton.eventb.emf.components.diagram.Method_3010"
                name="%metatype.name.Method_3010"
@@ -427,7 +427,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="3010"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <metamodelType
                id="ac.soton.eventb.emf.components.diagram.External_3013"
                name="%metatype.name.External_3013"
@@ -437,7 +437,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="3013"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <metamodelType
                id="ac.soton.eventb.emf.components.diagram.Transition_3014"
                name="%metatype.name.Transition_3014"
@@ -447,7 +447,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="3014"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <specializationType
                id="ac.soton.eventb.emf.components.diagram.Component_3012"
                name="%metatype.name.Component_3012"
@@ -456,7 +456,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="3012"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <metamodelType
                id="ac.soton.eventb.emf.components.diagram.WakeQueue_3018"
                name="%metatype.name.WakeQueue_3018"
@@ -466,7 +466,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="3018"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <specializationType
                id="ac.soton.eventb.emf.components.diagram.ConnectorSender_4004"
                name="%metatype.name.ConnectorSender_4004"
@@ -475,7 +475,7 @@ http://www.eclipse.org/legal/epl-v10.html
             <param name="semanticHint" value="4004"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2014">
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <specializationType
                id="ac.soton.eventb.emf.components.diagram.ConnectorReceivers_4005"
                name="%metatype.name.ConnectorReceivers_4005"

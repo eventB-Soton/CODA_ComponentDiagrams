@@ -6,7 +6,7 @@
          point="org.eventb.emf.persistence.synchroniser">
       <emfPackage
             name="Components Package"
-            nsURI="http://soton.ac.uk/models/eventb/components/2014">
+            nsURI="http://soton.ac.uk/models/eventb/components/2016">
          <synchroniser
                emf_class="Component"
                name="Component Synchroniser"

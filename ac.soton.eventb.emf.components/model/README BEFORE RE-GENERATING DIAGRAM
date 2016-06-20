@@ -1,4 +1,6 @@
-
+  
+ IMPORTANT: if you updated the ecore nsURI to reflect a new version of the meta-model it will break the trace file used by gmf to keep track of its previous generated classes.
+ 			In fact it is best to search and replace the nsURI throughout the whole workspace as a other plugins such as generator, persistence & navigator reference the ecore model this way.
 
 Creating gmfgen from gmfmap resets some configurations therefore it is necessary to restore these settings
  in components.gmfgen before re-generating diagram code. This can be done by doing a text compare with the
@@ -17,3 +19,4 @@ Creating gmfgen from gmfmap resets some configurations therefore it is necessary
  However, this is not always done and some hand customisations may exist. These are listed in 'diagramCustomisation' file. 
  After re-generating, go through the hand customisations and check whether those methods need to be updated to reflect changes
   as they won't have been updated by the re-generation. (e.g. if you added new nodes to the diagram some hand customisations WILL need to be updated)
+  

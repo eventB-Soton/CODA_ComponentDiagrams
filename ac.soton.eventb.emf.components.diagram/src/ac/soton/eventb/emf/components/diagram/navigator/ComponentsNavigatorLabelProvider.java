@@ -116,31 +116,31 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 		switch (ComponentsVisualIDRegistry.getVisualID(view)) {
 		case ComponentDiagramEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://soton.ac.uk/models/eventb/components/2014?Component", ComponentsElementTypes.Component_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://soton.ac.uk/models/eventb/components/2016?Component", ComponentsElementTypes.Component_1000); //$NON-NLS-1$
 		case ComponentEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2014?Component", ComponentsElementTypes.Component_2005); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?Component", ComponentsElementTypes.Component_2005); //$NON-NLS-1$
 		case ConnectorEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2014?Connector", ComponentsElementTypes.Connector_2006); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?Connector", ComponentsElementTypes.Connector_2006); //$NON-NLS-1$
 		case PortWakeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2014?PortWake", ComponentsElementTypes.PortWake_3008); //$NON-NLS-1$
+					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?PortWake", ComponentsElementTypes.PortWake_3008); //$NON-NLS-1$
 		case SelfWakeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2014?SelfWake", ComponentsElementTypes.SelfWake_3009); //$NON-NLS-1$
+					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?SelfWake", ComponentsElementTypes.SelfWake_3009); //$NON-NLS-1$
 		case MethodEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2014?Method", ComponentsElementTypes.Method_3010); //$NON-NLS-1$
+					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?Method", ComponentsElementTypes.Method_3010); //$NON-NLS-1$
 		case SubcomponentEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2014?Component", ComponentsElementTypes.Component_3012); //$NON-NLS-1$
+					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?Component", ComponentsElementTypes.Component_3012); //$NON-NLS-1$
 		case ExternalEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2014?External", ComponentsElementTypes.External_3013); //$NON-NLS-1$
+					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?External", ComponentsElementTypes.External_3013); //$NON-NLS-1$
 		case TransitionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2014?Transition", ComponentsElementTypes.Transition_3014); //$NON-NLS-1$
+					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?Transition", ComponentsElementTypes.Transition_3014); //$NON-NLS-1$
 		case StatemachineEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://soton.ac.uk/models/eventb/statemachines/2014?Statemachine", ComponentsElementTypes.Statemachine_3015); //$NON-NLS-1$
@@ -152,13 +152,13 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 					"Navigator?Node?http://soton.ac.uk/models/eventb/statemachines/2014?Statemachine", ComponentsElementTypes.Statemachine_3017); //$NON-NLS-1$
 		case WakeQueueEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2014?WakeQueue", ComponentsElementTypes.WakeQueue_3018); //$NON-NLS-1$
+					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?WakeQueue", ComponentsElementTypes.WakeQueue_3018); //$NON-NLS-1$
 		case ConnectorSenderEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://soton.ac.uk/models/eventb/components/2014?Connector?sender", ComponentsElementTypes.ConnectorSender_4004); //$NON-NLS-1$
+					"Navigator?Link?http://soton.ac.uk/models/eventb/components/2016?Connector?sender", ComponentsElementTypes.ConnectorSender_4004); //$NON-NLS-1$
 		case ConnectorReceiversEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://soton.ac.uk/models/eventb/components/2014?Connector?receivers", ComponentsElementTypes.ConnectorReceivers_4005); //$NON-NLS-1$
+					"Navigator?Link?http://soton.ac.uk/models/eventb/components/2016?Connector?receivers", ComponentsElementTypes.ConnectorReceivers_4005); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

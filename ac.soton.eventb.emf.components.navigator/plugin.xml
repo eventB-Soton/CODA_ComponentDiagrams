@@ -85,7 +85,7 @@
          point="ac.soton.eventb.emf.core.extension.navigator.elementRefinement">
       <refinementDefinition
             refiner_class="ac.soton.eventb.emf.components.navigator.refiner.ComponentElementRefiner"
-            ePackage="http://soton.ac.uk/models/eventb/components/2014">
+            ePackage="http://soton.ac.uk/models/eventb/components/2016">
       </refinementDefinition>
    </extension>
 

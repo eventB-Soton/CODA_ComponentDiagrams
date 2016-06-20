@@ -10,7 +10,7 @@
             generatorID="ac.soton.eventb.emf.components.generator"
             name="Components Generator"
             root_source_class="Component"
-            sourcePackage="http://soton.ac.uk/models/eventb/components/2014">           
+            sourcePackage="http://soton.ac.uk/models/eventb/components/2016">           
          <rule
                name="RootComponentRule"
                rule_class="ac.soton.eventb.emf.components.generator.rules.RootComponentRule"
