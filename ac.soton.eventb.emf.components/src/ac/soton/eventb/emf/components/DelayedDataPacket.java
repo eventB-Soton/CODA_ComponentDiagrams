@@ -27,7 +27,7 @@ package ac.soton.eventb.emf.components;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasDelay'"
  * @generated
  */
-public interface DelayedDataPacket extends DataPacket {
+public interface DelayedDataPacket extends AbstractDataPacket {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

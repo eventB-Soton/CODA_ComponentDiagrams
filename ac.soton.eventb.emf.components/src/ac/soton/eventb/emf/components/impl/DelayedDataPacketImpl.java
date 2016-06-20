@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DelayedDataPacketImpl extends DataPacketImpl implements DelayedDataPacket {
+public class DelayedDataPacketImpl extends AbstractDataPacketImpl implements DelayedDataPacket {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

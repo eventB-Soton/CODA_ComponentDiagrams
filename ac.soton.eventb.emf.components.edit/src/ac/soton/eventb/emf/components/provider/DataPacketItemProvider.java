@@ -41,7 +41,7 @@ import ac.soton.eventb.statemachines.StatemachinesFactory;
  * @generated
  */
 public class DataPacketItemProvider
-	extends EventBNamedCommentedElementItemProvider
+	extends AbstractDataPacketItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -77,54 +77,8 @@ public class DataPacketItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addConnectorPropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Connector feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConnectorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataPacket_connector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataPacket_connector_feature", "_UI_DataPacket_type"),
-				 ComponentsPackage.Literals.DATA_PACKET__CONNECTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataPacket_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataPacket_value_feature", "_UI_DataPacket_type"),
-				 ComponentsPackage.Literals.DATA_PACKET__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -162,13 +116,6 @@ public class DataPacketItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(DataPacket.class)) {
-			case ComponentsPackage.DATA_PACKET__CONNECTOR:
-			case ComponentsPackage.DATA_PACKET__VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -182,16 +129,6 @@ public class DataPacketItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
-				 ComponentsFactory.eINSTANCE.createComponent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
-				 StatemachinesFactory.eINSTANCE.createStatemachine()));
 	}
 
 }

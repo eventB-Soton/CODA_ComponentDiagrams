@@ -180,6 +180,8 @@ public class ComponentsValidator extends EObjectValidator {
 				return validateInPort((InPort)value, diagnostics, context);
 			case ComponentsPackage.OUT_PORT:
 				return validateOutPort((OutPort)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_DATA_PACKET:
+				return validateAbstractDataPacket((AbstractDataPacket)value, diagnostics, context);
 			case ComponentsPackage.WAKE_KIND:
 				return validateWakeKind((WakeKind)value, diagnostics, context);
 			default:
@@ -681,9 +683,9 @@ public class ComponentsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(dataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dataPacket, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDataPacket_hasName(dataPacket, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDataPacket_hasConnector(dataPacket, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDataPacket_hasValue(dataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasName(dataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasConnector(dataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasValue(dataPacket, diagnostics, context);
 		return result;
 	}
 
@@ -777,9 +779,9 @@ public class ComponentsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(delayedDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(delayedDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(delayedDataPacket, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDataPacket_hasName(delayedDataPacket, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDataPacket_hasConnector(delayedDataPacket, diagnostics, context);
-		if (result || diagnostics != null) result &= validateDataPacket_hasValue(delayedDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasName(delayedDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasConnector(delayedDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasValue(delayedDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validateDelayedDataPacket_hasDelay(delayedDataPacket, diagnostics, context);
 		return result;
 	}
@@ -1121,6 +1123,111 @@ public class ComponentsValidator extends EObjectValidator {
 	 */
 	public boolean validateOutPort(OutPort outPort, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(outPort, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractDataPacket(AbstractDataPacket abstractDataPacket, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_NoCircularContainment(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasName(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasConnector(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasValue(abstractDataPacket, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the hasName constraint of '<em>Abstract Data Packet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractDataPacket_hasName(AbstractDataPacket abstractDataPacket, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasName", getObjectLabel(abstractDataPacket, context) },
+						 new Object[] { abstractDataPacket },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the hasConnector constraint of '<em>Abstract Data Packet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractDataPacket_hasConnector(AbstractDataPacket abstractDataPacket, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasConnector", getObjectLabel(abstractDataPacket, context) },
+						 new Object[] { abstractDataPacket },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the hasValue constraint of '<em>Abstract Data Packet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractDataPacket_hasValue(AbstractDataPacket abstractDataPacket, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasValue", getObjectLabel(abstractDataPacket, context) },
+						 new Object[] { abstractDataPacket },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**

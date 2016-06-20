@@ -207,6 +207,7 @@ public class ComponentsSwitch<T> {
 			case ComponentsPackage.DATA_PACKET: {
 				DataPacket dataPacket = (DataPacket)theEObject;
 				T result = caseDataPacket(dataPacket);
+				if (result == null) result = caseAbstractDataPacket(dataPacket);
 				if (result == null) result = caseEventBNamedCommentedElement(dataPacket);
 				if (result == null) result = caseEventBCommentedElement(dataPacket);
 				if (result == null) result = caseEventBNamed(dataPacket);
@@ -219,7 +220,7 @@ public class ComponentsSwitch<T> {
 			case ComponentsPackage.DELAYED_DATA_PACKET: {
 				DelayedDataPacket delayedDataPacket = (DelayedDataPacket)theEObject;
 				T result = caseDelayedDataPacket(delayedDataPacket);
-				if (result == null) result = caseDataPacket(delayedDataPacket);
+				if (result == null) result = caseAbstractDataPacket(delayedDataPacket);
 				if (result == null) result = caseEventBNamedCommentedElement(delayedDataPacket);
 				if (result == null) result = caseEventBCommentedElement(delayedDataPacket);
 				if (result == null) result = caseEventBNamed(delayedDataPacket);
@@ -450,6 +451,18 @@ public class ComponentsSwitch<T> {
 				if (result == null) result = caseEventBElement(outPort);
 				if (result == null) result = caseEventBCommented(outPort);
 				if (result == null) result = caseEventBObject(outPort);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.ABSTRACT_DATA_PACKET: {
+				AbstractDataPacket abstractDataPacket = (AbstractDataPacket)theEObject;
+				T result = caseAbstractDataPacket(abstractDataPacket);
+				if (result == null) result = caseEventBNamedCommentedElement(abstractDataPacket);
+				if (result == null) result = caseEventBCommentedElement(abstractDataPacket);
+				if (result == null) result = caseEventBNamed(abstractDataPacket);
+				if (result == null) result = caseEventBElement(abstractDataPacket);
+				if (result == null) result = caseEventBCommented(abstractDataPacket);
+				if (result == null) result = caseEventBObject(abstractDataPacket);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -829,6 +842,21 @@ public class ComponentsSwitch<T> {
 	 * @generated
 	 */
 	public T caseOutPort(OutPort object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Data Packet</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Data Packet</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractDataPacket(AbstractDataPacket object) {
 		return null;
 	}
 

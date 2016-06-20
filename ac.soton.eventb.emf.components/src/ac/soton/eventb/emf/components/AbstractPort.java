@@ -21,6 +21,7 @@ import org.eventb.emf.core.EventBNamedCommentedElement;
  * The following features are supported:
  * <ul>
  *   <li>{@link ac.soton.eventb.emf.components.AbstractPort#getType <em>Type</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.AbstractPort#getInherits <em>Inherits</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,5 +63,31 @@ public interface AbstractPort extends EventBNamedCommentedElement {
 	 * @generated
 	 */
 	void setType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Inherits</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inherits</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inherits</em>' reference.
+	 * @see #setInherits(AbstractPort)
+	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getAbstractPort_Inherits()
+	 * @model
+	 * @generated
+	 */
+	AbstractPort getInherits();
+
+	/**
+	 * Sets the value of the '{@link ac.soton.eventb.emf.components.AbstractPort#getInherits <em>Inherits</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inherits</em>' reference.
+	 * @see #getInherits()
+	 * @generated
+	 */
+	void setInherits(AbstractPort value);
 
 } // AbstractPort

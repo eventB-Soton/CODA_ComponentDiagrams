@@ -219,6 +219,10 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 				return createOutPortAdapter();
 			}
 			@Override
+			public Adapter caseAbstractDataPacket(AbstractDataPacket object) {
+				return createAbstractDataPacketAdapter();
+			}
+			@Override
 			public Adapter caseEventBObject(EventBObject object) {
 				return createEventBObjectAdapter();
 			}
@@ -645,6 +649,20 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOutPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.emf.components.AbstractDataPacket <em>Abstract Data Packet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ac.soton.eventb.emf.components.AbstractDataPacket
+	 * @generated
+	 */
+	public Adapter createAbstractDataPacketAdapter() {
 		return null;
 	}
 

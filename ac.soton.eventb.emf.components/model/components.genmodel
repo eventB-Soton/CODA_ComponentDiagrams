@@ -62,10 +62,7 @@
     <genClasses ecoreClass="components.ecore#//PortWake" labelFeature="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference components.ecore#//PortWake/receives"/>
     </genClasses>
-    <genClasses ecoreClass="components.ecore#//DataPacket">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//DataPacket/connector"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//DataPacket/value"/>
-    </genClasses>
+    <genClasses ecoreClass="components.ecore#//DataPacket"/>
     <genClasses ecoreClass="components.ecore#//DelayedDataPacket">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//DelayedDataPacket/delay"/>
     </genClasses>
@@ -94,12 +91,18 @@
     </genClasses>
     <genClasses ecoreClass="components.ecore#//AbstractPort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//AbstractPort/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractPort/inherits"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//InPort">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//InPort/inConnector"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//OutPort">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//OutPort/outConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="components.ecore#//AbstractDataPacket">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference components.ecore#//AbstractDataPacket/connector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//AbstractDataPacket/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractDataPacket/port"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -235,6 +235,15 @@ public interface ComponentsFactory extends EFactory {
 	OutPort createOutPort();
 
 	/**
+	 * Returns a new object of class '<em>Abstract Data Packet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract Data Packet</em>'.
+	 * @generated
+	 */
+	AbstractDataPacket createAbstractDataPacket();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -24,6 +24,7 @@ import org.eventb.emf.core.machine.MachinePackage;
 
 import ac.soton.eventb.emf.components.AbstractComponentModel;
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
+import ac.soton.eventb.emf.components.AbstractDataPacket;
 import ac.soton.eventb.emf.components.AbstractPort;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentAxiom;
@@ -243,6 +244,13 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	private EClass outPortEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractDataPacketEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -725,24 +733,6 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataPacket_Connector() {
-		return (EReference)dataPacketEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDataPacket_Value() {
-		return (EAttribute)dataPacketEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDelayedDataPacket() {
 		return delayedDataPacketEClass;
 	}
@@ -959,6 +949,15 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAbstractPort_Inherits() {
+		return (EReference)abstractPortEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInPort() {
 		return inPortEClass;
 	}
@@ -988,6 +987,42 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 */
 	public EReference getOutPort_OutConnector() {
 		return (EReference)outPortEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractDataPacket() {
+		return abstractDataPacketEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractDataPacket_Connector() {
+		return (EReference)abstractDataPacketEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractDataPacket_Value() {
+		return (EAttribute)abstractDataPacketEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractDataPacket_Port() {
+		return (EReference)abstractDataPacketEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1077,8 +1112,6 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createEReference(portWakeEClass, PORT_WAKE__RECEIVES);
 
 		dataPacketEClass = createEClass(DATA_PACKET);
-		createEReference(dataPacketEClass, DATA_PACKET__CONNECTOR);
-		createEAttribute(dataPacketEClass, DATA_PACKET__VALUE);
 
 		delayedDataPacketEClass = createEClass(DELAYED_DATA_PACKET);
 		createEAttribute(delayedDataPacketEClass, DELAYED_DATA_PACKET__DELAY);
@@ -1119,12 +1152,18 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		abstractPortEClass = createEClass(ABSTRACT_PORT);
 		createEAttribute(abstractPortEClass, ABSTRACT_PORT__TYPE);
+		createEReference(abstractPortEClass, ABSTRACT_PORT__INHERITS);
 
 		inPortEClass = createEClass(IN_PORT);
 		createEReference(inPortEClass, IN_PORT__IN_CONNECTOR);
 
 		outPortEClass = createEClass(OUT_PORT);
 		createEReference(outPortEClass, OUT_PORT__OUT_CONNECTOR);
+
+		abstractDataPacketEClass = createEClass(ABSTRACT_DATA_PACKET);
+		createEReference(abstractDataPacketEClass, ABSTRACT_DATA_PACKET__CONNECTOR);
+		createEAttribute(abstractDataPacketEClass, ABSTRACT_DATA_PACKET__VALUE);
+		createEReference(abstractDataPacketEClass, ABSTRACT_DATA_PACKET__PORT);
 
 		// Create enums
 		wakeKindEEnum = createEEnum(WAKE_KIND);
@@ -1175,8 +1214,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		abstractComponentOperationEClass.getESuperTypes().add(theCoreextensionPackage.getEventBLabeled());
 		methodEClass.getESuperTypes().add(this.getAbstractComponentOperation());
 		portWakeEClass.getESuperTypes().add(this.getAbstractComponentOperation());
-		dataPacketEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
-		delayedDataPacketEClass.getESuperTypes().add(this.getDataPacket());
+		dataPacketEClass.getESuperTypes().add(this.getAbstractDataPacket());
+		delayedDataPacketEClass.getESuperTypes().add(this.getAbstractDataPacket());
 		selfWakeEClass.getESuperTypes().add(this.getAbstractComponentOperation());
 		externalEClass.getESuperTypes().add(this.getAbstractComponentOperation());
 		wakeEventEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
@@ -1194,6 +1233,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		abstractPortEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
 		inPortEClass.getESuperTypes().add(this.getAbstractPort());
 		outPortEClass.getESuperTypes().add(this.getAbstractPort());
+		abstractDataPacketEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(abstractComponentModelEClass, AbstractComponentModel.class, "AbstractComponentModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1246,8 +1286,6 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEReference(getPortWake_Receives(), this.getDataPacket(), null, "receives", null, 0, -1, PortWake.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataPacketEClass, DataPacket.class, "DataPacket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataPacket_Connector(), this.getConnector(), null, "connector", null, 1, 1, DataPacket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataPacket_Value(), theEcorePackage.getEString(), "value", null, 1, 1, DataPacket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(delayedDataPacketEClass, DelayedDataPacket.class, "DelayedDataPacket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDelayedDataPacket_Delay(), ecorePackage.getEString(), "delay", "1", 1, 1, DelayedDataPacket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1288,12 +1326,18 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 
 		initEClass(abstractPortEClass, AbstractPort.class, "AbstractPort", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractPort_Type(), theEcorePackage.getEString(), "type", "\u2115", 0, 1, AbstractPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractPort_Inherits(), this.getAbstractPort(), null, "inherits", null, 0, 1, AbstractPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inPortEClass, InPort.class, "InPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInPort_InConnector(), this.getConnector(), this.getConnector_ReceivePorts(), "inConnector", null, 0, 1, InPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outPortEClass, OutPort.class, "OutPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOutPort_OutConnector(), this.getConnector(), this.getConnector_SendPort(), "outConnector", null, 0, 1, OutPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(abstractDataPacketEClass, AbstractDataPacket.class, "AbstractDataPacket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractDataPacket_Connector(), this.getConnector(), null, "connector", null, 0, 1, AbstractDataPacket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractDataPacket_Value(), theEcorePackage.getEString(), "value", null, 1, 1, AbstractDataPacket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractDataPacket_Port(), this.getAbstractPort(), null, "port", null, 1, 1, AbstractDataPacket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(wakeKindEEnum, WakeKind.class, "WakeKind");
@@ -1362,12 +1406,6 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 			 "constraints", "hasReceive\nreceiveScope"
 		   });		
 		addAnnotation
-		  (dataPacketEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "hasName\nhasConnector\nhasValue"
-		   });		
-		addAnnotation
 		  (delayedDataPacketEClass, 
 		   source, 
 		   new String[] {
@@ -1384,6 +1422,12 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		   source, 
 		   new String[] {
 			 "constraints", "hasCorrespondingStatemachineTransition"
+		   });		
+		addAnnotation
+		  (abstractDataPacketEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "hasName\nhasConnector\nhasValue"
 		   });
 	}
 

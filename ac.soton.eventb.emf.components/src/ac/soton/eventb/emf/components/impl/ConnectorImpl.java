@@ -230,6 +230,9 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * returns the component that owns the OutPort connected to this connector via the SendPort association,
+	 * or null if that connection does not exist
+	 * 	 (sender is a derived, volatile, transient, unmodifiable relationship)
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */

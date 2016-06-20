@@ -1157,6 +1157,133 @@ public interface ComponentsPackage extends EPackage {
 	int PORT_WAKE_FEATURE_COUNT = ABSTRACT_COMPONENT_OPERATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.AbstractDataPacketImpl <em>Abstract Data Packet</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.components.impl.AbstractDataPacketImpl
+	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractDataPacket()
+	 * @generated
+	 */
+	int ABSTRACT_DATA_PACKET = 25;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__ANNOTATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__EXTENSIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__ATTRIBUTES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__REFERENCE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__GENERATED = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__LOCAL_GENERATED = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__LOCAL_GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__INTERNAL_ID = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__COMMENT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__CONNECTOR = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__VALUE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET__PORT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Data Packet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DATA_PACKET_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.DataPacketImpl <em>Data Packet</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1173,7 +1300,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__ANNOTATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__ANNOTATIONS;
+	int DATA_PACKET__ANNOTATIONS = ABSTRACT_DATA_PACKET__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
@@ -1182,7 +1309,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__EXTENSIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__EXTENSIONS;
+	int DATA_PACKET__EXTENSIONS = ABSTRACT_DATA_PACKET__EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' map.
@@ -1191,7 +1318,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__ATTRIBUTES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__ATTRIBUTES;
+	int DATA_PACKET__ATTRIBUTES = ABSTRACT_DATA_PACKET__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -1200,7 +1327,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__REFERENCE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__REFERENCE;
+	int DATA_PACKET__REFERENCE = ABSTRACT_DATA_PACKET__REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Generated</b></em>' attribute.
@@ -1209,7 +1336,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__GENERATED = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__GENERATED;
+	int DATA_PACKET__GENERATED = ABSTRACT_DATA_PACKET__GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
@@ -1218,7 +1345,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__LOCAL_GENERATED = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__LOCAL_GENERATED;
+	int DATA_PACKET__LOCAL_GENERATED = ABSTRACT_DATA_PACKET__LOCAL_GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1227,7 +1354,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__INTERNAL_ID = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__INTERNAL_ID;
+	int DATA_PACKET__INTERNAL_ID = ABSTRACT_DATA_PACKET__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -1236,7 +1363,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__COMMENT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__COMMENT;
+	int DATA_PACKET__COMMENT = ABSTRACT_DATA_PACKET__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1245,7 +1372,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__NAME;
+	int DATA_PACKET__NAME = ABSTRACT_DATA_PACKET__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Connector</b></em>' reference.
@@ -1254,7 +1381,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__CONNECTOR = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 0;
+	int DATA_PACKET__CONNECTOR = ABSTRACT_DATA_PACKET__CONNECTOR;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1263,7 +1390,16 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET__VALUE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
+	int DATA_PACKET__VALUE = ABSTRACT_DATA_PACKET__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PACKET__PORT = ABSTRACT_DATA_PACKET__PORT;
 
 	/**
 	 * The number of structural features of the '<em>Data Packet</em>' class.
@@ -1272,7 +1408,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PACKET_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 2;
+	int DATA_PACKET_FEATURE_COUNT = ABSTRACT_DATA_PACKET_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.DelayedDataPacketImpl <em>Delayed Data Packet</em>}' class.
@@ -1291,7 +1427,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__ANNOTATIONS = DATA_PACKET__ANNOTATIONS;
+	int DELAYED_DATA_PACKET__ANNOTATIONS = ABSTRACT_DATA_PACKET__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
@@ -1300,7 +1436,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__EXTENSIONS = DATA_PACKET__EXTENSIONS;
+	int DELAYED_DATA_PACKET__EXTENSIONS = ABSTRACT_DATA_PACKET__EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' map.
@@ -1309,7 +1445,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__ATTRIBUTES = DATA_PACKET__ATTRIBUTES;
+	int DELAYED_DATA_PACKET__ATTRIBUTES = ABSTRACT_DATA_PACKET__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -1318,7 +1454,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__REFERENCE = DATA_PACKET__REFERENCE;
+	int DELAYED_DATA_PACKET__REFERENCE = ABSTRACT_DATA_PACKET__REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Generated</b></em>' attribute.
@@ -1327,7 +1463,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__GENERATED = DATA_PACKET__GENERATED;
+	int DELAYED_DATA_PACKET__GENERATED = ABSTRACT_DATA_PACKET__GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
@@ -1336,7 +1472,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__LOCAL_GENERATED = DATA_PACKET__LOCAL_GENERATED;
+	int DELAYED_DATA_PACKET__LOCAL_GENERATED = ABSTRACT_DATA_PACKET__LOCAL_GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1345,7 +1481,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__INTERNAL_ID = DATA_PACKET__INTERNAL_ID;
+	int DELAYED_DATA_PACKET__INTERNAL_ID = ABSTRACT_DATA_PACKET__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -1354,7 +1490,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__COMMENT = DATA_PACKET__COMMENT;
+	int DELAYED_DATA_PACKET__COMMENT = ABSTRACT_DATA_PACKET__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1363,7 +1499,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__NAME = DATA_PACKET__NAME;
+	int DELAYED_DATA_PACKET__NAME = ABSTRACT_DATA_PACKET__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Connector</b></em>' reference.
@@ -1372,7 +1508,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__CONNECTOR = DATA_PACKET__CONNECTOR;
+	int DELAYED_DATA_PACKET__CONNECTOR = ABSTRACT_DATA_PACKET__CONNECTOR;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1381,7 +1517,16 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__VALUE = DATA_PACKET__VALUE;
+	int DELAYED_DATA_PACKET__VALUE = ABSTRACT_DATA_PACKET__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAYED_DATA_PACKET__PORT = ABSTRACT_DATA_PACKET__PORT;
 
 	/**
 	 * The feature id for the '<em><b>Delay</b></em>' attribute.
@@ -1390,7 +1535,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET__DELAY = DATA_PACKET_FEATURE_COUNT + 0;
+	int DELAYED_DATA_PACKET__DELAY = ABSTRACT_DATA_PACKET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Delayed Data Packet</em>' class.
@@ -1399,7 +1544,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELAYED_DATA_PACKET_FEATURE_COUNT = DATA_PACKET_FEATURE_COUNT + 1;
+	int DELAYED_DATA_PACKET_FEATURE_COUNT = ABSTRACT_DATA_PACKET_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.SelfWakeImpl <em>Self Wake</em>}' class.
@@ -3334,13 +3479,22 @@ public interface ComponentsPackage extends EPackage {
 	int ABSTRACT_PORT__TYPE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Inherits</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__INHERITS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Port</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_PORT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
+	int ABSTRACT_PORT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.InPortImpl <em>In Port</em>}' class.
@@ -3441,6 +3595,15 @@ public interface ComponentsPackage extends EPackage {
 	 * @ordered
 	 */
 	int IN_PORT__TYPE = ABSTRACT_PORT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Inherits</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__INHERITS = ABSTRACT_PORT__INHERITS;
 
 	/**
 	 * The feature id for the '<em><b>In Connector</b></em>' reference.
@@ -3561,6 +3724,15 @@ public interface ComponentsPackage extends EPackage {
 	int OUT_PORT__TYPE = ABSTRACT_PORT__TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Inherits</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__INHERITS = ABSTRACT_PORT__INHERITS;
+
+	/**
 	 * The feature id for the '<em><b>Out Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3586,7 +3758,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getWakeKind()
 	 * @generated
 	 */
-	int WAKE_KIND = 25;
+	int WAKE_KIND = 26;
 
 
 	/**
@@ -4067,28 +4239,6 @@ public interface ComponentsPackage extends EPackage {
 	EClass getDataPacket();
 
 	/**
-	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.DataPacket#getConnector <em>Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Connector</em>'.
-	 * @see ac.soton.eventb.emf.components.DataPacket#getConnector()
-	 * @see #getDataPacket()
-	 * @generated
-	 */
-	EReference getDataPacket_Connector();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.components.DataPacket#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see ac.soton.eventb.emf.components.DataPacket#getValue()
-	 * @see #getDataPacket()
-	 * @generated
-	 */
-	EAttribute getDataPacket_Value();
-
-	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.DelayedDataPacket <em>Delayed Data Packet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4337,6 +4487,17 @@ public interface ComponentsPackage extends EPackage {
 	EAttribute getAbstractPort_Type();
 
 	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.AbstractPort#getInherits <em>Inherits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Inherits</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractPort#getInherits()
+	 * @see #getAbstractPort()
+	 * @generated
+	 */
+	EReference getAbstractPort_Inherits();
+
+	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.InPort <em>In Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4377,6 +4538,49 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOutPort_OutConnector();
+
+	/**
+	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.AbstractDataPacket <em>Abstract Data Packet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Data Packet</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractDataPacket
+	 * @generated
+	 */
+	EClass getAbstractDataPacket();
+
+	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.AbstractDataPacket#getConnector <em>Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Connector</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractDataPacket#getConnector()
+	 * @see #getAbstractDataPacket()
+	 * @generated
+	 */
+	EReference getAbstractDataPacket_Connector();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.components.AbstractDataPacket#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractDataPacket#getValue()
+	 * @see #getAbstractDataPacket()
+	 * @generated
+	 */
+	EAttribute getAbstractDataPacket_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.AbstractDataPacket#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Port</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractDataPacket#getPort()
+	 * @see #getAbstractDataPacket()
+	 * @generated
+	 */
+	EReference getAbstractDataPacket_Port();
 
 	/**
 	 * Returns the meta object for enum '{@link ac.soton.eventb.emf.components.WakeKind <em>Wake Kind</em>}'.
@@ -4777,22 +4981,6 @@ public interface ComponentsPackage extends EPackage {
 		EClass DATA_PACKET = eINSTANCE.getDataPacket();
 
 		/**
-		 * The meta object literal for the '<em><b>Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_PACKET__CONNECTOR = eINSTANCE.getDataPacket_Connector();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATA_PACKET__VALUE = eINSTANCE.getDataPacket_Value();
-
-		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.DelayedDataPacketImpl <em>Delayed Data Packet</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5017,6 +5205,14 @@ public interface ComponentsPackage extends EPackage {
 		EAttribute ABSTRACT_PORT__TYPE = eINSTANCE.getAbstractPort_Type();
 
 		/**
+		 * The meta object literal for the '<em><b>Inherits</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_PORT__INHERITS = eINSTANCE.getAbstractPort_Inherits();
+
+		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.InPortImpl <em>In Port</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5051,6 +5247,40 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OUT_PORT__OUT_CONNECTOR = eINSTANCE.getOutPort_OutConnector();
+
+		/**
+		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.AbstractDataPacketImpl <em>Abstract Data Packet</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ac.soton.eventb.emf.components.impl.AbstractDataPacketImpl
+		 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractDataPacket()
+		 * @generated
+		 */
+		EClass ABSTRACT_DATA_PACKET = eINSTANCE.getAbstractDataPacket();
+
+		/**
+		 * The meta object literal for the '<em><b>Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_DATA_PACKET__CONNECTOR = eINSTANCE.getAbstractDataPacket_Connector();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_DATA_PACKET__VALUE = eINSTANCE.getAbstractDataPacket_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_DATA_PACKET__PORT = eINSTANCE.getAbstractDataPacket_Port();
 
 		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.WakeKind <em>Wake Kind</em>}' enum.

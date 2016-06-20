@@ -82,6 +82,7 @@ public class AbstractPortItemProvider
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
+			addInheritsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -104,6 +105,28 @@ public class AbstractPortItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Inherits feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInheritsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractPort_inherits_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractPort_inherits_feature", "_UI_AbstractPort_type"),
+				 ComponentsPackage.Literals.ABSTRACT_PORT__INHERITS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

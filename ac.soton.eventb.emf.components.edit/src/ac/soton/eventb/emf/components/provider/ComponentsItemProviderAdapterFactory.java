@@ -619,6 +619,29 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ac.soton.eventb.emf.components.AbstractDataPacket} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AbstractDataPacketItemProvider abstractDataPacketItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ac.soton.eventb.emf.components.AbstractDataPacket}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAbstractDataPacketAdapter() {
+		if (abstractDataPacketItemProvider == null) {
+			abstractDataPacketItemProvider = new AbstractDataPacketItemProvider(this);
+		}
+
+		return abstractDataPacketItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -766,6 +789,7 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 		if (wakeQueueItemProvider != null) wakeQueueItemProvider.dispose();
 		if (inPortItemProvider != null) inPortItemProvider.dispose();
 		if (outPortItemProvider != null) outPortItemProvider.dispose();
+		if (abstractDataPacketItemProvider != null) abstractDataPacketItemProvider.dispose();
 	}
 
 	/**
@@ -960,6 +984,14 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 						(createChildParameter
 							(CorePackage.Literals.ANNOTATION__CONTENTS,
 							 ComponentsFactory.eINSTANCE.createPortWake()));
+
+				
+				annotation = ComponentsPackage.Literals.ABSTRACT_DATA_PACKET.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
+				if (annotation == null  || annotation.getReferences().contains(object.eClass()))
+					newChildDescriptors.add
+						(createChildParameter
+							(CorePackage.Literals.ANNOTATION__CONTENTS,
+							 ComponentsFactory.eINSTANCE.createAbstractDataPacket()));
 
 				
 				annotation = ComponentsPackage.Literals.DATA_PACKET.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");

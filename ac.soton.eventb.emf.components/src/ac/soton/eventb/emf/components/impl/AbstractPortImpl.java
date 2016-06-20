@@ -17,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eventb.emf.core.impl.EventBNamedCommentedElementImpl;
@@ -29,6 +30,7 @@ import org.eventb.emf.core.impl.EventBNamedCommentedElementImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ac.soton.eventb.emf.components.impl.AbstractPortImpl#getType <em>Type</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.AbstractPortImpl#getInherits <em>Inherits</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +63,16 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 	 * @ordered
 	 */
 	protected String type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getInherits() <em>Inherits</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInherits()
+	 * @generated
+	 * @ordered
+	 */
+	protected AbstractPort inherits;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,11 +119,52 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AbstractPort getInherits() {
+		if (inherits != null && inherits.eIsProxy()) {
+			InternalEObject oldInherits = (InternalEObject)inherits;
+			inherits = (AbstractPort)eResolveProxy(oldInherits);
+			if (inherits != oldInherits) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ComponentsPackage.ABSTRACT_PORT__INHERITS, oldInherits, inherits));
+			}
+		}
+		return inherits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractPort basicGetInherits() {
+		return inherits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInherits(AbstractPort newInherits) {
+		AbstractPort oldInherits = inherits;
+		inherits = newInherits;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__INHERITS, oldInherits, inherits));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ComponentsPackage.ABSTRACT_PORT__TYPE:
 				return getType();
+			case ComponentsPackage.ABSTRACT_PORT__INHERITS:
+				if (resolve) return getInherits();
+				return basicGetInherits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,6 +179,9 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 		switch (featureID) {
 			case ComponentsPackage.ABSTRACT_PORT__TYPE:
 				setType((String)newValue);
+				return;
+			case ComponentsPackage.ABSTRACT_PORT__INHERITS:
+				setInherits((AbstractPort)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,6 +198,9 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 			case ComponentsPackage.ABSTRACT_PORT__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case ComponentsPackage.ABSTRACT_PORT__INHERITS:
+				setInherits((AbstractPort)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -156,6 +215,8 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 		switch (featureID) {
 			case ComponentsPackage.ABSTRACT_PORT__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case ComponentsPackage.ABSTRACT_PORT__INHERITS:
+				return inherits != null;
 		}
 		return super.eIsSet(featureID);
 	}

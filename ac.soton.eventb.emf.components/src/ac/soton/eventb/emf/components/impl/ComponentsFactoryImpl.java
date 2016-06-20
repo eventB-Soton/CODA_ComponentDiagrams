@@ -115,6 +115,7 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 			case ComponentsPackage.WAKE_QUEUE: return createWakeQueue();
 			case ComponentsPackage.IN_PORT: return createInPort();
 			case ComponentsPackage.OUT_PORT: return createOutPort();
+			case ComponentsPackage.ABSTRACT_DATA_PACKET: return createAbstractDataPacket();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -368,6 +369,16 @@ public class ComponentsFactoryImpl extends EFactoryImpl implements ComponentsFac
 	public OutPort createOutPort() {
 		OutPortImpl outPort = new OutPortImpl();
 		return outPort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractDataPacket createAbstractDataPacket() {
+		AbstractDataPacketImpl abstractDataPacket = new AbstractDataPacketImpl();
+		return abstractDataPacket;
 	}
 
 	/**

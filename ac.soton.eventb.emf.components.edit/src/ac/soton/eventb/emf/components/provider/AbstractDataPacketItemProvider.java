@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2011
+ * Copyright (c) 2011-2016
  * University of Southampton.
  * All rights reserved. This program and the accompanying materials  are made
  * available under the terms of the Eclipse Public License v1.0 which accompanies this 
@@ -11,11 +11,18 @@
 package ac.soton.eventb.emf.components.provider;
 
 
+import ac.soton.eventb.emf.components.AbstractDataPacket;
+import ac.soton.eventb.emf.components.ComponentsFactory;
+import ac.soton.eventb.emf.components.ComponentsPackage;
+
+import ac.soton.eventb.statemachines.StatemachinesFactory;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -27,17 +34,18 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ac.soton.eventb.emf.components.ComponentsPackage;
-import ac.soton.eventb.emf.components.DelayedDataPacket;
+import org.eventb.emf.core.CorePackage;
+
+import org.eventb.emf.core.provider.EventBNamedCommentedElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link ac.soton.eventb.emf.components.DelayedDataPacket} object.
+ * This is the item provider adapter for a {@link ac.soton.eventb.emf.components.AbstractDataPacket} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DelayedDataPacketItemProvider
-	extends AbstractDataPacketItemProvider
+public class AbstractDataPacketItemProvider
+	extends EventBNamedCommentedElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -58,7 +66,7 @@ public class DelayedDataPacketItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DelayedDataPacketItemProvider(AdapterFactory adapterFactory) {
+	public AbstractDataPacketItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -73,25 +81,49 @@ public class DelayedDataPacketItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDelayPropertyDescriptor(object);
+			addConnectorPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
+			addPortPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Delay feature.
+	 * This adds a property descriptor for the Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDelayPropertyDescriptor(Object object) {
+	protected void addConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DelayedDataPacket_delay_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DelayedDataPacket_delay_feature", "_UI_DelayedDataPacket_type"),
-				 ComponentsPackage.Literals.DELAYED_DATA_PACKET__DELAY,
+				 getString("_UI_AbstractDataPacket_connector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractDataPacket_connector_feature", "_UI_AbstractDataPacket_type"),
+				 ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__CONNECTOR,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractDataPacket_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractDataPacket_value_feature", "_UI_AbstractDataPacket_type"),
+				 ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__VALUE,
 				 true,
 				 false,
 				 false,
@@ -101,14 +133,36 @@ public class DelayedDataPacketItemProvider
 	}
 
 	/**
-	 * This returns DelayedDataPacket.gif.
+	 * This adds a property descriptor for the Port feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPortPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractDataPacket_port_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractDataPacket_port_feature", "_UI_AbstractDataPacket_type"),
+				 ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__PORT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns AbstractDataPacket.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DelayedDataPacket"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AbstractDataPacket"));
 	}
 
 	/**
@@ -119,10 +173,10 @@ public class DelayedDataPacketItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DelayedDataPacket)object).getName();
+		String label = ((AbstractDataPacket)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DelayedDataPacket_type") :
-			getString("_UI_DelayedDataPacket_type") + " " + label;
+			getString("_UI_AbstractDataPacket_type") :
+			getString("_UI_AbstractDataPacket_type") + " " + label;
 	}
 
 	/**
@@ -136,8 +190,8 @@ public class DelayedDataPacketItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DelayedDataPacket.class)) {
-			case ComponentsPackage.DELAYED_DATA_PACKET__DELAY:
+		switch (notification.getFeatureID(AbstractDataPacket.class)) {
+			case ComponentsPackage.ABSTRACT_DATA_PACKET__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -154,6 +208,16 @@ public class DelayedDataPacketItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 ComponentsFactory.eINSTANCE.createComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 StatemachinesFactory.eINSTANCE.createStatemachine()));
 	}
 
 }
