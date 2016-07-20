@@ -479,40 +479,13 @@ public interface ComponentsPackage extends EPackage {
 	int CONNECTOR__NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Send Port</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR__SEND_PORT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Receive Ports</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR__RECEIVE_PORTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__TYPE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Initial Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTOR__INITIAL_VALUE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 3;
+	int CONNECTOR__TYPE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Inherits</b></em>' reference.
@@ -521,7 +494,43 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__INHERITS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 4;
+	int CONNECTOR__INHERITS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__CONNECTOR = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Destinations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__DESTINATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SOURCE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Initial Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__INITIAL_VALUE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Receivers</b></em>' reference list.
@@ -530,7 +539,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__RECEIVERS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 5;
+	int CONNECTOR__RECEIVERS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Sender</b></em>' reference.
@@ -539,7 +548,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SENDER = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 6;
+	int CONNECTOR__SENDER = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -548,7 +557,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 7;
+	int CONNECTOR_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.AbstractComponentOperationImpl <em>Abstract Component Operation</em>}' class.
@@ -3488,13 +3497,158 @@ public interface ComponentsPackage extends EPackage {
 	int ABSTRACT_PORT__INHERITS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PORT__CONNECTOR = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Port</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_PORT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 2;
+	int ABSTRACT_PORT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.AbstractInReceiverImpl <em>Abstract In Receiver</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.components.impl.AbstractInReceiverImpl
+	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractInReceiver()
+	 * @generated
+	 */
+	int ABSTRACT_IN_RECEIVER = 26;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__ANNOTATIONS = ABSTRACT_PORT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__EXTENSIONS = ABSTRACT_PORT__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__ATTRIBUTES = ABSTRACT_PORT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__REFERENCE = ABSTRACT_PORT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__GENERATED = ABSTRACT_PORT__GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__LOCAL_GENERATED = ABSTRACT_PORT__LOCAL_GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__INTERNAL_ID = ABSTRACT_PORT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__COMMENT = ABSTRACT_PORT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__NAME = ABSTRACT_PORT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__TYPE = ABSTRACT_PORT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Inherits</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__INHERITS = ABSTRACT_PORT__INHERITS;
+
+	/**
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__CONNECTOR = ABSTRACT_PORT__CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER__SOURCE = ABSTRACT_PORT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract In Receiver</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_RECEIVER_FEATURE_COUNT = ABSTRACT_PORT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.InPortImpl <em>In Port</em>}' class.
@@ -3513,7 +3667,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__ANNOTATIONS = ABSTRACT_PORT__ANNOTATIONS;
+	int IN_PORT__ANNOTATIONS = ABSTRACT_IN_RECEIVER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
@@ -3522,7 +3676,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__EXTENSIONS = ABSTRACT_PORT__EXTENSIONS;
+	int IN_PORT__EXTENSIONS = ABSTRACT_IN_RECEIVER__EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' map.
@@ -3531,7 +3685,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__ATTRIBUTES = ABSTRACT_PORT__ATTRIBUTES;
+	int IN_PORT__ATTRIBUTES = ABSTRACT_IN_RECEIVER__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -3540,7 +3694,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__REFERENCE = ABSTRACT_PORT__REFERENCE;
+	int IN_PORT__REFERENCE = ABSTRACT_IN_RECEIVER__REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Generated</b></em>' attribute.
@@ -3549,7 +3703,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__GENERATED = ABSTRACT_PORT__GENERATED;
+	int IN_PORT__GENERATED = ABSTRACT_IN_RECEIVER__GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
@@ -3558,7 +3712,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__LOCAL_GENERATED = ABSTRACT_PORT__LOCAL_GENERATED;
+	int IN_PORT__LOCAL_GENERATED = ABSTRACT_IN_RECEIVER__LOCAL_GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -3567,7 +3721,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__INTERNAL_ID = ABSTRACT_PORT__INTERNAL_ID;
+	int IN_PORT__INTERNAL_ID = ABSTRACT_IN_RECEIVER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -3576,7 +3730,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__COMMENT = ABSTRACT_PORT__COMMENT;
+	int IN_PORT__COMMENT = ABSTRACT_IN_RECEIVER__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3585,7 +3739,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__NAME = ABSTRACT_PORT__NAME;
+	int IN_PORT__NAME = ABSTRACT_IN_RECEIVER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -3594,7 +3748,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__TYPE = ABSTRACT_PORT__TYPE;
+	int IN_PORT__TYPE = ABSTRACT_IN_RECEIVER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Inherits</b></em>' reference.
@@ -3603,16 +3757,34 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__INHERITS = ABSTRACT_PORT__INHERITS;
+	int IN_PORT__INHERITS = ABSTRACT_IN_RECEIVER__INHERITS;
 
 	/**
-	 * The feature id for the '<em><b>In Connector</b></em>' reference.
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT__IN_CONNECTOR = ABSTRACT_PORT_FEATURE_COUNT + 0;
+	int IN_PORT__CONNECTOR = ABSTRACT_IN_RECEIVER__CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__SOURCE = ABSTRACT_IN_RECEIVER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Destinations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_PORT__DESTINATIONS = ABSTRACT_IN_RECEIVER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>In Port</em>' class.
@@ -3621,7 +3793,143 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_PORT_FEATURE_COUNT = ABSTRACT_PORT_FEATURE_COUNT + 1;
+	int IN_PORT_FEATURE_COUNT = ABSTRACT_IN_RECEIVER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.AbstractOutSenderImpl <em>Abstract Out Sender</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.components.impl.AbstractOutSenderImpl
+	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractOutSender()
+	 * @generated
+	 */
+	int ABSTRACT_OUT_SENDER = 29;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__ANNOTATIONS = ABSTRACT_PORT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__EXTENSIONS = ABSTRACT_PORT__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__ATTRIBUTES = ABSTRACT_PORT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__REFERENCE = ABSTRACT_PORT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__GENERATED = ABSTRACT_PORT__GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__LOCAL_GENERATED = ABSTRACT_PORT__LOCAL_GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__INTERNAL_ID = ABSTRACT_PORT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__COMMENT = ABSTRACT_PORT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__NAME = ABSTRACT_PORT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__TYPE = ABSTRACT_PORT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Inherits</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__INHERITS = ABSTRACT_PORT__INHERITS;
+
+	/**
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__CONNECTOR = ABSTRACT_PORT__CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Destination</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER__DESTINATION = ABSTRACT_PORT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Out Sender</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_SENDER_FEATURE_COUNT = ABSTRACT_PORT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.OutPortImpl <em>Out Port</em>}' class.
@@ -3640,7 +3948,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__ANNOTATIONS = ABSTRACT_PORT__ANNOTATIONS;
+	int OUT_PORT__ANNOTATIONS = ABSTRACT_OUT_SENDER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
@@ -3649,7 +3957,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__EXTENSIONS = ABSTRACT_PORT__EXTENSIONS;
+	int OUT_PORT__EXTENSIONS = ABSTRACT_OUT_SENDER__EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' map.
@@ -3658,7 +3966,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__ATTRIBUTES = ABSTRACT_PORT__ATTRIBUTES;
+	int OUT_PORT__ATTRIBUTES = ABSTRACT_OUT_SENDER__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -3667,7 +3975,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__REFERENCE = ABSTRACT_PORT__REFERENCE;
+	int OUT_PORT__REFERENCE = ABSTRACT_OUT_SENDER__REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Generated</b></em>' attribute.
@@ -3676,7 +3984,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__GENERATED = ABSTRACT_PORT__GENERATED;
+	int OUT_PORT__GENERATED = ABSTRACT_OUT_SENDER__GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
@@ -3685,7 +3993,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__LOCAL_GENERATED = ABSTRACT_PORT__LOCAL_GENERATED;
+	int OUT_PORT__LOCAL_GENERATED = ABSTRACT_OUT_SENDER__LOCAL_GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -3694,7 +4002,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__INTERNAL_ID = ABSTRACT_PORT__INTERNAL_ID;
+	int OUT_PORT__INTERNAL_ID = ABSTRACT_OUT_SENDER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -3703,7 +4011,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__COMMENT = ABSTRACT_PORT__COMMENT;
+	int OUT_PORT__COMMENT = ABSTRACT_OUT_SENDER__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3712,7 +4020,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__NAME = ABSTRACT_PORT__NAME;
+	int OUT_PORT__NAME = ABSTRACT_OUT_SENDER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -3721,7 +4029,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__TYPE = ABSTRACT_PORT__TYPE;
+	int OUT_PORT__TYPE = ABSTRACT_OUT_SENDER__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Inherits</b></em>' reference.
@@ -3730,16 +4038,34 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__INHERITS = ABSTRACT_PORT__INHERITS;
+	int OUT_PORT__INHERITS = ABSTRACT_OUT_SENDER__INHERITS;
 
 	/**
-	 * The feature id for the '<em><b>Out Connector</b></em>' reference.
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT__OUT_CONNECTOR = ABSTRACT_PORT_FEATURE_COUNT + 0;
+	int OUT_PORT__CONNECTOR = ABSTRACT_OUT_SENDER__CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Destination</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__DESTINATION = ABSTRACT_OUT_SENDER__DESTINATION;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_PORT__SOURCE = ABSTRACT_OUT_SENDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Out Port</em>' class.
@@ -3748,7 +4074,279 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUT_PORT_FEATURE_COUNT = ABSTRACT_PORT_FEATURE_COUNT + 1;
+	int OUT_PORT_FEATURE_COUNT = ABSTRACT_OUT_SENDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.AbstractInSenderImpl <em>Abstract In Sender</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.components.impl.AbstractInSenderImpl
+	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractInSender()
+	 * @generated
+	 */
+	int ABSTRACT_IN_SENDER = 27;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__ANNOTATIONS = ABSTRACT_PORT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__EXTENSIONS = ABSTRACT_PORT__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__ATTRIBUTES = ABSTRACT_PORT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__REFERENCE = ABSTRACT_PORT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__GENERATED = ABSTRACT_PORT__GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__LOCAL_GENERATED = ABSTRACT_PORT__LOCAL_GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__INTERNAL_ID = ABSTRACT_PORT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__COMMENT = ABSTRACT_PORT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__NAME = ABSTRACT_PORT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__TYPE = ABSTRACT_PORT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Inherits</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__INHERITS = ABSTRACT_PORT__INHERITS;
+
+	/**
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__CONNECTOR = ABSTRACT_PORT__CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Destinations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER__DESTINATIONS = ABSTRACT_PORT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract In Sender</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_IN_SENDER_FEATURE_COUNT = ABSTRACT_PORT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.AbstractOutReceiverImpl <em>Abstract Out Receiver</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.components.impl.AbstractOutReceiverImpl
+	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractOutReceiver()
+	 * @generated
+	 */
+	int ABSTRACT_OUT_RECEIVER = 28;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__ANNOTATIONS = ABSTRACT_PORT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__EXTENSIONS = ABSTRACT_PORT__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__ATTRIBUTES = ABSTRACT_PORT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__REFERENCE = ABSTRACT_PORT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__GENERATED = ABSTRACT_PORT__GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__LOCAL_GENERATED = ABSTRACT_PORT__LOCAL_GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__INTERNAL_ID = ABSTRACT_PORT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__COMMENT = ABSTRACT_PORT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__NAME = ABSTRACT_PORT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__TYPE = ABSTRACT_PORT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Inherits</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__INHERITS = ABSTRACT_PORT__INHERITS;
+
+	/**
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__CONNECTOR = ABSTRACT_PORT__CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER__SOURCE = ABSTRACT_PORT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Out Receiver</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_OUT_RECEIVER_FEATURE_COUNT = ABSTRACT_PORT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.WakeKind <em>Wake Kind</em>}' enum.
@@ -3758,7 +4356,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getWakeKind()
 	 * @generated
 	 */
-	int WAKE_KIND = 26;
+	int WAKE_KIND = 30;
 
 
 	/**
@@ -3990,28 +4588,6 @@ public interface ComponentsPackage extends EPackage {
 	EClass getConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.Connector#getSendPort <em>Send Port</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Send Port</em>'.
-	 * @see ac.soton.eventb.emf.components.Connector#getSendPort()
-	 * @see #getConnector()
-	 * @generated
-	 */
-	EReference getConnector_SendPort();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.Connector#getReceivePorts <em>Receive Ports</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Receive Ports</em>'.
-	 * @see ac.soton.eventb.emf.components.Connector#getReceivePorts()
-	 * @see #getConnector()
-	 * @generated
-	 */
-	EReference getConnector_ReceivePorts();
-
-	/**
 	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.Connector#getSender <em>Sender</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4023,17 +4599,6 @@ public interface ComponentsPackage extends EPackage {
 	EReference getConnector_Sender();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.components.Connector#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see ac.soton.eventb.emf.components.Connector#getType()
-	 * @see #getConnector()
-	 * @generated
-	 */
-	EAttribute getConnector_Type();
-
-	/**
 	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.components.Connector#getInitialValue <em>Initial Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4043,17 +4608,6 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConnector_InitialValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.Connector#getInherits <em>Inherits</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Inherits</em>'.
-	 * @see ac.soton.eventb.emf.components.Connector#getInherits()
-	 * @see #getConnector()
-	 * @generated
-	 */
-	EReference getConnector_Inherits();
 
 	/**
 	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.Connector#getReceivers <em>Receivers</em>}'.
@@ -4498,6 +5052,17 @@ public interface ComponentsPackage extends EPackage {
 	EReference getAbstractPort_Inherits();
 
 	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.AbstractPort#getConnector <em>Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Connector</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractPort#getConnector()
+	 * @see #getAbstractPort()
+	 * @generated
+	 */
+	EReference getAbstractPort_Connector();
+
+	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.InPort <em>In Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4508,17 +5073,6 @@ public interface ComponentsPackage extends EPackage {
 	EClass getInPort();
 
 	/**
-	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.InPort#getInConnector <em>In Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>In Connector</em>'.
-	 * @see ac.soton.eventb.emf.components.InPort#getInConnector()
-	 * @see #getInPort()
-	 * @generated
-	 */
-	EReference getInPort_InConnector();
-
-	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.OutPort <em>Out Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4527,17 +5081,6 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOutPort();
-
-	/**
-	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.OutPort#getOutConnector <em>Out Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Out Connector</em>'.
-	 * @see ac.soton.eventb.emf.components.OutPort#getOutConnector()
-	 * @see #getOutPort()
-	 * @generated
-	 */
-	EReference getOutPort_OutConnector();
 
 	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.AbstractDataPacket <em>Abstract Data Packet</em>}'.
@@ -4581,6 +5124,90 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAbstractDataPacket_Port();
+
+	/**
+	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.AbstractInReceiver <em>Abstract In Receiver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract In Receiver</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractInReceiver
+	 * @generated
+	 */
+	EClass getAbstractInReceiver();
+
+	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.AbstractInReceiver#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractInReceiver#getSource()
+	 * @see #getAbstractInReceiver()
+	 * @generated
+	 */
+	EReference getAbstractInReceiver_Source();
+
+	/**
+	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.AbstractInSender <em>Abstract In Sender</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract In Sender</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractInSender
+	 * @generated
+	 */
+	EClass getAbstractInSender();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ac.soton.eventb.emf.components.AbstractInSender#getDestinations <em>Destinations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Destinations</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractInSender#getDestinations()
+	 * @see #getAbstractInSender()
+	 * @generated
+	 */
+	EReference getAbstractInSender_Destinations();
+
+	/**
+	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.AbstractOutReceiver <em>Abstract Out Receiver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Out Receiver</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractOutReceiver
+	 * @generated
+	 */
+	EClass getAbstractOutReceiver();
+
+	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.AbstractOutReceiver#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractOutReceiver#getSource()
+	 * @see #getAbstractOutReceiver()
+	 * @generated
+	 */
+	EReference getAbstractOutReceiver_Source();
+
+	/**
+	 * Returns the meta object for class '{@link ac.soton.eventb.emf.components.AbstractOutSender <em>Abstract Out Sender</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Out Sender</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractOutSender
+	 * @generated
+	 */
+	EClass getAbstractOutSender();
+
+	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.components.AbstractOutSender#getDestination <em>Destination</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Destination</em>'.
+	 * @see ac.soton.eventb.emf.components.AbstractOutSender#getDestination()
+	 * @see #getAbstractOutSender()
+	 * @generated
+	 */
+	EReference getAbstractOutSender_Destination();
 
 	/**
 	 * Returns the meta object for enum '{@link ac.soton.eventb.emf.components.WakeKind <em>Wake Kind</em>}'.
@@ -4789,22 +5416,6 @@ public interface ComponentsPackage extends EPackage {
 		EClass CONNECTOR = eINSTANCE.getConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Send Port</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONNECTOR__SEND_PORT = eINSTANCE.getConnector_SendPort();
-
-		/**
-		 * The meta object literal for the '<em><b>Receive Ports</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONNECTOR__RECEIVE_PORTS = eINSTANCE.getConnector_ReceivePorts();
-
-		/**
 		 * The meta object literal for the '<em><b>Sender</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4813,28 +5424,12 @@ public interface ComponentsPackage extends EPackage {
 		EReference CONNECTOR__SENDER = eINSTANCE.getConnector_Sender();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTOR__TYPE = eINSTANCE.getConnector_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Initial Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CONNECTOR__INITIAL_VALUE = eINSTANCE.getConnector_InitialValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Inherits</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONNECTOR__INHERITS = eINSTANCE.getConnector_Inherits();
 
 		/**
 		 * The meta object literal for the '<em><b>Receivers</b></em>' reference list feature.
@@ -5213,6 +5808,14 @@ public interface ComponentsPackage extends EPackage {
 		EReference ABSTRACT_PORT__INHERITS = eINSTANCE.getAbstractPort_Inherits();
 
 		/**
+		 * The meta object literal for the '<em><b>Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_PORT__CONNECTOR = eINSTANCE.getAbstractPort_Connector();
+
+		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.InPortImpl <em>In Port</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5223,14 +5826,6 @@ public interface ComponentsPackage extends EPackage {
 		EClass IN_PORT = eINSTANCE.getInPort();
 
 		/**
-		 * The meta object literal for the '<em><b>In Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IN_PORT__IN_CONNECTOR = eINSTANCE.getInPort_InConnector();
-
-		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.OutPortImpl <em>Out Port</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5239,14 +5834,6 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OUT_PORT = eINSTANCE.getOutPort();
-
-		/**
-		 * The meta object literal for the '<em><b>Out Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OUT_PORT__OUT_CONNECTOR = eINSTANCE.getOutPort_OutConnector();
 
 		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.AbstractDataPacketImpl <em>Abstract Data Packet</em>}' class.
@@ -5281,6 +5868,78 @@ public interface ComponentsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ABSTRACT_DATA_PACKET__PORT = eINSTANCE.getAbstractDataPacket_Port();
+
+		/**
+		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.AbstractInReceiverImpl <em>Abstract In Receiver</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ac.soton.eventb.emf.components.impl.AbstractInReceiverImpl
+		 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractInReceiver()
+		 * @generated
+		 */
+		EClass ABSTRACT_IN_RECEIVER = eINSTANCE.getAbstractInReceiver();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_IN_RECEIVER__SOURCE = eINSTANCE.getAbstractInReceiver_Source();
+
+		/**
+		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.AbstractInSenderImpl <em>Abstract In Sender</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ac.soton.eventb.emf.components.impl.AbstractInSenderImpl
+		 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractInSender()
+		 * @generated
+		 */
+		EClass ABSTRACT_IN_SENDER = eINSTANCE.getAbstractInSender();
+
+		/**
+		 * The meta object literal for the '<em><b>Destinations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_IN_SENDER__DESTINATIONS = eINSTANCE.getAbstractInSender_Destinations();
+
+		/**
+		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.AbstractOutReceiverImpl <em>Abstract Out Receiver</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ac.soton.eventb.emf.components.impl.AbstractOutReceiverImpl
+		 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractOutReceiver()
+		 * @generated
+		 */
+		EClass ABSTRACT_OUT_RECEIVER = eINSTANCE.getAbstractOutReceiver();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_OUT_RECEIVER__SOURCE = eINSTANCE.getAbstractOutReceiver_Source();
+
+		/**
+		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.impl.AbstractOutSenderImpl <em>Abstract Out Sender</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ac.soton.eventb.emf.components.impl.AbstractOutSenderImpl
+		 * @see ac.soton.eventb.emf.components.impl.ComponentsPackageImpl#getAbstractOutSender()
+		 * @generated
+		 */
+		EClass ABSTRACT_OUT_SENDER = eINSTANCE.getAbstractOutSender();
+
+		/**
+		 * The meta object literal for the '<em><b>Destination</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_OUT_SENDER__DESTINATION = eINSTANCE.getAbstractOutSender_Destination();
 
 		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.components.WakeKind <em>Wake Kind</em>}' enum.

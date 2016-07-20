@@ -36,11 +36,7 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference components.ecore#//Component/outConnectors"/>
     </genClasses>
     <genClasses ecoreClass="components.ecore#//Connector">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/sendPort"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/receivePorts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Connector/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//Connector/initialValue"/>
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/inherits"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference components.ecore#//Connector/receivers"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//Connector/sender"/>
     </genClasses>
@@ -92,17 +88,26 @@
     <genClasses ecoreClass="components.ecore#//AbstractPort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//AbstractPort/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractPort/inherits"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference components.ecore#//AbstractPort/connector"/>
     </genClasses>
-    <genClasses ecoreClass="components.ecore#//InPort">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//InPort/inConnector"/>
-    </genClasses>
-    <genClasses ecoreClass="components.ecore#//OutPort">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//OutPort/outConnector"/>
-    </genClasses>
+    <genClasses ecoreClass="components.ecore#//InPort"/>
+    <genClasses ecoreClass="components.ecore#//OutPort"/>
     <genClasses ecoreClass="components.ecore#//AbstractDataPacket">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference components.ecore#//AbstractDataPacket/connector"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute components.ecore#//AbstractDataPacket/value"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractDataPacket/port"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="components.ecore#//AbstractInReceiver">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractInReceiver/source"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="components.ecore#//AbstractInSender">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractInSender/destinations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="components.ecore#//AbstractOutReceiver">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractOutReceiver/source"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="components.ecore#//AbstractOutSender">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference components.ecore#//AbstractOutSender/destination"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

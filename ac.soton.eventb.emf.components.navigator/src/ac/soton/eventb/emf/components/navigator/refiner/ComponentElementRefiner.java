@@ -47,16 +47,15 @@ public class ComponentElementRefiner extends StatemachineElementRefiner {
 	@Override
 	protected void populateReferenceMap(final Map<EReference,RefHandling> referencemap){
 		super.populateReferenceMap(referencemap);
-		referencemap.put(ComponentsPackage.Literals.COMPONENT__REFINES, RefHandling.CHAIN);
-		referencemap.put(ComponentsPackage.Literals.CONNECTOR__INHERITS, RefHandling.CHAIN);	
+		referencemap.put(ComponentsPackage.Literals.COMPONENT__REFINES, RefHandling.CHAIN);	
 		referencemap.put(ComponentsPackage.Literals.ABSTRACT_PORT__INHERITS, RefHandling.CHAIN);
 		referencemap.put(ComponentsPackage.Literals.WAKE_QUEUE__REFINES, RefHandling.CHAIN);
 		referencemap.put(ComponentsPackage.Literals.ABSTRACT_COMPONENT_OPERATION__REFINES, RefHandling.CHAIN);	
 		referencemap.put(ComponentsPackage.Literals.ABSTRACT_COMPONENT_OPERATION__ELABORATES, RefHandling.EQUIV);
-		referencemap.put(ComponentsPackage.Literals.CONNECTOR__SEND_PORT, RefHandling.EQUIV);
-		referencemap.put(ComponentsPackage.Literals.CONNECTOR__RECEIVE_PORTS, RefHandling.EQUIV);
-		referencemap.put(ComponentsPackage.Literals.IN_PORT__IN_CONNECTOR, RefHandling.EQUIV);
-		referencemap.put(ComponentsPackage.Literals.OUT_PORT__OUT_CONNECTOR, RefHandling.EQUIV);
+		referencemap.put(ComponentsPackage.Literals.ABSTRACT_IN_SENDER__DESTINATIONS, RefHandling.EQUIV);
+		referencemap.put(ComponentsPackage.Literals.ABSTRACT_IN_RECEIVER__SOURCE, RefHandling.EQUIV);
+		referencemap.put(ComponentsPackage.Literals.ABSTRACT_OUT_RECEIVER__SOURCE, RefHandling.EQUIV);
+		referencemap.put(ComponentsPackage.Literals.ABSTRACT_OUT_SENDER__DESTINATION, RefHandling.EQUIV);
 		referencemap.put(ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__PORT, RefHandling.EQUIV);
 		referencemap.put(ComponentsPackage.Literals.SELF_WAKE__QUEUE, RefHandling.EQUIV);
 		referencemap.put(ComponentsPackage.Literals.WAKE_EVENT__QUEUE, RefHandling.EQUIV);

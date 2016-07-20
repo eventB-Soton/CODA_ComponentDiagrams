@@ -22,6 +22,7 @@ import org.eventb.emf.core.EventBNamedCommentedElement;
  * <ul>
  *   <li>{@link ac.soton.eventb.emf.components.AbstractPort#getType <em>Type</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.AbstractPort#getInherits <em>Inherits</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.AbstractPort#getConnector <em>Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,5 +90,20 @@ public interface AbstractPort extends EventBNamedCommentedElement {
 	 * @generated
 	 */
 	void setInherits(AbstractPort value);
+
+	/**
+	 * Returns the value of the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Connector</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connector</em>' reference.
+	 * @see ac.soton.eventb.emf.components.ComponentsPackage#getAbstractPort_Connector()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	Connector getConnector();
 
 } // AbstractPort

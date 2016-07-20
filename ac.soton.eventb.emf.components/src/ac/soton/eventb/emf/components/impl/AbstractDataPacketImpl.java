@@ -117,10 +117,14 @@ public class AbstractDataPacketImpl extends EventBNamedCommentedElementImpl impl
 	 * @generated NOT
 	 */
 	public Connector basicGetConnector() {
-		return 
-				getPort() instanceof InPort? ((InPort)getPort()).getInConnector() :
-				getPort() instanceof OutPort? ((OutPort)getPort()).getOutConnector() :
-				null;		
+		return getPort()==null? null: getPort().getConnector();
+//		 AbstractPort ap = getPort();
+//		while (ap !=null && !(ap instanceof Connector))
+//			ap = 
+//				ap instanceof InPort? ((InPort)getPort()).getInConnector() :
+//				ap instanceof OutPort? ((OutPort)getPort()).getOutConnector() :
+//				null;
+//		return (Connector) ap;
 	}
 
 	/**

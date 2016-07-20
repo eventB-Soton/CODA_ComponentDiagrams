@@ -83,6 +83,7 @@ public class AbstractPortItemProvider
 
 			addTypePropertyDescriptor(object);
 			addInheritsPropertyDescriptor(object);
+			addConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -126,6 +127,28 @@ public class AbstractPortItemProvider
 				 true,
 				 false,
 				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Connector feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConnectorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractPort_connector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractPort_connector_feature", "_UI_AbstractPort_type"),
+				 ComponentsPackage.Literals.ABSTRACT_PORT__CONNECTOR,
+				 false,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

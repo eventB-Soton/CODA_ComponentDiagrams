@@ -77,59 +77,16 @@ public class ConnectorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSendPortPropertyDescriptor(object);
-			addReceivePortsPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
-			addInitialValuePropertyDescriptor(object);
 			addInheritsPropertyDescriptor(object);
+			addConnectorPropertyDescriptor(object);
+			addDestinationsPropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
+			addInitialValuePropertyDescriptor(object);
 			addReceiversPropertyDescriptor(object);
 			addSenderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Send Port feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSendPortPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Connector_sendPort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_sendPort_feature", "_UI_Connector_type"),
-				 ComponentsPackage.Literals.CONNECTOR__SEND_PORT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Receive Ports feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReceivePortsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Connector_receivePorts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_receivePorts_feature", "_UI_Connector_type"),
-				 ComponentsPackage.Literals.CONNECTOR__RECEIVE_PORTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -187,9 +144,9 @@ public class ConnectorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Connector_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_type_feature", "_UI_Connector_type"),
-				 ComponentsPackage.Literals.CONNECTOR__TYPE,
+				 getString("_UI_AbstractPort_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractPort_type_feature", "_UI_AbstractPort_type"),
+				 ComponentsPackage.Literals.ABSTRACT_PORT__TYPE,
 				 true,
 				 false,
 				 false,
@@ -231,9 +188,75 @@ public class ConnectorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Connector_inherits_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Connector_inherits_feature", "_UI_Connector_type"),
-				 ComponentsPackage.Literals.CONNECTOR__INHERITS,
+				 getString("_UI_AbstractPort_inherits_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractPort_inherits_feature", "_UI_AbstractPort_type"),
+				 ComponentsPackage.Literals.ABSTRACT_PORT__INHERITS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Connector feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConnectorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractPort_connector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractPort_connector_feature", "_UI_AbstractPort_type"),
+				 ComponentsPackage.Literals.ABSTRACT_PORT__CONNECTOR,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Destinations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDestinationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractInSender_destinations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractInSender_destinations_feature", "_UI_AbstractInSender_type"),
+				 ComponentsPackage.Literals.ABSTRACT_IN_SENDER__DESTINATIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Source feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourcePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractOutReceiver_source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractOutReceiver_source_feature", "_UI_AbstractOutReceiver_type"),
+				 ComponentsPackage.Literals.ABSTRACT_OUT_RECEIVER__SOURCE,
 				 true,
 				 false,
 				 true,
@@ -281,7 +304,6 @@ public class ConnectorItemProvider
 		switch (notification.getFeatureID(Connector.class)) {
 			case ComponentsPackage.CONNECTOR__TYPE:
 			case ComponentsPackage.CONNECTOR__INITIAL_VALUE:
-			case ComponentsPackage.CONNECTOR__INHERITS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

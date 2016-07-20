@@ -182,6 +182,14 @@ public class ComponentsValidator extends EObjectValidator {
 				return validateOutPort((OutPort)value, diagnostics, context);
 			case ComponentsPackage.ABSTRACT_DATA_PACKET:
 				return validateAbstractDataPacket((AbstractDataPacket)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_IN_RECEIVER:
+				return validateAbstractInReceiver((AbstractInReceiver)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_IN_SENDER:
+				return validateAbstractInSender((AbstractInSender)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_OUT_RECEIVER:
+				return validateAbstractOutReceiver((AbstractOutReceiver)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_OUT_SENDER:
+				return validateAbstractOutSender((AbstractOutSender)value, diagnostics, context);
 			case ComponentsPackage.WAKE_KIND:
 				return validateWakeKind((WakeKind)value, diagnostics, context);
 			default:
@@ -1228,6 +1236,42 @@ public class ComponentsValidator extends EObjectValidator {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractInReceiver(AbstractInReceiver abstractInReceiver, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractInReceiver, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractInSender(AbstractInSender abstractInSender, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractInSender, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractOutReceiver(AbstractOutReceiver abstractOutReceiver, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractOutReceiver, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractOutSender(AbstractOutSender abstractOutSender, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(abstractOutSender, diagnostics, context);
 	}
 
 	/**

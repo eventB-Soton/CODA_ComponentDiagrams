@@ -160,9 +160,12 @@ public class ComponentsSwitch<T> {
 			case ComponentsPackage.CONNECTOR: {
 				Connector connector = (Connector)theEObject;
 				T result = caseConnector(connector);
-				if (result == null) result = caseEventBNamedCommentedElement(connector);
+				if (result == null) result = caseAbstractInSender(connector);
+				if (result == null) result = caseAbstractOutReceiver(connector);
 				if (result == null) result = caseEventBCommentedElement(connector);
 				if (result == null) result = caseEventBNamed(connector);
+				if (result == null) result = caseAbstractPort(connector);
+				if (result == null) result = caseEventBNamedCommentedElement(connector);
 				if (result == null) result = caseEventBElement(connector);
 				if (result == null) result = caseEventBCommented(connector);
 				if (result == null) result = caseEventBObject(connector);
@@ -431,6 +434,8 @@ public class ComponentsSwitch<T> {
 			case ComponentsPackage.IN_PORT: {
 				InPort inPort = (InPort)theEObject;
 				T result = caseInPort(inPort);
+				if (result == null) result = caseAbstractInReceiver(inPort);
+				if (result == null) result = caseAbstractInSender(inPort);
 				if (result == null) result = caseAbstractPort(inPort);
 				if (result == null) result = caseEventBNamedCommentedElement(inPort);
 				if (result == null) result = caseEventBCommentedElement(inPort);
@@ -444,6 +449,8 @@ public class ComponentsSwitch<T> {
 			case ComponentsPackage.OUT_PORT: {
 				OutPort outPort = (OutPort)theEObject;
 				T result = caseOutPort(outPort);
+				if (result == null) result = caseAbstractOutSender(outPort);
+				if (result == null) result = caseAbstractOutReceiver(outPort);
 				if (result == null) result = caseAbstractPort(outPort);
 				if (result == null) result = caseEventBNamedCommentedElement(outPort);
 				if (result == null) result = caseEventBCommentedElement(outPort);
@@ -463,6 +470,58 @@ public class ComponentsSwitch<T> {
 				if (result == null) result = caseEventBElement(abstractDataPacket);
 				if (result == null) result = caseEventBCommented(abstractDataPacket);
 				if (result == null) result = caseEventBObject(abstractDataPacket);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.ABSTRACT_IN_RECEIVER: {
+				AbstractInReceiver abstractInReceiver = (AbstractInReceiver)theEObject;
+				T result = caseAbstractInReceiver(abstractInReceiver);
+				if (result == null) result = caseAbstractPort(abstractInReceiver);
+				if (result == null) result = caseEventBNamedCommentedElement(abstractInReceiver);
+				if (result == null) result = caseEventBCommentedElement(abstractInReceiver);
+				if (result == null) result = caseEventBNamed(abstractInReceiver);
+				if (result == null) result = caseEventBElement(abstractInReceiver);
+				if (result == null) result = caseEventBCommented(abstractInReceiver);
+				if (result == null) result = caseEventBObject(abstractInReceiver);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.ABSTRACT_IN_SENDER: {
+				AbstractInSender abstractInSender = (AbstractInSender)theEObject;
+				T result = caseAbstractInSender(abstractInSender);
+				if (result == null) result = caseAbstractPort(abstractInSender);
+				if (result == null) result = caseEventBNamedCommentedElement(abstractInSender);
+				if (result == null) result = caseEventBCommentedElement(abstractInSender);
+				if (result == null) result = caseEventBNamed(abstractInSender);
+				if (result == null) result = caseEventBElement(abstractInSender);
+				if (result == null) result = caseEventBCommented(abstractInSender);
+				if (result == null) result = caseEventBObject(abstractInSender);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.ABSTRACT_OUT_RECEIVER: {
+				AbstractOutReceiver abstractOutReceiver = (AbstractOutReceiver)theEObject;
+				T result = caseAbstractOutReceiver(abstractOutReceiver);
+				if (result == null) result = caseAbstractPort(abstractOutReceiver);
+				if (result == null) result = caseEventBNamedCommentedElement(abstractOutReceiver);
+				if (result == null) result = caseEventBCommentedElement(abstractOutReceiver);
+				if (result == null) result = caseEventBNamed(abstractOutReceiver);
+				if (result == null) result = caseEventBElement(abstractOutReceiver);
+				if (result == null) result = caseEventBCommented(abstractOutReceiver);
+				if (result == null) result = caseEventBObject(abstractOutReceiver);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ComponentsPackage.ABSTRACT_OUT_SENDER: {
+				AbstractOutSender abstractOutSender = (AbstractOutSender)theEObject;
+				T result = caseAbstractOutSender(abstractOutSender);
+				if (result == null) result = caseAbstractPort(abstractOutSender);
+				if (result == null) result = caseEventBNamedCommentedElement(abstractOutSender);
+				if (result == null) result = caseEventBCommentedElement(abstractOutSender);
+				if (result == null) result = caseEventBNamed(abstractOutSender);
+				if (result == null) result = caseEventBElement(abstractOutSender);
+				if (result == null) result = caseEventBCommented(abstractOutSender);
+				if (result == null) result = caseEventBObject(abstractOutSender);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -857,6 +916,66 @@ public class ComponentsSwitch<T> {
 	 * @generated
 	 */
 	public T caseAbstractDataPacket(AbstractDataPacket object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract In Receiver</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract In Receiver</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractInReceiver(AbstractInReceiver object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract In Sender</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract In Sender</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractInSender(AbstractInSender object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Out Receiver</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Out Receiver</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractOutReceiver(AbstractOutReceiver object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Out Sender</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Out Sender</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractOutSender(AbstractOutSender object) {
 		return null;
 	}
 

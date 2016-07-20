@@ -531,8 +531,8 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	public EList<Connector> getInConnectors() {
 		ArrayList<Connector> inConnectors = new ArrayList<Connector>();
 		for (InPort inp : getInPorts()){
-			if (inp.getInConnector()!= null){
-				inConnectors.add(inp.getInConnector());
+			if (inp.getConnector()!= null){
+				inConnectors.add(inp.getConnector());
 			}
 		}
 		return new BasicEList.UnmodifiableEList<Connector>(inConnectors.size(), inConnectors.toArray());
@@ -547,9 +547,9 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	 */
 	public EList<Connector> getOutConnectors() {
 		ArrayList<Connector> outConnectors = new ArrayList<Connector>();
-		for (OutPort inp : getOutPorts()){
-			if (inp.getOutConnector()!= null){
-				outConnectors.add(inp.getOutConnector());
+		for (OutPort outp : getOutPorts()){
+			if (outp.getConnector() != null){
+				outConnectors.add(outp.getConnector());
 			}
 		}
 		return new BasicEList.UnmodifiableEList<Connector>(outConnectors.size(), outConnectors.toArray());

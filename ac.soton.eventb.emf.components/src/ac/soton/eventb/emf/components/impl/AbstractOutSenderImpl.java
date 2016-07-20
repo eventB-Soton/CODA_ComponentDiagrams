@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2011
+ * Copyright (c) 2011-2016
  * University of Southampton.
  * All rights reserved. This program and the accompanying materials  are made
  * available under the terms of the Eclipse Public License v1.0 which accompanies this 
@@ -13,30 +13,28 @@ package ac.soton.eventb.emf.components.impl;
 import ac.soton.eventb.emf.components.AbstractOutReceiver;
 import ac.soton.eventb.emf.components.AbstractOutSender;
 import ac.soton.eventb.emf.components.ComponentsPackage;
-import ac.soton.eventb.emf.components.OutPort;
+import ac.soton.eventb.emf.components.Connector;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Out Port</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Out Sender</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ac.soton.eventb.emf.components.impl.OutPortImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.AbstractOutSenderImpl#getDestination <em>Destination</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
+public abstract class AbstractOutSenderImpl extends AbstractPortImpl implements AbstractOutSender {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,21 +43,21 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
+	 * The cached value of the '{@link #getDestination() <em>Destination</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSource()
+	 * @see #getDestination()
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractOutSender source;
+	protected AbstractOutReceiver destination;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OutPortImpl() {
+	protected AbstractOutSenderImpl() {
 		super();
 	}
 
@@ -70,7 +68,7 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ComponentsPackage.Literals.OUT_PORT;
+		return ComponentsPackage.Literals.ABSTRACT_OUT_SENDER;
 	}
 
 	/**
@@ -78,16 +76,16 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractOutSender getSource() {
-		if (source != null && source.eIsProxy()) {
-			InternalEObject oldSource = (InternalEObject)source;
-			source = (AbstractOutSender)eResolveProxy(oldSource);
-			if (source != oldSource) {
+	public AbstractOutReceiver getDestination() {
+		if (destination != null && destination.eIsProxy()) {
+			InternalEObject oldDestination = (InternalEObject)destination;
+			destination = (AbstractOutReceiver)eResolveProxy(oldDestination);
+			if (destination != oldDestination) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ComponentsPackage.OUT_PORT__SOURCE, oldSource, source));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION, oldDestination, destination));
 			}
 		}
-		return source;
+		return destination;
 	}
 
 	/**
@@ -95,8 +93,8 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AbstractOutSender basicGetSource() {
-		return source;
+	public AbstractOutReceiver basicGetDestination() {
+		return destination;
 	}
 
 	/**
@@ -104,11 +102,11 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSource(AbstractOutSender newSource, NotificationChain msgs) {
-		AbstractOutSender oldSource = source;
-		source = newSource;
+	public NotificationChain basicSetDestination(AbstractOutReceiver newDestination, NotificationChain msgs) {
+		AbstractOutReceiver oldDestination = destination;
+		destination = newDestination;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ComponentsPackage.OUT_PORT__SOURCE, oldSource, newSource);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION, oldDestination, newDestination);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -119,18 +117,18 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSource(AbstractOutSender newSource) {
-		if (newSource != source) {
+	public void setDestination(AbstractOutReceiver newDestination) {
+		if (newDestination != destination) {
 			NotificationChain msgs = null;
-			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION, AbstractOutSender.class, msgs);
-			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION, AbstractOutSender.class, msgs);
-			msgs = basicSetSource(newSource, msgs);
+			if (destination != null)
+				msgs = ((InternalEObject)destination).eInverseRemove(this, ComponentsPackage.ABSTRACT_OUT_RECEIVER__SOURCE, AbstractOutReceiver.class, msgs);
+			if (newDestination != null)
+				msgs = ((InternalEObject)newDestination).eInverseAdd(this, ComponentsPackage.ABSTRACT_OUT_RECEIVER__SOURCE, AbstractOutReceiver.class, msgs);
+			msgs = basicSetDestination(newDestination, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.OUT_PORT__SOURCE, newSource, newSource));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION, newDestination, newDestination));
 	}
 
 	/**
@@ -141,10 +139,10 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ComponentsPackage.OUT_PORT__SOURCE:
-				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION, AbstractOutSender.class, msgs);
-				return basicSetSource((AbstractOutSender)otherEnd, msgs);
+			case ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION:
+				if (destination != null)
+					msgs = ((InternalEObject)destination).eInverseRemove(this, ComponentsPackage.ABSTRACT_OUT_RECEIVER__SOURCE, AbstractOutReceiver.class, msgs);
+				return basicSetDestination((AbstractOutReceiver)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -157,8 +155,8 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ComponentsPackage.OUT_PORT__SOURCE:
-				return basicSetSource(null, msgs);
+			case ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION:
+				return basicSetDestination(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -171,9 +169,9 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ComponentsPackage.OUT_PORT__SOURCE:
-				if (resolve) return getSource();
-				return basicGetSource();
+			case ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION:
+				if (resolve) return getDestination();
+				return basicGetDestination();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -186,8 +184,8 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ComponentsPackage.OUT_PORT__SOURCE:
-				setSource((AbstractOutSender)newValue);
+			case ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION:
+				setDestination((AbstractOutReceiver)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -201,8 +199,8 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ComponentsPackage.OUT_PORT__SOURCE:
-				setSource((AbstractOutSender)null);
+			case ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION:
+				setDestination((AbstractOutReceiver)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -216,43 +214,24 @@ public class OutPortImpl extends AbstractOutSenderImpl implements OutPort {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ComponentsPackage.OUT_PORT__SOURCE:
-				return source != null;
+			case ComponentsPackage.ABSTRACT_OUT_SENDER__DESTINATION:
+				return destination != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == AbstractOutReceiver.class) {
-			switch (derivedFeatureID) {
-				case ComponentsPackage.OUT_PORT__SOURCE: return ComponentsPackage.ABSTRACT_OUT_RECEIVER__SOURCE;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Overridden to return the connector that this outport finally links to
+	 * .. i.e. the connector that the destination connects to.
+	 * (Connector is a derived, volatile, transient, unmodifiable relationship)
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @custom
+	 * @override
 	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == AbstractOutReceiver.class) {
-			switch (baseFeatureID) {
-				case ComponentsPackage.ABSTRACT_OUT_RECEIVER__SOURCE: return ComponentsPackage.OUT_PORT__SOURCE;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	public Connector basicGetConnector() {
+		return getDestination().getConnector();
 	}
-
 	
-} //OutPortImpl
+} //AbstractOutSenderImpl

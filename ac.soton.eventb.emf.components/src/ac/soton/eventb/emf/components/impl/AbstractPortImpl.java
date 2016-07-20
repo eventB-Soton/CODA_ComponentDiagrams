@@ -13,6 +13,7 @@ package ac.soton.eventb.emf.components.impl;
 import ac.soton.eventb.emf.components.AbstractPort;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 
+import ac.soton.eventb.emf.components.Connector;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -31,6 +32,7 @@ import org.eventb.emf.core.impl.EventBNamedCommentedElementImpl;
  * <ul>
  *   <li>{@link ac.soton.eventb.emf.components.impl.AbstractPortImpl#getType <em>Type</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.AbstractPortImpl#getInherits <em>Inherits</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.AbstractPortImpl#getConnector <em>Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -157,6 +159,30 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Connector getConnector() {
+		Connector connector = basicGetConnector();
+		return connector != null && connector.eIsProxy() ? (Connector)eResolveProxy((InternalEObject)connector) : connector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * This should be overridden by extenders..
+	 * .. It is not implemented here
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Connector basicGetConnector() {
+		// TODO: implement this method to return the 'Connector' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -165,6 +191,9 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 			case ComponentsPackage.ABSTRACT_PORT__INHERITS:
 				if (resolve) return getInherits();
 				return basicGetInherits();
+			case ComponentsPackage.ABSTRACT_PORT__CONNECTOR:
+				if (resolve) return getConnector();
+				return basicGetConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,6 +246,8 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case ComponentsPackage.ABSTRACT_PORT__INHERITS:
 				return inherits != null;
+			case ComponentsPackage.ABSTRACT_PORT__CONNECTOR:
+				return basicGetConnector() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -36,7 +36,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class InPortItemProvider
-	extends AbstractPortItemProvider
+	extends AbstractInReceiverItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -72,25 +72,25 @@ public class InPortItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInConnectorPropertyDescriptor(object);
+			addDestinationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the In Connector feature.
+	 * This adds a property descriptor for the Destinations feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInConnectorPropertyDescriptor(Object object) {
+	protected void addDestinationsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InPort_inConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InPort_inConnector_feature", "_UI_InPort_type"),
-				 ComponentsPackage.Literals.IN_PORT__IN_CONNECTOR,
+				 getString("_UI_AbstractInSender_destinations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractInSender_destinations_feature", "_UI_AbstractInSender_type"),
+				 ComponentsPackage.Literals.ABSTRACT_IN_SENDER__DESTINATIONS,
 				 true,
 				 false,
 				 true,

@@ -25,6 +25,10 @@ import org.eventb.emf.core.machine.MachinePackage;
 import ac.soton.eventb.emf.components.AbstractComponentModel;
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
 import ac.soton.eventb.emf.components.AbstractDataPacket;
+import ac.soton.eventb.emf.components.AbstractInReceiver;
+import ac.soton.eventb.emf.components.AbstractInSender;
+import ac.soton.eventb.emf.components.AbstractOutReceiver;
+import ac.soton.eventb.emf.components.AbstractOutSender;
 import ac.soton.eventb.emf.components.AbstractPort;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentAxiom;
@@ -251,6 +255,34 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	private EClass abstractDataPacketEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractInReceiverEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractInSenderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractOutReceiverEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractOutSenderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -526,35 +558,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConnector_SendPort() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConnector_ReceivePorts() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getConnector_Sender() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnector_Type() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(2);
+		return (EReference)connectorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -563,16 +568,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	public EAttribute getConnector_InitialValue() {
-		return (EAttribute)connectorEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConnector_Inherits() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)connectorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -581,7 +577,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * @generated
 	 */
 	public EReference getConnector_Receivers() {
-		return (EReference)connectorEClass.getEStructuralFeatures().get(5);
+		return (EReference)connectorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -958,6 +954,15 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAbstractPort_Connector() {
+		return (EReference)abstractPortEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInPort() {
 		return inPortEClass;
 	}
@@ -967,26 +972,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInPort_InConnector() {
-		return (EReference)inPortEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getOutPort() {
 		return outPortEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOutPort_OutConnector() {
-		return (EReference)outPortEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1023,6 +1010,78 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 */
 	public EReference getAbstractDataPacket_Port() {
 		return (EReference)abstractDataPacketEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractInReceiver() {
+		return abstractInReceiverEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractInReceiver_Source() {
+		return (EReference)abstractInReceiverEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractInSender() {
+		return abstractInSenderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractInSender_Destinations() {
+		return (EReference)abstractInSenderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractOutReceiver() {
+		return abstractOutReceiverEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractOutReceiver_Source() {
+		return (EReference)abstractOutReceiverEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractOutSender() {
+		return abstractOutSenderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractOutSender_Destination() {
+		return (EReference)abstractOutSenderEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1085,11 +1144,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		createEReference(componentEClass, COMPONENT__OUT_CONNECTORS);
 
 		connectorEClass = createEClass(CONNECTOR);
-		createEReference(connectorEClass, CONNECTOR__SEND_PORT);
-		createEReference(connectorEClass, CONNECTOR__RECEIVE_PORTS);
-		createEAttribute(connectorEClass, CONNECTOR__TYPE);
 		createEAttribute(connectorEClass, CONNECTOR__INITIAL_VALUE);
-		createEReference(connectorEClass, CONNECTOR__INHERITS);
 		createEReference(connectorEClass, CONNECTOR__RECEIVERS);
 		createEReference(connectorEClass, CONNECTOR__SENDER);
 
@@ -1153,17 +1208,28 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		abstractPortEClass = createEClass(ABSTRACT_PORT);
 		createEAttribute(abstractPortEClass, ABSTRACT_PORT__TYPE);
 		createEReference(abstractPortEClass, ABSTRACT_PORT__INHERITS);
+		createEReference(abstractPortEClass, ABSTRACT_PORT__CONNECTOR);
 
 		inPortEClass = createEClass(IN_PORT);
-		createEReference(inPortEClass, IN_PORT__IN_CONNECTOR);
 
 		outPortEClass = createEClass(OUT_PORT);
-		createEReference(outPortEClass, OUT_PORT__OUT_CONNECTOR);
 
 		abstractDataPacketEClass = createEClass(ABSTRACT_DATA_PACKET);
 		createEReference(abstractDataPacketEClass, ABSTRACT_DATA_PACKET__CONNECTOR);
 		createEAttribute(abstractDataPacketEClass, ABSTRACT_DATA_PACKET__VALUE);
 		createEReference(abstractDataPacketEClass, ABSTRACT_DATA_PACKET__PORT);
+
+		abstractInReceiverEClass = createEClass(ABSTRACT_IN_RECEIVER);
+		createEReference(abstractInReceiverEClass, ABSTRACT_IN_RECEIVER__SOURCE);
+
+		abstractInSenderEClass = createEClass(ABSTRACT_IN_SENDER);
+		createEReference(abstractInSenderEClass, ABSTRACT_IN_SENDER__DESTINATIONS);
+
+		abstractOutReceiverEClass = createEClass(ABSTRACT_OUT_RECEIVER);
+		createEReference(abstractOutReceiverEClass, ABSTRACT_OUT_RECEIVER__SOURCE);
+
+		abstractOutSenderEClass = createEClass(ABSTRACT_OUT_SENDER);
+		createEReference(abstractOutSenderEClass, ABSTRACT_OUT_SENDER__DESTINATION);
 
 		// Create enums
 		wakeKindEEnum = createEEnum(WAKE_KIND);
@@ -1210,6 +1276,8 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		componentEClass.getESuperTypes().add(theCorePackage.getAbstractExtension());
 		componentEClass.getESuperTypes().add(theDiagramsPackage.getDiagram());
 		connectorEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
+		connectorEClass.getESuperTypes().add(this.getAbstractInSender());
+		connectorEClass.getESuperTypes().add(this.getAbstractOutReceiver());
 		abstractComponentOperationEClass.getESuperTypes().add(theCorePackage.getEventBCommentedElement());
 		abstractComponentOperationEClass.getESuperTypes().add(theCoreextensionPackage.getEventBLabeled());
 		methodEClass.getESuperTypes().add(this.getAbstractComponentOperation());
@@ -1231,9 +1299,15 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		componentAxiomEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedDerivedPredicateElement());
 		wakeQueueEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
 		abstractPortEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
-		inPortEClass.getESuperTypes().add(this.getAbstractPort());
-		outPortEClass.getESuperTypes().add(this.getAbstractPort());
+		inPortEClass.getESuperTypes().add(this.getAbstractInReceiver());
+		inPortEClass.getESuperTypes().add(this.getAbstractInSender());
+		outPortEClass.getESuperTypes().add(this.getAbstractOutSender());
+		outPortEClass.getESuperTypes().add(this.getAbstractOutReceiver());
 		abstractDataPacketEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
+		abstractInReceiverEClass.getESuperTypes().add(this.getAbstractPort());
+		abstractInSenderEClass.getESuperTypes().add(this.getAbstractPort());
+		abstractOutReceiverEClass.getESuperTypes().add(this.getAbstractPort());
+		abstractOutSenderEClass.getESuperTypes().add(this.getAbstractPort());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(abstractComponentModelEClass, AbstractComponentModel.class, "AbstractComponentModel", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1259,11 +1333,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEReference(getComponent_OutConnectors(), this.getConnector(), null, "outConnectors", null, 0, -1, Component.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnector_SendPort(), this.getOutPort(), this.getOutPort_OutConnector(), "sendPort", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnector_ReceivePorts(), this.getInPort(), this.getInPort_InConnector(), "receivePorts", null, 0, -1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnector_Type(), theEcorePackage.getEString(), "type", "\u2115", 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_InitialValue(), theEcorePackage.getEString(), "initialValue", "0", 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnector_Inherits(), this.getConnector(), null, "inherits", null, 0, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConnector_Receivers(), this.getComponent(), null, "receivers", null, 0, -1, Connector.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getConnector_Sender(), this.getComponent(), null, "sender", null, 0, 1, Connector.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
@@ -1327,17 +1397,28 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		initEClass(abstractPortEClass, AbstractPort.class, "AbstractPort", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractPort_Type(), theEcorePackage.getEString(), "type", "\u2115", 0, 1, AbstractPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbstractPort_Inherits(), this.getAbstractPort(), null, "inherits", null, 0, 1, AbstractPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractPort_Connector(), this.getConnector(), null, "connector", null, 0, 1, AbstractPort.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(inPortEClass, InPort.class, "InPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInPort_InConnector(), this.getConnector(), this.getConnector_ReceivePorts(), "inConnector", null, 0, 1, InPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outPortEClass, OutPort.class, "OutPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOutPort_OutConnector(), this.getConnector(), this.getConnector_SendPort(), "outConnector", null, 0, 1, OutPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractDataPacketEClass, AbstractDataPacket.class, "AbstractDataPacket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractDataPacket_Connector(), this.getConnector(), null, "connector", null, 0, 1, AbstractDataPacket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractDataPacket_Value(), theEcorePackage.getEString(), "value", null, 1, 1, AbstractDataPacket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbstractDataPacket_Port(), this.getAbstractPort(), null, "port", null, 1, 1, AbstractDataPacket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(abstractInReceiverEClass, AbstractInReceiver.class, "AbstractInReceiver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractInReceiver_Source(), this.getAbstractInSender(), this.getAbstractInSender_Destinations(), "source", null, 0, 1, AbstractInReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(abstractInSenderEClass, AbstractInSender.class, "AbstractInSender", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractInSender_Destinations(), this.getAbstractInReceiver(), this.getAbstractInReceiver_Source(), "destinations", null, 0, -1, AbstractInSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(abstractOutReceiverEClass, AbstractOutReceiver.class, "AbstractOutReceiver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractOutReceiver_Source(), this.getAbstractOutSender(), this.getAbstractOutSender_Destination(), "source", null, 0, 1, AbstractOutReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(abstractOutSenderEClass, AbstractOutSender.class, "AbstractOutSender", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractOutSender_Destination(), this.getAbstractOutReceiver(), this.getAbstractOutReceiver_Source(), "destination", null, 0, 1, AbstractOutSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(wakeKindEEnum, WakeKind.class, "WakeKind");

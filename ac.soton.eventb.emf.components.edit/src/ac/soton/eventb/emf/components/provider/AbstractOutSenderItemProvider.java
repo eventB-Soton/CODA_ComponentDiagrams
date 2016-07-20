@@ -11,8 +11,8 @@
 package ac.soton.eventb.emf.components.provider;
 
 
+import ac.soton.eventb.emf.components.AbstractOutSender;
 import ac.soton.eventb.emf.components.ComponentsPackage;
-import ac.soton.eventb.emf.components.OutPort;
 
 import java.util.Collection;
 import java.util.List;
@@ -30,13 +30,13 @@ import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link ac.soton.eventb.emf.components.OutPort} object.
+ * This is the item provider adapter for a {@link ac.soton.eventb.emf.components.AbstractOutSender} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OutPortItemProvider
-	extends AbstractOutSenderItemProvider
+public class AbstractOutSenderItemProvider
+	extends AbstractPortItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -57,7 +57,7 @@ public class OutPortItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OutPortItemProvider(AdapterFactory adapterFactory) {
+	public AbstractOutSenderItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,42 +72,31 @@ public class OutPortItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSourcePropertyDescriptor(object);
+			addDestinationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Source feature.
+	 * This adds a property descriptor for the Destination feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSourcePropertyDescriptor(Object object) {
+	protected void addDestinationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AbstractOutReceiver_source_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractOutReceiver_source_feature", "_UI_AbstractOutReceiver_type"),
-				 ComponentsPackage.Literals.ABSTRACT_OUT_RECEIVER__SOURCE,
+				 getString("_UI_AbstractOutSender_destination_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractOutSender_destination_feature", "_UI_AbstractOutSender_type"),
+				 ComponentsPackage.Literals.ABSTRACT_OUT_SENDER__DESTINATION,
 				 true,
 				 false,
 				 true,
 				 null,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This returns OutPort.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OutPort"));
 	}
 
 	/**
@@ -118,10 +107,10 @@ public class OutPortItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((OutPort)object).getName();
+		String label = ((AbstractOutSender)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OutPort_type") :
-			getString("_UI_OutPort_type") + " " + label;
+			getString("_UI_AbstractOutSender_type") :
+			getString("_UI_AbstractOutSender_type") + " " + label;
 	}
 
 	/**

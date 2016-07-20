@@ -223,6 +223,22 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractDataPacketAdapter();
 			}
 			@Override
+			public Adapter caseAbstractInReceiver(AbstractInReceiver object) {
+				return createAbstractInReceiverAdapter();
+			}
+			@Override
+			public Adapter caseAbstractInSender(AbstractInSender object) {
+				return createAbstractInSenderAdapter();
+			}
+			@Override
+			public Adapter caseAbstractOutReceiver(AbstractOutReceiver object) {
+				return createAbstractOutReceiverAdapter();
+			}
+			@Override
+			public Adapter caseAbstractOutSender(AbstractOutSender object) {
+				return createAbstractOutSenderAdapter();
+			}
+			@Override
 			public Adapter caseEventBObject(EventBObject object) {
 				return createEventBObjectAdapter();
 			}
@@ -663,6 +679,62 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractDataPacketAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.emf.components.AbstractInReceiver <em>Abstract In Receiver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ac.soton.eventb.emf.components.AbstractInReceiver
+	 * @generated
+	 */
+	public Adapter createAbstractInReceiverAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.emf.components.AbstractInSender <em>Abstract In Sender</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ac.soton.eventb.emf.components.AbstractInSender
+	 * @generated
+	 */
+	public Adapter createAbstractInSenderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.emf.components.AbstractOutReceiver <em>Abstract Out Receiver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ac.soton.eventb.emf.components.AbstractOutReceiver
+	 * @generated
+	 */
+	public Adapter createAbstractOutReceiverAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.emf.components.AbstractOutSender <em>Abstract Out Sender</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ac.soton.eventb.emf.components.AbstractOutSender
+	 * @generated
+	 */
+	public Adapter createAbstractOutSenderAdapter() {
 		return null;
 	}
 
