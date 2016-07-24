@@ -52,6 +52,24 @@
           xsi:type="gmftool:DefaultImage"/>
     </tools>
     <tools
+        xsi:type="gmftool:CreationTool"
+        title="Input Port"
+        description="Create new input port">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:CreationTool"
+        title="Output port"
+        description="Create new output port">
+      <smallIcon
+          xsi:type="gmftool:DefaultImage"/>
+      <largeIcon
+          xsi:type="gmftool:DefaultImage"/>
+    </tools>
+    <tools
         xsi:type="gmftool:PaletteSeparator"
         title="Operations"
         description="Component Operations"/>

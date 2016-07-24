@@ -199,6 +199,32 @@
           name="WakeQueueLabelFigure"
           text="&lt;...>"/>
     </descriptors>
+    <descriptors
+        name="InPortLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="InPortLabel"
+          text="In_"/>
+    </descriptors>
+    <descriptors
+        name="InPortFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="InPortFigureRectangle"/>
+    </descriptors>
+    <descriptors
+        name="OutPortLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="OutPortLabel"
+          text="Out_"/>
+    </descriptors>
+    <descriptors
+        name="OutPortFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="OutPortFigureRectangle"/>
+    </descriptors>
   </figures>
   <nodes
       name="Component"
@@ -206,6 +232,14 @@
   <nodes
       name="Connector"
       figure="ConnectorFigure"/>
+  <nodes
+      name="InPort"
+      figure="InPortFigure"
+      affixedParentSide="NSEW"/>
+  <nodes
+      name="OutPort"
+      figure="OutPortFigure"
+      affixedParentSide="NSEW"/>
   <connections
       name="SenderConnection"
       figure="SenderConnectionFigure"/>
@@ -237,6 +271,12 @@
       figure="ComponentFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels
+      name="InPortLabel"
+      figure="InPortLabelFigure"/>
+  <labels
+      name="OutPortLabel"
+      figure="OutPortLabelFigure"/>
   <labels
       name="ConnectorName"
       figure="ConnectorFigure"

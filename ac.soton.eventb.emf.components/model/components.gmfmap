@@ -107,7 +107,8 @@
           <domainMetaElement
               href="components.ecore#//PortWake"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true">
             <diagramLabel
                 href="components.gmfgraph#PortWakeLabel"/>
             <features
@@ -115,7 +116,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="components.gmftool#//@palette/@tools.6"/>
+              href="components.gmftool#//@palette/@tools.8"/>
           <diagramNode
               href="components.gmfgraph#PortWakeLabel"/>
         </ownedChild>
@@ -136,7 +137,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="components.gmftool#//@palette/@tools.7"/>
+              href="components.gmftool#//@palette/@tools.9"/>
           <diagramNode
               href="components.gmfgraph#SelfWakeLabel"/>
         </ownedChild>
@@ -149,7 +150,8 @@
           <domainMetaElement
               href="components.ecore#//Method"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true">
             <diagramLabel
                 href="components.gmfgraph#MethodLabel"/>
             <features
@@ -157,7 +159,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="components.gmftool#//@palette/@tools.8"/>
+              href="components.gmftool#//@palette/@tools.10"/>
           <diagramNode
               href="components.gmfgraph#MethodLabel"/>
         </ownedChild>
@@ -180,7 +182,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="components.gmftool#//@palette/@tools.9"/>
+              href="components.gmftool#//@palette/@tools.11"/>
           <diagramNode
               href="components.gmfgraph#ExternalLabel"/>
         </ownedChild>
@@ -202,7 +204,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="components.gmftool#//@palette/@tools.10"/>
+              href="components.gmftool#//@palette/@tools.12"/>
           <diagramNode
               href="components.gmfgraph#TransitionOPLabel"/>
         </ownedChild>
@@ -251,6 +253,51 @@
               href="components.gmfgraph#WakeQueueName"/>
         </ownedChild>
       </children>
+      <children>
+        <containmentFeature
+            href="components.ecore#//Component/inPorts"/>
+        <ownedChild>
+          <domainMetaElement
+              href="components.ecore#//InPort"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="">
+            <diagramLabel
+                href="components.gmfgraph#InPortLabel"/>
+            <features
+                href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
+            <features
+                href="components.ecore#//AbstractPort/type"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="components.gmftool#//@palette/@tools.5"/>
+          <diagramNode
+              href="components.gmfgraph#InPort"/>
+        </ownedChild>
+      </children>
+      <children>
+        <containmentFeature
+            href="components.ecore#//Component/outPorts"/>
+        <ownedChild>
+          <domainMetaElement
+              href="components.ecore#//OutPort"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="components.gmfgraph#OutPortLabel"/>
+            <features
+                href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
+            <features
+                href="components.ecore#//AbstractPort/type"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="components.gmftool#//@palette/@tools.6"/>
+          <diagramNode
+              href="components.gmfgraph#OutPort"/>
+        </ownedChild>
+      </children>
       <compartments
           children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2">
         <compartment
@@ -293,36 +340,92 @@
         <diagramLabel
             href="components.gmfgraph#ConnectorType"/>
         <features
-            href="components.ecore#//Connector/type"/>
+            href="components.ecore#//AbstractPort/type"/>
         <editableFeatures
-            href="components.ecore#//Connector/type"/>
+            href="components.ecore#//AbstractPort/type"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="components.gmftool#//@palette/@tools.12"/>
+          href="components.gmftool#//@palette/@tools.14"/>
       <diagramNode
           href="components.gmfgraph#Connector"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="components.ecore#//Component/inPorts"/>
+    <ownedChild>
+      <domainMetaElement
+          href="components.ecore#//InPort"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="{0}: {1}"
+          editorPattern="{0}: {1}">
+        <diagramLabel
+            href="components.gmfgraph#InPortLabel"/>
+        <features
+            href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
+        <features
+            href="components.ecore#//AbstractPort/type"/>
+        <editableFeatures
+            href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
+        <editableFeatures
+            href="components.ecore#//AbstractPort/type"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="components.gmftool#//@palette/@tools.5"/>
+      <diagramNode
+          href="components.gmfgraph#InPort"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="components.ecore#//Component/outPorts"/>
+    <ownedChild>
+      <domainMetaElement
+          href="components.ecore#//OutPort"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern="{0}: {1}"
+          editorPattern="{0}: {1}">
+        <diagramLabel
+            href="components.gmfgraph#OutPortLabel"/>
+        <features
+            href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
+        <features
+            href="components.ecore#//AbstractPort/type"/>
+        <editableFeatures
+            href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
+        <editableFeatures
+            href="components.ecore#//AbstractPort/type"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="components.gmftool#//@palette/@tools.6"/>
+      <diagramNode
+          href="components.gmfgraph#OutPort"/>
     </ownedChild>
   </nodes>
   <links>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="components.gmftool#//@palette/@tools.13"/>
+        href="components.gmftool#//@palette/@tools.15"/>
     <diagramLink
         href="components.gmfgraph#SenderConnection"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="components.ecore#//Connector/sender"/>
+        href="components.ecore#//AbstractOutReceiver/source"/>
   </links>
   <links>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="components.gmftool#//@palette/@tools.14"/>
+        href="components.gmftool#//@palette/@tools.16"/>
     <diagramLink
         href="components.gmfgraph#ReceiverConnection"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="components.ecore#//Connector/receivers"/>
+        href="components.ecore#//AbstractInSender/destinations"/>
   </links>
   <diagram>
     <diagramCanvas

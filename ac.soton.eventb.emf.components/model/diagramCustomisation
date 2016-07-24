@@ -106,6 +106,16 @@ In ComponentsVisualIDRegistry, added this new static method (based on getNodeVis
 				if (ConnectorEditPart.VISUAL_ID == visualID)
 					return true;
 			}
+			if (ComponentsPackage.eINSTANCE.getInPort().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (InPortEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getOutPort().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (OutPortEditPart.VISUAL_ID == visualID)
+					return true;
+			}
 			break;
 		case ComponentStatemachinesEditPart.VISUAL_ID:
 			if (StatemachinesPackage.eINSTANCE.getStatemachine().isSuperTypeOf(
@@ -167,7 +177,7 @@ In ComponentsVisualIDRegistry, added this new static method (based on getNodeVis
 			break;
 		}
 		return false;
-	}	
+	}
 	
 --------------------------------------------------------------------------------------	
 In ComponentsDiagramUpdater, altered this method to use the new method above:
@@ -276,6 +286,8 @@ In ComponentsViewProvider, altered this method to use the new method above:
 				}
 				switch (visualID) {
 				case ConnectorEditPart.VISUAL_ID:
+				case InPortEditPart.VISUAL_ID:
+				case OutPortEditPart.VISUAL_ID:
 				case ProcessStatemachineEditPart.VISUAL_ID:
 				case SynchronousStatemachineEditPart.VISUAL_ID:
 				case PortWakeEditPart.VISUAL_ID:
@@ -304,6 +316,8 @@ In ComponentsViewProvider, altered this method to use the new method above:
 		}
 		return ComponentEditPart.VISUAL_ID == visualID
 				|| ConnectorEditPart.VISUAL_ID == visualID
+				|| InPortEditPart.VISUAL_ID == visualID
+				|| OutPortEditPart.VISUAL_ID == visualID
 				|| ProcessStatemachineEditPart.VISUAL_ID == visualID
 				|| SynchronousStatemachineEditPart.VISUAL_ID == visualID
 				|| StatemachineEditPart.VISUAL_ID == visualID
@@ -524,6 +538,27 @@ In ConnectorTypeEditPart, altered this method to override the default font and u
 ??????????????????????????????????????????????????????????????????????????????????????	
 In ComponentEditPart, looks like this method has been changed but not set generated NOT
 --------------------------------------------------------------------------------------		
+	
+	This is the generated version currently in the code...
+	
+	/**
+	 * @generated
+	 */
+	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(
+						ComponentsVisualIDRegistry.TYPED_INSTANCE));
+		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new ComponentItemSemanticEditPolicy());
+		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenComponentDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+	}
+	
+	
+	This was seen at some point...
 	
 	/**
 	 * @generated
