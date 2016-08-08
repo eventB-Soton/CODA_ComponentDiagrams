@@ -231,7 +231,7 @@ public abstract class AbstractInReceiverImpl extends AbstractPortImpl implements
 	 * @override
 	 */
 	public Connector basicGetConnector() {
-		return getSource().getConnector();
+		return getSource()==null? null : getSource().getConnector();
 	}
 	
 } //AbstractInReceiverImpl

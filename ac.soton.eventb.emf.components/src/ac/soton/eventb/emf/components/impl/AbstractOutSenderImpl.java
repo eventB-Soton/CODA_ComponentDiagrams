@@ -231,7 +231,7 @@ public abstract class AbstractOutSenderImpl extends AbstractPortImpl implements 
 	 * @override
 	 */
 	public Connector basicGetConnector() {
-		return getDestination().getConnector();
+		return getDestination()==null? null: getDestination().getConnector();
 	}
 	
 } //AbstractOutSenderImpl
