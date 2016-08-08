@@ -65,20 +65,20 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorNameEditPart;
 
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameType2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameType2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.StatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortNameTypeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SynchronousStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.TransitionEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.WakeQueueEditPart;
@@ -187,8 +187,8 @@ public class ComponentsViewProvider extends AbstractProvider implements
 				case ConnectorEditPart.VISUAL_ID:
 				case InPortEditPart.VISUAL_ID:
 				case OutPortEditPart.VISUAL_ID:
-				case InPort2EditPart.VISUAL_ID:
-				case OutPort2EditPart.VISUAL_ID:
+				case SubcomponentInPortEditPart.VISUAL_ID:
+				case SubcomponentOutPortEditPart.VISUAL_ID:
 				case ProcessStatemachineEditPart.VISUAL_ID:
 				case SynchronousStatemachineEditPart.VISUAL_ID:
 				case PortWakeEditPart.VISUAL_ID:
@@ -219,8 +219,8 @@ public class ComponentsViewProvider extends AbstractProvider implements
 				|| ConnectorEditPart.VISUAL_ID == visualID
 				|| InPortEditPart.VISUAL_ID == visualID
 				|| OutPortEditPart.VISUAL_ID == visualID
-				|| InPort2EditPart.VISUAL_ID == visualID
-				|| OutPort2EditPart.VISUAL_ID == visualID
+				|| SubcomponentInPortEditPart.VISUAL_ID == visualID
+				|| SubcomponentOutPortEditPart.VISUAL_ID == visualID
 				|| ProcessStatemachineEditPart.VISUAL_ID == visualID
 				|| SynchronousStatemachineEditPart.VISUAL_ID == visualID
 				|| StatemachineEditPart.VISUAL_ID == visualID
@@ -329,10 +329,10 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		case WakeQueueEditPart.VISUAL_ID:
 			return createWakeQueue_3018(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case InPort2EditPart.VISUAL_ID:
+		case SubcomponentInPortEditPart.VISUAL_ID:
 			return createInPort_3019(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case OutPort2EditPart.VISUAL_ID:
+		case SubcomponentOutPortEditPart.VISUAL_ID:
 			return createOutPort_3020(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
@@ -587,12 +587,6 @@ public class ComponentsViewProvider extends AbstractProvider implements
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		{
-			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
-					.createHintedDiagramLinkStyle();
-			diagramFacet.setHint("Statemachines"); //$NON-NLS-1$
-			node.getStyles().add(diagramFacet);
-		}
 		node.setType(ComponentsVisualIDRegistry
 				.getType(StatemachineEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -608,12 +602,6 @@ public class ComponentsViewProvider extends AbstractProvider implements
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		{
-			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
-					.createHintedDiagramLinkStyle();
-			diagramFacet.setHint("Statemachines"); //$NON-NLS-1$
-			node.getStyles().add(diagramFacet);
-		}
 		node.setType(ComponentsVisualIDRegistry
 				.getType(SynchronousStatemachineEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -629,12 +617,6 @@ public class ComponentsViewProvider extends AbstractProvider implements
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		{
-			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
-					.createHintedDiagramLinkStyle();
-			diagramFacet.setHint("Statemachines"); //$NON-NLS-1$
-			node.getStyles().add(diagramFacet);
-		}
 		node.setType(ComponentsVisualIDRegistry
 				.getType(ProcessStatemachineEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -749,7 +731,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(ComponentsVisualIDRegistry
-				.getType(InPort2EditPart.VISUAL_ID));
+				.getType(SubcomponentInPortEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -782,7 +764,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5015 = createLabel(node,
 				ComponentsVisualIDRegistry
-						.getType(InPortNameType2EditPart.VISUAL_ID));
+						.getType(SubcomponentInPortNameTypeEditPart.VISUAL_ID));
 		label5015.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		Location location5015 = (Location) label5015.getLayoutConstraint();
@@ -799,7 +781,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(ComponentsVisualIDRegistry
-				.getType(OutPort2EditPart.VISUAL_ID));
+				.getType(SubcomponentOutPortEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -832,7 +814,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5016 = createLabel(node,
 				ComponentsVisualIDRegistry
-						.getType(OutPortNameType2EditPart.VISUAL_ID));
+						.getType(SubcomponentOutPortNameTypeEditPart.VISUAL_ID));
 		label5016.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
 		Location location5016 = (Location) label5016.getLayoutConstraint();

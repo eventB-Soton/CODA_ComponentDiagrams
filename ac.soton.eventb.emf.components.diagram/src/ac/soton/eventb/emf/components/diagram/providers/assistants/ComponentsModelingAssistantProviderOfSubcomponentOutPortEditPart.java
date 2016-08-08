@@ -15,16 +15,16 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.providers.ComponentsElementTypes;
 import ac.soton.eventb.emf.components.diagram.providers.ComponentsModelingAssistantProvider;
 
 /**
  * @generated
  */
-public class ComponentsModelingAssistantProviderOfOutPort2EditPart extends
-		ComponentsModelingAssistantProvider {
+public class ComponentsModelingAssistantProviderOfSubcomponentOutPortEditPart
+		extends ComponentsModelingAssistantProvider {
 
 	/**
 	 * @generated
@@ -33,13 +33,14 @@ public class ComponentsModelingAssistantProviderOfOutPort2EditPart extends
 	public List<IElementType> getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		return doGetRelTypesOnSource((OutPort2EditPart) sourceEditPart);
+		return doGetRelTypesOnSource((SubcomponentOutPortEditPart) sourceEditPart);
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetRelTypesOnSource(OutPort2EditPart source) {
+	public List<IElementType> doGetRelTypesOnSource(
+			SubcomponentOutPortEditPart source) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(ComponentsElementTypes.AbstractOutReceiverSource_4008);
 		return types;
@@ -56,19 +57,20 @@ public class ComponentsModelingAssistantProviderOfOutPort2EditPart extends
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
 		return doGetRelTypesOnSourceAndTarget(
-				(OutPort2EditPart) sourceEditPart, targetEditPart);
+				(SubcomponentOutPortEditPart) sourceEditPart, targetEditPart);
 	}
 
 	/**
 	 * @generated
 	 */
 	public List<IElementType> doGetRelTypesOnSourceAndTarget(
-			OutPort2EditPart source, IGraphicalEditPart targetEditPart) {
+			SubcomponentOutPortEditPart source,
+			IGraphicalEditPart targetEditPart) {
 		List<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof OutPortEditPart) {
 			types.add(ComponentsElementTypes.AbstractOutReceiverSource_4008);
 		}
-		if (targetEditPart instanceof OutPort2EditPart) {
+		if (targetEditPart instanceof SubcomponentOutPortEditPart) {
 			types.add(ComponentsElementTypes.AbstractOutReceiverSource_4008);
 		}
 		return types;
@@ -82,15 +84,15 @@ public class ComponentsModelingAssistantProviderOfOutPort2EditPart extends
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
-		return doGetTypesForTarget((OutPort2EditPart) sourceEditPart,
-				relationshipType);
+		return doGetTypesForTarget(
+				(SubcomponentOutPortEditPart) sourceEditPart, relationshipType);
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetTypesForTarget(OutPort2EditPart source,
-			IElementType relationshipType) {
+	public List<IElementType> doGetTypesForTarget(
+			SubcomponentOutPortEditPart source, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == ComponentsElementTypes.AbstractOutReceiverSource_4008) {
 			types.add(ComponentsElementTypes.OutPort_2008);
@@ -106,13 +108,14 @@ public class ComponentsModelingAssistantProviderOfOutPort2EditPart extends
 	public List<IElementType> getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		return doGetRelTypesOnTarget((OutPort2EditPart) targetEditPart);
+		return doGetRelTypesOnTarget((SubcomponentOutPortEditPart) targetEditPart);
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetRelTypesOnTarget(OutPort2EditPart target) {
+	public List<IElementType> doGetRelTypesOnTarget(
+			SubcomponentOutPortEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(ComponentsElementTypes.AbstractOutReceiverSource_4008);
 		return types;
@@ -126,15 +129,15 @@ public class ComponentsModelingAssistantProviderOfOutPort2EditPart extends
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
-		return doGetTypesForSource((OutPort2EditPart) targetEditPart,
-				relationshipType);
+		return doGetTypesForSource(
+				(SubcomponentOutPortEditPart) targetEditPart, relationshipType);
 	}
 
 	/**
 	 * @generated
 	 */
-	public List<IElementType> doGetTypesForSource(OutPort2EditPart target,
-			IElementType relationshipType) {
+	public List<IElementType> doGetTypesForSource(
+			SubcomponentOutPortEditPart target, IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
 		if (relationshipType == ComponentsElementTypes.AbstractOutReceiverSource_4008) {
 			types.add(ComponentsElementTypes.Connector_2006);

@@ -200,30 +200,56 @@
           text="&lt;...>"/>
     </descriptors>
     <descriptors
-        name="InPortLabelFigure">
+        name="SubcomponentInPortLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="InPortLabel"
+          name="SubComponenInPortLabel"
           text="In_"/>
     </descriptors>
     <descriptors
-        name="InPortFigure">
+        name="SubcomponentInPortFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="InPortFigureRectangle"/>
+          name="SubComponenInPortFigureRectangle"/>
     </descriptors>
     <descriptors
-        name="OutPortLabelFigure">
+        name="SubcomponentOutPortLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="OutPortLabel"
+          name="SubComponenOutPortLabel"
           text="Out_"/>
     </descriptors>
     <descriptors
-        name="OutPortFigure">
+        name="SubcomponentOutPortFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="OutPortFigureRectangle"/>
+          name="SubComponenOutPortFigureRectangle"/>
+    </descriptors>
+    <descriptors
+        name="ParentInPortLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentInPortLabel"
+          text="In_"/>
+    </descriptors>
+    <descriptors
+        name="ParentInPortFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentInPortFigureRectangle"/>
+    </descriptors>
+    <descriptors
+        name="ParentOutPortLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentOutPortLabel"
+          text="Out_"/>
+    </descriptors>
+    <descriptors
+        name="ParentOutPortFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentOutPortFigureRectangle"/>
     </descriptors>
   </figures>
   <nodes
@@ -233,13 +259,19 @@
       name="Connector"
       figure="ConnectorFigure"/>
   <nodes
-      name="InPort"
-      figure="InPortFigure"
+      name="SubcomponentInPort"
+      figure="SubcomponentInPortFigure"
       affixedParentSide="NSEW"/>
   <nodes
-      name="OutPort"
-      figure="OutPortFigure"
+      name="SubcomponentOutPort"
+      figure="SubcomponentOutPortFigure"
       affixedParentSide="NSEW"/>
+  <nodes
+      name="ParentInPort"
+      figure="ParentInPortFigure"/>
+  <nodes
+      name="ParentOutPort"
+      figure="ParentOutPortFigure"/>
   <connections
       name="SenderConnection"
       figure="SenderConnectionFigure"/>
@@ -272,11 +304,11 @@
       elementIcon="false"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
-      name="InPortLabel"
-      figure="InPortLabelFigure"/>
+      name="SubcomponentInPortLabel"
+      figure="SubcomponentInPortLabelFigure"/>
   <labels
-      name="OutPortLabel"
-      figure="OutPortLabelFigure"/>
+      name="SubcomponentOutPortLabel"
+      figure="SubcomponentOutPortLabelFigure"/>
   <labels
       name="ConnectorName"
       figure="ConnectorFigure"
@@ -317,4 +349,10 @@
   <labels
       name="WakeQueueName"
       figure="WakeQueueFigure"/>
+  <labels
+      name="ParentInPortLabel"
+      figure="ParentInPortLabelFigure"/>
+  <labels
+      name="ParentOutPortLabel"
+      figure="ParentOutPortLabelFigure"/>
 </gmfgraph:Canvas>

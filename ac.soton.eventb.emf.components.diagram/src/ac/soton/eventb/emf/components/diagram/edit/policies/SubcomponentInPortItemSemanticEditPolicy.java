@@ -31,13 +31,13 @@ import ac.soton.eventb.emf.components.diagram.providers.ComponentsElementTypes;
 /**
  * @generated
  */
-public class InPort2ItemSemanticEditPolicy extends
+public class SubcomponentInPortItemSemanticEditPolicy extends
 		ComponentsBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public InPort2ItemSemanticEditPolicy() {
+	public SubcomponentInPortItemSemanticEditPolicy() {
 		super(ComponentsElementTypes.InPort_3019);
 	}
 

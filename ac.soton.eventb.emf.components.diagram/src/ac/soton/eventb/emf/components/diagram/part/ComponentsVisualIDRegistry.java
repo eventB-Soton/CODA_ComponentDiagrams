@@ -27,20 +27,20 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorNameEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameType2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameType2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.StatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortNameTypeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SynchronousStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.TransitionEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.WakeQueueEditPart;
@@ -175,11 +175,11 @@ public class ComponentsVisualIDRegistry {
 		case ComponentEditPart.VISUAL_ID:
 			if (ComponentsPackage.eINSTANCE.getInPort().isSuperTypeOf(
 					domainElement.eClass())) {
-				return InPort2EditPart.VISUAL_ID;
+				return SubcomponentInPortEditPart.VISUAL_ID;
 			}
 			if (ComponentsPackage.eINSTANCE.getOutPort().isSuperTypeOf(
 					domainElement.eClass())) {
-				return OutPort2EditPart.VISUAL_ID;
+				return SubcomponentOutPortEditPart.VISUAL_ID;
 			}
 			break;
 		case ComponentStatemachinesEditPart.VISUAL_ID:
@@ -286,10 +286,10 @@ public class ComponentsVisualIDRegistry {
 			if (ComponentWakeQueuesEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (InPort2EditPart.VISUAL_ID == nodeVisualID) {
+			if (SubcomponentInPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (OutPort2EditPart.VISUAL_ID == nodeVisualID) {
+			if (SubcomponentOutPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -311,13 +311,13 @@ public class ComponentsVisualIDRegistry {
 				return true;
 			}
 			break;
-		case InPort2EditPart.VISUAL_ID:
-			if (InPortNameType2EditPart.VISUAL_ID == nodeVisualID) {
+		case SubcomponentInPortEditPart.VISUAL_ID:
+			if (SubcomponentInPortNameTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case OutPort2EditPart.VISUAL_ID:
-			if (OutPortNameType2EditPart.VISUAL_ID == nodeVisualID) {
+		case SubcomponentOutPortEditPart.VISUAL_ID:
+			if (SubcomponentOutPortNameTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -432,8 +432,8 @@ public class ComponentsVisualIDRegistry {
 		case SynchronousStatemachineEditPart.VISUAL_ID:
 		case ProcessStatemachineEditPart.VISUAL_ID:
 		case WakeQueueEditPart.VISUAL_ID:
-		case InPort2EditPart.VISUAL_ID:
-		case OutPort2EditPart.VISUAL_ID:
+		case SubcomponentInPortEditPart.VISUAL_ID:
+		case SubcomponentOutPortEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -558,12 +558,12 @@ public class ComponentsVisualIDRegistry {
 		case ComponentEditPart.VISUAL_ID:
 			if (ComponentsPackage.eINSTANCE.getInPort().isSuperTypeOf(
 					domainElement.eClass())) {
-				if (InPort2EditPart.VISUAL_ID == visualID)
+				if (SubcomponentInPortEditPart.VISUAL_ID == visualID)
 					return true;
 			}
 			if (ComponentsPackage.eINSTANCE.getOutPort().isSuperTypeOf(
 					domainElement.eClass())) {
-				if (OutPort2EditPart.VISUAL_ID == visualID)
+				if (SubcomponentOutPortEditPart.VISUAL_ID == visualID)
 					return true;
 			}
 		case ComponentStatemachinesEditPart.VISUAL_ID:

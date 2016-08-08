@@ -35,13 +35,13 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import ac.soton.eventb.emf.components.diagram.edit.policies.OutPort2ItemSemanticEditPolicy;
+import ac.soton.eventb.emf.components.diagram.edit.policies.SubcomponentOutPortItemSemanticEditPolicy;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
 
 /**
  * @generated
  */
-public class OutPort2EditPart extends BorderedBorderItemEditPart {
+public class SubcomponentOutPortEditPart extends BorderedBorderItemEditPart {
 
 	/**
 	 * @generated
@@ -61,7 +61,7 @@ public class OutPort2EditPart extends BorderedBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public OutPort2EditPart(View view) {
+	public SubcomponentOutPortEditPart(View view) {
 		super(view);
 	}
 
@@ -73,7 +73,7 @@ public class OutPort2EditPart extends BorderedBorderItemEditPart {
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new OutPort2ItemSemanticEditPolicy());
+				new SubcomponentOutPortItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -88,7 +88,7 @@ public class OutPort2EditPart extends BorderedBorderItemEditPart {
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (ComponentsVisualIDRegistry.getVisualID(childView)) {
-				case OutPortNameType2EditPart.VISUAL_ID:
+				case SubcomponentOutPortNameTypeEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy() {
 
 						protected List createSelectionHandles() {
@@ -137,7 +137,7 @@ public class OutPort2EditPart extends BorderedBorderItemEditPart {
 	 */
 	protected void addBorderItem(IFigure borderItemContainer,
 			IBorderItemEditPart borderItemEditPart) {
-		if (borderItemEditPart instanceof OutPortNameType2EditPart) {
+		if (borderItemEditPart instanceof SubcomponentOutPortNameTypeEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.SOUTH);
 			locator.setBorderItemOffset(new Dimension(-20, -20));
@@ -236,7 +236,7 @@ public class OutPort2EditPart extends BorderedBorderItemEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(ComponentsVisualIDRegistry
-				.getType(OutPortNameType2EditPart.VISUAL_ID));
+				.getType(SubcomponentOutPortNameTypeEditPart.VISUAL_ID));
 	}
 
 }

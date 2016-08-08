@@ -57,13 +57,13 @@ import ac.soton.eventb.emf.components.diagram.providers.ComponentsParserProvider
 /**
  * @generated
  */
-public class InPortNameType2EditPart extends LabelEditPart implements
-		ITextAwareEditPart, IBorderItemEditPart {
+public class SubcomponentOutPortNameTypeEditPart extends LabelEditPart
+		implements ITextAwareEditPart, IBorderItemEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5015;
+	public static final int VISUAL_ID = 5016;
 
 	/**
 	 * @generated
@@ -91,14 +91,14 @@ public class InPortNameType2EditPart extends LabelEditPart implements
 	static {
 		registerSnapBackPosition(
 				ComponentsVisualIDRegistry
-						.getType(ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameType2EditPart.VISUAL_ID),
+						.getType(ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortNameTypeEditPart.VISUAL_ID),
 				new Point(0, 0));
 	}
 
 	/**
 	 * @generated
 	 */
-	public InPortNameType2EditPart(View view) {
+	public SubcomponentOutPortNameTypeEditPart(View view) {
 		super(view);
 	}
 
@@ -344,10 +344,10 @@ public class InPortNameType2EditPart extends LabelEditPart implements
 		if (parser == null) {
 			parser = ComponentsParserProvider
 					.getParser(
-							ComponentsElementTypes.InPort_3019,
+							ComponentsElementTypes.OutPort_3020,
 							getParserElement(),
 							ComponentsVisualIDRegistry
-									.getType(ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameType2EditPart.VISUAL_ID));
+									.getType(ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortNameTypeEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -614,19 +614,19 @@ public class InPortNameType2EditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new InPortLabelFigure();
+		return new SubcomponentOutPortLabelFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class InPortLabelFigure extends WrappingLabel {
+	public class SubcomponentOutPortLabelFigure extends WrappingLabel {
 
 		/**
 		 * @generated
 		 */
-		public InPortLabelFigure() {
-			this.setText("In_");
+		public SubcomponentOutPortLabelFigure() {
+			this.setText("Out_");
 		}
 
 	}

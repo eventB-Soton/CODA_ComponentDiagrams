@@ -34,20 +34,20 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorNameEditPart;
 
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameType2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameType2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.StatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortNameTypeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SynchronousStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.TransitionEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.WakeQueueEditPart;
@@ -168,10 +168,10 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 		case WakeQueueEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?WakeQueue", ComponentsElementTypes.WakeQueue_3018); //$NON-NLS-1$
-		case InPort2EditPart.VISUAL_ID:
+		case SubcomponentInPortEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?InPort", ComponentsElementTypes.InPort_3019); //$NON-NLS-1$
-		case OutPort2EditPart.VISUAL_ID:
+		case SubcomponentOutPortEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?OutPort", ComponentsElementTypes.OutPort_3020); //$NON-NLS-1$
 		case AbstractOutReceiverSourceEditPart.VISUAL_ID:
@@ -270,9 +270,9 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 			return getStatemachine_3017Text(view);
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018Text(view);
-		case InPort2EditPart.VISUAL_ID:
+		case SubcomponentInPortEditPart.VISUAL_ID:
 			return getInPort_3019Text(view);
-		case OutPort2EditPart.VISUAL_ID:
+		case SubcomponentOutPortEditPart.VISUAL_ID:
 			return getOutPort_3020Text(view);
 		case AbstractOutReceiverSourceEditPart.VISUAL_ID:
 			return getAbstractOutReceiverSource_4008Text(view);
@@ -483,7 +483,7 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 				ComponentsElementTypes.InPort_3019,
 				view.getElement() != null ? view.getElement() : view,
 				ComponentsVisualIDRegistry
-						.getType(InPortNameType2EditPart.VISUAL_ID));
+						.getType(SubcomponentInPortNameTypeEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
@@ -499,11 +499,12 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 	 * @generated
 	 */
 	private String getOutPort_3020Text(View view) {
-		IParser parser = ComponentsParserProvider.getParser(
-				ComponentsElementTypes.OutPort_3020,
-				view.getElement() != null ? view.getElement() : view,
-				ComponentsVisualIDRegistry
-						.getType(OutPortNameType2EditPart.VISUAL_ID));
+		IParser parser = ComponentsParserProvider
+				.getParser(
+						ComponentsElementTypes.OutPort_3020,
+						view.getElement() != null ? view.getElement() : view,
+						ComponentsVisualIDRegistry
+								.getType(SubcomponentOutPortNameTypeEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),

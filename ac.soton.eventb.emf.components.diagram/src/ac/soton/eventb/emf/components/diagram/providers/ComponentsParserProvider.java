@@ -26,16 +26,16 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentNameEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorNameEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameType2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameType2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.StatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortNameTypeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SynchronousStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.TransitionEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.WakeQueueEditPart;
@@ -417,9 +417,9 @@ public class ComponentsParserProvider extends AbstractProvider implements
 			return getComponent_3012Parser();
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018Parser();
-		case InPortNameType2EditPart.VISUAL_ID:
+		case SubcomponentInPortNameTypeEditPart.VISUAL_ID:
 			return getInPortNameType_5015Parser();
-		case OutPortNameType2EditPart.VISUAL_ID:
+		case SubcomponentOutPortNameTypeEditPart.VISUAL_ID:
 			return getOutPortNameType_5016Parser();
 		}
 		return null;

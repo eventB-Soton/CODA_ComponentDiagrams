@@ -26,12 +26,12 @@ import ac.soton.eventb.emf.components.OutPort;
 /**
  * @generated
  */
-public class OutPort2CreateCommand extends EditElementCommand {
+public class SubcomponentOutPortCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public OutPort2CreateCommand(CreateElementRequest req) {
+	public SubcomponentOutPortCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 

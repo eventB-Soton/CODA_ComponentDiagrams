@@ -112,8 +112,8 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (ComponentsVisualIDRegistry.getVisualID(childView)) {
-				case InPort2EditPart.VISUAL_ID:
-				case OutPort2EditPart.VISUAL_ID:
+				case SubcomponentInPortEditPart.VISUAL_ID:
+				case SubcomponentOutPortEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
 				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
@@ -180,18 +180,20 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 			pane.add(((ComponentWakeQueuesEditPart) childEditPart).getFigure());
 			return true;
 		}
-		if (childEditPart instanceof InPort2EditPart) {
+		if (childEditPart instanceof SubcomponentInPortEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.NONE);
 			getBorderedFigure().getBorderItemContainer().add(
-					((InPort2EditPart) childEditPart).getFigure(), locator);
+					((SubcomponentInPortEditPart) childEditPart).getFigure(),
+					locator);
 			return true;
 		}
-		if (childEditPart instanceof OutPort2EditPart) {
+		if (childEditPart instanceof SubcomponentOutPortEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.NONE);
 			getBorderedFigure().getBorderItemContainer().add(
-					((OutPort2EditPart) childEditPart).getFigure(), locator);
+					((SubcomponentOutPortEditPart) childEditPart).getFigure(),
+					locator);
 			return true;
 		}
 		return false;
@@ -232,14 +234,14 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 					.getFigure());
 			return true;
 		}
-		if (childEditPart instanceof InPort2EditPart) {
+		if (childEditPart instanceof SubcomponentInPortEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((InPort2EditPart) childEditPart).getFigure());
+					((SubcomponentInPortEditPart) childEditPart).getFigure());
 			return true;
 		}
-		if (childEditPart instanceof OutPort2EditPart) {
+		if (childEditPart instanceof SubcomponentOutPortEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((OutPort2EditPart) childEditPart).getFigure());
+					((SubcomponentOutPortEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;

@@ -89,17 +89,17 @@ public class ComponentsEditPartFactory implements EditPartFactory {
 			case WakeQueueEditPart.VISUAL_ID:
 				return new WakeQueueEditPart(view);
 
-			case InPort2EditPart.VISUAL_ID:
-				return new InPort2EditPart(view);
+			case SubcomponentInPortEditPart.VISUAL_ID:
+				return new SubcomponentInPortEditPart(view);
 
-			case InPortNameType2EditPart.VISUAL_ID:
-				return new InPortNameType2EditPart(view);
+			case SubcomponentInPortNameTypeEditPart.VISUAL_ID:
+				return new SubcomponentInPortNameTypeEditPart(view);
 
-			case OutPort2EditPart.VISUAL_ID:
-				return new OutPort2EditPart(view);
+			case SubcomponentOutPortEditPart.VISUAL_ID:
+				return new SubcomponentOutPortEditPart(view);
 
-			case OutPortNameType2EditPart.VISUAL_ID:
-				return new OutPortNameType2EditPart(view);
+			case SubcomponentOutPortNameTypeEditPart.VISUAL_ID:
+				return new SubcomponentOutPortNameTypeEditPart(view);
 
 			case ComponentStatemachinesEditPart.VISUAL_ID:
 				return new ComponentStatemachinesEditPart(view);

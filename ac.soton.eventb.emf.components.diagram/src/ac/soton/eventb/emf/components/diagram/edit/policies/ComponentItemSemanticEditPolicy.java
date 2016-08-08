@@ -25,8 +25,8 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import ac.soton.eventb.emf.components.diagram.edit.commands.InPort2CreateCommand;
-import ac.soton.eventb.emf.components.diagram.edit.commands.OutPort2CreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.SubcomponentInPortCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.SubcomponentOutPortCreateCommand;
 import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractInSenderDestinationsEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractOutReceiverSourceEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentOperationsEditPart;
@@ -35,14 +35,14 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentSubcomponentsE
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentWakeQueuesEditPart;
 
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.StatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SynchronousStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.TransitionEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.WakeQueueEditPart;
@@ -67,10 +67,10 @@ public class ComponentItemSemanticEditPolicy extends
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (ComponentsElementTypes.InPort_3019 == req.getElementType()) {
-			return getGEFWrapper(new InPort2CreateCommand(req));
+			return getGEFWrapper(new SubcomponentInPortCreateCommand(req));
 		}
 		if (ComponentsElementTypes.OutPort_3020 == req.getElementType()) {
-			return getGEFWrapper(new OutPort2CreateCommand(req));
+			return getGEFWrapper(new SubcomponentOutPortCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -104,7 +104,7 @@ public class ComponentItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (ComponentsVisualIDRegistry.getVisualID(node)) {
-			case InPort2EditPart.VISUAL_ID:
+			case SubcomponentInPortEditPart.VISUAL_ID:
 				for (Iterator<?> it = node.getTargetEdges().iterator(); it
 						.hasNext();) {
 					Edge incomingLink = (Edge) it.next();
@@ -136,7 +136,7 @@ public class ComponentItemSemanticEditPolicy extends
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
-			case OutPort2EditPart.VISUAL_ID:
+			case SubcomponentOutPortEditPart.VISUAL_ID:
 				for (Iterator<?> it = node.getTargetEdges().iterator(); it
 						.hasNext();) {
 					Edge incomingLink = (Edge) it.next();

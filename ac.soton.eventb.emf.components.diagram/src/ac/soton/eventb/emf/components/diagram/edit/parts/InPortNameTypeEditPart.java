@@ -614,18 +614,18 @@ public class InPortNameTypeEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new InPortLabelFigure();
+		return new ParentInPortLabelFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class InPortLabelFigure extends WrappingLabel {
+	public class ParentInPortLabelFigure extends WrappingLabel {
 
 		/**
 		 * @generated
 		 */
-		public InPortLabelFigure() {
+		public ParentInPortLabelFigure() {
 			this.setText("In_");
 		}
 

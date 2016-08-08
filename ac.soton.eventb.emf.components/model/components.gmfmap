@@ -263,7 +263,7 @@
               xsi:type="gmfmap:FeatureLabelMapping"
               viewPattern="">
             <diagramLabel
-                href="components.gmfgraph#InPortLabel"/>
+                href="components.gmfgraph#SubcomponentInPortLabel"/>
             <features
                 href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
             <features
@@ -273,7 +273,7 @@
               xsi:type="gmftool:CreationTool"
               href="components.gmftool#//@palette/@tools.5"/>
           <diagramNode
-              href="components.gmfgraph#InPort"/>
+              href="components.gmfgraph#SubcomponentInPort"/>
         </ownedChild>
       </children>
       <children>
@@ -285,7 +285,7 @@
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="components.gmfgraph#OutPortLabel"/>
+                href="components.gmfgraph#SubcomponentOutPortLabel"/>
             <features
                 href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
             <features
@@ -295,7 +295,7 @@
               xsi:type="gmftool:CreationTool"
               href="components.gmftool#//@palette/@tools.6"/>
           <diagramNode
-              href="components.gmfgraph#OutPort"/>
+              href="components.gmfgraph#SubcomponentOutPort"/>
         </ownedChild>
       </children>
       <compartments
@@ -362,7 +362,7 @@
           viewPattern="{0}: {1}"
           editorPattern="{0}: {1}">
         <diagramLabel
-            href="components.gmfgraph#InPortLabel"/>
+            href="components.gmfgraph#ParentInPortLabel"/>
         <features
             href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
         <features
@@ -376,7 +376,7 @@
           xsi:type="gmftool:CreationTool"
           href="components.gmftool#//@palette/@tools.5"/>
       <diagramNode
-          href="components.gmfgraph#InPort"/>
+          href="components.gmfgraph#ParentInPort"/>
     </ownedChild>
   </nodes>
   <nodes>
@@ -390,7 +390,7 @@
           viewPattern="{0}: {1}"
           editorPattern="{0}: {1}">
         <diagramLabel
-            href="components.gmfgraph#OutPortLabel"/>
+            href="components.gmfgraph#ParentOutPortLabel"/>
         <features
             href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
         <features
@@ -404,7 +404,7 @@
           xsi:type="gmftool:CreationTool"
           href="components.gmftool#//@palette/@tools.6"/>
       <diagramNode
-          href="components.gmfgraph#OutPort"/>
+          href="components.gmfgraph#ParentOutPort"/>
     </ownedChild>
   </nodes>
   <links>

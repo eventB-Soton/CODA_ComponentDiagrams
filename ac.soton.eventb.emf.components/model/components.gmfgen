@@ -39,7 +39,6 @@
         visualID="3015"
         editPartClassName="StatemachineEditPart"
         itemSemanticEditPolicyClassName="StatemachineItemSemanticEditPolicy"
-        notationViewFactoryClassName="StatemachineViewFactory"
         canonicalEditPolicyClassName="StatemachineCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="StatemachineGraphicalNodeEditPolicy"
         createCommandClassName="StatemachineCreateCommand"
@@ -54,11 +53,6 @@
           xsi:type="gmfgen:InnerClassViewmap"
           className="StatemachineFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StatemachineFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StatemachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <behaviour
-          xsi:type="gmfgen:OpenDiagramBehaviour"
-          editPolicyClassName="OpenStatemachineDiagramEditPolicy"
-          diagramKind="Statemachines"
-          editorID="ac.soton.eventb.statemachines.diagram.part.StatemachinesDiagramEditorID"/>
       <modelFacet>
         <metaClass
             href="../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines/Statemachine"/>
@@ -82,7 +76,6 @@
         visualID="3016"
         editPartClassName="SynchronousStatemachineEditPart"
         itemSemanticEditPolicyClassName="SynchronousStatemachineItemSemanticEditPolicy"
-        notationViewFactoryClassName="StatemachineViewFactory"
         canonicalEditPolicyClassName="SynchronousStatemachineCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SynchronousStatemachineGraphicalNodeEditPolicy"
         createCommandClassName="SynchronousStatemachineCreateCommand"
@@ -97,11 +90,6 @@
           xsi:type="gmfgen:InnerClassViewmap"
           className="SyncStatemachineFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SyncStatemachineFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SyncStatemachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <behaviour
-          xsi:type="gmfgen:OpenDiagramBehaviour"
-          editPolicyClassName="OpenStatemachineDiagramEditPolicy"
-          diagramKind="Statemachines"
-          editorID="ac.soton.eventb.statemachines.diagram.part.StatemachinesDiagramEditorID"/>
       <modelFacet>
         <metaClass
             href="../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines/Statemachine"/>
@@ -122,7 +110,6 @@
         visualID="3017"
         editPartClassName="ProcessStatemachineEditPart"
         itemSemanticEditPolicyClassName="ProcessStatemachineItemSemanticEditPolicy"
-        notationViewFactoryClassName="ProcessStatemachineStatemachineViewFactory"
         canonicalEditPolicyClassName="ProcessStatemachineCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ProcessStatemachineGraphicalNodeEditPolicy"
         createCommandClassName="ProcessStatemachineCreateCommand"
@@ -137,11 +124,6 @@
           xsi:type="gmfgen:InnerClassViewmap"
           className="ProcessStatemachineFigure"
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ProcessStatemachineFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ProcessStatemachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <behaviour
-          xsi:type="gmfgen:OpenDiagramBehaviour"
-          editPolicyClassName="OpenStatemachineDiagramEditPolicy"
-          diagramKind="Statemachines"
-          editorID="ac.soton.eventb.statemachines.diagram.part.StatemachinesDiagramEditorID"/>
       <modelFacet>
         <metaClass
             href="../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines/Statemachine"/>
@@ -162,7 +144,6 @@
         visualID="3008"
         editPartClassName="PortWakeEditPart"
         itemSemanticEditPolicyClassName="PortWakeItemSemanticEditPolicy"
-        notationViewFactoryClassName="PortWakeViewFactory"
         canonicalEditPolicyClassName="PortWakeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="PortWakeGraphicalNodeEditPolicy"
         createCommandClassName="PortWakeCreateCommand"
@@ -198,7 +179,6 @@
         visualID="3009"
         editPartClassName="SelfWakeEditPart"
         itemSemanticEditPolicyClassName="SelfWakeItemSemanticEditPolicy"
-        notationViewFactoryClassName="SelfWakeViewFactory"
         canonicalEditPolicyClassName="SelfWakeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SelfWakeGraphicalNodeEditPolicy"
         createCommandClassName="SelfWakeCreateCommand"
@@ -233,7 +213,6 @@
         visualID="3010"
         editPartClassName="MethodEditPart"
         itemSemanticEditPolicyClassName="MethodItemSemanticEditPolicy"
-        notationViewFactoryClassName="MethodViewFactory"
         canonicalEditPolicyClassName="MethodCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="MethodGraphicalNodeEditPolicy"
         createCommandClassName="MethodCreateCommand"
@@ -269,7 +248,6 @@
         visualID="3013"
         editPartClassName="ExternalEditPart"
         itemSemanticEditPolicyClassName="ExternalItemSemanticEditPolicy"
-        notationViewFactoryClassName="ExternalViewFactory"
         canonicalEditPolicyClassName="ExternalCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ExternalGraphicalNodeEditPolicy"
         createCommandClassName="ExternalCreateCommand"
@@ -306,7 +284,6 @@
         visualID="3014"
         editPartClassName="TransitionEditPart"
         itemSemanticEditPolicyClassName="TransitionItemSemanticEditPolicy"
-        notationViewFactoryClassName="TransitionViewFactory"
         canonicalEditPolicyClassName="TransitionCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="TransitionGraphicalNodeEditPolicy"
         createCommandClassName="TransitionCreateCommand"
@@ -346,7 +323,6 @@
         visualID="3012"
         editPartClassName="SubcomponentEditPart"
         itemSemanticEditPolicyClassName="SubcomponentItemSemanticEditPolicy"
-        notationViewFactoryClassName="ComponentViewFactory"
         canonicalEditPolicyClassName="SubcomponentCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SubcomponentGraphicalNodeEditPolicy"
         createCommandClassName="SubcomponentCreateCommand"
@@ -380,7 +356,6 @@
         visualID="3018"
         editPartClassName="WakeQueueEditPart"
         itemSemanticEditPolicyClassName="WakeQueueItemSemanticEditPolicy"
-        notationViewFactoryClassName="WakeQueueViewFactory"
         canonicalEditPolicyClassName="WakeQueueCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="WakeQueueGraphicalNodeEditPolicy"
         createCommandClassName="WakeQueueCreateCommand"
@@ -413,12 +388,11 @@
     <childNodes
         xsi:type="gmfgen:GenChildSideAffixedNode"
         visualID="3019"
-        editPartClassName="InPort2EditPart"
-        itemSemanticEditPolicyClassName="InPort2ItemSemanticEditPolicy"
-        notationViewFactoryClassName="InPortViewFactory"
-        canonicalEditPolicyClassName="InPort2CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="InPort2GraphicalNodeEditPolicy"
-        createCommandClassName="InPort2CreateCommand"
+        editPartClassName="SubcomponentInPortEditPart"
+        itemSemanticEditPolicyClassName="SubcomponentInPortItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="SubcomponentInPortCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="SubcomponentInPortGraphicalNodeEditPolicy"
+        createCommandClassName="SubcomponentInPortCreateCommand"
         containers="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -439,15 +413,15 @@
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
           visualID="5015"
-          editPartClassName="InPortNameType2EditPart"
-          itemSemanticEditPolicyClassName="InPortNameType2ItemSemanticEditPolicy"
+          editPartClassName="SubcomponentInPortNameTypeEditPart"
+          itemSemanticEditPolicyClassName="SubcomponentInPortNameTypeItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
-            className="InPortLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;In_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+            className="SubcomponentInPortLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SubcomponentInPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SubcomponentInPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;In_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0"
@@ -462,12 +436,11 @@
     <childNodes
         xsi:type="gmfgen:GenChildSideAffixedNode"
         visualID="3020"
-        editPartClassName="OutPort2EditPart"
-        itemSemanticEditPolicyClassName="OutPort2ItemSemanticEditPolicy"
-        notationViewFactoryClassName="OutPortViewFactory"
-        canonicalEditPolicyClassName="OutPort2CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="OutPort2GraphicalNodeEditPolicy"
-        createCommandClassName="OutPort2CreateCommand"
+        editPartClassName="SubcomponentOutPortEditPart"
+        itemSemanticEditPolicyClassName="SubcomponentOutPortItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="SubcomponentOutPortCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="SubcomponentOutPortGraphicalNodeEditPolicy"
+        createCommandClassName="SubcomponentOutPortCreateCommand"
         containers="//@diagram/@topLevelNodes.0">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -488,16 +461,15 @@
       <labels
           xsi:type="gmfgen:GenExternalNodeLabel"
           visualID="5016"
-          editPartClassName="OutPortNameType2EditPart"
-          itemSemanticEditPolicyClassName="OutPortNameType2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="OutPortNameTypeViewFactory"
+          editPartClassName="SubcomponentOutPortNameTypeEditPart"
+          itemSemanticEditPolicyClassName="SubcomponentOutPortNameTypeItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
-            className="OutPortLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OutPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OutPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;Out_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+            className="SubcomponentOutPortLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SubcomponentOutPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SubcomponentOutPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;Out_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0">
@@ -512,7 +484,6 @@
         visualID="2005"
         editPartClassName="ComponentEditPart"
         itemSemanticEditPolicyClassName="ComponentItemSemanticEditPolicy"
-        notationViewFactoryClassName="ComponentViewFactory"
         canonicalEditPolicyClassName="ComponentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.11"
         compartments="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3"
@@ -547,8 +518,7 @@
       <labels
           visualID="5010"
           editPartClassName="ComponentNameEditPart"
-          itemSemanticEditPolicyClassName="ComponentNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="ComponentNameViewFactory">
+          itemSemanticEditPolicyClassName="ComponentNameItemSemanticEditPolicy">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -572,7 +542,6 @@
         visualID="2006"
         editPartClassName="ConnectorEditPart"
         itemSemanticEditPolicyClassName="ConnectorItemSemanticEditPolicy"
-        notationViewFactoryClassName="ConnectorViewFactory"
         canonicalEditPolicyClassName="ConnectorCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ConnectorGraphicalNodeEditPolicy"
         createCommandClassName="ConnectorCreateCommand">
@@ -599,8 +568,7 @@
       <labels
           visualID="5011"
           editPartClassName="ConnectorNameEditPart"
-          itemSemanticEditPolicyClassName="ConnectorNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="ConnectorNameViewFactory">
+          itemSemanticEditPolicyClassName="ConnectorNameItemSemanticEditPolicy">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -622,8 +590,7 @@
       <labels
           visualID="5012"
           editPartClassName="ConnectorTypeEditPart"
-          itemSemanticEditPolicyClassName="ConnectorTypeItemSemanticEditPolicy"
-          notationViewFactoryClassName="ConnectorTypeViewFactory">
+          itemSemanticEditPolicyClassName="ConnectorTypeItemSemanticEditPolicy">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -631,7 +598,8 @@
             getterName="getFigureConnectorTypeFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel">
           <attributes
-              xsi:type="gmfgen:StyleAttributes"/>
+              xsi:type="gmfgen:StyleAttributes"
+              fixedFont="true"/>
         </viewmap>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -647,7 +615,6 @@
         visualID="2007"
         editPartClassName="InPortEditPart"
         itemSemanticEditPolicyClassName="InPortItemSemanticEditPolicy"
-        notationViewFactoryClassName="InPortViewFactory"
         canonicalEditPolicyClassName="InPortCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="InPortGraphicalNodeEditPolicy"
         createCommandClassName="InPortCreateCommand">
@@ -677,8 +644,8 @@
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
-            className="InPortLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class InPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public InPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;In_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+            className="ParentInPortLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentInPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentInPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;In_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0"
@@ -699,7 +666,6 @@
         visualID="2008"
         editPartClassName="OutPortEditPart"
         itemSemanticEditPolicyClassName="OutPortItemSemanticEditPolicy"
-        notationViewFactoryClassName="OutPortViewFactory"
         canonicalEditPolicyClassName="OutPortCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="OutPortGraphicalNodeEditPolicy"
         createCommandClassName="OutPortCreateCommand">
@@ -724,14 +690,13 @@
           visualID="5014"
           editPartClassName="OutPortNameTypeEditPart"
           itemSemanticEditPolicyClassName="OutPortNameTypeItemSemanticEditPolicy"
-          notationViewFactoryClassName="OutPortNameTypeViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
-            className="OutPortLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OutPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OutPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;Out_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+            className="ParentOutPortLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentOutPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentOutPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;Out_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0"
@@ -752,7 +717,6 @@
         visualID="4008"
         editPartClassName="AbstractOutReceiverSourceEditPart"
         itemSemanticEditPolicyClassName="AbstractOutReceiverSourceItemSemanticEditPolicy"
-        notationViewFactoryClassName="AbstractOutReceiverSourceViewFactory"
         createCommandClassName="AbstractOutReceiverSourceCreateCommand"
         reorientCommandClassName="AbstractOutReceiverSourceReorientCommand">
       <diagramRunTimeClass
@@ -773,7 +737,6 @@
         visualID="4009"
         editPartClassName="AbstractInSenderDestinationsEditPart"
         itemSemanticEditPolicyClassName="AbstractInSenderDestinationsItemSemanticEditPolicy"
-        notationViewFactoryClassName="AbstractInSenderDestinationsViewFactory"
         createCommandClassName="AbstractInSenderDestinationsCreateCommand"
         reorientCommandClassName="AbstractInSenderDestinationsReorientCommand">
       <diagramRunTimeClass
@@ -794,7 +757,6 @@
         visualID="7004"
         editPartClassName="ComponentStatemachinesEditPart"
         itemSemanticEditPolicyClassName="ComponentStatemachinesItemSemanticEditPolicy"
-        notationViewFactoryClassName="ComponentStatemachinesViewFactory"
         canonicalEditPolicyClassName="ComponentStatemachinesCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2"
         title="Statemachines"
@@ -811,7 +773,6 @@
         visualID="7005"
         editPartClassName="ComponentOperationsEditPart"
         itemSemanticEditPolicyClassName="ComponentOperationsItemSemanticEditPolicy"
-        notationViewFactoryClassName="ComponentOperationsViewFactory"
         canonicalEditPolicyClassName="ComponentOperationsCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7"
         title="Operations"
@@ -828,7 +789,6 @@
         visualID="7006"
         editPartClassName="ComponentSubcomponentsEditPart"
         itemSemanticEditPolicyClassName="ComponentSubcomponentsItemSemanticEditPolicy"
-        notationViewFactoryClassName="ComponentSubcomponentsViewFactory"
         canonicalEditPolicyClassName="ComponentSubcomponentsCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.8"
         title="Subcomponents"
@@ -845,7 +805,6 @@
         visualID="7007"
         editPartClassName="ComponentWakeQueuesEditPart"
         itemSemanticEditPolicyClassName="ComponentWakeQueuesItemSemanticEditPolicy"
-        notationViewFactoryClassName="ComponentWakeQueuesViewFactory"
         canonicalEditPolicyClassName="ComponentWakeQueuesCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.9"
         title="WakeQueues"

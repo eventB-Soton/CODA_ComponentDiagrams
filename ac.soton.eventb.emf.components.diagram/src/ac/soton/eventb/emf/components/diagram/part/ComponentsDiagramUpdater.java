@@ -42,16 +42,16 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentWakeQueuesEdit
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
 
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.StatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SynchronousStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.TransitionEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.WakeQueueEditPart;
@@ -160,7 +160,7 @@ public class ComponentsDiagramUpdater {
 			InPort childElement = (InPort) it.next();
 			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == InPort2EditPart.VISUAL_ID) {
+			if (visualID == SubcomponentInPortEditPart.VISUAL_ID) {
 				result.add(new ComponentsNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -170,7 +170,7 @@ public class ComponentsDiagramUpdater {
 			OutPort childElement = (OutPort) it.next();
 			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == OutPort2EditPart.VISUAL_ID) {
+			if (visualID == SubcomponentOutPortEditPart.VISUAL_ID) {
 				result.add(new ComponentsNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -359,9 +359,9 @@ public class ComponentsDiagramUpdater {
 			return getComponent_3012ContainedLinks(view);
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018ContainedLinks(view);
-		case InPort2EditPart.VISUAL_ID:
+		case SubcomponentInPortEditPart.VISUAL_ID:
 			return getInPort_3019ContainedLinks(view);
-		case OutPort2EditPart.VISUAL_ID:
+		case SubcomponentOutPortEditPart.VISUAL_ID:
 			return getOutPort_3020ContainedLinks(view);
 		}
 		return Collections.emptyList();
@@ -400,9 +400,9 @@ public class ComponentsDiagramUpdater {
 			return getComponent_3012IncomingLinks(view);
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018IncomingLinks(view);
-		case InPort2EditPart.VISUAL_ID:
+		case SubcomponentInPortEditPart.VISUAL_ID:
 			return getInPort_3019IncomingLinks(view);
-		case OutPort2EditPart.VISUAL_ID:
+		case SubcomponentOutPortEditPart.VISUAL_ID:
 			return getOutPort_3020IncomingLinks(view);
 		}
 		return Collections.emptyList();
@@ -441,9 +441,9 @@ public class ComponentsDiagramUpdater {
 			return getComponent_3012OutgoingLinks(view);
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018OutgoingLinks(view);
-		case InPort2EditPart.VISUAL_ID:
+		case SubcomponentInPortEditPart.VISUAL_ID:
 			return getInPort_3019OutgoingLinks(view);
-		case OutPort2EditPart.VISUAL_ID:
+		case SubcomponentOutPortEditPart.VISUAL_ID:
 			return getOutPort_3020OutgoingLinks(view);
 		}
 		return Collections.emptyList();

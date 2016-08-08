@@ -614,18 +614,18 @@ public class OutPortNameTypeEditPart extends LabelEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new OutPortLabelFigure();
+		return new ParentOutPortLabelFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class OutPortLabelFigure extends WrappingLabel {
+	public class ParentOutPortLabelFigure extends WrappingLabel {
 
 		/**
 		 * @generated
 		 */
-		public OutPortLabelFigure() {
+		public ParentOutPortLabelFigure() {
 			this.setText("Out_");
 		}
 

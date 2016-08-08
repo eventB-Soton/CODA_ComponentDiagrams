@@ -29,16 +29,16 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
 
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.StatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SynchronousStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.TransitionEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.WakeQueueEditPart;
@@ -326,9 +326,9 @@ public class ComponentsElementTypes {
 			return Component_3012;
 		case WakeQueueEditPart.VISUAL_ID:
 			return WakeQueue_3018;
-		case InPort2EditPart.VISUAL_ID:
+		case SubcomponentInPortEditPart.VISUAL_ID:
 			return InPort_3019;
-		case OutPort2EditPart.VISUAL_ID:
+		case SubcomponentOutPortEditPart.VISUAL_ID:
 			return OutPort_3020;
 		case AbstractOutReceiverSourceEditPart.VISUAL_ID:
 			return AbstractOutReceiverSource_4008;

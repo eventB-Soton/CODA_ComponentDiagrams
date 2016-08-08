@@ -44,10 +44,10 @@ import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentDiagramEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramUpdater;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsLinkDescriptor;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsNodeDescriptor;
@@ -331,7 +331,7 @@ public class ComponentDiagramCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case InPort2EditPart.VISUAL_ID: {
+		case SubcomponentInPortEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ComponentsDiagramUpdater
 						.getInPort_3019ContainedLinks(view));
@@ -342,7 +342,7 @@ public class ComponentDiagramCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case OutPort2EditPart.VISUAL_ID: {
+		case SubcomponentOutPortEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ComponentsDiagramUpdater
 						.getOutPort_3020ContainedLinks(view));

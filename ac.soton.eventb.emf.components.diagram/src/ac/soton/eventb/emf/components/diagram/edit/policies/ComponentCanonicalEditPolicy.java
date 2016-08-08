@@ -30,8 +30,8 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import ac.soton.eventb.emf.components.ComponentsPackage;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramUpdater;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsNodeDescriptor;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
@@ -89,8 +89,8 @@ public class ComponentCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = ComponentsVisualIDRegistry.getVisualID(view);
-		return visualID == InPort2EditPart.VISUAL_ID
-				|| visualID == OutPort2EditPart.VISUAL_ID;
+		return visualID == SubcomponentInPortEditPart.VISUAL_ID
+				|| visualID == SubcomponentOutPortEditPart.VISUAL_ID;
 	}
 
 	/**

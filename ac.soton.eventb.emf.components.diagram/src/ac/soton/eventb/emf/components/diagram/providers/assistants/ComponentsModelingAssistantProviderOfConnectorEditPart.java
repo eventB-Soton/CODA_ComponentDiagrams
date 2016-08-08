@@ -16,10 +16,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.providers.ComponentsElementTypes;
 import ac.soton.eventb.emf.components.diagram.providers.ComponentsModelingAssistantProvider;
 
@@ -72,13 +72,13 @@ public class ComponentsModelingAssistantProviderOfConnectorEditPart extends
 		if (targetEditPart instanceof OutPortEditPart) {
 			types.add(ComponentsElementTypes.AbstractOutReceiverSource_4008);
 		}
-		if (targetEditPart instanceof OutPort2EditPart) {
+		if (targetEditPart instanceof SubcomponentOutPortEditPart) {
 			types.add(ComponentsElementTypes.AbstractOutReceiverSource_4008);
 		}
 		if (targetEditPart instanceof InPortEditPart) {
 			types.add(ComponentsElementTypes.AbstractInSenderDestinations_4009);
 		}
-		if (targetEditPart instanceof InPort2EditPart) {
+		if (targetEditPart instanceof SubcomponentInPortEditPart) {
 			types.add(ComponentsElementTypes.AbstractInSenderDestinations_4009);
 		}
 		return types;

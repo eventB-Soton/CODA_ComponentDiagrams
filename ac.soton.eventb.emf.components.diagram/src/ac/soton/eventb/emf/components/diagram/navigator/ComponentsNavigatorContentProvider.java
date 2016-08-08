@@ -43,16 +43,16 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentWakeQueuesEdit
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
 
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.StatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SynchronousStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.TransitionEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.WakeQueueEditPart;
@@ -392,12 +392,12 @@ public class ComponentsNavigatorContentProvider implements
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					ComponentsVisualIDRegistry
-							.getType(InPort2EditPart.VISUAL_ID));
+							.getType(SubcomponentInPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					ComponentsVisualIDRegistry
-							.getType(OutPort2EditPart.VISUAL_ID));
+							.getType(SubcomponentOutPortEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -490,7 +490,7 @@ public class ComponentsNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case InPort2EditPart.VISUAL_ID: {
+		case SubcomponentInPortEditPart.VISUAL_ID: {
 			LinkedList<ComponentsAbstractNavigatorItem> result = new LinkedList<ComponentsAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			ComponentsNavigatorGroup incominglinks = new ComponentsNavigatorGroup(
@@ -521,7 +521,7 @@ public class ComponentsNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case OutPort2EditPart.VISUAL_ID: {
+		case SubcomponentOutPortEditPart.VISUAL_ID: {
 			LinkedList<ComponentsAbstractNavigatorItem> result = new LinkedList<ComponentsAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			ComponentsNavigatorGroup incominglinks = new ComponentsNavigatorGroup(
@@ -569,7 +569,7 @@ public class ComponentsNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
 					ComponentsVisualIDRegistry
-							.getType(OutPort2EditPart.VISUAL_ID));
+							.getType(SubcomponentOutPortEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
@@ -584,7 +584,7 @@ public class ComponentsNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
 					ComponentsVisualIDRegistry
-							.getType(OutPort2EditPart.VISUAL_ID));
+							.getType(SubcomponentOutPortEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {
@@ -613,7 +613,7 @@ public class ComponentsNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),
 					ComponentsVisualIDRegistry
-							.getType(InPort2EditPart.VISUAL_ID));
+							.getType(SubcomponentInPortEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
@@ -628,7 +628,7 @@ public class ComponentsNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(sv),
 					ComponentsVisualIDRegistry
-							.getType(InPort2EditPart.VISUAL_ID));
+							.getType(SubcomponentInPortEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {

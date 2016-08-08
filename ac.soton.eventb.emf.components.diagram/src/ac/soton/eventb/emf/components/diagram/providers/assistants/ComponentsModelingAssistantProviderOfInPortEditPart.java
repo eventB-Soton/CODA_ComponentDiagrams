@@ -15,8 +15,8 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
-import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart;
 import ac.soton.eventb.emf.components.diagram.providers.ComponentsElementTypes;
 import ac.soton.eventb.emf.components.diagram.providers.ComponentsModelingAssistantProvider;
 
@@ -68,7 +68,7 @@ public class ComponentsModelingAssistantProviderOfInPortEditPart extends
 		if (targetEditPart instanceof InPortEditPart) {
 			types.add(ComponentsElementTypes.AbstractInSenderDestinations_4009);
 		}
-		if (targetEditPart instanceof InPort2EditPart) {
+		if (targetEditPart instanceof SubcomponentInPortEditPart) {
 			types.add(ComponentsElementTypes.AbstractInSenderDestinations_4009);
 		}
 		return types;
