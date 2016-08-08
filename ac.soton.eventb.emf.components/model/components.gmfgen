@@ -39,6 +39,7 @@
         visualID="3015"
         editPartClassName="StatemachineEditPart"
         itemSemanticEditPolicyClassName="StatemachineItemSemanticEditPolicy"
+        notationViewFactoryClassName="StatemachineViewFactory"
         canonicalEditPolicyClassName="StatemachineCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="StatemachineGraphicalNodeEditPolicy"
         createCommandClassName="StatemachineCreateCommand"
@@ -76,6 +77,7 @@
         visualID="3016"
         editPartClassName="SynchronousStatemachineEditPart"
         itemSemanticEditPolicyClassName="SynchronousStatemachineItemSemanticEditPolicy"
+        notationViewFactoryClassName="StatemachineViewFactory"
         canonicalEditPolicyClassName="SynchronousStatemachineCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SynchronousStatemachineGraphicalNodeEditPolicy"
         createCommandClassName="SynchronousStatemachineCreateCommand"
@@ -110,6 +112,7 @@
         visualID="3017"
         editPartClassName="ProcessStatemachineEditPart"
         itemSemanticEditPolicyClassName="ProcessStatemachineItemSemanticEditPolicy"
+        notationViewFactoryClassName="StatemachineViewFactory"
         canonicalEditPolicyClassName="ProcessStatemachineCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ProcessStatemachineGraphicalNodeEditPolicy"
         createCommandClassName="ProcessStatemachineCreateCommand"
@@ -144,6 +147,7 @@
         visualID="3008"
         editPartClassName="PortWakeEditPart"
         itemSemanticEditPolicyClassName="PortWakeItemSemanticEditPolicy"
+        notationViewFactoryClassName="PortWakeViewFactory"
         canonicalEditPolicyClassName="PortWakeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="PortWakeGraphicalNodeEditPolicy"
         createCommandClassName="PortWakeCreateCommand"
@@ -179,6 +183,7 @@
         visualID="3009"
         editPartClassName="SelfWakeEditPart"
         itemSemanticEditPolicyClassName="SelfWakeItemSemanticEditPolicy"
+        notationViewFactoryClassName="SelfWakeViewFactory"
         canonicalEditPolicyClassName="SelfWakeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SelfWakeGraphicalNodeEditPolicy"
         createCommandClassName="SelfWakeCreateCommand"
@@ -213,6 +218,7 @@
         visualID="3010"
         editPartClassName="MethodEditPart"
         itemSemanticEditPolicyClassName="MethodItemSemanticEditPolicy"
+        notationViewFactoryClassName="MethodViewFactory"
         canonicalEditPolicyClassName="MethodCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="MethodGraphicalNodeEditPolicy"
         createCommandClassName="MethodCreateCommand"
@@ -248,6 +254,7 @@
         visualID="3013"
         editPartClassName="ExternalEditPart"
         itemSemanticEditPolicyClassName="ExternalItemSemanticEditPolicy"
+        notationViewFactoryClassName="ExternalViewFactory"
         canonicalEditPolicyClassName="ExternalCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ExternalGraphicalNodeEditPolicy"
         createCommandClassName="ExternalCreateCommand"
@@ -284,6 +291,7 @@
         visualID="3014"
         editPartClassName="TransitionEditPart"
         itemSemanticEditPolicyClassName="TransitionItemSemanticEditPolicy"
+        notationViewFactoryClassName="TransitionViewFactory"
         canonicalEditPolicyClassName="TransitionCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="TransitionGraphicalNodeEditPolicy"
         createCommandClassName="TransitionCreateCommand"
@@ -323,6 +331,7 @@
         visualID="3012"
         editPartClassName="SubcomponentEditPart"
         itemSemanticEditPolicyClassName="SubcomponentItemSemanticEditPolicy"
+        notationViewFactoryClassName="ComponentViewFactory"
         canonicalEditPolicyClassName="SubcomponentCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SubcomponentGraphicalNodeEditPolicy"
         createCommandClassName="SubcomponentCreateCommand"
@@ -356,6 +365,7 @@
         visualID="3018"
         editPartClassName="WakeQueueEditPart"
         itemSemanticEditPolicyClassName="WakeQueueItemSemanticEditPolicy"
+        notationViewFactoryClassName="WakeQueueViewFactory"
         canonicalEditPolicyClassName="WakeQueueCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="WakeQueueGraphicalNodeEditPolicy"
         createCommandClassName="WakeQueueCreateCommand"
@@ -390,10 +400,12 @@
         visualID="3019"
         editPartClassName="SubcomponentInPortEditPart"
         itemSemanticEditPolicyClassName="SubcomponentInPortItemSemanticEditPolicy"
+        notationViewFactoryClassName="InPortViewFactory"
         canonicalEditPolicyClassName="SubcomponentInPortCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SubcomponentInPortGraphicalNodeEditPolicy"
         createCommandClassName="SubcomponentInPortCreateCommand"
-        containers="//@diagram/@topLevelNodes.0">
+        containers="//@diagram/@topLevelNodes.0"
+        preferredSideName="WEST">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -415,6 +427,7 @@
           visualID="5015"
           editPartClassName="SubcomponentInPortNameTypeEditPart"
           itemSemanticEditPolicyClassName="SubcomponentInPortNameTypeItemSemanticEditPolicy"
+          notationViewFactoryClassName="InPortNameTypeViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -438,10 +451,12 @@
         visualID="3020"
         editPartClassName="SubcomponentOutPortEditPart"
         itemSemanticEditPolicyClassName="SubcomponentOutPortItemSemanticEditPolicy"
+        notationViewFactoryClassName="OutPortViewFactory"
         canonicalEditPolicyClassName="SubcomponentOutPortCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="SubcomponentOutPortGraphicalNodeEditPolicy"
         createCommandClassName="SubcomponentOutPortCreateCommand"
-        containers="//@diagram/@topLevelNodes.0">
+        containers="//@diagram/@topLevelNodes.0"
+        preferredSideName="EAST">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -463,6 +478,7 @@
           visualID="5016"
           editPartClassName="SubcomponentOutPortNameTypeEditPart"
           itemSemanticEditPolicyClassName="SubcomponentOutPortNameTypeItemSemanticEditPolicy"
+          notationViewFactoryClassName="OutPortNameTypeViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -484,6 +500,7 @@
         visualID="2005"
         editPartClassName="ComponentEditPart"
         itemSemanticEditPolicyClassName="ComponentItemSemanticEditPolicy"
+        notationViewFactoryClassName="ComponentViewFactory"
         canonicalEditPolicyClassName="ComponentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.10 //@diagram/@childNodes.11"
         compartments="//@diagram/@compartments.0 //@diagram/@compartments.1 //@diagram/@compartments.2 //@diagram/@compartments.3"
@@ -518,7 +535,8 @@
       <labels
           visualID="5010"
           editPartClassName="ComponentNameEditPart"
-          itemSemanticEditPolicyClassName="ComponentNameItemSemanticEditPolicy">
+          itemSemanticEditPolicyClassName="ComponentNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ComponentNameViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -542,6 +560,7 @@
         visualID="2006"
         editPartClassName="ConnectorEditPart"
         itemSemanticEditPolicyClassName="ConnectorItemSemanticEditPolicy"
+        notationViewFactoryClassName="ConnectorViewFactory"
         canonicalEditPolicyClassName="ConnectorCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ConnectorGraphicalNodeEditPolicy"
         createCommandClassName="ConnectorCreateCommand">
@@ -568,7 +587,8 @@
       <labels
           visualID="5011"
           editPartClassName="ConnectorNameEditPart"
-          itemSemanticEditPolicyClassName="ConnectorNameItemSemanticEditPolicy">
+          itemSemanticEditPolicyClassName="ConnectorNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ConnectorNameViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -590,7 +610,8 @@
       <labels
           visualID="5012"
           editPartClassName="ConnectorTypeEditPart"
-          itemSemanticEditPolicyClassName="ConnectorTypeItemSemanticEditPolicy">
+          itemSemanticEditPolicyClassName="ConnectorTypeItemSemanticEditPolicy"
+          notationViewFactoryClassName="ConnectorTypeViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -615,6 +636,7 @@
         visualID="2007"
         editPartClassName="InPortEditPart"
         itemSemanticEditPolicyClassName="InPortItemSemanticEditPolicy"
+        notationViewFactoryClassName="InPortViewFactory"
         canonicalEditPolicyClassName="InPortCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="InPortGraphicalNodeEditPolicy"
         createCommandClassName="InPortCreateCommand">
@@ -639,6 +661,7 @@
           visualID="5013"
           editPartClassName="InPortNameTypeEditPart"
           itemSemanticEditPolicyClassName="InPortNameTypeItemSemanticEditPolicy"
+          notationViewFactoryClassName="InPortNameTypeViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -666,6 +689,7 @@
         visualID="2008"
         editPartClassName="OutPortEditPart"
         itemSemanticEditPolicyClassName="OutPortItemSemanticEditPolicy"
+        notationViewFactoryClassName="OutPortViewFactory"
         canonicalEditPolicyClassName="OutPortCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="OutPortGraphicalNodeEditPolicy"
         createCommandClassName="OutPortCreateCommand">
@@ -690,6 +714,7 @@
           visualID="5014"
           editPartClassName="OutPortNameTypeEditPart"
           itemSemanticEditPolicyClassName="OutPortNameTypeItemSemanticEditPolicy"
+          notationViewFactoryClassName="OutPortNameTypeViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -717,6 +742,7 @@
         visualID="4008"
         editPartClassName="AbstractOutReceiverSourceEditPart"
         itemSemanticEditPolicyClassName="AbstractOutReceiverSourceItemSemanticEditPolicy"
+        notationViewFactoryClassName="AbstractOutReceiverSourceViewFactory"
         createCommandClassName="AbstractOutReceiverSourceCreateCommand"
         reorientCommandClassName="AbstractOutReceiverSourceReorientCommand">
       <diagramRunTimeClass
@@ -737,6 +763,7 @@
         visualID="4009"
         editPartClassName="AbstractInSenderDestinationsEditPart"
         itemSemanticEditPolicyClassName="AbstractInSenderDestinationsItemSemanticEditPolicy"
+        notationViewFactoryClassName="AbstractInSenderDestinationsViewFactory"
         createCommandClassName="AbstractInSenderDestinationsCreateCommand"
         reorientCommandClassName="AbstractInSenderDestinationsReorientCommand">
       <diagramRunTimeClass
@@ -757,6 +784,7 @@
         visualID="7004"
         editPartClassName="ComponentStatemachinesEditPart"
         itemSemanticEditPolicyClassName="ComponentStatemachinesItemSemanticEditPolicy"
+        notationViewFactoryClassName="ComponentStatemachinesViewFactory"
         canonicalEditPolicyClassName="ComponentStatemachinesCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.1 //@diagram/@childNodes.2"
         title="Statemachines"
@@ -773,6 +801,7 @@
         visualID="7005"
         editPartClassName="ComponentOperationsEditPart"
         itemSemanticEditPolicyClassName="ComponentOperationsItemSemanticEditPolicy"
+        notationViewFactoryClassName="ComponentOperationsViewFactory"
         canonicalEditPolicyClassName="ComponentOperationsCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.7"
         title="Operations"
@@ -789,6 +818,7 @@
         visualID="7006"
         editPartClassName="ComponentSubcomponentsEditPart"
         itemSemanticEditPolicyClassName="ComponentSubcomponentsItemSemanticEditPolicy"
+        notationViewFactoryClassName="ComponentSubcomponentsViewFactory"
         canonicalEditPolicyClassName="ComponentSubcomponentsCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.8"
         title="Subcomponents"
@@ -805,6 +835,7 @@
         visualID="7007"
         editPartClassName="ComponentWakeQueuesEditPart"
         itemSemanticEditPolicyClassName="ComponentWakeQueuesItemSemanticEditPolicy"
+        notationViewFactoryClassName="ComponentWakeQueuesViewFactory"
         canonicalEditPolicyClassName="ComponentWakeQueuesCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.9"
         title="WakeQueues"

@@ -182,7 +182,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof SubcomponentInPortEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.NONE);
+					PositionConstants.WEST);
 			getBorderedFigure().getBorderItemContainer().add(
 					((SubcomponentInPortEditPart) childEditPart).getFigure(),
 					locator);
@@ -190,7 +190,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof SubcomponentOutPortEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.NONE);
+					PositionConstants.EAST);
 			getBorderedFigure().getBorderItemContainer().add(
 					((SubcomponentOutPortEditPart) childEditPart).getFigure(),
 					locator);

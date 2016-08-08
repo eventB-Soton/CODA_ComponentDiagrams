@@ -261,11 +261,11 @@
   <nodes
       name="SubcomponentInPort"
       figure="SubcomponentInPortFigure"
-      affixedParentSide="NSEW"/>
+      affixedParentSide="WEST"/>
   <nodes
       name="SubcomponentOutPort"
       figure="SubcomponentOutPortFigure"
-      affixedParentSide="NSEW"/>
+      affixedParentSide="EAST"/>
   <nodes
       name="ParentInPort"
       figure="ParentInPortFigure"/>
