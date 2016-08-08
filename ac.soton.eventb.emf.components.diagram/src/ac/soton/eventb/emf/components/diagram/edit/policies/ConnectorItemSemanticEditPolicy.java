@@ -22,12 +22,13 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorReceiversCreateCommand;
-import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorReceiversReorientCommand;
-import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorSenderCreateCommand;
-import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorSenderReorientCommand;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorReceiversEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorSenderEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.commands.AbstractInSenderDestinationsCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.AbstractInSenderDestinationsReorientCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.AbstractOutReceiverSourceCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.AbstractOutReceiverSourceReorientCommand;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractInSenderDestinationsEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractOutReceiverSourceEditPart;
+
 import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
 import ac.soton.eventb.emf.components.diagram.providers.ComponentsElementTypes;
 
@@ -54,7 +55,7 @@ public class ConnectorItemSemanticEditPolicy extends
 		cmd.setTransactionNestingEnabled(false);
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
-			if (ComponentsVisualIDRegistry.getVisualID(outgoingLink) == ConnectorSenderEditPart.VISUAL_ID) {
+			if (ComponentsVisualIDRegistry.getVisualID(outgoingLink) == AbstractOutReceiverSourceEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
@@ -62,7 +63,7 @@ public class ConnectorItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
-			if (ComponentsVisualIDRegistry.getVisualID(outgoingLink) == ConnectorReceiversEditPart.VISUAL_ID) {
+			if (ComponentsVisualIDRegistry.getVisualID(outgoingLink) == AbstractInSenderDestinationsEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
@@ -98,14 +99,15 @@ public class ConnectorItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (ComponentsElementTypes.ConnectorSender_4004 == req.getElementType()) {
-			return getGEFWrapper(new ConnectorSenderCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
-		if (ComponentsElementTypes.ConnectorReceivers_4005 == req
+		if (ComponentsElementTypes.AbstractOutReceiverSource_4008 == req
 				.getElementType()) {
-			return getGEFWrapper(new ConnectorReceiversCreateCommand(req,
-					req.getSource(), req.getTarget()));
+			return getGEFWrapper(new AbstractOutReceiverSourceCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
+		if (ComponentsElementTypes.AbstractInSenderDestinations_4009 == req
+				.getElementType()) {
+			return getGEFWrapper(new AbstractInSenderDestinationsCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -115,10 +117,11 @@ public class ConnectorItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (ComponentsElementTypes.ConnectorSender_4004 == req.getElementType()) {
+		if (ComponentsElementTypes.AbstractOutReceiverSource_4008 == req
+				.getElementType()) {
 			return null;
 		}
-		if (ComponentsElementTypes.ConnectorReceivers_4005 == req
+		if (ComponentsElementTypes.AbstractInSenderDestinations_4009 == req
 				.getElementType()) {
 			return null;
 		}
@@ -134,10 +137,12 @@ public class ConnectorItemSemanticEditPolicy extends
 	protected Command getReorientReferenceRelationshipCommand(
 			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case ConnectorSenderEditPart.VISUAL_ID:
-			return getGEFWrapper(new ConnectorSenderReorientCommand(req));
-		case ConnectorReceiversEditPart.VISUAL_ID:
-			return getGEFWrapper(new ConnectorReceiversReorientCommand(req));
+		case AbstractOutReceiverSourceEditPart.VISUAL_ID:
+			return getGEFWrapper(new AbstractOutReceiverSourceReorientCommand(
+					req));
+		case AbstractInSenderDestinationsEditPart.VISUAL_ID:
+			return getGEFWrapper(new AbstractInSenderDestinationsReorientCommand(
+					req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

@@ -260,7 +260,7 @@ public class MethodEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
@@ -625,6 +625,14 @@ public class MethodEditPart extends CompartmentEditPart implements
 			this.setText("<...>");
 		}
 
+	}
+
+	/**
+	 * @generated
+	 */
+	@Override
+	public boolean isSelectable() {
+		return getFigure().isShowing();
 	}
 
 }

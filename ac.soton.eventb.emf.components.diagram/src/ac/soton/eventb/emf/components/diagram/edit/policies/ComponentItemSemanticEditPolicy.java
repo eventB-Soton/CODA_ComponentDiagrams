@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyReferenceCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
@@ -24,18 +25,19 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorReceiversCreateCommand;
-import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorReceiversReorientCommand;
-import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorSenderCreateCommand;
-import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorSenderReorientCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.InPort2CreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.OutPort2CreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractInSenderDestinationsEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractOutReceiverSourceEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentOperationsEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentStatemachinesEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentSubcomponentsEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentWakeQueuesEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorReceiversEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorSenderEditPart;
+
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -63,30 +65,24 @@ public class ComponentItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (ComponentsElementTypes.InPort_3019 == req.getElementType()) {
+			return getGEFWrapper(new InPort2CreateCommand(req));
+		}
+		if (ComponentsElementTypes.OutPort_3020 == req.getElementType()) {
+			return getGEFWrapper(new OutPort2CreateCommand(req));
+		}
+		return super.getCreateCommand(req);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
-		for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
-			Edge incomingLink = (Edge) it.next();
-			if (ComponentsVisualIDRegistry.getVisualID(incomingLink) == ConnectorSenderEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						incomingLink.getSource().getElement(), null,
-						incomingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
-			if (ComponentsVisualIDRegistry.getVisualID(incomingLink) == ConnectorReceiversEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						incomingLink.getSource().getElement(), null,
-						incomingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
-		}
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
 			// there are indirectly referenced children, need extra commands: false
@@ -108,6 +104,70 @@ public class ComponentItemSemanticEditPolicy extends
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (ComponentsVisualIDRegistry.getVisualID(node)) {
+			case InPort2EditPart.VISUAL_ID:
+				for (Iterator<?> it = node.getTargetEdges().iterator(); it
+						.hasNext();) {
+					Edge incomingLink = (Edge) it.next();
+					if (ComponentsVisualIDRegistry.getVisualID(incomingLink) == AbstractInSenderDestinationsEditPart.VISUAL_ID) {
+						DestroyReferenceRequest r = new DestroyReferenceRequest(
+								incomingLink.getSource().getElement(), null,
+								incomingLink.getTarget().getElement(), false);
+						cmd.add(new DestroyReferenceCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								incomingLink));
+						continue;
+					}
+				}
+				for (Iterator<?> it = node.getSourceEdges().iterator(); it
+						.hasNext();) {
+					Edge outgoingLink = (Edge) it.next();
+					if (ComponentsVisualIDRegistry.getVisualID(outgoingLink) == AbstractInSenderDestinationsEditPart.VISUAL_ID) {
+						DestroyReferenceRequest r = new DestroyReferenceRequest(
+								outgoingLink.getSource().getElement(), null,
+								outgoingLink.getTarget().getElement(), false);
+						cmd.add(new DestroyReferenceCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case OutPort2EditPart.VISUAL_ID:
+				for (Iterator<?> it = node.getTargetEdges().iterator(); it
+						.hasNext();) {
+					Edge incomingLink = (Edge) it.next();
+					if (ComponentsVisualIDRegistry.getVisualID(incomingLink) == AbstractOutReceiverSourceEditPart.VISUAL_ID) {
+						DestroyReferenceRequest r = new DestroyReferenceRequest(
+								incomingLink.getSource().getElement(), null,
+								incomingLink.getTarget().getElement(), false);
+						cmd.add(new DestroyReferenceCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								incomingLink));
+						continue;
+					}
+				}
+				for (Iterator<?> it = node.getSourceEdges().iterator(); it
+						.hasNext();) {
+					Edge outgoingLink = (Edge) it.next();
+					if (ComponentsVisualIDRegistry.getVisualID(outgoingLink) == AbstractOutReceiverSourceEditPart.VISUAL_ID) {
+						DestroyReferenceRequest r = new DestroyReferenceRequest(
+								outgoingLink.getSource().getElement(), null,
+								outgoingLink.getTarget().getElement(), false);
+						cmd.add(new DestroyReferenceCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
 			case ComponentStatemachinesEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
@@ -212,65 +272,6 @@ public class ComponentItemSemanticEditPolicy extends
 				break;
 			}
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
-		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
-				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super
-				.getCreateRelationshipCommand(req);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (ComponentsElementTypes.ConnectorSender_4004 == req.getElementType()) {
-			return null;
-		}
-		if (ComponentsElementTypes.ConnectorReceivers_4005 == req
-				.getElementType()) {
-			return null;
-		}
-		return null;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (ComponentsElementTypes.ConnectorSender_4004 == req.getElementType()) {
-			return getGEFWrapper(new ConnectorSenderCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
-		if (ComponentsElementTypes.ConnectorReceivers_4005 == req
-				.getElementType()) {
-			return getGEFWrapper(new ConnectorReceiversCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
-		return null;
-	}
-
-	/**
-	 * Returns command to reorient EReference based link. New link target or source
-	 * should be the domain model element associated with this node.
-	 * 
-	 * @generated
-	 */
-	protected Command getReorientReferenceRelationshipCommand(
-			ReorientReferenceRelationshipRequest req) {
-		switch (getVisualID(req)) {
-		case ConnectorSenderEditPart.VISUAL_ID:
-			return getGEFWrapper(new ConnectorSenderReorientCommand(req));
-		case ConnectorReceiversEditPart.VISUAL_ID:
-			return getGEFWrapper(new ConnectorReceiversReorientCommand(req));
-		}
-		return super.getReorientReferenceRelationshipCommand(req);
 	}
 
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 University of Southampton.
+ * Copyright (c) 2011-2014 University of Southampton.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,14 +16,15 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import ac.soton.eventb.emf.components.Component;
-import ac.soton.eventb.emf.components.Connector;
+import ac.soton.eventb.emf.components.AbstractInReceiver;
+import ac.soton.eventb.emf.components.AbstractInSender;
 import ac.soton.eventb.emf.components.diagram.edit.policies.ComponentsBaseItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class ConnectorSenderReorientCommand extends EditElementCommand {
+public class AbstractInSenderDestinationsReorientCommand extends
+		EditElementCommand {
 
 	/**
 	 * @generated
@@ -48,7 +49,7 @@ public class ConnectorSenderReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public ConnectorSenderReorientCommand(
+	public AbstractInSenderDestinationsReorientCommand(
 			ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
@@ -61,7 +62,7 @@ public class ConnectorSenderReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		if (false == referenceOwner instanceof Connector) {
+		if (false == referenceOwner instanceof AbstractInSender) {
 			return false;
 		}
 		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -77,22 +78,24 @@ public class ConnectorSenderReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected boolean canReorientSource() {
-		if (!(oldEnd instanceof Component && newEnd instanceof Connector)) {
+		if (!(oldEnd instanceof AbstractInReceiver && newEnd instanceof AbstractInSender)) {
 			return false;
 		}
 		return ComponentsBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistConnectorSender_4004(getNewSource(), getOldTarget());
+				.canExistAbstractInSenderDestinations_4009(getNewSource(),
+						getOldTarget());
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof Component && newEnd instanceof Component)) {
+		if (!(oldEnd instanceof AbstractInReceiver && newEnd instanceof AbstractInReceiver)) {
 			return false;
 		}
 		return ComponentsBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistConnectorSender_4004(getOldSource(), getNewTarget());
+				.canExistAbstractInSenderDestinations_4009(getOldSource(),
+						getNewTarget());
 	}
 
 	/**
@@ -117,8 +120,8 @@ public class ConnectorSenderReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().setSender(null);
-		getNewSource().setSender(getOldTarget());
+		getOldSource().getDestinations().remove(getOldTarget());
+		getNewSource().getDestinations().add(getOldTarget());
 		return CommandResult.newOKCommandResult(referenceOwner);
 	}
 
@@ -126,35 +129,36 @@ public class ConnectorSenderReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getOldSource().setSender(getNewTarget());
+		getOldSource().getDestinations().remove(getOldTarget());
+		getOldSource().getDestinations().add(getNewTarget());
 		return CommandResult.newOKCommandResult(referenceOwner);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Connector getOldSource() {
-		return (Connector) referenceOwner;
+	protected AbstractInSender getOldSource() {
+		return (AbstractInSender) referenceOwner;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Connector getNewSource() {
-		return (Connector) newEnd;
+	protected AbstractInSender getNewSource() {
+		return (AbstractInSender) newEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Component getOldTarget() {
-		return (Component) oldEnd;
+	protected AbstractInReceiver getOldTarget() {
+		return (AbstractInReceiver) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Component getNewTarget() {
-		return (Component) newEnd;
+	protected AbstractInReceiver getNewTarget() {
+		return (AbstractInReceiver) newEnd;
 	}
 }

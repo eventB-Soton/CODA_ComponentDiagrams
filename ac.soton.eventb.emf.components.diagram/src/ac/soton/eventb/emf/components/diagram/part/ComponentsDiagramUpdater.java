@@ -21,10 +21,18 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
+import ac.soton.eventb.emf.components.AbstractInReceiver;
+import ac.soton.eventb.emf.components.AbstractInSender;
+import ac.soton.eventb.emf.components.AbstractOutReceiver;
+import ac.soton.eventb.emf.components.AbstractOutSender;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.Connector;
+import ac.soton.eventb.emf.components.InPort;
+import ac.soton.eventb.emf.components.OutPort;
 import ac.soton.eventb.emf.components.WakeQueue;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractInSenderDestinationsEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractOutReceiverSourceEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentDiagramEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentOperationsEditPart;
@@ -32,10 +40,13 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentStatemachinesE
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentSubcomponentsEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentWakeQueuesEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorReceiversEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorSenderEditPart;
+
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -67,6 +78,8 @@ public class ComponentsDiagramUpdater {
 		switch (ComponentsVisualIDRegistry.getVisualID(view)) {
 		case ComponentDiagramEditPart.VISUAL_ID:
 			return getComponent_1000SemanticChildren(view);
+		case ComponentEditPart.VISUAL_ID:
+			return getComponent_2005SemanticChildren(view);
 		case ComponentStatemachinesEditPart.VISUAL_ID:
 			return getComponentStatemachines_7004SemanticChildren(view);
 		case ComponentOperationsEditPart.VISUAL_ID:
@@ -105,6 +118,59 @@ public class ComponentsDiagramUpdater {
 			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == ConnectorEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getInPorts().iterator(); it
+				.hasNext();) {
+			InPort childElement = (InPort) it.next();
+			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == InPortEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getOutPorts().iterator(); it
+				.hasNext();) {
+			OutPort childElement = (OutPort) it.next();
+			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutPortEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsNodeDescriptor> getComponent_2005SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Component modelElement = (Component) view.getElement();
+		LinkedList<ComponentsNodeDescriptor> result = new LinkedList<ComponentsNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getInPorts().iterator(); it
+				.hasNext();) {
+			InPort childElement = (InPort) it.next();
+			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == InPort2EditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getOutPorts().iterator(); it
+				.hasNext();) {
+			OutPort childElement = (OutPort) it.next();
+			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == OutPort2EditPart.VISUAL_ID) {
 				result.add(new ComponentsNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -269,6 +335,10 @@ public class ComponentsDiagramUpdater {
 			return getComponent_2005ContainedLinks(view);
 		case ConnectorEditPart.VISUAL_ID:
 			return getConnector_2006ContainedLinks(view);
+		case InPortEditPart.VISUAL_ID:
+			return getInPort_2007ContainedLinks(view);
+		case OutPortEditPart.VISUAL_ID:
+			return getOutPort_2008ContainedLinks(view);
 		case StatemachineEditPart.VISUAL_ID:
 			return getStatemachine_3015ContainedLinks(view);
 		case SynchronousStatemachineEditPart.VISUAL_ID:
@@ -289,6 +359,10 @@ public class ComponentsDiagramUpdater {
 			return getComponent_3012ContainedLinks(view);
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018ContainedLinks(view);
+		case InPort2EditPart.VISUAL_ID:
+			return getInPort_3019ContainedLinks(view);
+		case OutPort2EditPart.VISUAL_ID:
+			return getOutPort_3020ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -302,6 +376,10 @@ public class ComponentsDiagramUpdater {
 			return getComponent_2005IncomingLinks(view);
 		case ConnectorEditPart.VISUAL_ID:
 			return getConnector_2006IncomingLinks(view);
+		case InPortEditPart.VISUAL_ID:
+			return getInPort_2007IncomingLinks(view);
+		case OutPortEditPart.VISUAL_ID:
+			return getOutPort_2008IncomingLinks(view);
 		case StatemachineEditPart.VISUAL_ID:
 			return getStatemachine_3015IncomingLinks(view);
 		case SynchronousStatemachineEditPart.VISUAL_ID:
@@ -322,6 +400,10 @@ public class ComponentsDiagramUpdater {
 			return getComponent_3012IncomingLinks(view);
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018IncomingLinks(view);
+		case InPort2EditPart.VISUAL_ID:
+			return getInPort_3019IncomingLinks(view);
+		case OutPort2EditPart.VISUAL_ID:
+			return getOutPort_3020IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -335,6 +417,10 @@ public class ComponentsDiagramUpdater {
 			return getComponent_2005OutgoingLinks(view);
 		case ConnectorEditPart.VISUAL_ID:
 			return getConnector_2006OutgoingLinks(view);
+		case InPortEditPart.VISUAL_ID:
+			return getInPort_2007OutgoingLinks(view);
+		case OutPortEditPart.VISUAL_ID:
+			return getOutPort_2008OutgoingLinks(view);
 		case StatemachineEditPart.VISUAL_ID:
 			return getStatemachine_3015OutgoingLinks(view);
 		case SynchronousStatemachineEditPart.VISUAL_ID:
@@ -355,6 +441,10 @@ public class ComponentsDiagramUpdater {
 			return getComponent_3012OutgoingLinks(view);
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018OutgoingLinks(view);
+		case InPort2EditPart.VISUAL_ID:
+			return getInPort_3019OutgoingLinks(view);
+		case OutPort2EditPart.VISUAL_ID:
+			return getOutPort_3020OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -382,8 +472,30 @@ public class ComponentsDiagramUpdater {
 			View view) {
 		Connector modelElement = (Connector) view.getElement();
 		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Connector_Sender_4004(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_Connector_Receivers_4005(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getInPort_2007ContainedLinks(
+			View view) {
+		InPort modelElement = (InPort) view.getElement();
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getOutPort_2008ContainedLinks(
+			View view) {
+		OutPort modelElement = (OutPort) view.getElement();
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(modelElement));
 		return result;
 	}
 
@@ -470,17 +582,31 @@ public class ComponentsDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<ComponentsLinkDescriptor> getInPort_3019ContainedLinks(
+			View view) {
+		InPort modelElement = (InPort) view.getElement();
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getOutPort_3020ContainedLinks(
+			View view) {
+		OutPort modelElement = (OutPort) view.getElement();
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<ComponentsLinkDescriptor> getComponent_2005IncomingLinks(
 			View view) {
-		Component modelElement = (Component) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Connector_Sender_4004(
-				modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_Connector_Receivers_4005(
-				modelElement, crossReferences));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
@@ -489,6 +615,34 @@ public class ComponentsDiagramUpdater {
 	public static List<ComponentsLinkDescriptor> getConnector_2006IncomingLinks(
 			View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getInPort_2007IncomingLinks(
+			View view) {
+		InPort modelElement = (InPort) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getOutPort_2008IncomingLinks(
+			View view) {
+		OutPort modelElement = (OutPort) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(
+				modelElement, crossReferences));
+		return result;
 	}
 
 	/**
@@ -574,6 +728,34 @@ public class ComponentsDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<ComponentsLinkDescriptor> getInPort_3019IncomingLinks(
+			View view) {
+		InPort modelElement = (InPort) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getOutPort_3020IncomingLinks(
+			View view) {
+		OutPort modelElement = (OutPort) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<ComponentsLinkDescriptor> getComponent_2005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -586,8 +768,30 @@ public class ComponentsDiagramUpdater {
 			View view) {
 		Connector modelElement = (Connector) view.getElement();
 		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Connector_Sender_4004(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_Connector_Receivers_4005(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getInPort_2007OutgoingLinks(
+			View view) {
+		InPort modelElement = (InPort) view.getElement();
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getOutPort_2008OutgoingLinks(
+			View view) {
+		OutPort modelElement = (OutPort) view.getElement();
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(modelElement));
 		return result;
 	}
 
@@ -674,18 +878,41 @@ public class ComponentsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<ComponentsLinkDescriptor> getIncomingFeatureModelFacetLinks_Connector_Sender_4004(
-			Component target,
+	public static List<ComponentsLinkDescriptor> getInPort_3019OutgoingLinks(
+			View view) {
+		InPort modelElement = (InPort) view.getElement();
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getOutPort_3020OutgoingLinks(
+			View view) {
+		OutPort modelElement = (OutPort) view.getElement();
+		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection<ComponentsLinkDescriptor> getIncomingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(
+			AbstractOutSender target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
 		Collection<EStructuralFeature.Setting> settings = crossReferences
 				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == ComponentsPackage.eINSTANCE
-					.getConnector_Sender()) {
+					.getAbstractOutReceiver_Source()) {
 				result.add(new ComponentsLinkDescriptor(setting.getEObject(),
-						target, ComponentsElementTypes.ConnectorSender_4004,
-						ConnectorSenderEditPart.VISUAL_ID));
+						target,
+						ComponentsElementTypes.AbstractOutReceiverSource_4008,
+						AbstractOutReceiverSourceEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -694,18 +921,20 @@ public class ComponentsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<ComponentsLinkDescriptor> getIncomingFeatureModelFacetLinks_Connector_Receivers_4005(
-			Component target,
+	private static Collection<ComponentsLinkDescriptor> getIncomingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(
+			AbstractInReceiver target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
 		Collection<EStructuralFeature.Setting> settings = crossReferences
 				.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == ComponentsPackage.eINSTANCE
-					.getConnector_Receivers()) {
-				result.add(new ComponentsLinkDescriptor(setting.getEObject(),
-						target, ComponentsElementTypes.ConnectorReceivers_4005,
-						ConnectorReceiversEditPart.VISUAL_ID));
+					.getAbstractInSender_Destinations()) {
+				result.add(new ComponentsLinkDescriptor(
+						setting.getEObject(),
+						target,
+						ComponentsElementTypes.AbstractInSenderDestinations_4009,
+						AbstractInSenderDestinationsEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -714,31 +943,32 @@ public class ComponentsDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<ComponentsLinkDescriptor> getOutgoingFeatureModelFacetLinks_Connector_Sender_4004(
-			Connector source) {
+	private static Collection<ComponentsLinkDescriptor> getOutgoingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(
+			AbstractOutReceiver source) {
 		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
-		Component destination = source.getSender();
+		AbstractOutSender destination = source.getSource();
 		if (destination == null) {
 			return result;
 		}
 		result.add(new ComponentsLinkDescriptor(source, destination,
-				ComponentsElementTypes.ConnectorSender_4004,
-				ConnectorSenderEditPart.VISUAL_ID));
+				ComponentsElementTypes.AbstractOutReceiverSource_4008,
+				AbstractOutReceiverSourceEditPart.VISUAL_ID));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	private static Collection<ComponentsLinkDescriptor> getOutgoingFeatureModelFacetLinks_Connector_Receivers_4005(
-			Connector source) {
+	private static Collection<ComponentsLinkDescriptor> getOutgoingFeatureModelFacetLinks_AbstractInSender_Destinations_4009(
+			AbstractInSender source) {
 		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
-		for (Iterator<?> destinations = source.getReceivers().iterator(); destinations
+		for (Iterator<?> destinations = source.getDestinations().iterator(); destinations
 				.hasNext();) {
-			Component destination = (Component) destinations.next();
+			AbstractInReceiver destination = (AbstractInReceiver) destinations
+					.next();
 			result.add(new ComponentsLinkDescriptor(source, destination,
-					ComponentsElementTypes.ConnectorReceivers_4005,
-					ConnectorReceiversEditPart.VISUAL_ID));
+					ComponentsElementTypes.AbstractInSenderDestinations_4009,
+					AbstractInSenderDestinationsEditPart.VISUAL_ID));
 		}
 		return result;
 	}

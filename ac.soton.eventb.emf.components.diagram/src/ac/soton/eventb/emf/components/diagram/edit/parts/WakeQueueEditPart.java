@@ -627,4 +627,12 @@ public class WakeQueueEditPart extends CompartmentEditPart implements
 
 	}
 
+	/**
+	 * @generated
+	 */
+	@Override
+	public boolean isSelectable() {
+		return getFigure().isShowing();
+	}
+
 }

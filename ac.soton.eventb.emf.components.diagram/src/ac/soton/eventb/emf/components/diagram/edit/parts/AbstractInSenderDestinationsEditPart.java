@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 University of Southampton.
+ * Copyright (c) 2011-2014 University of Southampton.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,23 +16,23 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
 
-import ac.soton.eventb.emf.components.diagram.edit.policies.ConnectorReceiversItemSemanticEditPolicy;
+import ac.soton.eventb.emf.components.diagram.edit.policies.AbstractInSenderDestinationsItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class ConnectorReceiversEditPart extends ConnectionNodeEditPart
-		implements ITreeBranchEditPart {
+public class AbstractInSenderDestinationsEditPart extends
+		ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4005;
+	public static final int VISUAL_ID = 4009;
 
 	/**
 	 * @generated
 	 */
-	public ConnectorReceiversEditPart(View view) {
+	public AbstractInSenderDestinationsEditPart(View view) {
 		super(view);
 	}
 
@@ -42,7 +42,7 @@ public class ConnectorReceiversEditPart extends ConnectionNodeEditPart
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ConnectorReceiversItemSemanticEditPolicy());
+				new AbstractInSenderDestinationsItemSemanticEditPolicy());
 	}
 
 	/**

@@ -17,14 +17,14 @@ import org.eclipse.draw2d.geometry.Rectangle;
  * @author vitaly
  *
  */
-public class FixedConnectionAnchor extends AbstractConnectionAnchor {
+public class DELETEFixedConnectionAnchor extends AbstractConnectionAnchor {
 
 	private int position = 0;
 
 	/**
 	 * @param owner
 	 */
-	public FixedConnectionAnchor(IFigure owner, int position) {
+	public DELETEFixedConnectionAnchor(IFigure owner, int position) {
 		super(owner);
 		this.position = position;
 	}

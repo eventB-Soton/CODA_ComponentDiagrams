@@ -121,8 +121,6 @@ public class StatemachineEditPart extends CompartmentEditPart implements
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenStatemachineDiagramEditPolicy());
 	}
 
 	/**
@@ -628,6 +626,14 @@ public class StatemachineEditPart extends CompartmentEditPart implements
 			this.setText("<...>");
 		}
 
+	}
+
+	/**
+	 * @generated
+	 */
+	@Override
+	public boolean isSelectable() {
+		return getFigure().isShowing();
 	}
 
 }

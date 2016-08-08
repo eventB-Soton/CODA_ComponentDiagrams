@@ -25,15 +25,24 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
 
 import ac.soton.eventb.emf.components.Component;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractInSenderDestinationsEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractOutReceiverSourceEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentDiagramEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentNameEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorNameEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorReceiversEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorSenderEditPart;
+
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameType2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameType2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -123,6 +132,12 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 		case ConnectorEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?Connector", ComponentsElementTypes.Connector_2006); //$NON-NLS-1$
+		case InPortEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?InPort", ComponentsElementTypes.InPort_2007); //$NON-NLS-1$
+		case OutPortEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?OutPort", ComponentsElementTypes.OutPort_2008); //$NON-NLS-1$
 		case PortWakeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?PortWake", ComponentsElementTypes.PortWake_3008); //$NON-NLS-1$
@@ -153,12 +168,18 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 		case WakeQueueEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?WakeQueue", ComponentsElementTypes.WakeQueue_3018); //$NON-NLS-1$
-		case ConnectorSenderEditPart.VISUAL_ID:
+		case InPort2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://soton.ac.uk/models/eventb/components/2016?Connector?sender", ComponentsElementTypes.ConnectorSender_4004); //$NON-NLS-1$
-		case ConnectorReceiversEditPart.VISUAL_ID:
+					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?InPort", ComponentsElementTypes.InPort_3019); //$NON-NLS-1$
+		case OutPort2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://soton.ac.uk/models/eventb/components/2016?Connector?receivers", ComponentsElementTypes.ConnectorReceivers_4005); //$NON-NLS-1$
+					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?OutPort", ComponentsElementTypes.OutPort_3020); //$NON-NLS-1$
+		case AbstractOutReceiverSourceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://soton.ac.uk/models/eventb/components/2016?AbstractOutReceiver?source", ComponentsElementTypes.AbstractOutReceiverSource_4008); //$NON-NLS-1$
+		case AbstractInSenderDestinationsEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://soton.ac.uk/models/eventb/components/2016?AbstractInSender?destinations", ComponentsElementTypes.AbstractInSenderDestinations_4009); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -225,6 +246,10 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 			return getComponent_2005Text(view);
 		case ConnectorEditPart.VISUAL_ID:
 			return getConnector_2006Text(view);
+		case InPortEditPart.VISUAL_ID:
+			return getInPort_2007Text(view);
+		case OutPortEditPart.VISUAL_ID:
+			return getOutPort_2008Text(view);
 		case PortWakeEditPart.VISUAL_ID:
 			return getPortWake_3008Text(view);
 		case SelfWakeEditPart.VISUAL_ID:
@@ -245,19 +270,16 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 			return getStatemachine_3017Text(view);
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018Text(view);
-		case ConnectorSenderEditPart.VISUAL_ID:
-			return getConnectorSender_4004Text(view);
-		case ConnectorReceiversEditPart.VISUAL_ID:
-			return getConnectorReceivers_4005Text(view);
+		case InPort2EditPart.VISUAL_ID:
+			return getInPort_3019Text(view);
+		case OutPort2EditPart.VISUAL_ID:
+			return getOutPort_3020Text(view);
+		case AbstractOutReceiverSourceEditPart.VISUAL_ID:
+			return getAbstractOutReceiverSource_4008Text(view);
+		case AbstractInSenderDestinationsEditPart.VISUAL_ID:
+			return getAbstractInSenderDestinations_4009Text(view);
 		}
 		return getUnknownElementText(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getConnectorReceivers_4005Text(View view) {
-		return ""; //$NON-NLS-1$
 	}
 
 	/**
@@ -282,13 +304,6 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getConnectorSender_4004Text(View view) {
-		return ""; //$NON-NLS-1$
-	}
-
-	/**
-	 * @generated
-	 */
 	private String getConnector_2006Text(View view) {
 		IParser parser = ComponentsParserProvider.getParser(
 				ComponentsElementTypes.Connector_2006,
@@ -302,6 +317,46 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			ComponentsDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 5011); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getInPort_2007Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.InPort_2007,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(InPortNameTypeEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5013); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getOutPort_2008Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.OutPort_2008,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(OutPortNameTypeEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5014); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -418,6 +473,60 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 					"Parser was not found for label " + 3018); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getInPort_3019Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.InPort_3019,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(InPortNameType2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5015); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getOutPort_3020Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.OutPort_3020,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(OutPortNameType2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5016); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getAbstractOutReceiverSource_4008Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getAbstractInSenderDestinations_4009Text(View view) {
+		return ""; //$NON-NLS-1$
 	}
 
 	/**

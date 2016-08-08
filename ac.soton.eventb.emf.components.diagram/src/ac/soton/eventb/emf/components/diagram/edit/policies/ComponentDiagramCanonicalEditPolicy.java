@@ -44,6 +44,10 @@ import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentDiagramEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramUpdater;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsLinkDescriptor;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsNodeDescriptor;
@@ -72,6 +76,10 @@ public class ComponentDiagramCanonicalEditPolicy extends
 					.getAbstractComponentModel_Components());
 			myFeaturesToSynchronize.add(ComponentsPackage.eINSTANCE
 					.getAbstractComponentModel_Connectors());
+			myFeaturesToSynchronize.add(ComponentsPackage.eINSTANCE
+					.getComponent_InPorts());
+			myFeaturesToSynchronize.add(ComponentsPackage.eINSTANCE
+					.getComponent_OutPorts());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -108,8 +116,14 @@ public class ComponentDiagramCanonicalEditPolicy extends
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = ComponentsVisualIDRegistry.getVisualID(view);
-		return visualID == ComponentEditPart.VISUAL_ID
-				|| visualID == ConnectorEditPart.VISUAL_ID;
+		switch (visualID) {
+		case ComponentEditPart.VISUAL_ID:
+		case ConnectorEditPart.VISUAL_ID:
+		case InPortEditPart.VISUAL_ID:
+		case OutPortEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -288,6 +302,50 @@ public class ComponentDiagramCanonicalEditPolicy extends
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(ComponentsDiagramUpdater
 						.getConnector_2006ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case InPortEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(ComponentsDiagramUpdater
+						.getInPort_2007ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case OutPortEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(ComponentsDiagramUpdater
+						.getOutPort_2008ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case InPort2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(ComponentsDiagramUpdater
+						.getInPort_3019ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case OutPort2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(ComponentsDiagramUpdater
+						.getOutPort_3020ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

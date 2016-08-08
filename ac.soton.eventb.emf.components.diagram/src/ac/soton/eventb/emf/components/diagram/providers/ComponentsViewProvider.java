@@ -35,6 +35,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.HintedDiagramLinkStyle;
+import org.eclipse.gmf.runtime.notation.Location;
 import org.eclipse.gmf.runtime.notation.MeasurementUnit;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
@@ -50,6 +51,8 @@ import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractInSenderDestinationsEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractOutReceiverSourceEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentDiagramEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentNameEditPart;
@@ -59,11 +62,18 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentSubcomponentsE
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentWakeQueuesEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorNameEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorReceiversEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorSenderEditPart;
+
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameType2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameType2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -175,6 +185,10 @@ public class ComponentsViewProvider extends AbstractProvider implements
 				}
 				switch (visualID) {
 				case ConnectorEditPart.VISUAL_ID:
+				case InPortEditPart.VISUAL_ID:
+				case OutPortEditPart.VISUAL_ID:
+				case InPort2EditPart.VISUAL_ID:
+				case OutPort2EditPart.VISUAL_ID:
 				case ProcessStatemachineEditPart.VISUAL_ID:
 				case SynchronousStatemachineEditPart.VISUAL_ID:
 				case PortWakeEditPart.VISUAL_ID:
@@ -203,6 +217,10 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		}
 		return ComponentEditPart.VISUAL_ID == visualID
 				|| ConnectorEditPart.VISUAL_ID == visualID
+				|| InPortEditPart.VISUAL_ID == visualID
+				|| OutPortEditPart.VISUAL_ID == visualID
+				|| InPort2EditPart.VISUAL_ID == visualID
+				|| OutPort2EditPart.VISUAL_ID == visualID
 				|| ProcessStatemachineEditPart.VISUAL_ID == visualID
 				|| SynchronousStatemachineEditPart.VISUAL_ID == visualID
 				|| StatemachineEditPart.VISUAL_ID == visualID
@@ -275,6 +293,12 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		case ConnectorEditPart.VISUAL_ID:
 			return createConnector_2006(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case InPortEditPart.VISUAL_ID:
+			return createInPort_2007(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case OutPortEditPart.VISUAL_ID:
+			return createOutPort_2008(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case StatemachineEditPart.VISUAL_ID:
 			return createStatemachine_3015(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -305,6 +329,12 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		case WakeQueueEditPart.VISUAL_ID:
 			return createWakeQueue_3018(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case InPort2EditPart.VISUAL_ID:
+			return createInPort_3019(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case OutPort2EditPart.VISUAL_ID:
+			return createOutPort_3020(domainElement, containerView, index,
+					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -319,12 +349,12 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (ComponentsVisualIDRegistry.getVisualID(elementTypeHint)) {
-		case ConnectorSenderEditPart.VISUAL_ID:
-			return createConnectorSender_4004(containerView, index, persisted,
-					preferencesHint);
-		case ConnectorReceiversEditPart.VISUAL_ID:
-			return createConnectorReceivers_4005(containerView, index,
+		case AbstractOutReceiverSourceEditPart.VISUAL_ID:
+			return createAbstractOutReceiverSource_4008(containerView, index,
 					persisted, preferencesHint);
+		case AbstractInSenderDestinationsEditPart.VISUAL_ID:
+			return createAbstractInSenderDestinations_4009(containerView,
+					index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 		return null;
@@ -444,6 +474,108 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		Node label5012 = createLabel(node,
 				ComponentsVisualIDRegistry
 						.getType(ConnectorTypeEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createInPort_2007(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(ComponentsVisualIDRegistry
+				.getType(InPortEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5013 = createLabel(node,
+				ComponentsVisualIDRegistry
+						.getType(InPortNameTypeEditPart.VISUAL_ID));
+		label5013.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location5013 = (Location) label5013.getLayoutConstraint();
+		location5013.setX(0);
+		location5013.setY(5);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createOutPort_2008(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(ComponentsVisualIDRegistry
+				.getType(OutPortEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5014 = createLabel(node,
+				ComponentsVisualIDRegistry
+						.getType(OutPortNameTypeEditPart.VISUAL_ID));
+		label5014.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location5014 = (Location) label5014.getLayoutConstraint();
+		location5014.setX(0);
+		location5014.setY(5);
 		return node;
 	}
 
@@ -612,8 +744,108 @@ public class ComponentsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createConnectorSender_4004(View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
+	public Node createInPort_3019(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(ComponentsVisualIDRegistry
+				.getType(InPort2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5015 = createLabel(node,
+				ComponentsVisualIDRegistry
+						.getType(InPortNameType2EditPart.VISUAL_ID));
+		label5015.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location5015 = (Location) label5015.getLayoutConstraint();
+		location5015.setX(0);
+		location5015.setY(5);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createOutPort_3020(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(ComponentsVisualIDRegistry
+				.getType(OutPort2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5016 = createLabel(node,
+				ComponentsVisualIDRegistry
+						.getType(OutPortNameType2EditPart.VISUAL_ID));
+		label5016.setLayoutConstraint(NotationFactory.eINSTANCE
+				.createLocation());
+		Location location5016 = (Location) label5016.getLayoutConstraint();
+		location5016.setX(0);
+		location5016.setY(5);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createAbstractOutReceiverSource_4008(View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
@@ -626,7 +858,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(ComponentsVisualIDRegistry
-				.getType(ConnectorSenderEditPart.VISUAL_ID));
+				.getType(AbstractOutReceiverSourceEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
@@ -664,8 +896,8 @@ public class ComponentsViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createConnectorReceivers_4005(View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
+	public Edge createAbstractInSenderDestinations_4009(View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
@@ -678,7 +910,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		edge.setBendpoints(bendpoints);
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge.setType(ComponentsVisualIDRegistry
-				.getType(ConnectorReceiversEditPart.VISUAL_ID));
+				.getType(AbstractInSenderDestinationsEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint

@@ -627,4 +627,12 @@ public class ExternalEditPart extends CompartmentEditPart implements
 
 	}
 
+	/**
+	 * @generated
+	 */
+	@Override
+	public boolean isSelectable() {
+		return getFigure().isShowing();
+	}
+
 }

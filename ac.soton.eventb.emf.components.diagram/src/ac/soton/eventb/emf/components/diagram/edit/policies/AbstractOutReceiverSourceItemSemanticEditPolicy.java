@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 University of Southampton.
+ * Copyright (c) 2011-2014 University of Southampton.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,14 +16,14 @@ import ac.soton.eventb.emf.components.diagram.providers.ComponentsElementTypes;
 /**
  * @generated
  */
-public class ConnectorReceiversItemSemanticEditPolicy extends
+public class AbstractOutReceiverSourceItemSemanticEditPolicy extends
 		ComponentsBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public ConnectorReceiversItemSemanticEditPolicy() {
-		super(ComponentsElementTypes.ConnectorReceivers_4005);
+	public AbstractOutReceiverSourceItemSemanticEditPolicy() {
+		super(ComponentsElementTypes.AbstractOutReceiverSource_4008);
 	}
 
 	/**

@@ -18,8 +18,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.Image;
 import org.eventb.emf.core.EventBNamed;
 
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorReceiversEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorSenderEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractInSenderDestinationsEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractOutReceiverSourceEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.StatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SynchronousStatemachineEditPart;
@@ -61,10 +61,10 @@ public class ComponentsSheetLabelProvider extends BaseLabelProvider implements
 			result = "Synchronous " + result;
 		} else if (element instanceof StatemachineEditPart) {
 			result = "Asynchronous " + result;
-		} else if (element instanceof ConnectorSenderEditPart) {
-			result = "Sender";
-		} else if (element instanceof ConnectorReceiversEditPart) {
-			result = "Receiver";
+		} else if (element instanceof AbstractOutReceiverSourceEditPart) {
+			result = "Source";
+		} else if (element instanceof AbstractInSenderDestinationsEditPart) {
+			result = "Destination";
 		}
 
 		//append name of domain model element where possible
@@ -99,9 +99,9 @@ public class ComponentsSheetLabelProvider extends BaseLabelProvider implements
 		element = unwrap(element);
 		if (element instanceof SynchronousStatemachineEditPart) {
 			return ((SynchronousStatemachineEditPart) element).getLabelIcon();
-		} else if (element instanceof ConnectorSenderEditPart) {
+		} else if (element instanceof AbstractOutReceiverSourceEditPart) {
 			return senderIcon;
-		} else if (element instanceof ConnectorReceiversEditPart) {
+		} else if (element instanceof AbstractInSenderDestinationsEditPart) {
 			return receiverIcon;
 		}
 		IElementType etype = getElementType(getView(element));

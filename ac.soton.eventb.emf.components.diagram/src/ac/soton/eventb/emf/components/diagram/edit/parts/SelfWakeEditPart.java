@@ -627,4 +627,12 @@ public class SelfWakeEditPart extends CompartmentEditPart implements
 
 	}
 
+	/**
+	 * @generated
+	 */
+	@Override
+	public boolean isSelectable() {
+		return getFigure().isShowing();
+	}
+
 }

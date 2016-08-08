@@ -16,6 +16,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import ac.soton.eventb.emf.components.diagram.edit.commands.ComponentCreateCommand;
 import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.InPortCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.OutPortCreateCommand;
 import ac.soton.eventb.emf.components.diagram.providers.ComponentsElementTypes;
 
 /**
@@ -40,6 +42,12 @@ public class ComponentDiagramItemSemanticEditPolicy extends
 		}
 		if (ComponentsElementTypes.Connector_2006 == req.getElementType()) {
 			return getGEFWrapper(new ConnectorCreateCommand(req));
+		}
+		if (ComponentsElementTypes.InPort_2007 == req.getElementType()) {
+			return getGEFWrapper(new InPortCreateCommand(req));
+		}
+		if (ComponentsElementTypes.OutPort_2008 == req.getElementType()) {
+			return getGEFWrapper(new OutPortCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

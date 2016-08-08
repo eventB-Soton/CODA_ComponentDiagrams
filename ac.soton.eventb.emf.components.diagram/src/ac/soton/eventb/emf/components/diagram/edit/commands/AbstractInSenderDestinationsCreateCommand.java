@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 University of Southampton.
+ * Copyright (c) 2011-2014 University of Southampton.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,14 +15,15 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import ac.soton.eventb.emf.components.Component;
-import ac.soton.eventb.emf.components.Connector;
+import ac.soton.eventb.emf.components.AbstractInReceiver;
+import ac.soton.eventb.emf.components.AbstractInSender;
 import ac.soton.eventb.emf.components.diagram.edit.policies.ComponentsBaseItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class ConnectorSenderCreateCommand extends EditElementCommand {
+public class AbstractInSenderDestinationsCreateCommand extends
+		EditElementCommand {
 
 	/**
 	 * @generated
@@ -37,8 +38,8 @@ public class ConnectorSenderCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	public ConnectorSenderCreateCommand(CreateRelationshipRequest request,
-			EObject source, EObject target) {
+	public AbstractInSenderDestinationsCreateCommand(
+			CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
 		this.target = target;
@@ -51,10 +52,10 @@ public class ConnectorSenderCreateCommand extends EditElementCommand {
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null && false == source instanceof Connector) {
+		if (source != null && false == source instanceof AbstractInSender) {
 			return false;
 		}
-		if (target != null && false == target instanceof Component) {
+		if (target != null && false == target instanceof AbstractInReceiver) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -62,7 +63,8 @@ public class ConnectorSenderCreateCommand extends EditElementCommand {
 		}
 		// target may be null here but it's possible to check constraint
 		return ComponentsBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateConnectorSender_4004(getSource(), getTarget());
+				.canCreateAbstractInSenderDestinations_4009(getSource(),
+						getTarget());
 	}
 
 	/**
@@ -76,7 +78,7 @@ public class ConnectorSenderCreateCommand extends EditElementCommand {
 		}
 
 		if (getSource() != null && getTarget() != null) {
-			getSource().setSender(getTarget());
+			getSource().getDestinations().add(getTarget());
 		}
 		return CommandResult.newOKCommandResult();
 
@@ -92,14 +94,14 @@ public class ConnectorSenderCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Connector getSource() {
-		return (Connector) source;
+	protected AbstractInSender getSource() {
+		return (AbstractInSender) source;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Component getTarget() {
-		return (Component) target;
+	protected AbstractInReceiver getTarget() {
+		return (AbstractInReceiver) target;
 	}
 }

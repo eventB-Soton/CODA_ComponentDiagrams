@@ -26,7 +26,11 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentNameEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorNameEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameType2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameType2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -98,14 +102,66 @@ public class ComponentsParserProvider extends AbstractProvider implements
 	private IParser getConnectorType_5012Parser() {
 		if (connectorType_5012Parser == null) {
 			EAttribute[] features = new EAttribute[] { ComponentsPackage.eINSTANCE
-					.getConnector_Type() };
+					.getAbstractPort_Type() };
 			EAttribute[] editableFeatures = new EAttribute[] { ComponentsPackage.eINSTANCE
-					.getConnector_Type() };
+					.getAbstractPort_Type() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
 			connectorType_5012Parser = parser;
 		}
 		return connectorType_5012Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser inPortNameType_5013Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getInPortNameType_5013Parser() {
+		if (inPortNameType_5013Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					CorePackage.eINSTANCE.getEventBNamed_Name(),
+					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
+			EAttribute[] editableFeatures = new EAttribute[] {
+					CorePackage.eINSTANCE.getEventBNamed_Name(),
+					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			parser.setViewPattern("{0}: {1}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}: {1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}: {1}"); //$NON-NLS-1$
+			inPortNameType_5013Parser = parser;
+		}
+		return inPortNameType_5013Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser outPortNameType_5014Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getOutPortNameType_5014Parser() {
+		if (outPortNameType_5014Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					CorePackage.eINSTANCE.getEventBNamed_Name(),
+					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
+			EAttribute[] editableFeatures = new EAttribute[] {
+					CorePackage.eINSTANCE.getEventBNamed_Name(),
+					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			parser.setViewPattern("{0}: {1}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}: {1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}: {1}"); //$NON-NLS-1$
+			outPortNameType_5014Parser = parser;
+		}
+		return outPortNameType_5014Parser;
 	}
 
 	/**
@@ -291,6 +347,44 @@ public class ComponentsParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser inPortNameType_5015Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getInPortNameType_5015Parser() {
+		if (inPortNameType_5015Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					CorePackage.eINSTANCE.getEventBNamed_Name(),
+					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			inPortNameType_5015Parser = parser;
+		}
+		return inPortNameType_5015Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser outPortNameType_5016Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getOutPortNameType_5016Parser() {
+		if (outPortNameType_5016Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					CorePackage.eINSTANCE.getEventBNamed_Name(),
+					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			outPortNameType_5016Parser = parser;
+		}
+		return outPortNameType_5016Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ComponentNameEditPart.VISUAL_ID:
@@ -299,6 +393,10 @@ public class ComponentsParserProvider extends AbstractProvider implements
 			return getConnectorName_5011Parser();
 		case ConnectorTypeEditPart.VISUAL_ID:
 			return getConnectorType_5012Parser();
+		case InPortNameTypeEditPart.VISUAL_ID:
+			return getInPortNameType_5013Parser();
+		case OutPortNameTypeEditPart.VISUAL_ID:
+			return getOutPortNameType_5014Parser();
 		case StatemachineEditPart.VISUAL_ID:
 			return getStatemachine_3015Parser();
 		case SynchronousStatemachineEditPart.VISUAL_ID:
@@ -319,6 +417,10 @@ public class ComponentsParserProvider extends AbstractProvider implements
 			return getComponent_3012Parser();
 		case WakeQueueEditPart.VISUAL_ID:
 			return getWakeQueue_3018Parser();
+		case InPortNameType2EditPart.VISUAL_ID:
+			return getInPortNameType_5015Parser();
+		case OutPortNameType2EditPart.VISUAL_ID:
+			return getOutPortNameType_5016Parser();
 		}
 		return null;
 	}

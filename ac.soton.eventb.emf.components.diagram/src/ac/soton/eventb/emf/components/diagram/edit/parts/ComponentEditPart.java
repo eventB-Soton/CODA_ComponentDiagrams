@@ -16,6 +16,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -27,11 +28,16 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -42,6 +48,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
+import ac.soton.eventb.emf.components.diagram.edit.policies.ComponentCanonicalEditPolicy;
 import ac.soton.eventb.emf.components.diagram.edit.policies.ComponentItemSemanticEditPolicy;
 import ac.soton.eventb.emf.components.diagram.edit.policies.ComponentsTextSelectionEditPolicy;
 import ac.soton.eventb.emf.components.diagram.edit.policies.OpenComponentDiagramEditPolicy;
@@ -51,7 +58,7 @@ import ac.soton.eventb.emf.components.diagram.providers.ComponentsElementTypes;
 /**
  * @generated
  */
-public class ComponentEditPart extends ShapeNodeEditPart {
+public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
@@ -85,10 +92,13 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ComponentItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new ComponentCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenComponentDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+				new OpenComponentDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -100,6 +110,12 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
+				View childView = (View) child.getModel();
+				switch (ComponentsVisualIDRegistry.getVisualID(childView)) {
+				case InPort2EditPart.VISUAL_ID:
+				case OutPort2EditPart.VISUAL_ID:
+					return new BorderItemSelectionEditPolicy();
+				}
 				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
 					if (child instanceof ITextAwareEditPart) {
 						return new ComponentsTextSelectionEditPolicy();
@@ -164,6 +180,20 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 			pane.add(((ComponentWakeQueuesEditPart) childEditPart).getFigure());
 			return true;
 		}
+		if (childEditPart instanceof InPort2EditPart) {
+			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+					PositionConstants.NONE);
+			getBorderedFigure().getBorderItemContainer().add(
+					((InPort2EditPart) childEditPart).getFigure(), locator);
+			return true;
+		}
+		if (childEditPart instanceof OutPort2EditPart) {
+			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+					PositionConstants.NONE);
+			getBorderedFigure().getBorderItemContainer().add(
+					((OutPort2EditPart) childEditPart).getFigure(), locator);
+			return true;
+		}
 		return false;
 	}
 
@@ -200,6 +230,16 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 					.getFigureWakeQueuesCompartmentFigure();
 			pane.remove(((ComponentWakeQueuesEditPart) childEditPart)
 					.getFigure());
+			return true;
+		}
+		if (childEditPart instanceof InPort2EditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((InPort2EditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof OutPort2EditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((OutPort2EditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -241,6 +281,9 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 		if (editPart instanceof ComponentWakeQueuesEditPart) {
 			return getPrimaryShape().getFigureWakeQueuesCompartmentFigure();
 		}
+		if (editPart instanceof IBorderItemEditPart) {
+			return getBorderedFigure().getBorderItemContainer();
+		}
 		return getContentPane();
 	}
 
@@ -260,7 +303,7 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 	 * 
 	 * @generated
 	 */
-	protected NodeFigure createNodeFigure() {
+	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
 		IFigure shape = createNodeShape();
@@ -336,29 +379,6 @@ public class ComponentEditPart extends ShapeNodeEditPart {
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(ComponentsVisualIDRegistry
 				.getType(ComponentNameEditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(ComponentsElementTypes.ConnectorSender_4004);
-		types.add(ComponentsElementTypes.ConnectorReceivers_4005);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == ComponentsElementTypes.ConnectorSender_4004) {
-			types.add(ComponentsElementTypes.Connector_2006);
-		} else if (relationshipType == ComponentsElementTypes.ConnectorReceivers_4005) {
-			types.add(ComponentsElementTypes.Connector_2006);
-		}
-		return types;
 	}
 
 	/**

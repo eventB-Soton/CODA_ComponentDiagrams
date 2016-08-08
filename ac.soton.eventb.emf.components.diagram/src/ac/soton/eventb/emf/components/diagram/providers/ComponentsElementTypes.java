@@ -22,13 +22,18 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 
 import ac.soton.eventb.emf.components.ComponentsPackage;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractInSenderDestinationsEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.AbstractOutReceiverSourceEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentDiagramEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ComponentEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorReceiversEditPart;
-import ac.soton.eventb.emf.components.diagram.edit.parts.ConnectorSenderEditPart;
+
 import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -83,6 +88,16 @@ public class ComponentsElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType InPort_2007 = getElementType("ac.soton.eventb.emf.components.diagram.InPort_2007"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType OutPort_2008 = getElementType("ac.soton.eventb.emf.components.diagram.OutPort_2008"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType Statemachine_3015 = getElementType("ac.soton.eventb.emf.components.diagram.Statemachine_3015"); //$NON-NLS-1$
 
 	/**
@@ -129,11 +144,22 @@ public class ComponentsElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ConnectorSender_4004 = getElementType("ac.soton.eventb.emf.components.diagram.ConnectorSender_4004"); //$NON-NLS-1$
+	public static final IElementType InPort_3019 = getElementType("ac.soton.eventb.emf.components.diagram.InPort_3019"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType ConnectorReceivers_4005 = getElementType("ac.soton.eventb.emf.components.diagram.ConnectorReceivers_4005"); //$NON-NLS-1$
+	public static final IElementType OutPort_3020 = getElementType("ac.soton.eventb.emf.components.diagram.OutPort_3020"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType AbstractOutReceiverSource_4008 = getElementType("ac.soton.eventb.emf.components.diagram.AbstractOutReceiverSource_4008"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType AbstractInSenderDestinations_4009 = getElementType("ac.soton.eventb.emf.components.diagram.AbstractInSenderDestinations_4009"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -182,6 +208,10 @@ public class ComponentsElementTypes {
 			elements.put(Connector_2006,
 					ComponentsPackage.eINSTANCE.getConnector());
 
+			elements.put(InPort_2007, ComponentsPackage.eINSTANCE.getInPort());
+
+			elements.put(OutPort_2008, ComponentsPackage.eINSTANCE.getOutPort());
+
 			elements.put(Statemachine_3015,
 					StatemachinesPackage.eINSTANCE.getStatemachine());
 
@@ -211,11 +241,16 @@ public class ComponentsElementTypes {
 			elements.put(WakeQueue_3018,
 					ComponentsPackage.eINSTANCE.getWakeQueue());
 
-			elements.put(ConnectorSender_4004,
-					ComponentsPackage.eINSTANCE.getConnector_Sender());
+			elements.put(InPort_3019, ComponentsPackage.eINSTANCE.getInPort());
 
-			elements.put(ConnectorReceivers_4005,
-					ComponentsPackage.eINSTANCE.getConnector_Receivers());
+			elements.put(OutPort_3020, ComponentsPackage.eINSTANCE.getOutPort());
+
+			elements.put(AbstractOutReceiverSource_4008,
+					ComponentsPackage.eINSTANCE.getAbstractOutReceiver_Source());
+
+			elements.put(AbstractInSenderDestinations_4009,
+					ComponentsPackage.eINSTANCE
+							.getAbstractInSender_Destinations());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -236,6 +271,8 @@ public class ComponentsElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Component_1000);
 			KNOWN_ELEMENT_TYPES.add(Component_2005);
 			KNOWN_ELEMENT_TYPES.add(Connector_2006);
+			KNOWN_ELEMENT_TYPES.add(InPort_2007);
+			KNOWN_ELEMENT_TYPES.add(OutPort_2008);
 			KNOWN_ELEMENT_TYPES.add(Statemachine_3015);
 			KNOWN_ELEMENT_TYPES.add(Statemachine_3016);
 			KNOWN_ELEMENT_TYPES.add(Statemachine_3017);
@@ -246,8 +283,10 @@ public class ComponentsElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Transition_3014);
 			KNOWN_ELEMENT_TYPES.add(Component_3012);
 			KNOWN_ELEMENT_TYPES.add(WakeQueue_3018);
-			KNOWN_ELEMENT_TYPES.add(ConnectorSender_4004);
-			KNOWN_ELEMENT_TYPES.add(ConnectorReceivers_4005);
+			KNOWN_ELEMENT_TYPES.add(InPort_3019);
+			KNOWN_ELEMENT_TYPES.add(OutPort_3020);
+			KNOWN_ELEMENT_TYPES.add(AbstractOutReceiverSource_4008);
+			KNOWN_ELEMENT_TYPES.add(AbstractInSenderDestinations_4009);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -263,6 +302,10 @@ public class ComponentsElementTypes {
 			return Component_2005;
 		case ConnectorEditPart.VISUAL_ID:
 			return Connector_2006;
+		case InPortEditPart.VISUAL_ID:
+			return InPort_2007;
+		case OutPortEditPart.VISUAL_ID:
+			return OutPort_2008;
 		case StatemachineEditPart.VISUAL_ID:
 			return Statemachine_3015;
 		case SynchronousStatemachineEditPart.VISUAL_ID:
@@ -283,10 +326,14 @@ public class ComponentsElementTypes {
 			return Component_3012;
 		case WakeQueueEditPart.VISUAL_ID:
 			return WakeQueue_3018;
-		case ConnectorSenderEditPart.VISUAL_ID:
-			return ConnectorSender_4004;
-		case ConnectorReceiversEditPart.VISUAL_ID:
-			return ConnectorReceivers_4005;
+		case InPort2EditPart.VISUAL_ID:
+			return InPort_3019;
+		case OutPort2EditPart.VISUAL_ID:
+			return OutPort_3020;
+		case AbstractOutReceiverSourceEditPart.VISUAL_ID:
+			return AbstractOutReceiverSource_4008;
+		case AbstractInSenderDestinationsEditPart.VISUAL_ID:
+			return AbstractInSenderDestinations_4009;
 		}
 		return null;
 	}

@@ -40,6 +40,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
+import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorPlugin;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorUtil;
 import ac.soton.eventb.emf.components.diagram.part.Messages;
 import ac.soton.eventb.statemachines.diagram.part.StatemachinesDiagramEditorPlugin;

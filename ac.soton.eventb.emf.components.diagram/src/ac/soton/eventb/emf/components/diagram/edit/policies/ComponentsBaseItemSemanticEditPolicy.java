@@ -39,6 +39,10 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
+import ac.soton.eventb.emf.components.AbstractInReceiver;
+import ac.soton.eventb.emf.components.AbstractInSender;
+import ac.soton.eventb.emf.components.AbstractOutReceiver;
+import ac.soton.eventb.emf.components.AbstractOutSender;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.Connector;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorPlugin;
@@ -331,50 +335,50 @@ public class ComponentsBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateConnectorSender_4004(Connector source,
-				Component target) {
+		public boolean canCreateAbstractOutReceiverSource_4008(
+				AbstractOutReceiver source, AbstractOutSender target) {
 			if (source != null) {
-				if (source.getSender() != null) {
+				if (source.getSource() != null) {
 					return false;
 				}
 			}
-			if (target != null && (target.getOutConnectors().contains(target))) {
+			if (target != null && (target.getDestination() != null)) {
 				return false;
 			}
 
-			return canExistConnectorSender_4004(source, target);
+			return canExistAbstractOutReceiverSource_4008(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateConnectorReceivers_4005(Connector source,
-				Component target) {
+		public boolean canCreateAbstractInSenderDestinations_4009(
+				AbstractInSender source, AbstractInReceiver target) {
 			if (source != null) {
-				if (source.getReceivers().contains(target)) {
+				if (source.getDestinations().contains(target)) {
 					return false;
 				}
 			}
-			if (target != null && (target.getInConnectors().contains(target))) {
+			if (target != null && (target.getSource() != null)) {
 				return false;
 			}
 
-			return canExistConnectorReceivers_4005(source, target);
+			return canExistAbstractInSenderDestinations_4009(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistConnectorSender_4004(Connector source,
-				Component target) {
+		public boolean canExistAbstractOutReceiverSource_4008(
+				AbstractOutReceiver source, AbstractOutSender target) {
 			return true;
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistConnectorReceivers_4005(Connector source,
-				Component target) {
+		public boolean canExistAbstractInSenderDestinations_4009(
+				AbstractInSender source, AbstractInReceiver target) {
 			return true;
 		}
 	}

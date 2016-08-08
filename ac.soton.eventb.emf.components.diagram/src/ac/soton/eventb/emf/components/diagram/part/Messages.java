@@ -310,82 +310,102 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String PortWake7CreationTool_title;
+	public static String InputPort6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String PortWake7CreationTool_desc;
+	public static String InputPort6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String SelfWake8CreationTool_title;
+	public static String Outputport7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SelfWake8CreationTool_desc;
+	public static String Outputport7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Method9CreationTool_title;
+	public static String PortWake9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Method9CreationTool_desc;
+	public static String PortWake9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String External10CreationTool_title;
+	public static String SelfWake10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String External10CreationTool_desc;
+	public static String SelfWake10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Transition11CreationTool_title;
+	public static String Method11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Transition11CreationTool_desc;
+	public static String Method11CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Connector13CreationTool_title;
+	public static String External12CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Connector13CreationTool_desc;
+	public static String External12CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Sender14CreationTool_title;
+	public static String Transition13CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Sender14CreationTool_desc;
+	public static String Transition13CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Receiver15CreationTool_title;
+	public static String Connector15CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Receiver15CreationTool_desc;
+	public static String Connector15CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Sender16CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Sender16CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Receiver17CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Receiver17CreationTool_desc;
 
 	/**
 	 * @generated
@@ -415,37 +435,72 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ConnectorReceivers_4005_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConnectorReceivers_4005_source;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConnectorSender_4004_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_ConnectorSender_4004_source;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Connector_2006_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Component_1000_links;
+	public static String NavigatorGroupName_InPort_2007_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Component_2005_incominglinks;
+	public static String NavigatorGroupName_InPort_2007_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OutPort_2008_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OutPort_2008_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InPort_3019_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_InPort_3019_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OutPort_3020_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_OutPort_3020_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AbstractOutReceiverSource_4008_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AbstractOutReceiverSource_4008_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AbstractInSenderDestinations_4009_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AbstractInSenderDestinations_4009_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Component_1000_links;
 
 	/**
 	 * @generated

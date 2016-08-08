@@ -38,10 +38,10 @@ public class PortWakesPropertySection extends AbstractEditTableWithDefaultNaming
 	@Override
 	protected EStructuralFeature getFeatureForCol(final int col) {
 		switch (col) {
-		case 0 : return CorePackage.eINSTANCE.getEventBNamed_Name();
-		case 1 : return ComponentsPackage.eINSTANCE.getDataPacket_Connector();
-		case 2 : return ComponentsPackage.eINSTANCE.getDataPacket_Value();
-		case 3 : return CorePackage.eINSTANCE.getEventBCommented_Comment();
+		case 0 : return CorePackage.Literals.EVENT_BNAMED__NAME;
+		case 1 : return ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__CONNECTOR; //eINSTANCE.getDataPacket_Connector();
+		case 2 : return ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__VALUE; //.eINSTANCE.getDataPacket_Value();
+		case 3 : return CorePackage.Literals.EVENT_BCOMMENTED__COMMENT; //eINSTANCE.getEventBCommented_Comment();
 		default : return null;
 		}
 	}

@@ -613,4 +613,12 @@ public class SubcomponentEditPart extends CompartmentEditPart implements
 		return new WrappingLabel();
 	}
 
+	/**
+	 * @generated
+	 */
+	@Override
+	public boolean isSelectable() {
+		return getFigure().isShowing();
+	}
+
 }

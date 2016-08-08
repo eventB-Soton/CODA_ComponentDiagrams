@@ -38,11 +38,11 @@ public class PortSendsPropertySection extends AbstractEditTableWithDefaultNaming
 	@Override
 	protected EStructuralFeature getFeatureForCol(final int col) {
 		switch (col) {
-		case 0 : return CorePackage.eINSTANCE.getEventBNamed_Name();
-		case 1 : return ComponentsPackage.eINSTANCE.getDataPacket_Connector();
-		case 2 : return ComponentsPackage.eINSTANCE.getDataPacket_Value();
-		case 3 : return ComponentsPackage.eINSTANCE.getDelayedDataPacket_Delay();
-		case 4 : return CorePackage.eINSTANCE.getEventBCommented_Comment();
+		case 0 : return CorePackage.Literals.EVENT_BNAMED__NAME; //.eINSTANCE.getEventBNamed_Name();
+		case 1 : return ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__PORT;   //eINSTANCE.getgetDataPacket_Connector();
+		case 2 : return ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__VALUE; //.eINSTANCE.getDataPacket_Value();
+		case 3 : return ComponentsPackage.Literals.DELAYED_DATA_PACKET__DELAY;  //.getDelayedDataPacket_Delay();
+		case 4 : return CorePackage.Literals.EVENT_BCOMMENTED__COMMENT; //eINSTANCE.getEventBCommented_Comment();
 		default : return null;
 		}
 	}
@@ -82,10 +82,10 @@ public class PortSendsPropertySection extends AbstractEditTableWithDefaultNaming
 	protected List<?> getPossibleValues(final int col){
 		if (col==1){
 			List<Connector> validOutConnectors = new ArrayList<Connector>();
-			EventBObject container = owner.getContaining(ComponentsPackage.eINSTANCE.getComponent());
+			EventBObject container = owner.getContaining(ComponentsPackage.Literals.COMPONENT); //eINSTANCE.getComponent());
 			while (container instanceof Component){
 				validOutConnectors.addAll(((Component) container).getOutConnectors());
-				container = ((EventBObject)container.eContainer()).getContaining(ComponentsPackage.eINSTANCE.getComponent());
+				container = ((EventBObject)container.eContainer()).getContaining(ComponentsPackage.Literals.COMPONENT);
 			}
 			return validOutConnectors;
 		}else{

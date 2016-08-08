@@ -47,6 +47,18 @@ public class ComponentsEditPartFactory implements EditPartFactory {
 			case ConnectorTypeEditPart.VISUAL_ID:
 				return new ConnectorTypeEditPart(view);
 
+			case InPortEditPart.VISUAL_ID:
+				return new InPortEditPart(view);
+
+			case InPortNameTypeEditPart.VISUAL_ID:
+				return new InPortNameTypeEditPart(view);
+
+			case OutPortEditPart.VISUAL_ID:
+				return new OutPortEditPart(view);
+
+			case OutPortNameTypeEditPart.VISUAL_ID:
+				return new OutPortNameTypeEditPart(view);
+
 			case StatemachineEditPart.VISUAL_ID:
 				return new StatemachineEditPart(view);
 
@@ -77,6 +89,18 @@ public class ComponentsEditPartFactory implements EditPartFactory {
 			case WakeQueueEditPart.VISUAL_ID:
 				return new WakeQueueEditPart(view);
 
+			case InPort2EditPart.VISUAL_ID:
+				return new InPort2EditPart(view);
+
+			case InPortNameType2EditPart.VISUAL_ID:
+				return new InPortNameType2EditPart(view);
+
+			case OutPort2EditPart.VISUAL_ID:
+				return new OutPort2EditPart(view);
+
+			case OutPortNameType2EditPart.VISUAL_ID:
+				return new OutPortNameType2EditPart(view);
+
 			case ComponentStatemachinesEditPart.VISUAL_ID:
 				return new ComponentStatemachinesEditPart(view);
 
@@ -89,11 +113,11 @@ public class ComponentsEditPartFactory implements EditPartFactory {
 			case ComponentWakeQueuesEditPart.VISUAL_ID:
 				return new ComponentWakeQueuesEditPart(view);
 
-			case ConnectorSenderEditPart.VISUAL_ID:
-				return new ConnectorSenderEditPart(view);
+			case AbstractOutReceiverSourceEditPart.VISUAL_ID:
+				return new AbstractOutReceiverSourceEditPart(view);
 
-			case ConnectorReceiversEditPart.VISUAL_ID:
-				return new ConnectorReceiversEditPart(view);
+			case AbstractInSenderDestinationsEditPart.VISUAL_ID:
+				return new AbstractInSenderDestinationsEditPart(view);
 
 			}
 		}

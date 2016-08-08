@@ -190,7 +190,7 @@ public class ConnectorEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 30);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 
@@ -281,30 +281,12 @@ public class ConnectorEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * 
+	 *  override the following method to return a fixed point for 
+	 *  anchoring links. The fixed point is one or other end corner
+	 * 
+	 * @custom
 	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(ComponentsElementTypes.ConnectorSender_4004);
-		types.add(ComponentsElementTypes.ConnectorReceivers_4005);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof ComponentEditPart) {
-			types.add(ComponentsElementTypes.ConnectorSender_4004);
-		}
-		if (targetEditPart instanceof ComponentEditPart) {
-			types.add(ComponentsElementTypes.ConnectorReceivers_4005);
-		}
-		return types;
-	}
-
 	@Override
 	public ConnectionAnchor getSourceConnectionAnchor(
 			ConnectionEditPart connEditPart) {
@@ -331,19 +313,6 @@ public class ConnectorEditPart extends ShapeNodeEditPart {
 				return new Point(Math.round(x), Math.round(centerY));
 			}
 		};
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == ComponentsElementTypes.ConnectorSender_4004) {
-			types.add(ComponentsElementTypes.Component_2005);
-		} else if (relationshipType == ComponentsElementTypes.ConnectorReceivers_4005) {
-			types.add(ComponentsElementTypes.Component_2005);
-		}
-		return types;
 	}
 
 	/**
