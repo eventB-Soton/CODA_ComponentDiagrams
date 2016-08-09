@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
@@ -30,12 +31,15 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout;
 import org.eclipse.swt.graphics.Color;
 
 import ac.soton.eventb.emf.components.diagram.edit.policies.SubcomponentOutPortItemSemanticEditPolicy;
+import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorPlugin;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
 
 /**
@@ -122,14 +126,14 @@ public class SubcomponentOutPortEditPart extends BorderedBorderItemEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RectangleFigure();
+		return primaryShape = new SubcomponentOutPortFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public RectangleFigure getPrimaryShape() {
-		return (RectangleFigure) primaryShape;
+	public SubcomponentOutPortFigure getPrimaryShape() {
+		return (SubcomponentOutPortFigure) primaryShape;
 	}
 
 	/**
@@ -151,7 +155,7 @@ public class SubcomponentOutPortEditPart extends BorderedBorderItemEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(12, 12);
 
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());
@@ -237,6 +241,46 @@ public class SubcomponentOutPortEditPart extends BorderedBorderItemEditPart {
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(ComponentsVisualIDRegistry
 				.getType(SubcomponentOutPortNameTypeEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public class SubcomponentOutPortFigure extends RectangleFigure {
+
+		/**
+		 * @generated
+		 */
+		public SubcomponentOutPortFigure() {
+			this.setLayoutManager(new CenterLayout());
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(12)));
+			createContents();
+		}
+
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			SubcomponentOutPortIcon subcomponentOutPortIconImage0 = new SubcomponentOutPortIcon();
+
+			this.add(subcomponentOutPortIconImage0);
+
+		}
+
+	}
+	
+	/**
+	 * @custom
+	 */
+	public class SubcomponentOutPortIcon extends ImageFigure {
+
+	    public SubcomponentOutPortIcon() {
+	        super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(ComponentsDiagramEditorPlugin.ID,
+	                "icons/obj16/OutPort.gif").createImage(), 0);
+	    }
+
 	}
 
 }

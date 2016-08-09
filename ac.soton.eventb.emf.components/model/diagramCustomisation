@@ -1,7 +1,22 @@
+--------------------------------------------------------------------------------------
+ In  SubcomponentOutPort edit part added this class to return the icon image
+ (similarly for SubcomponentInPort)
+--------------------------------------------------------------------------------------
+	/**
+	 * @custom
+	 */
+	public class SubcomponentOutPortIcon extends ImageFigure {
 
+	    public SubcomponentOutPortIcon() {
+	        super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(ComponentsDiagramEditorPlugin.ID,
+	                "icons/obj16/OutPort.gif").createImage(), 0);
+	    }
 
+	}
+
+--------------------------------------------------------------------------------------
  In  Component and Connector edit parts ( in inner class *Figure) - to give a gradient colour rendering
-----------
+--------------------------------------------------------------------------------------
 
 		/**
 		 * 

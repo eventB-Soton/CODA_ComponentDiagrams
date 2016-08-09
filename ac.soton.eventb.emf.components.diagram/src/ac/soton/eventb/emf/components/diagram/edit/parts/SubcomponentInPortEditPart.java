@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
@@ -33,9 +34,11 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout;
 import org.eclipse.swt.graphics.Color;
 
 import ac.soton.eventb.emf.components.diagram.edit.policies.SubcomponentInPortItemSemanticEditPolicy;
+import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorPlugin;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
 
 /**
@@ -122,14 +125,14 @@ public class SubcomponentInPortEditPart extends BorderedBorderItemEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RectangleFigure();
+		return primaryShape = new SubcomponentInPortFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public RectangleFigure getPrimaryShape() {
-		return (RectangleFigure) primaryShape;
+	public SubcomponentInPortFigure getPrimaryShape() {
+		return (SubcomponentInPortFigure) primaryShape;
 	}
 
 	/**
@@ -151,7 +154,7 @@ public class SubcomponentInPortEditPart extends BorderedBorderItemEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(12, 12);
 
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());
@@ -237,6 +240,47 @@ public class SubcomponentInPortEditPart extends BorderedBorderItemEditPart {
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(ComponentsVisualIDRegistry
 				.getType(SubcomponentInPortNameTypeEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public class SubcomponentInPortFigure extends RectangleFigure {
+
+		/**
+		 * @generated
+		 */
+		public SubcomponentInPortFigure() {
+			this.setLayoutManager(new CenterLayout());
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(12)));
+			createContents();
+		}
+
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			SubcomponentInPortIcon subcomponentInPortIconImage0 = new SubcomponentInPortIcon();
+
+			this.add(subcomponentInPortIconImage0);
+
+		}
+
+	}
+
+	
+	/**
+	 * @custom
+	 */
+	public class SubcomponentInPortIcon extends ImageFigure {
+
+	    public SubcomponentInPortIcon() {
+	        super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(ComponentsDiagramEditorPlugin.ID,
+	                "icons/obj16/InPort.gif").createImage(), 0);
+	    }
+
 	}
 
 }

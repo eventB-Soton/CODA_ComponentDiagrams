@@ -412,8 +412,14 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="InPortEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="SubcomponentInPortFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SubcomponentInPortFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SubcomponentInPortFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;SubcomponentInPortIcon subcomponentInPortIconImage0 = new SubcomponentInPortIcon();&#xA;&#xA;&#xA;this.add(subcomponentInPortIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
+      </viewmap>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/InPort"/>
@@ -427,8 +433,7 @@
           visualID="5015"
           editPartClassName="SubcomponentInPortNameTypeEditPart"
           itemSemanticEditPolicyClassName="SubcomponentInPortNameTypeItemSemanticEditPolicy"
-          notationViewFactoryClassName="InPortNameTypeViewFactory"
-          elementIcon="true">
+          notationViewFactoryClassName="InPortNameTypeViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -438,10 +443,15 @@
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0"
-            viewPattern="">
+            viewPattern="{0}: {1}"
+            editorPattern="{0}: {1}">
           <metaFeatures
               href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
           <metaFeatures
+              href="components.genmodel#//components/AbstractPort/type"/>
+          <editableMetaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+          <editableMetaFeatures
               href="components.genmodel#//components/AbstractPort/type"/>
         </modelFacet>
       </labels>
@@ -463,8 +473,14 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="OutPortEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="SubcomponentOutPortFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SubcomponentOutPortFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SubcomponentOutPortFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;SubcomponentOutPortIcon subcomponentOutPortIconImage0 = new SubcomponentOutPortIcon();&#xA;&#xA;&#xA;this.add(subcomponentOutPortIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
+      </viewmap>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/OutPort"/>
@@ -478,8 +494,7 @@
           visualID="5016"
           editPartClassName="SubcomponentOutPortNameTypeEditPart"
           itemSemanticEditPolicyClassName="SubcomponentOutPortNameTypeItemSemanticEditPolicy"
-          notationViewFactoryClassName="OutPortNameTypeViewFactory"
-          elementIcon="true">
+          notationViewFactoryClassName="OutPortNameTypeViewFactory">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -488,10 +503,16 @@
             classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SubcomponentOutPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SubcomponentOutPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;Out_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
-            parser="//@labelParsers/@implementations.0">
+            parser="//@labelParsers/@implementations.0"
+            viewPattern="{0}: {1}"
+            editorPattern="{0}: {1}">
           <metaFeatures
               href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
           <metaFeatures
+              href="components.genmodel#//components/AbstractPort/type"/>
+          <editableMetaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+          <editableMetaFeatures
               href="components.genmodel#//components/AbstractPort/type"/>
         </modelFacet>
       </labels>
@@ -646,8 +667,9 @@
           xsi:type="gmfgen:SpecializationType"
           metamodelType="//@diagram/@childNodes.10/@elementType"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentInPortFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentInPortFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureParentInPortLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentInPortFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureParentInPortLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureParentInPortLabelFigure.setText(&quot;In_&quot;);&#xA;&#xA;this.add(fFigureParentInPortLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureParentInPortLabelFigure() {&#xA;&#x9;&#x9;return fFigureParentInPortLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/InPort"/>
@@ -657,7 +679,6 @@
             href="components.genmodel#//components/Component/inPorts"/>
       </modelFacet>
       <labels
-          xsi:type="gmfgen:GenExternalNodeLabel"
           visualID="5013"
           editPartClassName="InPortNameTypeEditPart"
           itemSemanticEditPolicyClassName="InPortNameTypeItemSemanticEditPolicy"
@@ -666,9 +687,9 @@
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
-            xsi:type="gmfgen:InnerClassViewmap"
-            className="ParentInPortLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentInPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentInPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;In_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureParentInPortLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0"
@@ -699,8 +720,9 @@
           xsi:type="gmfgen:SpecializationType"
           metamodelType="//@diagram/@childNodes.11/@elementType"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentOutPortFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentOutPortFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureParentOutPortLabelFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentOutPortFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureParentOutPortLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureParentOutPortLabelFigure.setText(&quot;Out_&quot;);&#xA;&#xA;this.add(fFigureParentOutPortLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureParentOutPortLabelFigure() {&#xA;&#x9;&#x9;return fFigureParentOutPortLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/OutPort"/>
@@ -710,7 +732,6 @@
             href="components.genmodel#//components/Component/outPorts"/>
       </modelFacet>
       <labels
-          xsi:type="gmfgen:GenExternalNodeLabel"
           visualID="5014"
           editPartClassName="OutPortNameTypeEditPart"
           itemSemanticEditPolicyClassName="OutPortNameTypeItemSemanticEditPolicy"
@@ -719,9 +740,9 @@
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
-            xsi:type="gmfgen:InnerClassViewmap"
-            className="ParentOutPortLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentOutPortLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentOutPortLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;Out_&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureParentOutPortLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0"

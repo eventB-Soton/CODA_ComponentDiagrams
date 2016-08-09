@@ -223,11 +223,7 @@ public class SubcomponentOutPortNameTypeEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return ComponentsElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**

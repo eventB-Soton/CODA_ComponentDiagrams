@@ -520,11 +520,6 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		Node label5013 = createLabel(node,
 				ComponentsVisualIDRegistry
 						.getType(InPortNameTypeEditPart.VISUAL_ID));
-		label5013.setLayoutConstraint(NotationFactory.eINSTANCE
-				.createLocation());
-		Location location5013 = (Location) label5013.getLayoutConstraint();
-		location5013.setX(0);
-		location5013.setY(5);
 		return node;
 	}
 
@@ -571,11 +566,6 @@ public class ComponentsViewProvider extends AbstractProvider implements
 		Node label5014 = createLabel(node,
 				ComponentsVisualIDRegistry
 						.getType(OutPortNameTypeEditPart.VISUAL_ID));
-		label5014.setLayoutConstraint(NotationFactory.eINSTANCE
-				.createLocation());
-		Location location5014 = (Location) label5014.getLayoutConstraint();
-		location5014.setX(0);
-		location5014.setY(5);
 		return node;
 	}
 

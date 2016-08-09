@@ -357,7 +357,14 @@ public class ComponentsParserProvider extends AbstractProvider implements
 			EAttribute[] features = new EAttribute[] {
 					CorePackage.eINSTANCE.getEventBNamed_Name(),
 					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute[] editableFeatures = new EAttribute[] {
+					CorePackage.eINSTANCE.getEventBNamed_Name(),
+					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			parser.setViewPattern("{0}: {1}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}: {1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}: {1}"); //$NON-NLS-1$
 			inPortNameType_5015Parser = parser;
 		}
 		return inPortNameType_5015Parser;
@@ -376,7 +383,14 @@ public class ComponentsParserProvider extends AbstractProvider implements
 			EAttribute[] features = new EAttribute[] {
 					CorePackage.eINSTANCE.getEventBNamed_Name(),
 					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute[] editableFeatures = new EAttribute[] {
+					CorePackage.eINSTANCE.getEventBNamed_Name(),
+					ComponentsPackage.eINSTANCE.getAbstractPort_Type() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			parser.setViewPattern("{0}: {1}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}: {1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}: {1}"); //$NON-NLS-1$
 			outPortNameType_5016Parser = parser;
 		}
 		return outPortNameType_5016Parser;

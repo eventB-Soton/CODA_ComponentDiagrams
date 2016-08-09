@@ -261,12 +261,17 @@
               href="components.ecore#//InPort"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
-              viewPattern="">
+              viewPattern="{0}: {1}"
+              editorPattern="{0}: {1}">
             <diagramLabel
                 href="components.gmfgraph#SubcomponentInPortLabel"/>
             <features
                 href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
             <features
+                href="components.ecore#//AbstractPort/type"/>
+            <editableFeatures
+                href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
+            <editableFeatures
                 href="components.ecore#//AbstractPort/type"/>
           </labelMappings>
           <tool
@@ -283,12 +288,18 @@
           <domainMetaElement
               href="components.ecore#//OutPort"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="{0}: {1}"
+              editorPattern="{0}: {1}">
             <diagramLabel
                 href="components.gmfgraph#SubcomponentOutPortLabel"/>
             <features
                 href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
             <features
+                href="components.ecore#//AbstractPort/type"/>
+            <editableFeatures
+                href="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamed/name"/>
+            <editableFeatures
                 href="components.ecore#//AbstractPort/type"/>
           </labelMappings>
           <tool
