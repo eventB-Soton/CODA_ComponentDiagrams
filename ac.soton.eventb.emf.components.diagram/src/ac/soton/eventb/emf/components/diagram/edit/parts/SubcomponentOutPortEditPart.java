@@ -137,14 +137,17 @@ public class SubcomponentOutPortEditPart extends BorderedBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * CUSTOMISED by cfs: the label BorderItemOffset has been changed from -20, -20 to -2, -2
+	 * (could not find a way to do this in gmfgraph)
+	 * 
+	 * @generated NOT
 	 */
 	protected void addBorderItem(IFigure borderItemContainer,
 			IBorderItemEditPart borderItemEditPart) {
 		if (borderItemEditPart instanceof SubcomponentOutPortNameTypeEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.SOUTH);
-			locator.setBorderItemOffset(new Dimension(-20, -20));
+					PositionConstants.EAST);
+			locator.setBorderItemOffset(new Dimension(-2, 0));
 			borderItemContainer.add(borderItemEditPart.getFigure(), locator);
 		} else {
 			super.addBorderItem(borderItemContainer, borderItemEditPart);
