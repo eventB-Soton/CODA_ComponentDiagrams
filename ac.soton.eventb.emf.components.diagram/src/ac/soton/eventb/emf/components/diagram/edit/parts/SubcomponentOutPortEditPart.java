@@ -273,16 +273,18 @@ public class SubcomponentOutPortEditPart extends BorderedBorderItemEditPart {
 		}
 
 	}
-	
+
 	/**
 	 * @custom
 	 */
 	public class SubcomponentOutPortIcon extends ImageFigure {
 
-	    public SubcomponentOutPortIcon() {
-	        super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(ComponentsDiagramEditorPlugin.ID,
-	                "icons/obj16/OutPort.gif").createImage(), 0);
-	    }
+		public SubcomponentOutPortIcon() {
+			super(ComponentsDiagramEditorPlugin
+					.imageDescriptorFromPlugin(
+							ComponentsDiagramEditorPlugin.ID,
+							"icons/obj16/OutPort.gif").createImage(), 0);
+		}
 
 	}
 

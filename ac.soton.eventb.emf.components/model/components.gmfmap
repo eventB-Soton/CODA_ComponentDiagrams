@@ -129,7 +129,8 @@
           <domainMetaElement
               href="components.ecore#//SelfWake"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true">
             <diagramLabel
                 href="components.gmfgraph#SelfWakeLabel"/>
             <features

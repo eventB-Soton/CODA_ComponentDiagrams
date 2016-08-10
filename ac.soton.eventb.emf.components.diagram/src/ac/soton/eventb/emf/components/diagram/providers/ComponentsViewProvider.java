@@ -577,6 +577,12 @@ public class ComponentsViewProvider extends AbstractProvider implements
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("Statemachines"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
 		node.setType(ComponentsVisualIDRegistry
 				.getType(StatemachineEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -592,6 +598,12 @@ public class ComponentsViewProvider extends AbstractProvider implements
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("Statemachines"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
 		node.setType(ComponentsVisualIDRegistry
 				.getType(SynchronousStatemachineEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
@@ -607,6 +619,12 @@ public class ComponentsViewProvider extends AbstractProvider implements
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("Statemachines"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
 		node.setType(ComponentsVisualIDRegistry
 				.getType(ProcessStatemachineEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);

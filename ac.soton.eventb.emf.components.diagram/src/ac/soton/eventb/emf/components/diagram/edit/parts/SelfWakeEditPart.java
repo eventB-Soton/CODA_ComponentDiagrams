@@ -260,7 +260,7 @@ public class SelfWakeEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
