@@ -52,7 +52,7 @@ public class ComponentsPaletteFactory {
 		paletteContainer.add(createProcess4CreationTool());
 		paletteContainer.add(createWakeQueue5CreationTool());
 		paletteContainer.add(createInputPort6CreationTool());
-		paletteContainer.add(createOutputport7CreationTool());
+		paletteContainer.add(createOutputPort7CreationTool());
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createPortWake9CreationTool());
 		paletteContainer.add(createSelfWake10CreationTool());
@@ -167,14 +167,14 @@ public class ComponentsPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createOutputport7CreationTool() {
+	private ToolEntry createOutputPort7CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(ComponentsElementTypes.OutPort_3020);
 		types.add(ComponentsElementTypes.OutPort_2008);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
-				Messages.Outputport7CreationTool_title,
-				Messages.Outputport7CreationTool_desc, types);
-		entry.setId("createOutputport7CreationTool"); //$NON-NLS-1$
+				Messages.OutputPort7CreationTool_title,
+				Messages.OutputPort7CreationTool_desc, types);
+		entry.setId("createOutputPort7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsElementTypes
 				.getImageDescriptor(ComponentsElementTypes.OutPort_3020));
 		entry.setLargeIcon(entry.getSmallIcon());

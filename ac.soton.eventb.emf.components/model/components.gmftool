@@ -62,7 +62,7 @@
     </tools>
     <tools
         xsi:type="gmftool:CreationTool"
-        title="Output port"
+        title="Output Port"
         description="Create new output port">
       <smallIcon
           xsi:type="gmftool:DefaultImage"/>

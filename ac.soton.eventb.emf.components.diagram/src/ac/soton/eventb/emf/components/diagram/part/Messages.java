@@ -320,12 +320,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String Outputport7CreationTool_title;
+	public static String OutputPort7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Outputport7CreationTool_desc;
+	public static String OutputPort7CreationTool_desc;
 
 	/**
 	 * @generated
