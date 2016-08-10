@@ -97,19 +97,23 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * if inherits, type is obtained from the inherited abstract port
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getType() {
-		return type;
+		if (getInherits() instanceof AbstractPort)	return ((AbstractPort)getInherits()).getType();
+		else return type;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * setting type is disabled if inherits
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setType(String newType) {
+		if (getInherits() instanceof Connector)	return;
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
@@ -144,14 +148,18 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * this has been changed to also notify that the type changes (becomes inherited)
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setInherits(AbstractPort newInherits) {
 		AbstractPort oldInherits = inherits;
+		String oldType = getType();
 		inherits = newInherits;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__INHERITS, oldInherits, inherits));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__TYPE, oldType, getType()));
+		}
 	}
 
 	/**

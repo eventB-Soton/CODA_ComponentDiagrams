@@ -7,37 +7,8 @@ This used to prevent renaming of refined components (i.e. force the name to be t
 However, this was removed at request of NE.
 	
 	
-Connector
----------
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * the name of this connector is set to be the same as the name of the connector it inherits from
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public void setInherits(Connector newInherits) {
-		Connector oldInherits = inherits;
-		inherits = newInherits;
-		if (inherits != null) super.setName(inherits.getName()); //custom
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
-	}
 
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * if inherits is set this does nothing
-	 * otherwise set the name of this component.
-	 * <!-- end-user-doc -->
-	 * @custom
-	 */
-	@Override
-	public void setName(String name) {
-		if (getInherits() instanceof Connector)	return;
-		else super.setName(name);
-	}
-	
 	
 	
 
@@ -261,6 +232,99 @@ AbstractComponentOperationImpl
 			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, initialValue));
 	}
 	
+		/**
+	 * <!-- begin-user-doc -->
+	 * changed to notify changes to all the things that are inherited (name, type, initialValue)
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setInherits(AbstractPort newInherits) {
+		AbstractPort oldInherits = inherits;
+		String oldName = this.getName();
+		String oldType = getType();
+		String oldInitialValue = this.getInitialValue();
+		inherits = newInherits;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__NAME, oldName, getName()));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__TYPE, oldType, getType()));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, getInitialValue()));
+		}
+	}
+	
+		/**
+	 * <!-- begin-user-doc -->
+	 * if inherits is set this copies the name from the inherited element
+	 * otherwise set the name of this element.
+	 * <!-- end-user-doc -->
+	 * @custom
+	 */
+	@Override
+	public void setName(String name) {
+		if (getInherits() instanceof Connector)	super.setName(inherits.getName()); 
+		else super.setName(name);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * if inherits is set this gets the name from the inherited element
+	 * otherwise gets the name of this element.
+	 * <!-- end-user-doc -->
+	 * @custom
+	 */
+	@Override
+	public String getName(){
+		if (getInherits() instanceof Connector) return inherits.getName();
+		else return super.getName();
+	}
+	
+	
+	
+	Similarly in AbstractPortImpl
+	-------------------------------
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * if inherits, type is obtained from the inherited abstract port
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getType() {
+		if (getInherits() instanceof AbstractPort)	return ((AbstractPort)getInherits()).getType();
+		else return type;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * setting type is disabled if inherits
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setType(String newType) {
+		if (getInherits() instanceof Connector)	return;
+		String oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__TYPE, oldType, type));
+	}
+	
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * this has been changed to also notify that the type changes (becomes inherited)
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setInherits(AbstractPort newInherits) {
+		AbstractPort oldInherits = inherits;
+		String oldType = getType();
+		inherits = newInherits;
+		if (eNotificationRequired()) {
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__INHERITS, oldInherits, inherits));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__TYPE, oldType, getType()));
+		}
+	}
 	
 
 

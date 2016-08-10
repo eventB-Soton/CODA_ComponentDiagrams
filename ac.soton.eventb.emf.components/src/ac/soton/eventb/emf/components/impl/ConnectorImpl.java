@@ -250,14 +250,22 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * changed to notify changes to all the things that are inherited (name, type, initialValue)
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setInherits(AbstractPort newInherits) {
 		AbstractPort oldInherits = inherits;
+		String oldName = this.getName();
+		String oldType = getType();
+		String oldInitialValue = this.getInitialValue();
 		inherits = newInherits;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__NAME, oldName, getName()));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__TYPE, oldType, getType()));
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, getInitialValue()));
+		}
 	}
 
 	/**
@@ -351,25 +359,25 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__SOURCE, newSource, newSource));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * the name of this connector is set to be the same as the name of the connector it inherits from
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public void setInherits(Connector newInherits) {
-		
-		//if (newInherits==null) unsetInherits();
-		
-		AbstractPort oldInherits = inherits;
-		inherits = newInherits;
-		//inheritsESet = true;								//custom - setting these attributes ensures they are updated in UI
-		super.setName(inherits.getName()); 					//custom - as the set will generate notifications
-		setType(inherits.getType());  						//custom
-		setInitialValue(((Connector)inherits).getInitialValue());		//custom
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
-	}
+//	/**
+//	 * <!-- begin-user-doc -->
+//	 * the name of this connector is set to be the same as the name of the connector it inherits from
+//	 * <!-- end-user-doc -->
+//	 * @generated NOT
+//	 */
+//	public void setInherits(Connector newInherits) {
+//		
+//		//if (newInherits==null) unsetInherits();
+//		
+//		AbstractPort oldInherits = inherits;
+//		inherits = newInherits;
+//		//inheritsESet = true;								//custom - setting these attributes ensures they are updated in UI
+//		super.setName(inherits.getName()); 					//custom - as the set will generate notifications
+//		setType(inherits.getType());  						//custom
+//		setInitialValue(((Connector)inherits).getInitialValue());		//custom
+//		if (eNotificationRequired())
+//			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -621,7 +629,7 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * <!-- begin-user-doc -->
 	 * if inherits is set this copies the name from the inherited element
-	 * otherwise set the name of this component.
+	 * otherwise set the name of this element.
 	 * <!-- end-user-doc -->
 	 * @custom
 	 */
@@ -629,6 +637,19 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	public void setName(String name) {
 		if (getInherits() instanceof Connector)	super.setName(inherits.getName()); 
 		else super.setName(name);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * if inherits is set this gets the name from the inherited element
+	 * otherwise gets the name of this element.
+	 * <!-- end-user-doc -->
+	 * @custom
+	 */
+	@Override
+	public String getName(){
+		if (getInherits() instanceof Connector) return inherits.getName();
+		else return super.getName();
 	}
 	
 	
