@@ -1,4 +1,28 @@
 --------------------------------------------------------------------------------------
+ In  Statemachine, ProcessStatemachine and SynchronousStatemachine edit parts ...
+.. add open role edit policy OpenStatemachineDiagramEditPolicy()
+(this should be generated (and i think it used to be generated) but no longer)
+--------------------------------------------------------------------------------------
+
+	/**
+	 * @generated NOT
+	 */
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new StatemachineItemSemanticEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				new ComponentsTextNonResizableEditPolicy());
+		installEditPolicy(EditPolicy.COMPONENT_ROLE,
+				new ListItemComponentEditPolicy());
+		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
+				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenStatemachineDiagramEditPolicy());
+	}
+
+
+--------------------------------------------------------------------------------------
  In  SubcomponentOutPort edit part ...
  ... for labels, locator has been changed from SOUTH to EAST and
  ... BorderItemOffset has been changed from -20, -20 to -2, 0 (could not find a way to do this in gmfgraph)

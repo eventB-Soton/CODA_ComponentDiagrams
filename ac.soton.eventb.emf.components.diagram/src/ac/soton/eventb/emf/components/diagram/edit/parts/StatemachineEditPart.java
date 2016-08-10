@@ -109,7 +109,7 @@ public class StatemachineEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -121,6 +121,8 @@ public class StatemachineEditPart extends CompartmentEditPart implements
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenStatemachineDiagramEditPolicy());
 	}
 
 	/**
