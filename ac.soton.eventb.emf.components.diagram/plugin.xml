@@ -1085,7 +1085,7 @@ http://www.eclipse.org/legal/epl-v10.html
                afterSection="property.section.name"
                class="ac.soton.eventb.emf.components.diagram.sheet.custom.TypePropertySection"
                enablesFor="1"
-               filter="ac.soton.eventb.emf.components.diagram.sheet.custom.ComponentsSheetPropertyFilter$ConnectorElementFilter"
+               filter="ac.soton.eventb.emf.components.diagram.sheet.custom.ComponentsSheetPropertyFilter$AbstractPortElementFilter"
                id="property.section.type"
                tab="property.tab.overview">
          </propertySection>

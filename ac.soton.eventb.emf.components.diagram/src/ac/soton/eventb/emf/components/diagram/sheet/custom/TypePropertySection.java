@@ -9,11 +9,11 @@ package ac.soton.eventb.emf.components.diagram.sheet.custom;
 
 import org.eclipse.emf.ecore.EObject;
 
-import ac.soton.eventb.emf.components.Connector;
+import ac.soton.eventb.emf.components.AbstractPort;
 import ac.soton.eventb.emf.diagrams.sheet.AbstractTextPropertySection;
 
 /**
- * Type property section for Connector.
+ * Type property section for AbstractPort.
  * 
  * @author cfsnook
  *
@@ -27,13 +27,13 @@ public class TypePropertySection extends AbstractTextPropertySection {
 
 	@Override
 	protected void setPropertyValue(EObject object, Object value) {
-		assert object instanceof Connector;
-		((Connector) object).setType((String)value);
+		assert object instanceof AbstractPort;
+		((AbstractPort) object).setType((String)value);
 	}
 
 	@Override
 	protected String getPropertyValueString() {
-		return ((Connector) getEObject()).getType();
+		return ((AbstractPort) getEObject()).getType();
 	}
 
 	@Override

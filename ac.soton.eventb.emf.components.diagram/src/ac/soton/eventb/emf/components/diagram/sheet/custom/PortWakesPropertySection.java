@@ -8,17 +8,14 @@
 
 package ac.soton.eventb.emf.components.diagram.sheet.custom;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eventb.emf.core.CorePackage;
-import org.eventb.emf.core.EventBObject;
 
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentsPackage;
-import ac.soton.eventb.emf.components.Connector;
 import ac.soton.eventb.emf.diagrams.sheet.AbstractEditTableWithDefaultNamingPropertySection;
 
 
@@ -39,7 +36,7 @@ public class PortWakesPropertySection extends AbstractEditTableWithDefaultNaming
 	protected EStructuralFeature getFeatureForCol(final int col) {
 		switch (col) {
 		case 0 : return CorePackage.Literals.EVENT_BNAMED__NAME;
-		case 1 : return ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__CONNECTOR; //eINSTANCE.getDataPacket_Connector();
+		case 1 : return ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__PORT; //eINSTANCE.getDataPacket_Connector();
 		case 2 : return ComponentsPackage.Literals.ABSTRACT_DATA_PACKET__VALUE; //.eINSTANCE.getDataPacket_Value();
 		case 3 : return CorePackage.Literals.EVENT_BCOMMENTED__COMMENT; //eINSTANCE.getEventBCommented_Comment();
 		default : return null;
@@ -56,7 +53,7 @@ public class PortWakesPropertySection extends AbstractEditTableWithDefaultNaming
 	protected int columnWidth(final int col){
 		switch (col) {
 		case 0 : return 160;	//name
-		case 1 : return 100;	//connector field
+		case 1 : return 100;	//port field
 		case 2 : return 100;	//value field
 		case 3 : return 400;	//comment field
 		default : return -1;	//unknown
@@ -79,13 +76,7 @@ public class PortWakesPropertySection extends AbstractEditTableWithDefaultNaming
 	@Override
 	protected List<?> getPossibleValues(final int col){
 		if (col==1){
-			List<Connector> validInConnectors = new ArrayList<Connector>();
-			EventBObject container = owner.getContaining(ComponentsPackage.eINSTANCE.getComponent());
-			while (container instanceof Component){
-				validInConnectors.addAll(((Component) container).getInConnectors());
-				container = ((EventBObject)container.eContainer()).getContaining(ComponentsPackage.eINSTANCE.getComponent());
-			}
-			return validInConnectors;
+			return ((Component) owner.getContaining(ComponentsPackage.Literals.COMPONENT)).getInPorts();
 		}else{
 			return super.getPossibleValues(col);
 		}

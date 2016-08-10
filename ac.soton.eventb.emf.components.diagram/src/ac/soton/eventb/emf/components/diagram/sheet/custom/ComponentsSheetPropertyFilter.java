@@ -16,6 +16,7 @@ import org.eventb.emf.core.EventBCommented;
 import org.eventb.emf.core.EventBNamed;
 
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
+import ac.soton.eventb.emf.components.AbstractPort;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.Connector;
 import ac.soton.eventb.emf.components.External;
@@ -79,6 +80,15 @@ public class ComponentsSheetPropertyFilter {
 		}
 	}
 	
+	/**
+	 * Filter for properties of named element.
+	 */
+	public static final class AbstractPortElementFilter implements IFilter {
+		@Override
+		public boolean select(Object toTest) {
+			return unwrap(toTest) instanceof AbstractPort;
+		}
+	}
 	
 	/**
 	 * Filter for properties of labelled element.

@@ -8,17 +8,14 @@
 
 package ac.soton.eventb.emf.components.diagram.sheet.custom;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eventb.emf.core.CorePackage;
-import org.eventb.emf.core.EventBObject;
 
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentsPackage;
-import ac.soton.eventb.emf.components.Connector;
 import ac.soton.eventb.emf.diagrams.sheet.AbstractEditTableWithDefaultNamingPropertySection;
 
 
@@ -56,7 +53,7 @@ public class PortSendsPropertySection extends AbstractEditTableWithDefaultNaming
 	protected int columnWidth(final int col){
 		switch (col) {
 		case 0 : return 160;	//name
-		case 1 : return 100;	//connector field
+		case 1 : return 100;	//port field
 		case 2 : return 100;	//value field
 		case 3 : return 50;		//delay field
 		case 4 : return 400;	//comment field
@@ -76,18 +73,11 @@ public class PortSendsPropertySection extends AbstractEditTableWithDefaultNaming
 		labels.set(0, "Label");
 		return labels;
 	}
-		
-		
+			
 	@Override
 	protected List<?> getPossibleValues(final int col){
 		if (col==1){
-			List<Connector> validOutConnectors = new ArrayList<Connector>();
-			EventBObject container = owner.getContaining(ComponentsPackage.Literals.COMPONENT); //eINSTANCE.getComponent());
-			while (container instanceof Component){
-				validOutConnectors.addAll(((Component) container).getOutConnectors());
-				container = ((EventBObject)container.eContainer()).getContaining(ComponentsPackage.Literals.COMPONENT);
-			}
-			return validOutConnectors;
+			return ((Component) owner.getContaining(ComponentsPackage.Literals.COMPONENT)).getOutPorts();
 		}else{
 			return super.getPossibleValues(col);
 		}
