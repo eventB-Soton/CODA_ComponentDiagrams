@@ -38,6 +38,7 @@ import ac.soton.eventb.emf.components.Method;
 import ac.soton.eventb.emf.components.OperationAction;
 import ac.soton.eventb.emf.components.OperationGuard;
 import ac.soton.eventb.emf.components.OperationWitness;
+import ac.soton.eventb.emf.components.OutPort;
 import ac.soton.eventb.emf.components.PortWake;
 import ac.soton.eventb.emf.components.SelfWake;
 import ac.soton.eventb.emf.components.WakeEvent;
@@ -208,6 +209,39 @@ public final class Strings {
 	} 
  
  /**
+  * properties for creating the disconnected OutPort variables
+  */
+ public static String OP_NAME;
+ public static String OP_NAME(OutPort op) {
+	 if (op==null) return "<null port>";
+		return  bind(OP_NAME,op.getName());
+	}
+ public static String OP_TYPE_NAME;
+ public static String OP_TYPE_NAME(OutPort op){
+		return bind(OP_TYPE_NAME,OP_NAME(op));
+	}
+ public static String OP_TYPE_PRED;
+ public static String OP_TYPE_PRED(OutPort op){
+		return bind(OP_TYPE_PRED,OP_NAME(op),op.getType());
+	}
+ public static String OP_INIT_NAME;
+ public static String OP_INIT_NAME(OutPort op){
+		return bind(OP_INIT_NAME,OP_NAME(op));
+	}
+ public static String OP_INIT_EXPR;
+ public static String OP_INIT_EXPR(OutPort op){
+		return bind(OP_INIT_EXPR,OP_NAME(op), op.getType());
+	}
+// public static String OP_HELPER_NAME;
+// public static String OP_HELPER_NAME(Connector cp){
+//		return bind(OP_HELPER_NAME,OP_NAME(cp));
+//	}
+// public static String OP_HELPER_PRED;
+// public static String OP_HELPER_PRED(Connector cp){
+//		return bind(OP_HELPER_PRED,OP_NAME(cp));
+//	} 
+ 
+ /**
   * properties for sending on a connector
   */
  public static String CN_SEND_ACTION_NAME;
@@ -217,6 +251,18 @@ public final class Strings {
  public static String CN_SEND_ACTION_EXPR;
  public static String CN_SEND_ACTION_EXPR(DelayedDataPacket dp){
  	return bind(CN_SEND_ACTION_EXPR,CN_NAME(dp.getConnector()),CT_NAME((Component)ComponentsUtils.getRootComponent(dp)),dp.getDelay(),dp.getValue());
+ }
+ 
+ /**
+  * properties for sending on a disconnected port
+  */
+ public static String CN_DSEND_ACTION_NAME;
+ public static String CN_DSEND_ACTION_NAME(String portName){
+ 	return bind(CN_DSEND_ACTION_NAME, portName);
+ }
+ public static String CN_DSEND_ACTION_EXPR;
+ public static String CN_DSEND_ACTION_EXPR(String portName, String value){
+ 	return bind(CN_DSEND_ACTION_EXPR, portName, value);
  }
 
  /**
@@ -239,6 +285,21 @@ public final class Strings {
  public static String CN_NEWV_GUARD_PRED(PortWake pw){
 	return bind(CN_NEWV_GUARD_PRED,CT_NAME((Component)ComponentsUtils.getRootComponent(pw)),getPortWakeConnectorTimes(pw));
  }
+ 
+/**
+ * properties for receiving on a disconnected port
+ *
+ */
+ public static String CN_DRECV_GUARD_NAME;
+ public static String CN_DRECV_GUARD_NAME(String portName){
+ 	return bind(CN_DRECV_GUARD_NAME,portName);
+ }
+ public static String CN_DRECV_GUARD_PRED;
+ public static String CN_DRECV_GUARD_PRED(String portName, String value){
+ 	return bind(CN_DRECV_GUARD_PRED,portName,value);
+ }
+ 
+ 
  
 /**
  * properties for creating the component wake up queue variables
@@ -322,7 +383,9 @@ private static String getOSNameFromOp(AbstractComponentOperation op) {
 		PortWake pw = (PortWake)op;
 		String osname = ((Component)op.getContaining(ComponentsPackage.Literals.COMPONENT)).getName()+"_PORTWAKE";
 		for (DataPacket dp : pw.getReceives()){
-			osname = osname +"_"+ dp.getConnector().getName();
+			if (dp.getConnector()!=null){
+				osname = osname +"_"+ dp.getConnector().getName();
+			}
 		}
 		return osname;
 	}else if (op instanceof SelfWake){
@@ -392,6 +455,16 @@ public static String OS_EMPTY_EXPR;
 public static String OS_EMPTY_EXPR(AbstractComponentOperation op){
 	return bind(OS_EMPTY_EXPR,OS_NAME(op));
 }
+public static String OS_REFREL_NAME;
+public static String OS_REFREL_NAME(AbstractComponentOperation op) {
+	return bind(OS_REFREL_NAME,OS_NAME(op));
+}
+public static String OS_REFREL_PRED;
+public static String OS_REFREL_PRED(AbstractComponentOperation op,
+		AbstractComponentOperation refinedOp) {
+	return bind(OS_REFREL_PRED, OS_NAME(op), OS_NAME(refinedOp));
+}
+
 public static String SW_NOTDONE_PRED;
 public static String SW_NOTDONE_PRED(AbstractComponentOperation op, WakeQueue wq){
 	return bind(SW_NOTDONE_PRED,OS_NAME(op),WU_NAME(wq));
@@ -653,12 +726,14 @@ public static String TIMER_SYNCHSM_GUARD_PRED(Statemachine sm){
 		String included = "";
 		List<Connector> conn = new ArrayList<Connector>(((Component)pw.getContaining(ComponentsPackage.Literals.COMPONENT)).getInConnectors());
 		for (DataPacket dp : pw.getReceives()){
-			if (included.equals(""))	{
-				included = "dom("+CN_NAME(dp.getConnector())+")";
-			}else{
-				included = included+" \u2229 dom("+CN_NAME(dp.getConnector())+")";
+			if (dp.getConnector()!=null){
+				if (included.equals(""))	{
+					included = "dom("+CN_NAME(dp.getConnector())+")";
+				}else{
+					included = included+" \u2229 dom("+CN_NAME(dp.getConnector())+")";
+				}
+				conn.remove(dp.getConnector());
 			}
-			conn.remove(dp.getConnector());
 		}
 		String excluded = "";
 // CODA meeting 15/05/2012 decided not to generate guards that exclude other connectors having a new value
@@ -675,5 +750,7 @@ public static String TIMER_SYNCHSM_GUARD_PRED(Statemachine sm){
 	private Strings() {
 		// Do not instantiate
 	}
+
+
 	
 }

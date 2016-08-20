@@ -37,6 +37,11 @@
                source_class="Connector">
          </rule>
          <rule
+               name="DisconnectedOutPortRule"
+               rule_class="ac.soton.eventb.emf.components.generator.rules.DisconnectedOutPortRule"
+               source_class="OutPort">
+         </rule>
+         <rule
                name="OperationRule"
                rule_class="ac.soton.eventb.emf.components.generator.rules.OperationRule"
                source_class="AbstractComponentOperation">
@@ -49,6 +54,11 @@
          <rule
                name="PortWakeRule"
                rule_class="ac.soton.eventb.emf.components.generator.rules.PortWakeRule"
+               source_class="PortWake">
+         </rule>
+         <rule
+               name="DisconnectedPortWakeRule"
+               rule_class="ac.soton.eventb.emf.components.generator.rules.DisconnectedPortWakeRule"
                source_class="PortWake">
          </rule>        
          <rule
