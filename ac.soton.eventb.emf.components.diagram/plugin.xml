@@ -58,7 +58,7 @@ http://www.eclipse.org/legal/epl-v10.html
       </wizard>
    </extension>
 
-   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+   <!--extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
       <?gmfgen generated="true"?>
       <objectContribution
             id="ac.soton.eventb.emf.components.diagram.InitDiagram"
@@ -72,7 +72,7 @@ http://www.eclipse.org/legal/epl-v10.html
                id="ac.soton.eventb.emf.components.diagram.InitDiagramAction">
          </action>
       </objectContribution>
-   </extension>
+   </extension-->
 	
    <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
       <?gmfgen generated="true"?>
@@ -147,7 +147,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <?gmfgen generated="true"?>
       <decoratorProvider class="ac.soton.eventb.emf.components.diagram.providers.ComponentsValidationDecoratorProvider">
          <Priority name="Medium"/>
-         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
    </extension>
@@ -370,12 +370,12 @@ http://www.eclipse.org/legal/epl-v10.html
          <object class="ac.soton.eventb.emf.components.diagram.edit.parts.WakeQueueEditPart" id="WakeQueue_3018"/>
          <context elements="WakeQueue_3018"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfInPort2EditPart">
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfSubcomponentInPortEditPart">
          <Priority name="Lowest"/>
          <object class="ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart" id="InPort_3019"/>
          <context elements="InPort_3019"/>
       </modelingAssistantProvider>
-            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfOutPort2EditPart">
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfSubcomponentOutPortEditPart">
          <Priority name="Lowest"/>
          <object class="ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart" id="OutPort_3020"/>
          <context elements="OutPort_3020"/>
@@ -402,7 +402,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <?gmfgen generated="true"?>
       <decoratorProvider class="ac.soton.eventb.emf.components.diagram.providers.ComponentsShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
-         <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-top-nodes">
             <method name="getType()" value="2005,2006,2007,2008"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
