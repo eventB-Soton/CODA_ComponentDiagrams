@@ -25,12 +25,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eventb.emf.core.Annotation;
-import org.eventb.emf.core.CoreFactory;
-import org.eventb.emf.core.EventBObject;
 import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.MachineFactory;
-import org.eventb.emf.persistence.PersistencePlugin;
 
 /**
  * New event creation dialog.
@@ -175,10 +171,10 @@ public class NewEventDialog extends Dialog {
 		super.okPressed();
 	}
 	
-	private void annotate(EventBObject element) {
-		Annotation rodinInternals = CoreFactory.eINSTANCE.createAnnotation();
-		rodinInternals.setSource(PersistencePlugin.SOURCE_RODIN_INTERNAL_ANNOTATION);
-		element.getAnnotations().add(rodinInternals);
-	}
+//	private void annotate(EventBObject element) {
+//		Annotation rodinInternals = CoreFactory.eINSTANCE.createAnnotation();
+//		rodinInternals.setSource(PersistencePlugin.SOURCE_RODIN_INTERNAL_ANNOTATION);
+//		element.getAnnotations().add(rodinInternals);
+//	}
 
 }
