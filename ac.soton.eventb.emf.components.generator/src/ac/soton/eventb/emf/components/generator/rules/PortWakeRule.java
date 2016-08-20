@@ -22,7 +22,6 @@ import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 
 import ac.soton.eventb.emf.components.Component;
-import ac.soton.eventb.emf.components.Connector;
 import ac.soton.eventb.emf.components.DataPacket;
 import ac.soton.eventb.emf.components.PortWake;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
@@ -33,6 +32,21 @@ import ac.soton.eventb.emf.diagrams.generator.IRule;
 import ac.soton.eventb.emf.diagrams.generator.utils.Find;
 import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 
+/**
+ * This rule deals with port wakes that receive on connectors.
+ * This involves generating synchronisation with the timer event as well as guarding
+ * elaborated events to make sure the correct value has arrived on the connector
+ * 
+ * Note that disconnected ports are ignored (should be dealt with elsewhere)
+ * <p>
+ * 
+ * </p>
+ * 
+ * @author cfs
+ * @version
+ * @see
+ * @since
+ */
 public class PortWakeRule extends AbstractRule  implements IRule {
 
 	private Event timerEvent = null;
@@ -40,7 +54,12 @@ public class PortWakeRule extends AbstractRule  implements IRule {
 	@Override
 	public boolean enabled(EventBElement sourceElement) throws Exception{
 		assert(sourceElement instanceof PortWake);
-		return true;
+		for (DataPacket r : ((PortWake)sourceElement).getReceives()){
+			if (r.getConnector()!=null){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
@@ -59,14 +78,12 @@ public class PortWakeRule extends AbstractRule  implements IRule {
 		
 		PortWake pw = (PortWake) sourceElement;
 		
-		List<Connector> receivedConnectors = new ArrayList<Connector>();
-		for (DataPacket r : pw.getReceives()){
-			receivedConnectors.add(r.getConnector());
-		}
 		for (Event elaboratedEvent : pw.getElaborates()){	
  			//guard for value on connector for each received connector
 			for (DataPacket r : pw.getReceives()){
-				ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.CN_RECV_GUARD_NAME(r), Strings.CN_RECV_GUARD_PRED(r)),4));
+				if (r.getConnector()!=null){
+					ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.CN_RECV_GUARD_NAME(r), Strings.CN_RECV_GUARD_PRED(r)),4));
+				}
 			}
 			ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.CN_NEWV_GUARD_NAME(), Strings.CN_NEWV_GUARD_PRED(pw)),1));		
 		}
