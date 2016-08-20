@@ -1451,7 +1451,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		   },
 		   new URI[] {
 			 URI.createURI(CorePackage.eNS_URI).appendFragment("//machine/Machine")
-		   });											
+		   });																
 	}
 
 	/**
@@ -1505,10 +1505,40 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 			 "constraints", "hasCorrespondingStatemachineTransition"
 		   });		
 		addAnnotation
+		  (abstractPortEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "hasName\nhasType"
+		   });		
+		addAnnotation
 		  (abstractDataPacketEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "hasName\nhasConnector\nhasValue"
+			 "constraints", "hasName\nhasPort\nhasValue"
+		   });		
+		addAnnotation
+		  (abstractInReceiverEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "isTypeConsistent\nisSourceValid"
+		   });		
+		addAnnotation
+		  (abstractInSenderEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "isTypeConsistent\nareDestinationsValid"
+		   });		
+		addAnnotation
+		  (abstractOutReceiverEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "isTypeConsistent\nisSourceValid"
+		   });		
+		addAnnotation
+		  (abstractOutSenderEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "isTypeConsistent\nisDestinationValid"
 		   });
 	}
 
@@ -1537,7 +1567,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		   source, 
 		   new String[] {
 			 "group", "#statemachines"
-		   });							
+		   });												
 	}
 
 } //ComponentsPackageImpl

@@ -28,6 +28,7 @@ import org.eventb.emf.core.EventBNamedCommentedElement;
  *
  * @see ac.soton.eventb.emf.components.ComponentsPackage#getAbstractPort()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasName\nhasType'"
  * @generated
  */
 public interface AbstractPort extends EventBNamedCommentedElement {

@@ -25,6 +25,7 @@ package ac.soton.eventb.emf.components;
  *
  * @see ac.soton.eventb.emf.components.ComponentsPackage#getAbstractInReceiver()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isTypeConsistent\nisSourceValid'"
  * @generated
  */
 public interface AbstractInReceiver extends AbstractPort {

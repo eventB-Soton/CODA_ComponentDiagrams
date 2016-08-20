@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see ac.soton.eventb.emf.components.ComponentsPackage#getAbstractInSender()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isTypeConsistent\nareDestinationsValid'"
  * @generated
  */
 public interface AbstractInSender extends AbstractPort {

@@ -27,7 +27,7 @@ import org.eventb.emf.core.EventBNamedCommentedElement;
  * </p>
  *
  * @see ac.soton.eventb.emf.components.ComponentsPackage#getAbstractDataPacket()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasName\nhasConnector\nhasValue'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasName\nhasPort\nhasValue'"
  * @generated
  */
 public interface AbstractDataPacket extends EventBNamedCommentedElement {

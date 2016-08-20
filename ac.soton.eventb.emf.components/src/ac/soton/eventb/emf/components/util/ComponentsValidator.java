@@ -11,6 +11,9 @@
 package ac.soton.eventb.emf.components.util;
 
 import ac.soton.eventb.emf.components.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
@@ -27,6 +30,7 @@ import org.eventb.emf.core.machine.Event;
 
 import ac.soton.eventb.emf.components.AbstractComponentModel;
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
+import ac.soton.eventb.emf.components.AbstractInReceiver;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentAxiom;
 import ac.soton.eventb.emf.components.ComponentConstant;
@@ -286,6 +290,9 @@ public class ComponentsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(connector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConnector_hasName(connector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConnector_hasType(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractInSender_isTypeConsistent(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractInSender_areDestinationsValid(connector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractOutReceiver_isSourceValid(connector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConnector_hasInitialValue(connector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConnector_hasSender(connector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConnector_hasReceiver(connector, diagnostics, context);
@@ -692,7 +699,7 @@ public class ComponentsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasName(dataPacket, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasConnector(dataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasPort(dataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasValue(dataPacket, diagnostics, context);
 		return result;
 	}
@@ -788,7 +795,7 @@ public class ComponentsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(delayedDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(delayedDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasName(delayedDataPacket, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasConnector(delayedDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasPort(delayedDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasValue(delayedDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validateDelayedDataPacket_hasDelay(delayedDataPacket, diagnostics, context);
 		return result;
@@ -985,22 +992,31 @@ public class ComponentsValidator extends EObjectValidator {
 	/**
 	 * Validates the hasCorrespondingStatemachineTransition constraint of '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
-	 * check that the Component Transition operation elaborates an event that is elaborated buy a statemachine of the component
+	 * check that all the events elaborated by the Component Transition operation are also elaborated by a transition 
+	 * of a state-machine of the component (or a state-machine of a parent component)
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean validateTransition_hasCorrespondingStatemachineTransition(Transition transition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		Component component = ((Component)transition.getContaining(ComponentsPackage.Literals.COMPONENT));
-		EList<EObject> transitions = component.getAllContained(StatemachinesPackage.Literals.TRANSITION, true);		
-		for (Event e : transition.getElaborates()){
-			for (EObject t : transitions){
-				if (t instanceof ac.soton.eventb.statemachines.Transition &&
-						((ac.soton.eventb.statemachines.Transition)t).getElaborates().contains(e)){
-					return true;
-				}				
-			}			
+		List<Event> events = new ArrayList<Event>(transition.getElaborates());
+		EObject component = ((Component)transition.getContaining(ComponentsPackage.Literals.COMPONENT));
+		for (Event e : transition.getElaborates()){		
+			whileloop:
+			while (component instanceof Component){
+				EList<EObject> transitions = ((Component)component).getAllContained(StatemachinesPackage.Literals.TRANSITION, true);		
+					for (EObject t : transitions){
+						if (t instanceof ac.soton.eventb.statemachines.Transition &&
+								((ac.soton.eventb.statemachines.Transition)t).getElaborates().contains(e)){
+							events.remove(e);
+							break whileloop;
+						}				
+					}		
+				component = component.eContainer();
+			}
 		}
-		//if we get this far the Transition operation has no corresponding Statemachine Transition
+		if (events.isEmpty()) return true;
+		else{
+			//if we get this far the Transition operation has no corresponding Statemachine Transition
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
@@ -1013,6 +1029,7 @@ public class ComponentsValidator extends EObjectValidator {
 						 context));
 			}
 			return false;
+		}
 
 	}
 
@@ -1112,7 +1129,66 @@ public class ComponentsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractPort(AbstractPort abstractPort, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractPort, diagnostics, context);
+		boolean result = validate_NoCircularContainment(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasName(abstractPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasType(abstractPort, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the hasName constraint of '<em>Abstract Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractPort_hasName(AbstractPort abstractPort, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (abstractPort.getName()==null || "".equals(abstractPort.getName())) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasName", getObjectLabel(abstractPort, context) },
+						 new Object[] { abstractPort },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the hasType constraint of '<em>Abstract Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractPort_hasType(AbstractPort abstractPort, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (abstractPort.getType() == null || "".equals(abstractPort.getType())) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "hasType", getObjectLabel(abstractPort, context) },
+						 new Object[] { abstractPort },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -1121,7 +1197,21 @@ public class ComponentsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInPort(InPort inPort, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(inPort, diagnostics, context);
+		boolean result = validate_NoCircularContainment(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasName(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasType(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractInReceiver_isTypeConsistent(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractInReceiver_isSourceValid(inPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractInSender_areDestinationsValid(inPort, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -1130,7 +1220,21 @@ public class ComponentsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateOutPort(OutPort outPort, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(outPort, diagnostics, context);
+		boolean result = validate_NoCircularContainment(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasName(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasType(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractOutSender_isTypeConsistent(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractOutSender_isDestinationValid(outPort, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractOutReceiver_isSourceValid(outPort, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -1149,7 +1253,7 @@ public class ComponentsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasName(abstractDataPacket, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasConnector(abstractDataPacket, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasPort(abstractDataPacket, diagnostics, context);
 		if (result || diagnostics != null) result &= validateAbstractDataPacket_hasValue(abstractDataPacket, diagnostics, context);
 		return result;
 	}
@@ -1158,14 +1262,10 @@ public class ComponentsValidator extends EObjectValidator {
 	 * Validates the hasName constraint of '<em>Abstract Data Packet</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateAbstractDataPacket_hasName(AbstractDataPacket abstractDataPacket, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (abstractDataPacket.getName()==null || "".equals(abstractDataPacket.getName())) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
@@ -1183,17 +1283,13 @@ public class ComponentsValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the hasConnector constraint of '<em>Abstract Data Packet</em>'.
+	 * Validates the hasPort constraint of '<em>Abstract Data Packet</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public boolean validateAbstractDataPacket_hasConnector(AbstractDataPacket abstractDataPacket, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+	public boolean validateAbstractDataPacket_hasPort(AbstractDataPacket abstractDataPacket, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (abstractDataPacket.getPort() == null ) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
@@ -1201,7 +1297,7 @@ public class ComponentsValidator extends EObjectValidator {
 						 DIAGNOSTIC_SOURCE,
 						 0,
 						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "hasConnector", getObjectLabel(abstractDataPacket, context) },
+						 new Object[] { "hasPort", getObjectLabel(abstractDataPacket, context) },
 						 new Object[] { abstractDataPacket },
 						 context));
 			}
@@ -1214,14 +1310,10 @@ public class ComponentsValidator extends EObjectValidator {
 	 * Validates the hasValue constraint of '<em>Abstract Data Packet</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateAbstractDataPacket_hasValue(AbstractDataPacket abstractDataPacket, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (abstractDataPacket.getValue()==null || "".equals(abstractDataPacket.getValue())) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
@@ -1244,7 +1336,72 @@ public class ComponentsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractInReceiver(AbstractInReceiver abstractInReceiver, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractInReceiver, diagnostics, context);
+		boolean result = validate_NoCircularContainment(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasName(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasType(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractInReceiver_isTypeConsistent(abstractInReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractInReceiver_isSourceValid(abstractInReceiver, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the isTypeConsistent constraint of '<em>Abstract In Receiver</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractInReceiver_isTypeConsistent(AbstractInReceiver abstractInReceiver, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (abstractInReceiver.getSource() == null) return true;
+		if ((abstractInReceiver.getType() == null && abstractInReceiver.getSource().getType()!= null) ||
+				!abstractInReceiver.getType().equals(abstractInReceiver.getSource().getType())) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "isTypeConsistent", getObjectLabel(abstractInReceiver, context) },
+						 new Object[] { abstractInReceiver },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the isSourceValid constraint of '<em>Abstract In Receiver</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractInReceiver_isSourceValid(AbstractInReceiver abstractInReceiver, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (abstractInReceiver.getSource() == null) return true;	
+		if (abstractInReceiver.getSource().eContainer() == null || abstractInReceiver.eContainer()==null ||
+				abstractInReceiver.getSource().eContainer() != abstractInReceiver.eContainer().eContainer()) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "isSourceValid", getObjectLabel(abstractInReceiver, context) },
+						 new Object[] { abstractInReceiver },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -1253,7 +1410,74 @@ public class ComponentsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractInSender(AbstractInSender abstractInSender, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractInSender, diagnostics, context);
+		boolean result = validate_NoCircularContainment(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasName(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasType(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractInSender_isTypeConsistent(abstractInSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractInSender_areDestinationsValid(abstractInSender, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the isTypeConsistent constraint of '<em>Abstract In Sender</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractInSender_isTypeConsistent(AbstractInSender abstractInSender, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		for (AbstractInReceiver dest : abstractInSender.getDestinations()){
+			if ((abstractInSender.getType() == null && dest.getType()!= null) ||
+					!abstractInSender.getType().equals(dest.getType())) {
+				if (diagnostics != null) {
+					diagnostics.add
+						(createDiagnostic
+							(Diagnostic.ERROR,
+							 DIAGNOSTIC_SOURCE,
+							 0,
+							 "_UI_GenericConstraint_diagnostic",
+							 new Object[] { "isTypeConsistent", getObjectLabel(abstractInSender, context) },
+							 new Object[] { abstractInSender },
+							 context));
+				}
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the areDestinationsValid constraint of '<em>Abstract In Sender</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractInSender_areDestinationsValid(AbstractInSender abstractInSender, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		for (AbstractInReceiver dest : abstractInSender.getDestinations()){
+			if (dest.eContainer() == null || abstractInSender.eContainer()==null ||
+				dest.eContainer().eContainer() != abstractInSender.eContainer()) {
+				if (diagnostics != null) {
+					diagnostics.add
+						(createDiagnostic
+							(Diagnostic.ERROR,
+							 DIAGNOSTIC_SOURCE,
+							 0,
+							 "_UI_GenericConstraint_diagnostic",
+							 new Object[] { "areDestinationsValid", getObjectLabel(abstractInSender, context) },
+							 new Object[] { abstractInSender },
+							 context));
+				}
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
@@ -1262,7 +1486,72 @@ public class ComponentsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractOutReceiver(AbstractOutReceiver abstractOutReceiver, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractOutReceiver, diagnostics, context);
+		boolean result = validate_NoCircularContainment(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasName(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasType(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractOutReceiver_isTypeConsistent(abstractOutReceiver, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractOutReceiver_isSourceValid(abstractOutReceiver, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the isTypeConsistent constraint of '<em>Abstract Out Receiver</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractOutReceiver_isTypeConsistent(AbstractOutReceiver abstractOutReceiver, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (abstractOutReceiver.getSource() == null) return true;
+		if ((abstractOutReceiver.getType() == null && abstractOutReceiver.getSource().getType()!= null) ||
+				!abstractOutReceiver.getType().equals(abstractOutReceiver.getSource().getType())) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "isTypeConsistent", getObjectLabel(abstractOutReceiver, context) },
+						 new Object[] { abstractOutReceiver },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the isSourceValid constraint of '<em>Abstract Out Receiver</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractOutReceiver_isSourceValid(AbstractOutReceiver abstractOutReceiver, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (abstractOutReceiver.getSource() == null) return true;	
+		if (abstractOutReceiver.getSource().eContainer() == null || abstractOutReceiver.eContainer()==null ||
+				abstractOutReceiver.getSource().eContainer().eContainer() != abstractOutReceiver.eContainer()) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "isSourceValid", getObjectLabel(abstractOutReceiver, context) },
+						 new Object[] { abstractOutReceiver },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -1271,7 +1560,72 @@ public class ComponentsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractOutSender(AbstractOutSender abstractOutSender, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(abstractOutSender, diagnostics, context);
+		boolean result = validate_NoCircularContainment(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasName(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractPort_hasType(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractOutSender_isTypeConsistent(abstractOutSender, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAbstractOutSender_isDestinationValid(abstractOutSender, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the isTypeConsistent constraint of '<em>Abstract Out Sender</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractOutSender_isTypeConsistent(AbstractOutSender abstractOutSender, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (abstractOutSender.getDestination() == null) return true;
+		if ((abstractOutSender.getType() == null && abstractOutSender.getDestination().getType()!= null) ||
+				!abstractOutSender.getType().equals(abstractOutSender.getDestination().getType())) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "isTypeConsistent", getObjectLabel(abstractOutSender, context) },
+						 new Object[] { abstractOutSender },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the isDestinationValid constraint of '<em>Abstract Out Sender</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateAbstractOutSender_isDestinationValid(AbstractOutSender abstractOutSender, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (abstractOutSender.getDestination() == null) return true;	
+		if (abstractOutSender.getDestination().eContainer() == null || abstractOutSender.eContainer()==null ||
+				abstractOutSender.getDestination().eContainer() != abstractOutSender.eContainer().eContainer()) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "isDestinationValid", getObjectLabel(abstractOutSender, context) },
+						 new Object[] { abstractOutSender },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**

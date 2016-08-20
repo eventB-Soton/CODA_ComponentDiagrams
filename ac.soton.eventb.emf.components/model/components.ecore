@@ -154,6 +154,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="refines" eType="#//WakeQueue"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractPort" abstract="true" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="hasName&#xA;hasType"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="ℕ"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inherits" eType="#//AbstractPort"/>
@@ -164,7 +167,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="OutPort" eSuperTypes="#//AbstractOutSender #//AbstractOutReceiver"/>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractDataPacket" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="hasName&#xA;hasConnector&#xA;hasValue"/>
+      <details key="constraints" value="hasName&#xA;hasPort&#xA;hasValue"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connector" eType="#//Connector"
         changeable="false" volatile="true" transient="true" derived="true"/>
@@ -173,19 +176,31 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractInReceiver" abstract="true"
       eSuperTypes="#//AbstractPort">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="isTypeConsistent&#xA;isSourceValid"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//AbstractInSender"
         eOpposite="#//AbstractInSender/destinations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractInSender" abstract="true" eSuperTypes="#//AbstractPort">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="isTypeConsistent&#xA;areDestinationsValid"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinations" upperBound="-1"
         eType="#//AbstractInReceiver" eOpposite="#//AbstractInReceiver/source"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractOutReceiver" abstract="true"
       eSuperTypes="#//AbstractPort">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="isTypeConsistent&#xA;isSourceValid"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//AbstractOutSender"
         eOpposite="#//AbstractOutSender/destination"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractOutSender" abstract="true" eSuperTypes="#//AbstractPort">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="isTypeConsistent&#xA;isDestinationValid"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destination" eType="#//AbstractOutReceiver"
         eOpposite="#//AbstractOutReceiver/source"/>
   </eClassifiers>
