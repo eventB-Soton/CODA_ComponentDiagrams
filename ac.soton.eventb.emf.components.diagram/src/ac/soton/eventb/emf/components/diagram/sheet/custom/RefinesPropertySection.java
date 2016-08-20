@@ -19,6 +19,7 @@ import org.eventb.emf.core.EventBObject;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 
+import ac.soton.eventb.emf.core.extension.coreextension.EventBLabeled;
 import ac.soton.eventb.emf.diagrams.sheet.AbstractEnumerationPropertySection;
 import ac.soton.eventb.emf.diagrams.util.custom.DiagramUtils;
 
@@ -39,7 +40,7 @@ public class RefinesPropertySection extends AbstractEnumerationPropertySection {
 		@Override
 		public boolean select(Object toTest) {
 			EObject unwrapped = DiagramUtils.unwrap(toTest);
-			if (unwrapped instanceof EventBNamed && unwrapped instanceof EventBObject){
+			if ((unwrapped instanceof EventBNamed || unwrapped instanceof EventBLabeled) && unwrapped instanceof EventBObject){
 				return ((EventBObject)unwrapped).eClass().getEStructuralFeature("refines") != null;
 			}
 			return false;
@@ -57,8 +58,11 @@ public class RefinesPropertySection extends AbstractEnumerationPropertySection {
 		String[] values = new String[elementsToRefine.size()];
 		int i = 0;
 		for (EObject eObject : elementsToRefine) {
-			values[i++] = eObject instanceof EventBNamed ? 
-					 ((EventBNamed) eObject).getName() : "<unnamed>";
+			values[i++] = 
+					eObject ==null ? "" :
+					eObject instanceof EventBNamed ? ((EventBNamed) eObject).getName() :
+					eObject instanceof EventBLabeled ? ((EventBLabeled) eObject).getLabel() :
+						"<unnamed>";
 		}
 		return values;
 	}
@@ -66,7 +70,11 @@ public class RefinesPropertySection extends AbstractEnumerationPropertySection {
 	@Override
 	protected String getFeatureAsText() {
 		Object refinedElement = eObject.eGet(getFeature(), true);
-		return refinedElement instanceof EventBNamed ? ((EventBNamed)refinedElement).getName() : "";
+		return 
+			refinedElement ==null ? "" :
+			refinedElement instanceof EventBNamed ? ((EventBNamed)refinedElement).getName() :
+			refinedElement instanceof EventBLabeled ? ((EventBLabeled)refinedElement).getLabel() :
+					"<unnamed>";
 	}
 
 	@Override
@@ -86,11 +94,21 @@ public class RefinesPropertySection extends AbstractEnumerationPropertySection {
 			if (container instanceof Machine) {
 				EList<Machine> abstractMachines = ((Machine) container).getRefines();
 				if (abstractMachines.size() > 0) {
-					return abstractMachines.get(0).getAllContained(eObject.eClass(), true);
+					return filter(abstractMachines.get(0).getAllContained(eObject.eClass(), true));
 				}
 			}
 		}
 		return (EList<EObject>) ECollections.EMPTY_ELIST;
+	}
+
+	/**
+	 * @param allContained
+	 * @return
+	 */
+	private EList<EObject> filter(EList<EObject> all) {
+		Object refinedObject = eObject.eGet(getFeature());
+		all.remove(refinedObject);
+		return all;
 	}
 
 }
