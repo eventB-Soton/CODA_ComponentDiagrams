@@ -23,6 +23,7 @@ import org.eventb.emf.core.machine.MachinePackage;
 
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
 import ac.soton.eventb.emf.components.Component;
+import ac.soton.eventb.emf.components.DataPacket;
 import ac.soton.eventb.emf.components.Method;
 import ac.soton.eventb.emf.components.PortWake;
 import ac.soton.eventb.emf.components.SelfWake;
@@ -34,6 +35,7 @@ import ac.soton.eventb.emf.diagrams.generator.IRule;
 import ac.soton.eventb.emf.diagrams.generator.utils.Find;
 import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 
+
 public class AutonomousOperationRule extends AbstractRule  implements IRule {
 
 	private Event timerEvent = null;
@@ -41,7 +43,17 @@ public class AutonomousOperationRule extends AbstractRule  implements IRule {
 	@Override
 	public boolean enabled(EventBElement sourceElement) throws Exception {
 		assert(sourceElement instanceof AbstractComponentOperation);
-		return sourceElement instanceof PortWake || sourceElement instanceof SelfWake || sourceElement instanceof Method;
+		return sourceElement instanceof SelfWake || sourceElement instanceof Method ||
+				(sourceElement instanceof PortWake && isConnected((PortWake)sourceElement)) ; //PortWake is only synchronised if connected
+	}
+
+	private boolean isConnected(PortWake pw) {
+		for (DataPacket r : pw.getReceives()){
+			if (r.getConnector()!=null){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
@@ -73,7 +85,20 @@ public class AutonomousOperationRule extends AbstractRule  implements IRule {
 			ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.OS_TYPE_NAME(op), Strings.OS_TYPE_PRED(op),""),1));
 			ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.OS_ACTION_NAME(op), Strings.OS_TRUE_EXPR(op)),1));
 		}
-
+		
+		AbstractComponentOperation opa = op.getRefines();
+		//  We may need a gluing invariant if the operation has been relocated into a sub-component 
+		if (opa!=null && !Strings.OS_NAME(op).equals(Strings.OS_NAME(opa))){
+			if (!(opa instanceof PortWake) || isConnected((PortWake)opa)){
+				ret.add(Make.descriptor(machine, invariants, Make.invariant(Strings.OS_REFREL_NAME(op), Strings.OS_REFREL_PRED(op,op.getRefines()), "refinement relation for "+ op.getLabel()), 10));
+			}	
+		}
+		
+		//  if a port was previously disconnected but is now connected we need a witness
+		//TODO: add witness for each PW receive that was previously disconnected
+		
+		
+		
 		//in all elaborated events of this op
 		for (Event elaboratedEvent : op.getElaborates()){
 			if (sourceElement instanceof SelfWake){
@@ -91,6 +116,5 @@ public class AutonomousOperationRule extends AbstractRule  implements IRule {
 		//finished
 		return ret;
 	}
-
 
 }
