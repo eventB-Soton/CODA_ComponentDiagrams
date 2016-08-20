@@ -280,8 +280,9 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * return itself
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Connector basicGetConnector() {
 		return this;

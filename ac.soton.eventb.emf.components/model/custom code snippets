@@ -278,7 +278,16 @@ AbstractComponentOperationImpl
 		else return super.getName();
 	}
 	
-	
+	Implementation for connector
+		/**
+	 * <!-- begin-user-doc -->
+	 * return itself
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Connector basicGetConnector() {
+		return this;
+	}
 	
 	Similarly in AbstractPortImpl
 	-------------------------------
