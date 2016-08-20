@@ -20,11 +20,13 @@ import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.machine.Event;
 
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
+import ac.soton.eventb.emf.components.AbstractPort;
 import ac.soton.eventb.emf.components.DelayedDataPacket;
 import ac.soton.eventb.emf.components.Method;
 import ac.soton.eventb.emf.components.OperationAction;
 import ac.soton.eventb.emf.components.OperationGuard;
 import ac.soton.eventb.emf.components.OperationWitness;
+import ac.soton.eventb.emf.components.OutPort;
 import ac.soton.eventb.emf.components.WakeEvent;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
 import ac.soton.eventb.emf.core.extension.coreextension.TypedParameter;
@@ -62,8 +64,7 @@ public class OperationRule extends AbstractRule implements IRule {
 			
 			//generate users witnesses 
 			for (OperationWitness w : op.getWitnesses()){
-				//TODO: use w.getComment()
-				ret.add(Make.descriptor(elaboratedEvent,witnesses,Make.witness(Strings.USER_WITNESS_NAME(w), Strings.USER_WITNESS_PRED(w)),10));				
+				ret.add(Make.descriptor(elaboratedEvent,witnesses,Make.witness(Strings.USER_WITNESS_NAME(w), Strings.USER_WITNESS_PRED(w), w.getComment()),10));				
 			}
 			
 			//generate users guards 
@@ -83,7 +84,15 @@ public class OperationRule extends AbstractRule implements IRule {
 			
 			//set value on connector for each send
 			for (DelayedDataPacket s : op.getSends()){
-				ret.add(Make.descriptor(elaboratedEvent,actions,Make.action(Strings.CN_SEND_ACTION_NAME(s), Strings.CN_SEND_ACTION_EXPR(s)),4));				
+				if (s.getConnector()!=null){
+					ret.add(Make.descriptor(elaboratedEvent,actions,Make.action(Strings.CN_SEND_ACTION_NAME(s), Strings.CN_SEND_ACTION_EXPR(s)),4));	
+				}else{
+					AbstractPort port = s.getPort();
+					while (port instanceof OutPort && ((OutPort) port).getDestination()!=null){
+						port = ((OutPort) port).getDestination();
+					}
+					ret.add(Make.descriptor(elaboratedEvent,actions,Make.action(Strings.CN_DSEND_ACTION_NAME(port.getName()), Strings.CN_DSEND_ACTION_EXPR(port.getName(), s.getValue())),4));							
+				}
 			}
 
 			//set components wakeup for each wakeEvent
