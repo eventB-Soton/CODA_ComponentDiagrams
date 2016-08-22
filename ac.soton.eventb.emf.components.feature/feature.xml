@@ -2,7 +2,7 @@
 <feature
       id="ac.soton.eventb.components.feature"
       label="%featureName"
-      version="5.0.0.qualifier"
+      version="5.0.0.release"
       provider-name="%providerName"
       plugin="ac.soton.eventb.emf.components.branding"
       license-feature="ac.soton.coda.licence"
