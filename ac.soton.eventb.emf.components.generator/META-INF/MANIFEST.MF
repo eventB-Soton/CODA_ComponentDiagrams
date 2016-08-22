@@ -18,5 +18,5 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.7.0,4.0.0)",
  ac.soton.eventb.statemachines;bundle-version="[3.0.0,4.0.0)",
  ac.soton.eventb.emf.components;bundle-version="[4.0.0,5.0.0)",
  ac.soton.eventb.emf.components.diagram;bundle-version="[4.0.0,5.0.0)"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
