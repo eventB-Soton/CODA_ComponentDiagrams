@@ -1,5 +1,5 @@
 /**
- * (c) Crown owned copyright (2015) (UK Ministry of Defence)
+ * (c) Crown owned copyright (2015-2016) (UK Ministry of Defence)
  * This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
  * International License
  *  
@@ -38,7 +38,6 @@ import ac.soton.eventb.emf.components.Method;
 import ac.soton.eventb.emf.components.OperationAction;
 import ac.soton.eventb.emf.components.OperationGuard;
 import ac.soton.eventb.emf.components.OperationWitness;
-import ac.soton.eventb.emf.components.OutPort;
 import ac.soton.eventb.emf.components.PortWake;
 import ac.soton.eventb.emf.components.SelfWake;
 import ac.soton.eventb.emf.components.WakeEvent;
@@ -95,15 +94,6 @@ public final class Strings {
 		return ",{"+WK_NULLEVENT_NAME(cp)+"},{"+WK_ADDEVENT_NAME(cp)+"}";
 	}
 
-// DEFINE CONNECTOR TYPES MANUALLY
-// /**
-//  * properties for creating a connector data type
-//  */
-// public static String CN_TYPESET_NAME;
-// public static String CN_TYPESET_NAME(String setName) {
-// 	return bind(CN_TYPESET_NAME,setName);
-// }
- 
  //////////////machine////////////
 /**
   * properties for creating the current time variable
@@ -209,38 +199,27 @@ public final class Strings {
 	} 
  
  /**
-  * properties for creating the disconnected OutPort variables
+  * properties for sending on an output port (generates a parameter)
+  *
   */
- public static String OP_NAME;
- public static String OP_NAME(OutPort op) {
-	 if (op==null) return "<null port>";
-		return  bind(OP_NAME,op.getName());
-	}
- public static String OP_TYPE_NAME;
- public static String OP_TYPE_NAME(OutPort op){
-		return bind(OP_TYPE_NAME,OP_NAME(op));
-	}
- public static String OP_TYPE_PRED;
- public static String OP_TYPE_PRED(OutPort op){
-		return bind(OP_TYPE_PRED,OP_NAME(op),op.getType());
-	}
- public static String OP_INIT_NAME;
- public static String OP_INIT_NAME(OutPort op){
-		return bind(OP_INIT_NAME,OP_NAME(op));
-	}
- public static String OP_INIT_EXPR;
- public static String OP_INIT_EXPR(OutPort op){
-		return bind(OP_INIT_EXPR,OP_NAME(op), op.getType());
-	}
-// public static String OP_HELPER_NAME;
-// public static String OP_HELPER_NAME(Connector cp){
-//		return bind(OP_HELPER_NAME,OP_NAME(cp));
-//	}
-// public static String OP_HELPER_PRED;
-// public static String OP_HELPER_PRED(Connector cp){
-//		return bind(OP_HELPER_PRED,OP_NAME(cp));
-//	} 
- 
+  public static String OPT_TYPE_NAME;
+  public static String OPT_TYPE_NAME(String portName){
+  	return bind(OPT_TYPE_NAME,portName);
+  }
+  public static String OPT_TYPE_PRED;
+  public static String OPT_TYPE_PRED(String portName, String type){
+  	return bind(OPT_TYPE_PRED,portName,type);
+  }
+  
+  public static String OPT_GUARD_NAME;
+  public static String OPT_GUARD_NAME(String portName){
+  	return bind(OPT_GUARD_NAME,portName);
+  }
+  public static String OPT_GUARD_PRED;
+  public static String OPT_GUARD_PRED(String portName, String value){
+  	return bind(OPT_GUARD_PRED,portName,value);
+  }
+  
  /**
   * properties for sending on a connector
   */
@@ -249,22 +228,32 @@ public final class Strings {
  	return bind(CN_SEND_ACTION_NAME,dp.getName());
  }
  public static String CN_SEND_ACTION_EXPR;
- public static String CN_SEND_ACTION_EXPR(DelayedDataPacket dp){
- 	return bind(CN_SEND_ACTION_EXPR,CN_NAME(dp.getConnector()),CT_NAME((Component)ComponentsUtils.getRootComponent(dp)),dp.getDelay(),dp.getValue());
- }
- 
- /**
-  * properties for sending on a disconnected port
-  */
- public static String CN_DSEND_ACTION_NAME;
- public static String CN_DSEND_ACTION_NAME(String portName){
- 	return bind(CN_DSEND_ACTION_NAME, portName);
- }
- public static String CN_DSEND_ACTION_EXPR;
- public static String CN_DSEND_ACTION_EXPR(String portName, String value){
- 	return bind(CN_DSEND_ACTION_EXPR, portName, value);
+ public static String CN_SEND_ACTION_EXPR(DelayedDataPacket dp, String value){
+ 	return bind(CN_SEND_ACTION_EXPR,CN_NAME(dp.getConnector()),CT_NAME((Component)ComponentsUtils.getRootComponent(dp)),dp.getDelay(),value);
  }
 
+ /**
+  * properties for receiving on a port (generates a parameter)
+  *
+  */
+  public static String IPT_TYPE_NAME;
+  public static String IPT_TYPE_NAME(String portName){
+  	return bind(IPT_TYPE_NAME,portName);
+  }
+  public static String IPT_TYPE_PRED;
+  public static String IPT_TYPE_PRED(String portName, String type){
+  	return bind(IPT_TYPE_PRED,portName,type);
+  }
+  
+  public static String IPT_GUARD_NAME;
+  public static String IPT_GUARD_NAME(String portName){
+  	return bind(IPT_GUARD_NAME,portName);
+  }
+  public static String IPT_GUARD_PRED;
+  public static String IPT_GUARD_PRED(String portName, String value){
+  	return bind(IPT_GUARD_PRED,portName,value);
+  }
+  
  /**
   * properties for receiving on a connector
   */
@@ -273,8 +262,8 @@ public final class Strings {
  	return bind(CN_RECV_GUARD_NAME,dp.getName());
  }
  public static String CN_RECV_GUARD_PRED;
- public static String CN_RECV_GUARD_PRED(DataPacket dp){
- 	return bind(CN_RECV_GUARD_PRED,CN_NAME(dp.getConnector()),CT_NAME((Component)ComponentsUtils.getRootComponent(dp)),dp.getValue());
+ public static String CN_RECV_GUARD_PRED(DataPacket dp, String value){
+ 	return bind(CN_RECV_GUARD_PRED,CN_NAME(dp.getConnector()),CT_NAME((Component)ComponentsUtils.getRootComponent(dp)),value);
  }
 
  public static String CN_NEWV_GUARD_NAME;
@@ -284,22 +273,7 @@ public final class Strings {
  public static String CN_NEWV_GUARD_PRED;
  public static String CN_NEWV_GUARD_PRED(PortWake pw){
 	return bind(CN_NEWV_GUARD_PRED,CT_NAME((Component)ComponentsUtils.getRootComponent(pw)),getPortWakeConnectorTimes(pw));
- }
- 
-/**
- * properties for receiving on a disconnected port
- *
- */
- public static String CN_DRECV_GUARD_NAME;
- public static String CN_DRECV_GUARD_NAME(String portName){
- 	return bind(CN_DRECV_GUARD_NAME,portName);
- }
- public static String CN_DRECV_GUARD_PRED;
- public static String CN_DRECV_GUARD_PRED(String portName, String value){
- 	return bind(CN_DRECV_GUARD_PRED,portName,value);
- }
- 
- 
+ } 
  
 /**
  * properties for creating the component wake up queue variables

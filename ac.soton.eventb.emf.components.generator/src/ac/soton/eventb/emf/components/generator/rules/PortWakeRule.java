@@ -1,5 +1,5 @@
 /**
- * (c) Crown owned copyright (2015) (UK Ministry of Defence)
+ * (c) Crown owned copyright (2015-2016) (UK Ministry of Defence)
  * This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
  * International License
  *  
@@ -18,26 +18,21 @@ import java.util.List;
 
 import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.machine.Event;
-import org.eventb.emf.core.machine.Machine;
-import org.eventb.emf.core.machine.MachinePackage;
 
-import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.DataPacket;
+import ac.soton.eventb.emf.components.InPort;
 import ac.soton.eventb.emf.components.PortWake;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
-import ac.soton.eventb.emf.components.util.ComponentsUtils;
 import ac.soton.eventb.emf.diagrams.generator.AbstractRule;
 import ac.soton.eventb.emf.diagrams.generator.GenerationDescriptor;
 import ac.soton.eventb.emf.diagrams.generator.IRule;
-import ac.soton.eventb.emf.diagrams.generator.utils.Find;
 import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 
 /**
- * This rule deals with port wakes that receive on connectors.
- * This involves generating synchronisation with the timer event as well as guarding
- * elaborated events to make sure the correct value has arrived on the connector
  * 
- * Note that disconnected ports are ignored (should be dealt with elsewhere)
+ * This rule deals with generating a parameter for the input port of a portwakes.receive
+ * For each elaborated event, the receive link generates a parameter to represent the input port
+ * and a guard that the parameter has the specified value as well as a type guard.
  * <p>
  * 
  * </p>
@@ -48,54 +43,29 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Make;
  * @since
  */
 public class PortWakeRule extends AbstractRule  implements IRule {
-
-	private Event timerEvent = null;
 	
-	@Override
-	public boolean enabled(EventBElement sourceElement) throws Exception{
-		assert(sourceElement instanceof PortWake);
-		for (DataPacket r : ((PortWake)sourceElement).getReceives()){
-			if (r.getConnector()!=null){
-				return true;
-			}
-		}
-		return false;
-	}
-
-	@Override
-	public boolean dependenciesOK(EventBElement sourceElement, List<GenerationDescriptor> generatedElements) throws Exception{
-		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
-		Component root = (Component) ComponentsUtils.getRootComponent(sourceElement);
-		timerEvent = (Event) Find.generatedElement(generatedElements,machine,events,Strings.TE_NAME(root));
-		return timerEvent!=null;
-	}
 	
 	@Override
 	public List<GenerationDescriptor> fire(EventBElement sourceElement, List<GenerationDescriptor> generatedElements) throws Exception {
 		assert(enabled(sourceElement));
-		if (!dependenciesOK(sourceElement,generatedElements)) throw new Exception("rule fired before dependencies available (sourceElement:"+sourceElement+", rule:"+PortWakeRule.class+")");
 		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
 		
 		PortWake pw = (PortWake) sourceElement;
 		
 		for (Event elaboratedEvent : pw.getElaborates()){	
- 			//guard for value on connector for each received connector
+			
+ 			//parameter and guard for value on input port for each received connector
 			for (DataPacket r : pw.getReceives()){
-				if (r.getConnector()!=null){
-					ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.CN_RECV_GUARD_NAME(r), Strings.CN_RECV_GUARD_PRED(r)),4));
-				}
+
+					InPort ip = (InPort) r.getPort();
+					//generate parameter and guards for connection to local port
+					ret.add(Make.descriptor(elaboratedEvent,parameters,Make.parameter(ip.getName(), "input port"),4));	
+					ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.IPT_GUARD_NAME(ip.getName()), Strings.IPT_GUARD_PRED(ip.getName(),r.getValue())),4));
+					ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.IPT_TYPE_NAME(ip.getName()), Strings.IPT_TYPE_PRED(ip.getName(),ip.getType())),5));
+
 			}
-			ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.CN_NEWV_GUARD_NAME(), Strings.CN_NEWV_GUARD_PRED(pw)),1));		
 		}
 	
-		//guard in timer event ensures PW events finished
-		ret.add(Make.descriptor(timerEvent,guards,Make.guard(Strings.TE_PW_DONE_GUARD_NAME(pw), Strings.TE_PW_DONE_GUARD_PRED(pw)),4));
-
-		
-		//reset operations synch in timer event
-		ret.add(Make.descriptor(timerEvent,actions,Make.action(Strings.OS_ACTION_NAME(pw), Strings.OS_FALSE_EXPR(pw)),4));
-		
-		////////
 		return ret;
 	}
 
