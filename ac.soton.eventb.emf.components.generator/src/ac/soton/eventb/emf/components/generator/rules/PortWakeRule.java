@@ -19,6 +19,9 @@ import java.util.List;
 import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.machine.Event;
 
+import ac.soton.eventb.emf.components.AbstractPort;
+import ac.soton.eventb.emf.components.Component;
+import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.DataPacket;
 import ac.soton.eventb.emf.components.InPort;
 import ac.soton.eventb.emf.components.PortWake;
@@ -57,15 +60,22 @@ public class PortWakeRule extends AbstractRule  implements IRule {
  			//parameter and guard for value on input port for each received connector
 			for (DataPacket r : pw.getReceives()){
 
-					InPort ip = (InPort) r.getPort();
-					//generate parameter and guards for connection to local port
-					ret.add(Make.descriptor(elaboratedEvent,parameters,Make.parameter(ip.getName(), "input port"),4));	
-					ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.IPT_GUARD_NAME(ip.getName()), Strings.IPT_GUARD_PRED(ip.getName(),r.getValue())),4));
+				//generate parameters for the complete chain of input ports
+				AbstractPort ip = r.getPort();
+				String value = r.getValue();
+
+				while (ip instanceof InPort ){
+					//generate parameter and guards for connection to input port
+					ret.add(Make.descriptor(elaboratedEvent,parameters,Make.parameter(ip.getName(), "input port of "+ ((Component)ip.getContaining(ComponentsPackage.Literals.COMPONENT)).getName()),4));	
+					ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.IPT_GUARD_NAME(ip.getName()), Strings.IPT_GUARD_PRED(ip.getName(),value)),4));
 					ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.IPT_TYPE_NAME(ip.getName()), Strings.IPT_TYPE_PRED(ip.getName(),ip.getType())),5));
 
+					value = ip.getName();
+					ip = ((InPort)ip).getSource();
+
+				}
 			}
 		}
-	
 		return ret;
 	}
 

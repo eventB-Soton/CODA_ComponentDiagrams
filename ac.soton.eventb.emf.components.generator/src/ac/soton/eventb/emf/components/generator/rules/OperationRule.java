@@ -21,11 +21,14 @@ import org.eventb.emf.core.machine.Event;
 
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
 import ac.soton.eventb.emf.components.AbstractPort;
+import ac.soton.eventb.emf.components.Component;
+import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.DelayedDataPacket;
 import ac.soton.eventb.emf.components.Method;
 import ac.soton.eventb.emf.components.OperationAction;
 import ac.soton.eventb.emf.components.OperationGuard;
 import ac.soton.eventb.emf.components.OperationWitness;
+import ac.soton.eventb.emf.components.OutPort;
 import ac.soton.eventb.emf.components.WakeEvent;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
 import ac.soton.eventb.emf.core.extension.coreextension.TypedParameter;
@@ -84,19 +87,22 @@ public class OperationRule extends AbstractRule implements IRule {
 			//set value on connector for each send
 			for (DelayedDataPacket s : op.getSends()){
 
+				//generate parameters for the complete chain of output ports
 				AbstractPort oport = s.getPort();
-				//generate parameter and guards for connection to local port
-				ret.add(Make.descriptor(elaboratedEvent,parameters,Make.parameter(oport.getName(), "output port"),4));	
-				ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.OPT_GUARD_NAME(oport.getName()), Strings.OPT_GUARD_PRED(oport.getName(),s.getValue())),4));
-				ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.OPT_TYPE_NAME(oport.getName()), Strings.OPT_TYPE_PRED(oport.getName(),oport.getType())),5));
+				String value = s.getValue();
+				
+				while (oport instanceof OutPort ){
+					//generate parameter and guards for connection to local port
+					ret.add(Make.descriptor(elaboratedEvent,parameters,Make.parameter(oport.getName(), 
+							"output port of "+ ((Component)oport.getContaining(ComponentsPackage.Literals.COMPONENT)).getName()),4));	
+					ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.OPT_GUARD_NAME(oport.getName()), Strings.OPT_GUARD_PRED(oport.getName(),value)),4));
+					ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.OPT_TYPE_NAME(oport.getName()), Strings.OPT_TYPE_PRED(oport.getName(),oport.getType())),5));
+					value = oport.getName();
+					oport = ((OutPort)oport).getDestination();
+				}
+				
 				if (s.getConnector()!=null){
-					ret.add(Make.descriptor(elaboratedEvent,actions,Make.action(Strings.CN_SEND_ACTION_NAME(s), Strings.CN_SEND_ACTION_EXPR(s,oport.getName())),4));	
-//				}else{
-//					AbstractPort port = s.getPort();
-//					while (port instanceof OutPort && ((OutPort) port).getDestination()!=null){
-//						port = ((OutPort) port).getDestination();
-//					}
-//					ret.add(Make.descriptor(elaboratedEvent,actions,Make.action(Strings.CN_DSEND_ACTION_NAME(port.getName()), Strings.CN_DSEND_ACTION_EXPR(port.getName(), s.getValue())),4));							
+					ret.add(Make.descriptor(elaboratedEvent,actions,Make.action(Strings.CN_SEND_ACTION_NAME(s), Strings.CN_SEND_ACTION_EXPR(s,s.getPort().getName())),6));	
 				}
 			}
 
@@ -111,5 +117,7 @@ public class OperationRule extends AbstractRule implements IRule {
 		////////
 		return ret;
 	}
+	
+	
 
 }
