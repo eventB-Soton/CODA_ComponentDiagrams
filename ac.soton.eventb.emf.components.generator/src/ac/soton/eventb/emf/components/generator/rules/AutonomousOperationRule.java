@@ -94,10 +94,6 @@ public class AutonomousOperationRule extends AbstractRule  implements IRule {
 			}	
 		}
 		
-		//  if a port was previously disconnected but is now connected we need a witness
-		//TODO: add witness for each PW receive that was previously disconnected
-		
-		
 		
 		//in all elaborated events of this op
 		for (Event elaboratedEvent : op.getElaborates()){

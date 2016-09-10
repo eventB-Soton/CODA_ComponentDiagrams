@@ -65,9 +65,6 @@ public class SelfWakeRule extends AbstractRule implements IRule {
 		ret.add(Make.descriptor(timerEvent,guards,Make.guard(Strings.TE_SW_DONE_GUARD_NAME(sw), Strings.TE_SW_DONE_GUARD_PRED(sw)),4));
 
 		
-		//reset operations synch in timer event - REMOVED AS NOT NEEDED WITH NEW SYNCH SCHEME
-		//ret.add(Make.descriptor(timerEvent,actions,Make.action(Strings.OS_ACTION_NAME(sw), Strings.OS_FALSE_EXPR(sw)),4));
-		
 		////////		
 		return ret;
 	}
