@@ -48,7 +48,7 @@ public class ConnectorRule extends AbstractRule implements IRule {
 		ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.CN_INIT_NAME(cn), Strings.CN_INIT_EXPR(cn), ""),3));
 		if (cn.getInherits() == null){
 			ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.CN_TYPE_NAME(cn), Strings.CN_TYPE_PRED(cn),""),3));
-			ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.CN_HELPER_NAME(cn), Strings.CN_HELPER_PRED(cn),""),4)); //must be after the type
+			//ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.CN_HELPER_NAME(cn), Strings.CN_HELPER_PRED(cn),""),4)); //must be after the type
 		}
 		return ret;
 	}

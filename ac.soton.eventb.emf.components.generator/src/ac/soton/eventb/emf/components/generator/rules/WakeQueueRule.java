@@ -52,6 +52,7 @@ public class WakeQueueRule extends AbstractRule implements IRule {
 		if (wq.getRefines() == null || !wq.getName().equals(wq.getRefines().getName())){
 			ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.WU_TYPE_NAME(wq), Strings.WU_TYPE_PRED(wq),""),3));
 			ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.WU_MAX_TYPE_NAME(wq), Strings.WU_MAX_TYPE_PRED(wq),""),3));
+			ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.WU_HELPER_NAME(wq), Strings.WU_HELPER_PRED(wq),""),4)); //must be after the type
 		}
 		if (wq.getRefines() != null && !wq.getName().equals(wq.getRefines().getName())){
 			//FIXME: Need to generate a gluing invariant here to express: min >= abstract min, refined max =< abstract max

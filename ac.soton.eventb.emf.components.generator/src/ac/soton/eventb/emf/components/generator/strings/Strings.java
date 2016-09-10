@@ -319,6 +319,14 @@ public static String WU_MAX_INIT_EXPR;
 public static String WU_MAX_INIT_EXPR(WakeQueue wq){
 	return bind(WU_MAX_INIT_EXPR,WU_MAX_NAME(wq));
 }
+public static String WU_HELPER_NAME;
+public static String WU_HELPER_NAME(WakeQueue wq){
+		return bind(WU_HELPER_NAME,WU_NAME(wq));
+	}
+public static String WU_HELPER_PRED;
+public static String WU_HELPER_PRED(WakeQueue wq){
+		return bind(WU_HELPER_PRED,WU_NAME(wq));
+	} 
 
 /**
  * properties for setting a wake up event (min and max)
