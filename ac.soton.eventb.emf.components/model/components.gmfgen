@@ -16,6 +16,7 @@
       canonicalEditPolicyClassName="ComponentDiagramCanonicalEditPolicy"
       iconProviderPriority="Low"
       creationWizardIconPath="icons/obj16/ComponentDiagram.gif"
+      newDiagramFileWizardClassName="ComponentsNeNew Diagram File Wizard Class Name&#x9;ComponentsNewDiagramFileWizardwDiagramFileWizard"
       validationProviderPriority="Low"
       validationEnabled="true"
       validationDecorators="true"

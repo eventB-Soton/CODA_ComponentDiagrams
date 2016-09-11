@@ -133,86 +133,71 @@ public class ComponentsValidator extends EObjectValidator {
 	 */
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		try{
-			switch (classifierID) {
-				case ComponentsPackage.ABSTRACT_COMPONENT_MODEL:
-					return validateAbstractComponentModel((AbstractComponentModel)value, diagnostics, context);
-				case ComponentsPackage.COMPONENT:
-					return validateComponent((Component)value, diagnostics, context);
-				case ComponentsPackage.CONNECTOR:
-					return validateConnector((Connector)value, diagnostics, context);
-				case ComponentsPackage.ABSTRACT_COMPONENT_OPERATION:
-					return validateAbstractComponentOperation((AbstractComponentOperation)value, diagnostics, context);
-				case ComponentsPackage.METHOD:
-					return validateMethod((Method)value, diagnostics, context);
-				case ComponentsPackage.PORT_WAKE:
-					return validatePortWake((PortWake)value, diagnostics, context);
-				case ComponentsPackage.DATA_PACKET:
-					return validateDataPacket((DataPacket)value, diagnostics, context);
-				case ComponentsPackage.DELAYED_DATA_PACKET:
-					return validateDelayedDataPacket((DelayedDataPacket)value, diagnostics, context);
-				case ComponentsPackage.SELF_WAKE:
-					return validateSelfWake((SelfWake)value, diagnostics, context);
-				case ComponentsPackage.EXTERNAL:
-					return validateExternal((External)value, diagnostics, context);
-				case ComponentsPackage.WAKE_EVENT:
-					return validateWakeEvent((WakeEvent)value, diagnostics, context);
-				case ComponentsPackage.TRANSITION:
-					return validateTransition((Transition)value, diagnostics, context);
-				case ComponentsPackage.OPERATION_GUARD:
-					return validateOperationGuard((OperationGuard)value, diagnostics, context);
-				case ComponentsPackage.OPERATION_ACTION:
-					return validateOperationAction((OperationAction)value, diagnostics, context);
-				case ComponentsPackage.OPERATION_WITNESS:
-					return validateOperationWitness((OperationWitness)value, diagnostics, context);
-				case ComponentsPackage.COMPONENT_INVARIANT:
-					return validateComponentInvariant((ComponentInvariant)value, diagnostics, context);
-				case ComponentsPackage.COMPONENT_VARIABLE:
-					return validateComponentVariable((ComponentVariable)value, diagnostics, context);
-				case ComponentsPackage.COMPONENT_INITIALISATION:
-					return validateComponentInitialisation((ComponentInitialisation)value, diagnostics, context);
-				case ComponentsPackage.COMPONENT_SET:
-					return validateComponentSet((ComponentSet)value, diagnostics, context);
-				case ComponentsPackage.COMPONENT_CONSTANT:
-					return validateComponentConstant((ComponentConstant)value, diagnostics, context);
-				case ComponentsPackage.COMPONENT_AXIOM:
-					return validateComponentAxiom((ComponentAxiom)value, diagnostics, context);
-				case ComponentsPackage.WAKE_QUEUE:
-					return validateWakeQueue((WakeQueue)value, diagnostics, context);
-				case ComponentsPackage.ABSTRACT_PORT:
-					return validateAbstractPort((AbstractPort)value, diagnostics, context);
-				case ComponentsPackage.IN_PORT:
-					return validateInPort((InPort)value, diagnostics, context);
-				case ComponentsPackage.OUT_PORT:
-					return validateOutPort((OutPort)value, diagnostics, context);
-				case ComponentsPackage.ABSTRACT_DATA_PACKET:
-					return validateAbstractDataPacket((AbstractDataPacket)value, diagnostics, context);
-				case ComponentsPackage.ABSTRACT_IN_RECEIVER:
-					return validateAbstractInReceiver((AbstractInReceiver)value, diagnostics, context);
-				case ComponentsPackage.ABSTRACT_IN_SENDER:
-					return validateAbstractInSender((AbstractInSender)value, diagnostics, context);
-				case ComponentsPackage.ABSTRACT_OUT_RECEIVER:
-					return validateAbstractOutReceiver((AbstractOutReceiver)value, diagnostics, context);
-				case ComponentsPackage.ABSTRACT_OUT_SENDER:
-					return validateAbstractOutSender((AbstractOutSender)value, diagnostics, context);
-				case ComponentsPackage.WAKE_KIND:
-					return validateWakeKind((WakeKind)value, diagnostics, context);
-				default:
-					return true;
-			}
-		}catch (Exception e){
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						"_UI_GenericConstraint_diagnostic",
-						 new Object[] { "AN EXCEPTION OCCURRED WHILE RUNNING THE VALIDATOR"},
-						 new Object[] { value },
-						 context));
-			}
-			return false;
+		switch (classifierID) {
+			case ComponentsPackage.ABSTRACT_COMPONENT_MODEL:
+				return validateAbstractComponentModel((AbstractComponentModel)value, diagnostics, context);
+			case ComponentsPackage.COMPONENT:
+				return validateComponent((Component)value, diagnostics, context);
+			case ComponentsPackage.CONNECTOR:
+				return validateConnector((Connector)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_COMPONENT_OPERATION:
+				return validateAbstractComponentOperation((AbstractComponentOperation)value, diagnostics, context);
+			case ComponentsPackage.METHOD:
+				return validateMethod((Method)value, diagnostics, context);
+			case ComponentsPackage.PORT_WAKE:
+				return validatePortWake((PortWake)value, diagnostics, context);
+			case ComponentsPackage.DATA_PACKET:
+				return validateDataPacket((DataPacket)value, diagnostics, context);
+			case ComponentsPackage.DELAYED_DATA_PACKET:
+				return validateDelayedDataPacket((DelayedDataPacket)value, diagnostics, context);
+			case ComponentsPackage.SELF_WAKE:
+				return validateSelfWake((SelfWake)value, diagnostics, context);
+			case ComponentsPackage.EXTERNAL:
+				return validateExternal((External)value, diagnostics, context);
+			case ComponentsPackage.WAKE_EVENT:
+				return validateWakeEvent((WakeEvent)value, diagnostics, context);
+			case ComponentsPackage.TRANSITION:
+				return validateTransition((Transition)value, diagnostics, context);
+			case ComponentsPackage.OPERATION_GUARD:
+				return validateOperationGuard((OperationGuard)value, diagnostics, context);
+			case ComponentsPackage.OPERATION_ACTION:
+				return validateOperationAction((OperationAction)value, diagnostics, context);
+			case ComponentsPackage.OPERATION_WITNESS:
+				return validateOperationWitness((OperationWitness)value, diagnostics, context);
+			case ComponentsPackage.COMPONENT_INVARIANT:
+				return validateComponentInvariant((ComponentInvariant)value, diagnostics, context);
+			case ComponentsPackage.COMPONENT_VARIABLE:
+				return validateComponentVariable((ComponentVariable)value, diagnostics, context);
+			case ComponentsPackage.COMPONENT_INITIALISATION:
+				return validateComponentInitialisation((ComponentInitialisation)value, diagnostics, context);
+			case ComponentsPackage.COMPONENT_SET:
+				return validateComponentSet((ComponentSet)value, diagnostics, context);
+			case ComponentsPackage.COMPONENT_CONSTANT:
+				return validateComponentConstant((ComponentConstant)value, diagnostics, context);
+			case ComponentsPackage.COMPONENT_AXIOM:
+				return validateComponentAxiom((ComponentAxiom)value, diagnostics, context);
+			case ComponentsPackage.WAKE_QUEUE:
+				return validateWakeQueue((WakeQueue)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_PORT:
+				return validateAbstractPort((AbstractPort)value, diagnostics, context);
+			case ComponentsPackage.IN_PORT:
+				return validateInPort((InPort)value, diagnostics, context);
+			case ComponentsPackage.OUT_PORT:
+				return validateOutPort((OutPort)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_DATA_PACKET:
+				return validateAbstractDataPacket((AbstractDataPacket)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_IN_RECEIVER:
+				return validateAbstractInReceiver((AbstractInReceiver)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_IN_SENDER:
+				return validateAbstractInSender((AbstractInSender)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_OUT_RECEIVER:
+				return validateAbstractOutReceiver((AbstractOutReceiver)value, diagnostics, context);
+			case ComponentsPackage.ABSTRACT_OUT_SENDER:
+				return validateAbstractOutSender((AbstractOutSender)value, diagnostics, context);
+			case ComponentsPackage.WAKE_KIND:
+				return validateWakeKind((WakeKind)value, diagnostics, context);
+			default:
+				return true;
 		}
 	}
 

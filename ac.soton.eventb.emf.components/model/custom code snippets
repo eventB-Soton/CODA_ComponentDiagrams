@@ -1,3 +1,24 @@
+
+ComponentsValidator.
+--------------------
+AFTER REGENERATING - add a try-catch block to validate in ComponentsValidator. Otherwise exceptions result in a validation passed message!
+		}catch (Exception e){
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						"_UI_GenericConstraint_diagnostic",
+						 new Object[] { "AN EXCEPTION OCCURRED WHILE RUNNING THE VALIDATOR"},
+						 new Object[] { value },
+						 context));
+			}
+			return false;
+		}
+
+
+
 //// custom ///
 
 

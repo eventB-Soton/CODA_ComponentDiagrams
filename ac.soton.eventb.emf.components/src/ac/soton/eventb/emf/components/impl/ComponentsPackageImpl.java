@@ -1520,25 +1520,25 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		  (abstractInReceiverEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "isTypeConsistent\nisSourceValid"
+			 "constraints", "isSourceValid"
 		   });		
 		addAnnotation
 		  (abstractInSenderEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "isTypeConsistent\nareDestinationsValid"
+			 "constraints", "areDestinationsValid"
 		   });		
 		addAnnotation
 		  (abstractOutReceiverEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "isTypeConsistent\nisSourceValid"
+			 "constraints", "isSourceValid"
 		   });		
 		addAnnotation
 		  (abstractOutSenderEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "isTypeConsistent\nisDestinationValid"
+			 "constraints", "isDestinationValid"
 		   });
 	}
 
