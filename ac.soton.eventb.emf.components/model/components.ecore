@@ -176,31 +176,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractInReceiver" abstract="true"
       eSuperTypes="#//AbstractPort">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="isTypeConsistent&#xA;isSourceValid"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//AbstractInSender"
         eOpposite="#//AbstractInSender/destinations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractInSender" abstract="true" eSuperTypes="#//AbstractPort">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="isTypeConsistent&#xA;areDestinationsValid"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinations" upperBound="-1"
         eType="#//AbstractInReceiver" eOpposite="#//AbstractInReceiver/source"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractOutReceiver" abstract="true"
       eSuperTypes="#//AbstractPort">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="isTypeConsistent&#xA;isSourceValid"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//AbstractOutSender"
         eOpposite="#//AbstractOutSender/destination"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractOutSender" abstract="true" eSuperTypes="#//AbstractPort">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="isTypeConsistent&#xA;isDestinationValid"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destination" eType="#//AbstractOutReceiver"
         eOpposite="#//AbstractOutReceiver/source"/>
   </eClassifiers>
