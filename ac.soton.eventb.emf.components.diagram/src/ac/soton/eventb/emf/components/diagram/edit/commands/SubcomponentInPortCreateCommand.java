@@ -18,9 +18,13 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eventb.emf.core.EventBElement;
+import org.eventb.emf.core.EventBNamed;
+import org.eventb.emf.core.util.NameUtils;
 
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentsFactory;
+import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.InPort;
 
 /**
@@ -57,13 +61,19 @@ public class SubcomponentInPortCreateCommand extends EditElementCommand {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		InPort newElement = ComponentsFactory.eINSTANCE.createInPort();
 
 		Component owner = (Component) getElementToEdit();
+		
+		//+++++ custom code added to set a default name
+		((EventBNamed)newElement).setName(NameUtils.getSafeName((EventBElement)newElement, "inpt_", owner, 
+				ComponentsPackage.Literals.COMPONENT__IN_PORTS));
+		//-----
+		
 		owner.getInPorts().add(newElement);
 
 		doConfigure(newElement, monitor, info);

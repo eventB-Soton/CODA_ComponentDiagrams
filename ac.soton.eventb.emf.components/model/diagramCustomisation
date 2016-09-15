@@ -1,3 +1,36 @@
+
+
+--------------------------------------------------------------------------------------
+In InPortCreateCommand, OutPortCreateCommand, SubcomponentInPortCreateCommand and SubcomponentOutPortCreateCommand
+method doExecuteWithResult has been changed to
+set a default name in the newly created element
+--------------------------------------------------------------------------------------
+e.g.
+
+
+	/**
+	 * @generated NOT
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		InPort newElement = ComponentsFactory.eINSTANCE.createInPort();
+
+		Component owner = (Component) getElementToEdit();
+
+		//+++++ custom code added to set a default name
+		((EventBNamed)newElement).setName(NameUtils.getSafeName((EventBElement)newElement, "inpt_", owner, 
+				ComponentsPackage.Literals.COMPONENT__IN_PORTS));
+		//-----
+
+		owner.getInPorts().add(newElement);
+		
+		doConfigure(newElement, monitor, info);
+
+		((CreateElementRequest) getRequest()).setNewElement(newElement);
+		return CommandResult.newOKCommandResult(newElement);
+	}
+
+
 --------------------------------------------------------------------------------------
  In  Statemachine, ProcessStatemachine and SynchronousStatemachine edit parts ...
 .. add open role edit policy OpenStatemachineDiagramEditPolicy()
