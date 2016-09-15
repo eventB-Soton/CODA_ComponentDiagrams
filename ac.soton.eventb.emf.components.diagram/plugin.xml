@@ -147,7 +147,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <?gmfgen generated="true"?>
       <decoratorProvider class="ac.soton.eventb.emf.components.diagram.providers.ComponentsValidationDecoratorProvider">
          <Priority name="Medium"/>
-         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart" id="PRIMARY_VIEW"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
    </extension>
@@ -402,7 +402,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <?gmfgen generated="true"?>
       <decoratorProvider class="ac.soton.eventb.emf.components.diagram.providers.ComponentsShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
-         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-top-nodes">
+         <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
             <method name="getType()" value="2005,2006,2007,2008"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>

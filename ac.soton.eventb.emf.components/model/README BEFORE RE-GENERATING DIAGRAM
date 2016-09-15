@@ -1,6 +1,10 @@
   
- IMPORTANT: if you updated the ecore nsURI to reflect a new version of the meta-model it will break the trace file used by gmf to keep track of its previous generated classes.
+IMPORTANT: if you updated the ecore nsURI to reflect a new version of the meta-model it will break the trace file used by gmf to keep track of its previous generated classes.
  			In fact it is best to search and replace the nsURI throughout the whole workspace as a other plugins such as generator, persistence & navigator reference the ecore model this way.
+
+IMPORTANT: The generated plugin.xml has some warnings due to class references containing the referenced plugin in brackets
+e.g.            <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+do not remove the brackets as this will stop the gmf extension.. e.g. stop validation markers from working
 
 Creating gmfgen from gmfmap resets some configurations therefore it is necessary to restore these settings
  in components.gmfgen before re-generating diagram code. This can be done by doing a text compare with the
