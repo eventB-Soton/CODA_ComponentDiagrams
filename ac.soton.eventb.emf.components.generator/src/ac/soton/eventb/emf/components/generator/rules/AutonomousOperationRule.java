@@ -43,8 +43,16 @@ public class AutonomousOperationRule extends AbstractRule  implements IRule {
 	@Override
 	public boolean enabled(EventBElement sourceElement) throws Exception {
 		assert(sourceElement instanceof AbstractComponentOperation);
-		return sourceElement instanceof SelfWake || sourceElement instanceof Method ||
-				(sourceElement instanceof PortWake && isConnected((PortWake)sourceElement)) ; //PortWake is only synchronised if connected
+		return isSynchronised((AbstractComponentOperation)sourceElement);
+	}
+
+	/**
+	 * @param sourceElement
+	 * @return
+	 */
+	private boolean isSynchronised(AbstractComponentOperation op) {
+		return op instanceof SelfWake || op instanceof Method ||
+				(op instanceof PortWake && isConnected((PortWake)op)) ; //PortWake is only synchronised if connected
 	}
 
 	private boolean isConnected(PortWake pw) {
@@ -89,8 +97,8 @@ public class AutonomousOperationRule extends AbstractRule  implements IRule {
 		AbstractComponentOperation opa = op.getRefines();
 		//  We may need a gluing invariant if the operation has been relocated into a sub-component 
 		if (opa!=null && !Strings.OS_NAME(op).equals(Strings.OS_NAME(opa))){
-			if (!(opa instanceof PortWake) || isConnected((PortWake)opa)){
-				ret.add(Make.descriptor(machine, invariants, Make.invariant(Strings.OS_REFREL_NAME(op), Strings.OS_REFREL_PRED(op,op.getRefines()), "refinement relation for "+ op.getLabel()), 10));
+			if (isSynchronised(opa)){
+				ret.add(Make.descriptor(machine, invariants, Make.invariant(Strings.OS_REFREL_NAME(op), Strings.OS_REFREL_PRED(op,op.getRefines()), "generated refinement relation for 'done' flag - "+ op.getLabel()), 10));
 			}	
 		}
 		
