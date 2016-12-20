@@ -93,9 +93,11 @@ public class ConnectedPortWakeRule extends AbstractRule  implements IRule {
 			ret.add(Make.descriptor(elaboratedEvent,guards,Make.guard(Strings.CN_NEWV_GUARD_NAME(), Strings.CN_NEWV_GUARD_PRED(pw)),1));		
 		}
 	
-		//guard in timer event ensures PW events finished
+		//guard in timer event to parameterize condition of having a current value (this is to allow for decomposition)
+		ret.add(Make.descriptor(timerEvent,parameters,Make.parameter(Strings.TE_PW_READY_PARAM_NAME(pw), ""),4));
+		ret.add(Make.descriptor(timerEvent,guards,Make.guard(Strings.TE_PW_READY_GUARD_NAME(pw), Strings.TE_PW_READY_GUARD_PRED(pw)),4));
+		//guard in timer event ensures PW events finished or no current value available
 		ret.add(Make.descriptor(timerEvent,guards,Make.guard(Strings.TE_PW_DONE_GUARD_NAME(pw), Strings.TE_PW_DONE_GUARD_PRED(pw)),4));
-
 		
 		//reset operations synch in timer event
 		ret.add(Make.descriptor(timerEvent,actions,Make.action(Strings.OS_ACTION_NAME(pw), Strings.OS_FALSE_EXPR(pw)),4));

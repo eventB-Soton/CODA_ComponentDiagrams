@@ -135,7 +135,20 @@ public final class Strings {
  }
  public static String TE_PW_DONE_GUARD_PRED;
  public static String TE_PW_DONE_GUARD_PRED(PortWake pw){
- 	return bind(TE_PW_DONE_GUARD_PRED,OS_NAME(pw),CT_NAME((Component)ComponentsUtils.getRootComponent(pw)), getPortWakeConnectorTimes(pw));
+ 	return bind(TE_PW_DONE_GUARD_PRED,OS_NAME(pw),TE_PW_READY_PARAM_NAME(pw));
+ }
+ 
+ public static String TE_PW_READY_PARAM_NAME;
+ public static String TE_PW_READY_PARAM_NAME(PortWake pw){
+ 	return bind(TE_PW_READY_PARAM_NAME,OS_NAME(pw));
+ }
+ public static String TE_PW_READY_GUARD_NAME;
+ public static String TE_PW_READY_GUARD_NAME(PortWake pw){
+ 	return bind(TE_PW_READY_GUARD_NAME,makeValidIdentifier(pw.getLabel()));
+ }
+ public static String TE_PW_READY_GUARD_PRED;
+ public static String TE_PW_READY_GUARD_PRED(PortWake pw){
+ 	return bind(TE_PW_READY_GUARD_PRED,TE_PW_READY_PARAM_NAME(pw),CT_NAME((Component)ComponentsUtils.getRootComponent(pw)), getPortWakeConnectorTimes(pw));
  }
  
  public static String TE_SW_DONE_GUARD_NAME;
