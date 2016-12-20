@@ -7,7 +7,6 @@
  */
 package ac.soton.eventb.emf.components.diagram.preferences;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.gmf.runtime.diagram.ui.figures.DiagramColorConstants;
 import org.eclipse.gmf.runtime.diagram.ui.preferences.AppearancePreferencePage;
 import org.eclipse.gmf.runtime.diagram.ui.preferences.IPreferenceConstants;
@@ -44,11 +43,11 @@ public class DiagramAppearancePreferencePage extends AppearancePreferencePage {
 
 		setDefaultFontPreference(store);
 
-		Color fontColor = ColorConstants.black;
+		Color fontColor = DiagramColorConstants.white;
 		PreferenceConverter.setDefault(store,
 				IPreferenceConstants.PREF_FONT_COLOR, fontColor.getRGB());
 
-		Color fillColor = new Color(null, 1, 105, 115); //DiagramColorConstants.white;
+		Color fillColor = new Color(null, 1, 105, 115); //this is a dark blue-green;
 		PreferenceConverter.setDefault(store,
 				IPreferenceConstants.PREF_FILL_COLOR, fillColor.getRGB());
 
