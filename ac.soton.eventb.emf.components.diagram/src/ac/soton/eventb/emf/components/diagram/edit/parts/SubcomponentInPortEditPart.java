@@ -136,7 +136,7 @@ public class SubcomponentInPortEditPart extends BorderedBorderItemEditPart {
 	}
 
 	/**
-	 * CUSTOMISED by cfs: the label BorderItemOffset has been changed from -20, -20 to -2, -2
+	 * CUSTOMISED by cfs: the label BorderItemOffset has been changed from -20, -20 to -2, 0
 	 * (could not find a way to do this in gmfgraph)
 	 * 
 	 * @generated NOT

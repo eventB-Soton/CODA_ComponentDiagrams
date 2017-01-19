@@ -45,6 +45,15 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentAsynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentMethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentPortWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentProcessStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSelfWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentTransitionEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentWakeQueueEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -138,6 +147,73 @@ public class ComponentsDiagramUpdater {
 			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == OutPortEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getOperations().iterator(); it
+				.hasNext();) {
+			AbstractComponentOperation childElement = (AbstractComponentOperation) it
+					.next();
+			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ParentPortWakeEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ParentSelfWakeEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ParentMethodEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ParentExternalEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ParentTransitionEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getWakeQueues().iterator(); it
+				.hasNext();) {
+			WakeQueue childElement = (WakeQueue) it.next();
+			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ParentWakeQueueEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getAsynchronousStatemachines()
+				.iterator(); it.hasNext();) {
+			Statemachine childElement = (Statemachine) it.next();
+			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ParentAsynchronousStatemachineEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getSynchronousStatemachines()
+				.iterator(); it.hasNext();) {
+			Statemachine childElement = (Statemachine) it.next();
+			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ParentSynchronousStatemachineEditPart.VISUAL_ID) {
+				result.add(new ComponentsNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		for (Iterator<?> it = modelElement.getProcessStatemachines().iterator(); it
+				.hasNext();) {
+			Statemachine childElement = (Statemachine) it.next();
+			int visualID = ComponentsVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ParentProcessStatemachineEditPart.VISUAL_ID) {
 				result.add(new ComponentsNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -339,6 +415,24 @@ public class ComponentsDiagramUpdater {
 			return getInPort_2007ContainedLinks(view);
 		case OutPortEditPart.VISUAL_ID:
 			return getOutPort_2008ContainedLinks(view);
+		case ParentPortWakeEditPart.VISUAL_ID:
+			return getPortWake_2010ContainedLinks(view);
+		case ParentSelfWakeEditPart.VISUAL_ID:
+			return getSelfWake_2011ContainedLinks(view);
+		case ParentMethodEditPart.VISUAL_ID:
+			return getMethod_2012ContainedLinks(view);
+		case ParentExternalEditPart.VISUAL_ID:
+			return getExternal_2013ContainedLinks(view);
+		case ParentTransitionEditPart.VISUAL_ID:
+			return getTransition_2014ContainedLinks(view);
+		case ParentWakeQueueEditPart.VISUAL_ID:
+			return getWakeQueue_2009ContainedLinks(view);
+		case ParentAsynchronousStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2015ContainedLinks(view);
+		case ParentSynchronousStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2016ContainedLinks(view);
+		case ParentProcessStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2017ContainedLinks(view);
 		case StatemachineEditPart.VISUAL_ID:
 			return getStatemachine_3015ContainedLinks(view);
 		case SynchronousStatemachineEditPart.VISUAL_ID:
@@ -380,6 +474,24 @@ public class ComponentsDiagramUpdater {
 			return getInPort_2007IncomingLinks(view);
 		case OutPortEditPart.VISUAL_ID:
 			return getOutPort_2008IncomingLinks(view);
+		case ParentPortWakeEditPart.VISUAL_ID:
+			return getPortWake_2010IncomingLinks(view);
+		case ParentSelfWakeEditPart.VISUAL_ID:
+			return getSelfWake_2011IncomingLinks(view);
+		case ParentMethodEditPart.VISUAL_ID:
+			return getMethod_2012IncomingLinks(view);
+		case ParentExternalEditPart.VISUAL_ID:
+			return getExternal_2013IncomingLinks(view);
+		case ParentTransitionEditPart.VISUAL_ID:
+			return getTransition_2014IncomingLinks(view);
+		case ParentWakeQueueEditPart.VISUAL_ID:
+			return getWakeQueue_2009IncomingLinks(view);
+		case ParentAsynchronousStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2015IncomingLinks(view);
+		case ParentSynchronousStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2016IncomingLinks(view);
+		case ParentProcessStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2017IncomingLinks(view);
 		case StatemachineEditPart.VISUAL_ID:
 			return getStatemachine_3015IncomingLinks(view);
 		case SynchronousStatemachineEditPart.VISUAL_ID:
@@ -421,6 +533,24 @@ public class ComponentsDiagramUpdater {
 			return getInPort_2007OutgoingLinks(view);
 		case OutPortEditPart.VISUAL_ID:
 			return getOutPort_2008OutgoingLinks(view);
+		case ParentPortWakeEditPart.VISUAL_ID:
+			return getPortWake_2010OutgoingLinks(view);
+		case ParentSelfWakeEditPart.VISUAL_ID:
+			return getSelfWake_2011OutgoingLinks(view);
+		case ParentMethodEditPart.VISUAL_ID:
+			return getMethod_2012OutgoingLinks(view);
+		case ParentExternalEditPart.VISUAL_ID:
+			return getExternal_2013OutgoingLinks(view);
+		case ParentTransitionEditPart.VISUAL_ID:
+			return getTransition_2014OutgoingLinks(view);
+		case ParentWakeQueueEditPart.VISUAL_ID:
+			return getWakeQueue_2009OutgoingLinks(view);
+		case ParentAsynchronousStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2015OutgoingLinks(view);
+		case ParentSynchronousStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2016OutgoingLinks(view);
+		case ParentProcessStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2017OutgoingLinks(view);
 		case StatemachineEditPart.VISUAL_ID:
 			return getStatemachine_3015OutgoingLinks(view);
 		case SynchronousStatemachineEditPart.VISUAL_ID:
@@ -497,6 +627,78 @@ public class ComponentsDiagramUpdater {
 		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getPortWake_2010ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getSelfWake_2011ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getMethod_2012ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getExternal_2013ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getTransition_2014ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getWakeQueue_2009ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getStatemachine_2015ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getStatemachine_2016ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getStatemachine_2017ContainedLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -648,6 +850,78 @@ public class ComponentsDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<ComponentsLinkDescriptor> getPortWake_2010IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getSelfWake_2011IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getMethod_2012IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getExternal_2013IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getTransition_2014IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getWakeQueue_2009IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getStatemachine_2015IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getStatemachine_2016IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getStatemachine_2017IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_3015IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -793,6 +1067,78 @@ public class ComponentsDiagramUpdater {
 		LinkedList<ComponentsLinkDescriptor> result = new LinkedList<ComponentsLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_AbstractOutReceiver_Source_4008(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getPortWake_2010OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getSelfWake_2011OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getMethod_2012OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getExternal_2013OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getTransition_2014OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getWakeQueue_2009OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getStatemachine_2015OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getStatemachine_2016OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<ComponentsLinkDescriptor> getStatemachine_2017OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**

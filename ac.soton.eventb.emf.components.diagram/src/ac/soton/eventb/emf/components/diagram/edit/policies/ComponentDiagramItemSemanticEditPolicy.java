@@ -18,6 +18,15 @@ import ac.soton.eventb.emf.components.diagram.edit.commands.ComponentCreateComma
 import ac.soton.eventb.emf.components.diagram.edit.commands.ConnectorCreateCommand;
 import ac.soton.eventb.emf.components.diagram.edit.commands.InPortCreateCommand;
 import ac.soton.eventb.emf.components.diagram.edit.commands.OutPortCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.ParentAsynchronousStatemachineCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.ParentExternalCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.ParentMethodCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.ParentPortWakeCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.ParentProcessStatemachineCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.ParentSelfWakeCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.ParentSynchronousStatemachineCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.ParentTransitionCreateCommand;
+import ac.soton.eventb.emf.components.diagram.edit.commands.ParentWakeQueueCreateCommand;
 import ac.soton.eventb.emf.components.diagram.providers.ComponentsElementTypes;
 
 /**
@@ -48,6 +57,35 @@ public class ComponentDiagramItemSemanticEditPolicy extends
 		}
 		if (ComponentsElementTypes.OutPort_2008 == req.getElementType()) {
 			return getGEFWrapper(new OutPortCreateCommand(req));
+		}
+		if (ComponentsElementTypes.PortWake_2010 == req.getElementType()) {
+			return getGEFWrapper(new ParentPortWakeCreateCommand(req));
+		}
+		if (ComponentsElementTypes.SelfWake_2011 == req.getElementType()) {
+			return getGEFWrapper(new ParentSelfWakeCreateCommand(req));
+		}
+		if (ComponentsElementTypes.Method_2012 == req.getElementType()) {
+			return getGEFWrapper(new ParentMethodCreateCommand(req));
+		}
+		if (ComponentsElementTypes.External_2013 == req.getElementType()) {
+			return getGEFWrapper(new ParentExternalCreateCommand(req));
+		}
+		if (ComponentsElementTypes.Transition_2014 == req.getElementType()) {
+			return getGEFWrapper(new ParentTransitionCreateCommand(req));
+		}
+		if (ComponentsElementTypes.WakeQueue_2009 == req.getElementType()) {
+			return getGEFWrapper(new ParentWakeQueueCreateCommand(req));
+		}
+		if (ComponentsElementTypes.Statemachine_2015 == req.getElementType()) {
+			return getGEFWrapper(new ParentAsynchronousStatemachineCreateCommand(
+					req));
+		}
+		if (ComponentsElementTypes.Statemachine_2016 == req.getElementType()) {
+			return getGEFWrapper(new ParentSynchronousStatemachineCreateCommand(
+					req));
+		}
+		if (ComponentsElementTypes.Statemachine_2017 == req.getElementType()) {
+			return getGEFWrapper(new ParentProcessStatemachineCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

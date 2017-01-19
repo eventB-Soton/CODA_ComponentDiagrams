@@ -32,6 +32,24 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentAsynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentAsynchronousStatemachineNameEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentExternalLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentMethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentMethodLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentPortWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentPortWakeLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentProcessStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentProcessStatemachineNameEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSelfWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSelfWakeLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSynchronousStatemachineNameEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentTransitionEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentTransitionLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentWakeQueueEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentWakeQueueNameEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -171,6 +189,42 @@ public class ComponentsVisualIDRegistry {
 					domainElement.eClass())) {
 				return OutPortEditPart.VISUAL_ID;
 			}
+			if (ComponentsPackage.eINSTANCE.getPortWake().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParentPortWakeEditPart.VISUAL_ID;
+			}
+			if (ComponentsPackage.eINSTANCE.getSelfWake().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParentSelfWakeEditPart.VISUAL_ID;
+			}
+			if (ComponentsPackage.eINSTANCE.getMethod().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParentMethodEditPart.VISUAL_ID;
+			}
+			if (ComponentsPackage.eINSTANCE.getExternal().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParentExternalEditPart.VISUAL_ID;
+			}
+			if (ComponentsPackage.eINSTANCE.getTransition().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParentTransitionEditPart.VISUAL_ID;
+			}
+			if (ComponentsPackage.eINSTANCE.getWakeQueue().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParentWakeQueueEditPart.VISUAL_ID;
+			}
+			if (StatemachinesPackage.eINSTANCE.getStatemachine().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParentAsynchronousStatemachineEditPart.VISUAL_ID;
+			}
+			if (StatemachinesPackage.eINSTANCE.getStatemachine().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParentSynchronousStatemachineEditPart.VISUAL_ID;
+			}
+			if (StatemachinesPackage.eINSTANCE.getStatemachine().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ParentProcessStatemachineEditPart.VISUAL_ID;
+			}
 			break;
 		case ComponentEditPart.VISUAL_ID:
 			if (ComponentsPackage.eINSTANCE.getInPort().isSuperTypeOf(
@@ -269,6 +323,33 @@ public class ComponentsVisualIDRegistry {
 			if (OutPortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ParentPortWakeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ParentSelfWakeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ParentMethodEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ParentExternalEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ParentTransitionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ParentWakeQueueEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ParentAsynchronousStatemachineEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ParentSynchronousStatemachineEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ParentProcessStatemachineEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ComponentEditPart.VISUAL_ID:
 			if (ComponentNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -308,6 +389,51 @@ public class ComponentsVisualIDRegistry {
 			break;
 		case OutPortEditPart.VISUAL_ID:
 			if (OutPortNameTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParentPortWakeEditPart.VISUAL_ID:
+			if (ParentPortWakeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParentSelfWakeEditPart.VISUAL_ID:
+			if (ParentSelfWakeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParentMethodEditPart.VISUAL_ID:
+			if (ParentMethodLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParentExternalEditPart.VISUAL_ID:
+			if (ParentExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParentTransitionEditPart.VISUAL_ID:
+			if (ParentTransitionLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParentWakeQueueEditPart.VISUAL_ID:
+			if (ParentWakeQueueNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParentAsynchronousStatemachineEditPart.VISUAL_ID:
+			if (ParentAsynchronousStatemachineNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParentSynchronousStatemachineEditPart.VISUAL_ID:
+			if (ParentSynchronousStatemachineNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParentProcessStatemachineEditPart.VISUAL_ID:
+			if (ParentProcessStatemachineNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -422,6 +548,15 @@ public class ComponentsVisualIDRegistry {
 		case ConnectorEditPart.VISUAL_ID:
 		case InPortEditPart.VISUAL_ID:
 		case OutPortEditPart.VISUAL_ID:
+		case ParentWakeQueueEditPart.VISUAL_ID:
+		case ParentPortWakeEditPart.VISUAL_ID:
+		case ParentSelfWakeEditPart.VISUAL_ID:
+		case ParentMethodEditPart.VISUAL_ID:
+		case ParentExternalEditPart.VISUAL_ID:
+		case ParentTransitionEditPart.VISUAL_ID:
+		case ParentAsynchronousStatemachineEditPart.VISUAL_ID:
+		case ParentSynchronousStatemachineEditPart.VISUAL_ID:
+		case ParentProcessStatemachineEditPart.VISUAL_ID:
 		case PortWakeEditPart.VISUAL_ID:
 		case SelfWakeEditPart.VISUAL_ID:
 		case MethodEditPart.VISUAL_ID:
@@ -552,6 +687,43 @@ public class ComponentsVisualIDRegistry {
 			if (ComponentsPackage.eINSTANCE.getOutPort().isSuperTypeOf(
 					domainElement.eClass())) {
 				if (OutPortEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getPortWake().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ParentPortWakeEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getSelfWake().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ParentSelfWakeEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getMethod().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ParentMethodEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getExternal().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ParentExternalEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getTransition().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ParentTransitionEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (ComponentsPackage.eINSTANCE.getWakeQueue().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ParentWakeQueueEditPart.VISUAL_ID == visualID)
+					return true;
+			}
+			if (StatemachinesPackage.eINSTANCE.getStatemachine().isSuperTypeOf(
+					domainElement.eClass())) {
+				if (ParentAsynchronousStatemachineEditPart.VISUAL_ID == visualID
+						|| ParentSynchronousStatemachineEditPart.VISUAL_ID == visualID
+						|| ParentProcessStatemachineEditPart.VISUAL_ID == visualID)
 					return true;
 			}
 			break;

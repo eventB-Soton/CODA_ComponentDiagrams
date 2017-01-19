@@ -68,12 +68,13 @@ public class OutPortCreateCommand extends EditElementCommand {
 		OutPort newElement = ComponentsFactory.eINSTANCE.createOutPort();
 
 		Component owner = (Component) getElementToEdit();
-		
+
 		//+++++ custom code added to set a default name
-		((EventBNamed)newElement).setName(NameUtils.getSafeName((EventBElement)newElement, "outpt_" , owner, 
+		((EventBNamed) newElement).setName(NameUtils.getSafeName(
+				(EventBElement) newElement, "outpt_", owner,
 				ComponentsPackage.Literals.COMPONENT__IN_PORTS));
 		//-----
-		
+
 		owner.getOutPorts().add(newElement);
 
 		doConfigure(newElement, monitor, info);

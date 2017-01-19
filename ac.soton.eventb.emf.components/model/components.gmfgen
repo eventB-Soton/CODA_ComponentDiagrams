@@ -8,7 +8,7 @@
     domainFileExtension="bum"
     dynamicTemplates="true"
     templateDirectory="/ac.soton.eventb.emf.components/templates/gmf"
-    copyrightText="Copyright (c) 2011-2014 University of Southampton.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html">
+    copyrightText="Copyright (c) 2011-2017 University of Southampton.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html">
   <diagram
       visualID="1000"
       editPartClassName="ComponentDiagramEditPart"
@@ -16,7 +16,6 @@
       canonicalEditPolicyClassName="ComponentDiagramCanonicalEditPolicy"
       iconProviderPriority="Low"
       creationWizardIconPath="icons/obj16/ComponentDiagram.gif"
-      newDiagramFileWizardClassName="ComponentsNeNew Diagram File Wizard Class Name&#x9;ComponentsNewDiagramFileWizardwDiagramFileWizard"
       validationProviderPriority="Low"
       validationEnabled="true"
       validationDecorators="true"
@@ -776,6 +775,514 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <topLevelNodes
+        visualID="2010"
+        editPartClassName="ParentPortWakeEditPart"
+        itemSemanticEditPolicyClassName="ParentPortWakeItemSemanticEditPolicy"
+        notationViewFactoryClassName="PortWakeViewFactory"
+        canonicalEditPolicyClassName="ParentPortWakeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParentPortWakeGraphicalNodeEditPolicy"
+        createCommandClassName="ParentPortWakeCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.3/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentPortWakeOperationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentPortWakeOperationFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentPortWakeOperationFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;ParentPortWakeOperationIcon parentPortWakeOperationIconImage0 = new ParentPortWakeOperationIcon();&#xA;&#xA;&#xA;this.add(parentPortWakeOperationIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="components.genmodel#//components/PortWake"/>
+        <containmentMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+        <childMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+      </modelFacet>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="5018"
+          editPartClassName="ParentPortWakeLabelEditPart"
+          itemSemanticEditPolicyClassName="ParentPortWakeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="PortWakeLabelViewFactory"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ParentPortWakeOperationLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentPortWakeOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentPortWakeOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedForeground="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2011"
+        editPartClassName="ParentSelfWakeEditPart"
+        itemSemanticEditPolicyClassName="ParentSelfWakeItemSemanticEditPolicy"
+        notationViewFactoryClassName="SelfWakeViewFactory"
+        canonicalEditPolicyClassName="ParentSelfWakeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParentSelfWakeGraphicalNodeEditPolicy"
+        createCommandClassName="ParentSelfWakeCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.4/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentSelfWakeOperationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentSelfWakeOperationFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentSelfWakeOperationFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;ParentSelfWakeOperationIcon parentSelfWakeOperationIconImage0 = new ParentSelfWakeOperationIcon();&#xA;&#xA;&#xA;this.add(parentSelfWakeOperationIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="components.genmodel#//components/SelfWake"/>
+        <containmentMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+        <childMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+      </modelFacet>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="5019"
+          editPartClassName="ParentSelfWakeLabelEditPart"
+          itemSemanticEditPolicyClassName="ParentSelfWakeLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="SelfWakeLabelViewFactory"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ParentSelfWakeOperationLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentSelfWakeOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentSelfWakeOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedForeground="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2012"
+        editPartClassName="ParentMethodEditPart"
+        itemSemanticEditPolicyClassName="ParentMethodItemSemanticEditPolicy"
+        notationViewFactoryClassName="MethodViewFactory"
+        canonicalEditPolicyClassName="ParentMethodCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParentMethodGraphicalNodeEditPolicy"
+        createCommandClassName="ParentMethodCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.5/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentMethodOperationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentMethodOperationFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentMethodOperationFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;ParentMethodOperationIcon parentMethodOperationIconImage0 = new ParentMethodOperationIcon();&#xA;&#xA;&#xA;this.add(parentMethodOperationIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="components.genmodel#//components/Method"/>
+        <containmentMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+        <childMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+      </modelFacet>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="5020"
+          editPartClassName="ParentMethodLabelEditPart"
+          itemSemanticEditPolicyClassName="ParentMethodLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="MethodLabelViewFactory"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ParentMethodOperationLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentMethodOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentMethodOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedForeground="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2013"
+        editPartClassName="ParentExternalEditPart"
+        itemSemanticEditPolicyClassName="ParentExternalItemSemanticEditPolicy"
+        notationViewFactoryClassName="ExternalViewFactory"
+        canonicalEditPolicyClassName="ParentExternalCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParentExternalGraphicalNodeEditPolicy"
+        createCommandClassName="ParentExternalCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.6/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentExternalOperationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentExternalOperationFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentExternalOperationFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;ParentExternalOperationIcon parentExternalOperationIconImage0 = new ParentExternalOperationIcon();&#xA;&#xA;&#xA;this.add(parentExternalOperationIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="components.genmodel#//components/External"/>
+        <containmentMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+        <childMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+      </modelFacet>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="5021"
+          editPartClassName="ParentExternalLabelEditPart"
+          itemSemanticEditPolicyClassName="ParentExternalLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="ExternalLabelViewFactory"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ParentExternalOperationLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentExternalOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentExternalOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedForeground="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2014"
+        editPartClassName="ParentTransitionEditPart"
+        itemSemanticEditPolicyClassName="ParentTransitionItemSemanticEditPolicy"
+        notationViewFactoryClassName="TransitionViewFactory"
+        canonicalEditPolicyClassName="ParentTransitionCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParentTransitionGraphicalNodeEditPolicy"
+        createCommandClassName="ParentTransitionCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.7/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentTransitionOperationFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentTransitionOperationFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentTransitionOperationFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;ParentTransitionOperationIcon parentTransitionOperationIconImage0 = new ParentTransitionOperationIcon();&#xA;&#xA;&#xA;this.add(parentTransitionOperationIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="components.genmodel#//components/Transition"/>
+        <containmentMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+        <childMetaFeature
+            href="components.genmodel#//components/Component/operations"/>
+      </modelFacet>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="5022"
+          editPartClassName="ParentTransitionLabelEditPart"
+          itemSemanticEditPolicyClassName="ParentTransitionLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="TransitionLabelViewFactory"
+          readOnly="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ParentTransitionOperationLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentTransitionOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentTransitionOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedForeground="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension/EventBLabeled/label"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2009"
+        editPartClassName="ParentWakeQueueEditPart"
+        itemSemanticEditPolicyClassName="ParentWakeQueueItemSemanticEditPolicy"
+        notationViewFactoryClassName="WakeQueueViewFactory"
+        canonicalEditPolicyClassName="ParentWakeQueueCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParentWakeQueueGraphicalNodeEditPolicy"
+        createCommandClassName="ParentWakeQueueCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.9/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentWakeQueueFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentWakeQueueFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentWakeQueueFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;ParentWakeQueueIcon parentWakeQueueIconImage0 = new ParentWakeQueueIcon();&#xA;&#xA;&#xA;this.add(parentWakeQueueIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
+        <attributes
+            xsi:type="gmfgen:StyleAttributes"
+            fixedForeground="true"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="components.genmodel#//components/WakeQueue"/>
+        <containmentMetaFeature
+            href="components.genmodel#//components/Component/wakeQueues"/>
+        <childMetaFeature
+            href="components.genmodel#//components/Component/wakeQueues"/>
+      </modelFacet>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="5017"
+          editPartClassName="ParentWakeQueueNameEditPart"
+          itemSemanticEditPolicyClassName="ParentWakeQueueNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="WakeQueueNameViewFactory">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ParentWakeQueueLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentWakeQueueLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentWakeQueueLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedForeground="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+          <editableMetaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2015"
+        editPartClassName="ParentAsynchronousStatemachineEditPart"
+        itemSemanticEditPolicyClassName="ParentAsynchronousStatemachineItemSemanticEditPolicy"
+        notationViewFactoryClassName="StatemachineViewFactory"
+        canonicalEditPolicyClassName="ParentAsynchronousStatemachineCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParentAsynchronousStatemachineGraphicalNodeEditPolicy"
+        createCommandClassName="ParentAsynchronousStatemachineCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.0/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.RoundedRectangle">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines/Statemachine"/>
+        <containmentMetaFeature
+            href="components.genmodel#//components/Component/asynchronousStatemachines"/>
+        <childMetaFeature
+            href="components.genmodel#//components/Component/asynchronousStatemachines"/>
+      </modelFacet>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="5023"
+          editPartClassName="ParentAsynchronousStatemachineNameEditPart"
+          itemSemanticEditPolicyClassName="ParentAsynchronousStatemachineNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="StatemachineNameViewFactory">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ParentAsynchronousStatemachineLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentAsynchronousStatemachineLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentAsynchronousStatemachineLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedForeground="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+          <editableMetaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2016"
+        editPartClassName="ParentSynchronousStatemachineEditPart"
+        itemSemanticEditPolicyClassName="ParentSynchronousStatemachineItemSemanticEditPolicy"
+        notationViewFactoryClassName="StatemachineViewFactory"
+        canonicalEditPolicyClassName="ParentSynchronousStatemachineCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParentSynchronousStatemachineGraphicalNodeEditPolicy"
+        createCommandClassName="ParentSynchronousStatemachineCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.0/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.RoundedRectangle">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines/Statemachine"/>
+        <containmentMetaFeature
+            href="components.genmodel#//components/Component/synchronousStatemachines"/>
+        <childMetaFeature
+            href="components.genmodel#//components/Component/synchronousStatemachines"/>
+      </modelFacet>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="5024"
+          editPartClassName="ParentSynchronousStatemachineNameEditPart"
+          itemSemanticEditPolicyClassName="ParentSynchronousStatemachineNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="StatemachineNameViewFactory">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ParentSynchronousStatemachineLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentSynchronousStatemachineLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentSynchronousStatemachineLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedForeground="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+          <editableMetaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2017"
+        editPartClassName="ParentProcessStatemachineEditPart"
+        itemSemanticEditPolicyClassName="ParentProcessStatemachineItemSemanticEditPolicy"
+        notationViewFactoryClassName="StatemachineViewFactory"
+        canonicalEditPolicyClassName="ParentProcessStatemachineCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParentProcessStatemachineGraphicalNodeEditPolicy"
+        createCommandClassName="ParentProcessStatemachineCreateCommand">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.0/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.RoundedRectangle">
+        <attributes
+            xsi:type="gmfgen:ResizeConstraints"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines/Statemachine"/>
+        <containmentMetaFeature
+            href="components.genmodel#//components/Component/processStatemachines"/>
+        <childMetaFeature
+            href="components.genmodel#//components/Component/processStatemachines"/>
+      </modelFacet>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="5025"
+          editPartClassName="ParentProcessStatemachineNameEditPart"
+          itemSemanticEditPolicyClassName="ParentProcessStatemachineNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="StatemachineNameViewFactory">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ParentProcessStatemachineLabelFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentProcessStatemachineLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentProcessStatemachineLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedForeground="true"/>
+        </viewmap>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+          <editableMetaFeatures
+              href="../../org.eventb.emf.core/model/eventbcore.genmodel#//core/EventBNamed/name"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
     <links
         visualID="4008"
         editPartClassName="AbstractOutReceiverSourceEditPart"
@@ -899,24 +1406,24 @@
             xsi:type="gmfgen:ToolEntry"
             title="Asynchronous"
             description="Create new Asynchronous Statemachine"
-            genNodes="//@diagram/@childNodes.0"/>
+            genNodes="//@diagram/@childNodes.0 //@diagram/@topLevelNodes.10"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Synchronous"
             description="Create new Synchronous Statemachine"
             smallIconPath="/ac.soton.eventb.emf.components.edit/icons/full/obj16/SynchronousStatemachine.gif"
-            genNodes="//@diagram/@childNodes.1"/>
+            genNodes="//@diagram/@childNodes.1 //@diagram/@topLevelNodes.11"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Process"
             description="Create new Process Statemachine"
             smallIconPath="/ac.soton.eventb.emf.components.edit/icons/full/obj16/ProcessStatemachine.gif"
-            genNodes="//@diagram/@childNodes.2"/>
+            genNodes="//@diagram/@childNodes.2 //@diagram/@topLevelNodes.12"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Wake Queue"
             description="Create new Wake Queue"
-            genNodes="//@diagram/@childNodes.9"/>
+            genNodes="//@diagram/@childNodes.9 //@diagram/@topLevelNodes.9"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Input Port"
@@ -933,27 +1440,27 @@
             xsi:type="gmfgen:ToolEntry"
             title="Port Wake"
             description="Create new connector triggered (Port Wake) operation"
-            genNodes="//@diagram/@childNodes.3"/>
+            genNodes="//@diagram/@childNodes.3 //@diagram/@topLevelNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Self Wake"
             description="Create new component triggered (Self Wake) operation"
-            genNodes="//@diagram/@childNodes.4"/>
+            genNodes="//@diagram/@childNodes.4 //@diagram/@topLevelNodes.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Method"
             description="Create new called (Method) operation"
-            genNodes="//@diagram/@childNodes.5"/>
+            genNodes="//@diagram/@childNodes.5 //@diagram/@topLevelNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="External "
             description="Create new environment triggered (Extenal) operation"
-            genNodes="//@diagram/@childNodes.6"/>
+            genNodes="//@diagram/@childNodes.6 //@diagram/@topLevelNodes.7"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Transition"
             description="Create new statemachine triggered (Transition) operation"
-            genNodes="//@diagram/@childNodes.7"/>
+            genNodes="//@diagram/@childNodes.7 //@diagram/@topLevelNodes.8"/>
         <entries
             xsi:type="gmfgen:Separator"/>
         <entries
@@ -1005,7 +1512,7 @@
   <plugin
       name="Component Diagrams"
       provider="University of Southampton"
-      version="5.0.0"
+      version="5.1.0.qualifier"
       printingEnabled="true">
     <requiredPlugins>org.eclipse.gmf.tooling.runtime</requiredPlugins>
     <requiredPlugins>org.eclipse.draw2d</requiredPlugins>
@@ -1063,6 +1570,33 @@
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.3"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.4"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.5"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.6"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.7"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.8"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.9"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.10"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.11"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.12"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
@@ -1220,7 +1754,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labelModelFacet //@diagram/@childNodes.1/@labelModelFacet //@diagram/@childNodes.2/@labelModelFacet //@diagram/@childNodes.3/@labelModelFacet //@diagram/@childNodes.4/@labelModelFacet //@diagram/@childNodes.5/@labelModelFacet //@diagram/@childNodes.6/@labelModelFacet //@diagram/@childNodes.7/@labelModelFacet //@diagram/@childNodes.8/@labelModelFacet //@diagram/@childNodes.9/@labelModelFacet //@diagram/@childNodes.10/@labels.0/@modelFacet //@diagram/@childNodes.11/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.1/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labelModelFacet //@diagram/@childNodes.1/@labelModelFacet //@diagram/@childNodes.2/@labelModelFacet //@diagram/@childNodes.3/@labelModelFacet //@diagram/@childNodes.4/@labelModelFacet //@diagram/@childNodes.5/@labelModelFacet //@diagram/@childNodes.6/@labelModelFacet //@diagram/@childNodes.7/@labelModelFacet //@diagram/@childNodes.8/@labelModelFacet //@diagram/@childNodes.9/@labelModelFacet //@diagram/@childNodes.10/@labels.0/@modelFacet //@diagram/@childNodes.11/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@topLevelNodes.1/@labels.1/@modelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@topLevelNodes.3/@labels.0/@modelFacet //@diagram/@topLevelNodes.4/@labels.0/@modelFacet //@diagram/@topLevelNodes.5/@labels.0/@modelFacet //@diagram/@topLevelNodes.6/@labels.0/@modelFacet //@diagram/@topLevelNodes.7/@labels.0/@modelFacet //@diagram/@topLevelNodes.8/@labels.0/@modelFacet //@diagram/@topLevelNodes.9/@labels.0/@modelFacet //@diagram/@topLevelNodes.10/@labels.0/@modelFacet //@diagram/@topLevelNodes.11/@labels.0/@modelFacet //@diagram/@topLevelNodes.12/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">
@@ -1236,6 +1770,6 @@
         xsi:type="gmfgen:GenCustomAction"
         qualifiedClassName="ac.soton.eventb.emf.components.diagram.part.OpenDiagramAction"
         generateBoilerplate="true"
-        name="&amp;Open Diagram  (CODA)"/>
+        name="Open Diagram  (CODA)"/>
   </contextMenus>
 </gmfgen:GenEditorGenerator>

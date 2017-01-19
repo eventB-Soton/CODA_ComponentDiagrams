@@ -11,6 +11,10 @@
         xsi:type="gmfgraph:PolylineDecoration"
         name="ConnectorReceiverTargetDecoration"
         lineWidth="2"/>
+    <figures
+        xsi:type="gmfgraph:Label"
+        name="canvasLabel"
+        text="&quot;canvasLabel&quot;"/>
     <descriptors
         name="ComponentFigure">
       <actualFigure
@@ -275,6 +279,234 @@
       <accessors
           figure="//@figures.0/@descriptors.19/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="ParentPortWakeOperationLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentPortWakeOperationLabel"
+          text="&lt;elaborates no events>"/>
+    </descriptors>
+    <descriptors
+        name="ParentSelfWakeOperationLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentSelfWakeOperationLabel"
+          text="&lt;elaborates no events>"/>
+    </descriptors>
+    <descriptors
+        name="ParentMethodOperationLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentMethodOperationLabel"
+          text="&lt;elaborates no events>"/>
+    </descriptors>
+    <descriptors
+        name="ParentExternalOperationLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentExternalOperationLabel"
+          text="&lt;elaborates no events>"/>
+    </descriptors>
+    <descriptors
+        name="ParentTransitionOperationLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentTransitionOperationLabel"
+          text="&lt;elaborates no events>"/>
+    </descriptors>
+    <descriptors
+        name="ParentWakeQueueLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentWakeQueueLabel"
+          text="&lt;name?>">
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ParentAsynchronousStatemachineLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentAsynchronousStatemachineLabel"
+          text="&lt;name?>"/>
+    </descriptors>
+    <descriptors
+        name="ParentSynchronousStatemachineLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentSynchronousStatemachineLabel"
+          text="&lt;name?>"/>
+    </descriptors>
+    <descriptors
+        name="ParentProcessStatemachineLabelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Label"
+          name="ParentProcessStatemachineLabel"
+          text="&lt;name?>"/>
+    </descriptors>
+    <descriptors
+        name="ParentPortWakeOperationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentPortWakeOperationFigureRectangle"
+          fill="false">
+        <layout
+            xsi:type="gmfgraph:CenterLayout"/>
+        <preferredSize
+            dx="12"
+            dy="12"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="ParentPortWakeOperationIconImage"
+            qualifiedClassName="ParentPortWakeOperationIcon"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ParentSelfWakeOperationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentSelfWakeOperationFigureRectangle"
+          fill="false">
+        <layout
+            xsi:type="gmfgraph:CenterLayout"/>
+        <preferredSize
+            dx="12"
+            dy="12"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="ParentSelfWakeOperationIconImage"
+            qualifiedClassName="ParentSelfWakeOperationIcon"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ParentMethodOperationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentMethodOperationFigureRectangle"
+          fill="false">
+        <layout
+            xsi:type="gmfgraph:CenterLayout"/>
+        <preferredSize
+            dx="12"
+            dy="12"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="ParentMethodOperationIconImage"
+            qualifiedClassName="ParentMethodOperationIcon"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ParentExternalOperationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentExternalOperationFigureRectangle"
+          fill="false">
+        <layout
+            xsi:type="gmfgraph:CenterLayout"/>
+        <preferredSize
+            dx="12"
+            dy="12"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="ParentExternalOperationIconImage"
+            qualifiedClassName="ParentExternalOperationIcon"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ParentTransitionOperationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentTransitionOperationFigureRectangle"
+          fill="false">
+        <layout
+            xsi:type="gmfgraph:CenterLayout"/>
+        <preferredSize
+            dx="12"
+            dy="12"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="ParentTransitionOperationIconImage"
+            qualifiedClassName="ParentTransitionOperationIcon"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ParentWakeQueueFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentWakeQueueFigureRectangle"
+          outline="false"
+          fill="false"
+          lineWidth="0">
+        <layout
+            xsi:type="gmfgraph:CenterLayout"/>
+        <preferredSize
+            dx="12"
+            dy="12"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="ParentWakeQueueIconImage"
+            qualifiedClassName="ParentWakeQueueIcon"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ParentAsynchronousStatemachineFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentAsynchronousStatemachineFigureRectangle"
+          outline="false"
+          fill="false"
+          lineWidth="0">
+        <layout
+            xsi:type="gmfgraph:CenterLayout"/>
+        <preferredSize
+            dx="12"
+            dy="12"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="ParentAsynchronousStatemachineIconImage"
+            qualifiedClassName="ParentAsynchronousStatemachineIcon"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ParentSynchronousStatemachineFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentSynchronousStatemachineFigureRectangle"
+          outline="false"
+          fill="false"
+          lineWidth="0">
+        <layout
+            xsi:type="gmfgraph:CenterLayout"/>
+        <preferredSize
+            dx="12"
+            dy="12"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="ParentSynchronousStatemachineIconImage"
+            qualifiedClassName="ParentSynchronousStatemachineIcon"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ParentProcessStatemachineFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ParentProcessStatemachineFigureRectangle"
+          outline="false"
+          fill="false"
+          lineWidth="0">
+        <layout
+            xsi:type="gmfgraph:CenterLayout"/>
+        <preferredSize
+            dx="12"
+            dy="12"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="ParentProcessStatemachineIconImage"
+            qualifiedClassName="ParentProcessStatemachineIcon"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="Component"
@@ -301,6 +533,42 @@
   <nodes
       name="ParentOutPort"
       figure="ParentOutPortFigure"/>
+  <nodes
+      name="ParentPortWakeOperation"
+      figure="ParentPortWakeOperationFigure"
+      resizeConstraint="NONE"/>
+  <nodes
+      name="ParentSelfWakeOperation"
+      figure="ParentSelfWakeOperationFigure"
+      resizeConstraint="NONE"/>
+  <nodes
+      name="ParentMethodOperation"
+      figure="ParentMethodOperationFigure"
+      resizeConstraint="NONE"/>
+  <nodes
+      name="ParentExternalOperation"
+      figure="ParentExternalOperationFigure"
+      resizeConstraint="NONE"/>
+  <nodes
+      name="ParentTransitionOperation"
+      figure="ParentTransitionOperationFigure"
+      resizeConstraint="NONE"/>
+  <nodes
+      name="ParentWakeQueue"
+      figure="ParentWakeQueueFigure"
+      resizeConstraint="NONE"/>
+  <nodes
+      name="ParentAsynchronousStatemachine"
+      figure="ParentAsynchronousStatemachineFigure"
+      resizeConstraint="NONE"/>
+  <nodes
+      name="ParentSynchronousStatemachine"
+      figure="ParentSynchronousStatemachineFigure"
+      resizeConstraint="NONE"/>
+  <nodes
+      name="ParentProcessStatemachine"
+      figure="ParentProcessStatemachineFigure"
+      resizeConstraint="NONE"/>
   <connections
       name="SenderConnection"
       figure="SenderConnectionFigure"/>
@@ -335,11 +603,13 @@
   <labels
       name="SubcomponentInPortLabel"
       figure="SubcomponentInPortLabelFigure"
+      resizeConstraint="NONE"
       affixedParentSide="EAST"
       elementIcon="false"/>
   <labels
       name="SubcomponentOutPortLabel"
       figure="SubcomponentOutPortLabelFigure"
+      resizeConstraint="NONE"
       affixedParentSide="WEST"
       elementIcon="false">
     <facets
@@ -395,4 +665,103 @@
       name="ParentOutPortLabel"
       figure="ParentOutPortFigure"
       accessor="//@figures.0/@descriptors.19/@accessors.0"/>
+  <labels
+      name="ParentPortWakeOperationLabel"
+      figure="ParentPortWakeOperationLabelFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="EAST"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="-2"
+        y="-2"/>
+  </labels>
+  <labels
+      name="ParentSelfWakeOperationLabel"
+      figure="ParentSelfWakeOperationLabelFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="EAST"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="-2"
+        y="-2"/>
+  </labels>
+  <labels
+      name="ParentMethodOperationLabel"
+      figure="ParentMethodOperationLabelFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="EAST"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="-2"
+        y="-2"/>
+  </labels>
+  <labels
+      name="ParentExternalOperationLabel"
+      figure="ParentExternalOperationLabelFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="EAST"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="-2"
+        y="-2"/>
+  </labels>
+  <labels
+      name="ParentTransitionOperationLabel"
+      figure="ParentTransitionOperationLabelFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="EAST"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="-2"
+        y="-2"/>
+  </labels>
+  <labels
+      name="ParentWakeQueueLabel"
+      figure="ParentWakeQueueLabelFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="EAST"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="-2"
+        y="-2"/>
+  </labels>
+  <labels
+      name="ParentAsynchronousStatemachineLabel"
+      figure="ParentAsynchronousStatemachineLabelFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="EAST"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="-2"
+        y="-2"/>
+  </labels>
+  <labels
+      name="ParentSynchronousStatemachineLabel"
+      figure="ParentSynchronousStatemachineLabelFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="EAST"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="-2"
+        y="-2"/>
+  </labels>
+  <labels
+      name="ParentProcessStatemachineLabel"
+      figure="ParentProcessStatemachineLabelFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="EAST"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:LabelOffsetFacet"
+        x="-2"
+        y="-2"/>
+  </labels>
 </gmfgraph:Canvas>

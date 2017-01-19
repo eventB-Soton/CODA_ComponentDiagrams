@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2011-2016&#xD;University of Southampton.&#xD;All rights reserved. This program and the accompanying materials  are made&#xD;available under the terms of the Eclipse Public License v1.0 which accompanies this &#xD;distribution, and is available at http://www.eclipse.org/legal/epl-v10.html&#xA;"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2011-2017&#xD;University of Southampton.&#xD;All rights reserved. This program and the accompanying materials  are made&#xD;available under the terms of the Eclipse Public License v1.0 which accompanies this &#xD;distribution, and is available at http://www.eclipse.org/legal/epl-v10.html&#xA;"
     modelDirectory="/ac.soton.eventb.emf.components/src" modelPluginID="ac.soton.eventb.emf.components"
     templateDirectory="/org.eventb.emf.core/templates" dynamicTemplates="true" modelName="Components"
-    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="6.0"
-    editPluginID="ac.soton.eventb.emf.components.edit" editorPluginID="ac.soton.eventb.emf.components.editor"
-    tableProviders="true" usedGenPackages="../../ac.soton.eventb.emf.diagrams/model/diagrams.genmodel#//diagrams platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eventb.emf.core/model/eventbcore.genmodel#//core ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension ../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines">
+    testsDirectory="" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
+    complianceLevel="7.0" editPluginID="ac.soton.eventb.emf.components.edit" editorPluginID="ac.soton.eventb.emf.components.editor"
+    tableProviders="true" language="" usedGenPackages="../../ac.soton.eventb.emf.diagrams/model/diagrams.genmodel#//diagrams platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eventb.emf.core/model/eventbcore.genmodel#//core ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension ../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines"
+    runtimePlatform="GWT">
   <foreignModel>components.ecore</foreignModel>
   <genPackages prefix="Components" basePackage="ac.soton.eventb.emf" disposableProviderFactory="true"
       extensibleProviderFactory="true" childCreationExtenders="true" fileExtensions="comp"

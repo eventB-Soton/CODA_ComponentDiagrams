@@ -39,6 +39,24 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentAsynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentAsynchronousStatemachineNameEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentExternalLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentMethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentMethodLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentPortWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentPortWakeLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentProcessStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentProcessStatemachineNameEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSelfWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSelfWakeLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSynchronousStatemachineNameEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentTransitionEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentTransitionLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentWakeQueueEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentWakeQueueNameEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -138,6 +156,33 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 		case OutPortEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?OutPort", ComponentsElementTypes.OutPort_2008); //$NON-NLS-1$
+		case ParentWakeQueueEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?WakeQueue", ComponentsElementTypes.WakeQueue_2009); //$NON-NLS-1$
+		case ParentPortWakeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?PortWake", ComponentsElementTypes.PortWake_2010); //$NON-NLS-1$
+		case ParentSelfWakeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?SelfWake", ComponentsElementTypes.SelfWake_2011); //$NON-NLS-1$
+		case ParentMethodEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?Method", ComponentsElementTypes.Method_2012); //$NON-NLS-1$
+		case ParentExternalEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?External", ComponentsElementTypes.External_2013); //$NON-NLS-1$
+		case ParentTransitionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/components/2016?Transition", ComponentsElementTypes.Transition_2014); //$NON-NLS-1$
+		case ParentAsynchronousStatemachineEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/statemachines/2014?Statemachine", ComponentsElementTypes.Statemachine_2015); //$NON-NLS-1$
+		case ParentSynchronousStatemachineEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/statemachines/2014?Statemachine", ComponentsElementTypes.Statemachine_2016); //$NON-NLS-1$
+		case ParentProcessStatemachineEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://soton.ac.uk/models/eventb/statemachines/2014?Statemachine", ComponentsElementTypes.Statemachine_2017); //$NON-NLS-1$
 		case PortWakeEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://soton.ac.uk/models/eventb/components/2016?PortWake", ComponentsElementTypes.PortWake_3008); //$NON-NLS-1$
@@ -250,6 +295,24 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 			return getInPort_2007Text(view);
 		case OutPortEditPart.VISUAL_ID:
 			return getOutPort_2008Text(view);
+		case ParentWakeQueueEditPart.VISUAL_ID:
+			return getWakeQueue_2009Text(view);
+		case ParentPortWakeEditPart.VISUAL_ID:
+			return getPortWake_2010Text(view);
+		case ParentSelfWakeEditPart.VISUAL_ID:
+			return getSelfWake_2011Text(view);
+		case ParentMethodEditPart.VISUAL_ID:
+			return getMethod_2012Text(view);
+		case ParentExternalEditPart.VISUAL_ID:
+			return getExternal_2013Text(view);
+		case ParentTransitionEditPart.VISUAL_ID:
+			return getTransition_2014Text(view);
+		case ParentAsynchronousStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2015Text(view);
+		case ParentSynchronousStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2016Text(view);
+		case ParentProcessStatemachineEditPart.VISUAL_ID:
+			return getStatemachine_2017Text(view);
 		case PortWakeEditPart.VISUAL_ID:
 			return getPortWake_3008Text(view);
 		case SelfWakeEditPart.VISUAL_ID:
@@ -357,6 +420,189 @@ public class ComponentsNavigatorLabelProvider extends LabelProvider implements
 		} else {
 			ComponentsDiagramEditorPlugin.getInstance().logError(
 					"Parser was not found for label " + 5014); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getWakeQueue_2009Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.WakeQueue_2009,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(ParentWakeQueueNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5017); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPortWake_2010Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.PortWake_2010,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(ParentPortWakeLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5018); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getSelfWake_2011Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.SelfWake_2011,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(ParentSelfWakeLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5019); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getMethod_2012Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.Method_2012,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(ParentMethodLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5020); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getExternal_2013Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.External_2013,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(ParentExternalLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5021); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getTransition_2014Text(View view) {
+		IParser parser = ComponentsParserProvider.getParser(
+				ComponentsElementTypes.Transition_2014,
+				view.getElement() != null ? view.getElement() : view,
+				ComponentsVisualIDRegistry
+						.getType(ParentTransitionLabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5022); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getStatemachine_2015Text(View view) {
+		IParser parser = ComponentsParserProvider
+				.getParser(
+						ComponentsElementTypes.Statemachine_2015,
+						view.getElement() != null ? view.getElement() : view,
+						ComponentsVisualIDRegistry
+								.getType(ParentAsynchronousStatemachineNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5023); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getStatemachine_2016Text(View view) {
+		IParser parser = ComponentsParserProvider
+				.getParser(
+						ComponentsElementTypes.Statemachine_2016,
+						view.getElement() != null ? view.getElement() : view,
+						ComponentsVisualIDRegistry
+								.getType(ParentSynchronousStatemachineNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5024); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getStatemachine_2017Text(View view) {
+		IParser parser = ComponentsParserProvider
+				.getParser(
+						ComponentsElementTypes.Statemachine_2017,
+						view.getElement() != null ? view.getElement() : view,
+						ComponentsVisualIDRegistry
+								.getType(ParentProcessStatemachineNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			ComponentsDiagramEditorPlugin.getInstance().logError(
+					"Parser was not found for label " + 5025); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

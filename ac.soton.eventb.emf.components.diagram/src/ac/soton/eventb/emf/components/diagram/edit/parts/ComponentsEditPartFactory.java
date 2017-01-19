@@ -59,6 +59,60 @@ public class ComponentsEditPartFactory implements EditPartFactory {
 			case OutPortNameTypeEditPart.VISUAL_ID:
 				return new OutPortNameTypeEditPart(view);
 
+			case ParentPortWakeEditPart.VISUAL_ID:
+				return new ParentPortWakeEditPart(view);
+
+			case ParentPortWakeLabelEditPart.VISUAL_ID:
+				return new ParentPortWakeLabelEditPart(view);
+
+			case ParentSelfWakeEditPart.VISUAL_ID:
+				return new ParentSelfWakeEditPart(view);
+
+			case ParentSelfWakeLabelEditPart.VISUAL_ID:
+				return new ParentSelfWakeLabelEditPart(view);
+
+			case ParentMethodEditPart.VISUAL_ID:
+				return new ParentMethodEditPart(view);
+
+			case ParentMethodLabelEditPart.VISUAL_ID:
+				return new ParentMethodLabelEditPart(view);
+
+			case ParentExternalEditPart.VISUAL_ID:
+				return new ParentExternalEditPart(view);
+
+			case ParentExternalLabelEditPart.VISUAL_ID:
+				return new ParentExternalLabelEditPart(view);
+
+			case ParentTransitionEditPart.VISUAL_ID:
+				return new ParentTransitionEditPart(view);
+
+			case ParentTransitionLabelEditPart.VISUAL_ID:
+				return new ParentTransitionLabelEditPart(view);
+
+			case ParentWakeQueueEditPart.VISUAL_ID:
+				return new ParentWakeQueueEditPart(view);
+
+			case ParentWakeQueueNameEditPart.VISUAL_ID:
+				return new ParentWakeQueueNameEditPart(view);
+
+			case ParentAsynchronousStatemachineEditPart.VISUAL_ID:
+				return new ParentAsynchronousStatemachineEditPart(view);
+
+			case ParentAsynchronousStatemachineNameEditPart.VISUAL_ID:
+				return new ParentAsynchronousStatemachineNameEditPart(view);
+
+			case ParentSynchronousStatemachineEditPart.VISUAL_ID:
+				return new ParentSynchronousStatemachineEditPart(view);
+
+			case ParentSynchronousStatemachineNameEditPart.VISUAL_ID:
+				return new ParentSynchronousStatemachineNameEditPart(view);
+
+			case ParentProcessStatemachineEditPart.VISUAL_ID:
+				return new ParentProcessStatemachineEditPart(view);
+
+			case ParentProcessStatemachineNameEditPart.VISUAL_ID:
+				return new ParentProcessStatemachineNameEditPart(view);
+
 			case StatemachineEditPart.VISUAL_ID:
 				return new StatemachineEditPart(view);
 

@@ -29,6 +29,15 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortNameTypeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortNameTypeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentAsynchronousStatemachineNameEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentExternalLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentMethodLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentPortWakeLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentProcessStatemachineNameEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSelfWakeLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSynchronousStatemachineNameEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentTransitionLabelEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentWakeQueueNameEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -162,6 +171,180 @@ public class ComponentsParserProvider extends AbstractProvider implements
 			outPortNameType_5014Parser = parser;
 		}
 		return outPortNameType_5014Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser portWakeLabel_5018Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getPortWakeLabel_5018Parser() {
+		if (portWakeLabel_5018Parser == null) {
+			EAttribute[] features = new EAttribute[] { CoreextensionPackage.eINSTANCE
+					.getEventBLabeled_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			portWakeLabel_5018Parser = parser;
+		}
+		return portWakeLabel_5018Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser selfWakeLabel_5019Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSelfWakeLabel_5019Parser() {
+		if (selfWakeLabel_5019Parser == null) {
+			EAttribute[] features = new EAttribute[] { CoreextensionPackage.eINSTANCE
+					.getEventBLabeled_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			selfWakeLabel_5019Parser = parser;
+		}
+		return selfWakeLabel_5019Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser methodLabel_5020Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getMethodLabel_5020Parser() {
+		if (methodLabel_5020Parser == null) {
+			EAttribute[] features = new EAttribute[] { CoreextensionPackage.eINSTANCE
+					.getEventBLabeled_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			methodLabel_5020Parser = parser;
+		}
+		return methodLabel_5020Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser externalLabel_5021Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getExternalLabel_5021Parser() {
+		if (externalLabel_5021Parser == null) {
+			EAttribute[] features = new EAttribute[] { CoreextensionPackage.eINSTANCE
+					.getEventBLabeled_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			externalLabel_5021Parser = parser;
+		}
+		return externalLabel_5021Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser transitionLabel_5022Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getTransitionLabel_5022Parser() {
+		if (transitionLabel_5022Parser == null) {
+			EAttribute[] features = new EAttribute[] { CoreextensionPackage.eINSTANCE
+					.getEventBLabeled_Label() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			transitionLabel_5022Parser = parser;
+		}
+		return transitionLabel_5022Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser wakeQueueName_5017Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getWakeQueueName_5017Parser() {
+		if (wakeQueueName_5017Parser == null) {
+			EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+					.getEventBNamed_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { CorePackage.eINSTANCE
+					.getEventBNamed_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			wakeQueueName_5017Parser = parser;
+		}
+		return wakeQueueName_5017Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser statemachineName_5023Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getStatemachineName_5023Parser() {
+		if (statemachineName_5023Parser == null) {
+			EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+					.getEventBNamed_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { CorePackage.eINSTANCE
+					.getEventBNamed_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			statemachineName_5023Parser = parser;
+		}
+		return statemachineName_5023Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser statemachineName_5024Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getStatemachineName_5024Parser() {
+		if (statemachineName_5024Parser == null) {
+			EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+					.getEventBNamed_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { CorePackage.eINSTANCE
+					.getEventBNamed_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			statemachineName_5024Parser = parser;
+		}
+		return statemachineName_5024Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser statemachineName_5025Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getStatemachineName_5025Parser() {
+		if (statemachineName_5025Parser == null) {
+			EAttribute[] features = new EAttribute[] { CorePackage.eINSTANCE
+					.getEventBNamed_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { CorePackage.eINSTANCE
+					.getEventBNamed_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			statemachineName_5025Parser = parser;
+		}
+		return statemachineName_5025Parser;
 	}
 
 	/**
@@ -411,6 +594,24 @@ public class ComponentsParserProvider extends AbstractProvider implements
 			return getInPortNameType_5013Parser();
 		case OutPortNameTypeEditPart.VISUAL_ID:
 			return getOutPortNameType_5014Parser();
+		case ParentPortWakeLabelEditPart.VISUAL_ID:
+			return getPortWakeLabel_5018Parser();
+		case ParentSelfWakeLabelEditPart.VISUAL_ID:
+			return getSelfWakeLabel_5019Parser();
+		case ParentMethodLabelEditPart.VISUAL_ID:
+			return getMethodLabel_5020Parser();
+		case ParentExternalLabelEditPart.VISUAL_ID:
+			return getExternalLabel_5021Parser();
+		case ParentTransitionLabelEditPart.VISUAL_ID:
+			return getTransitionLabel_5022Parser();
+		case ParentWakeQueueNameEditPart.VISUAL_ID:
+			return getWakeQueueName_5017Parser();
+		case ParentAsynchronousStatemachineNameEditPart.VISUAL_ID:
+			return getStatemachineName_5023Parser();
+		case ParentSynchronousStatemachineNameEditPart.VISUAL_ID:
+			return getStatemachineName_5024Parser();
+		case ParentProcessStatemachineNameEditPart.VISUAL_ID:
+			return getStatemachineName_5025Parser();
 		case StatemachineEditPart.VISUAL_ID:
 			return getStatemachine_3015Parser();
 		case SynchronousStatemachineEditPart.VISUAL_ID:

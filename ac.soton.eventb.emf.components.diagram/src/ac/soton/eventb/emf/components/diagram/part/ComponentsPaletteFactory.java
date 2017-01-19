@@ -87,11 +87,12 @@ public class ComponentsPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createAsynchronous2CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(ComponentsElementTypes.Statemachine_3015);
+		types.add(ComponentsElementTypes.Statemachine_2015);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Asynchronous2CreationTool_title,
-				Messages.Asynchronous2CreationTool_desc,
-				Collections
-						.singletonList(ComponentsElementTypes.Statemachine_3015));
+				Messages.Asynchronous2CreationTool_desc, types);
 		entry.setId("createAsynchronous2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsElementTypes
 				.getImageDescriptor(ComponentsElementTypes.Statemachine_3015));
@@ -103,11 +104,12 @@ public class ComponentsPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSynchronous3CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(ComponentsElementTypes.Statemachine_3016);
+		types.add(ComponentsElementTypes.Statemachine_2016);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Synchronous3CreationTool_title,
-				Messages.Synchronous3CreationTool_desc,
-				Collections
-						.singletonList(ComponentsElementTypes.Statemachine_3016));
+				Messages.Synchronous3CreationTool_desc, types);
 		entry.setId("createSynchronous3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsDiagramEditorPlugin
 				.findImageDescriptor("/ac.soton.eventb.emf.components.edit/icons/full/obj16/SynchronousStatemachine.gif")); //$NON-NLS-1$
@@ -119,11 +121,12 @@ public class ComponentsPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createProcess4CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(ComponentsElementTypes.Statemachine_3017);
+		types.add(ComponentsElementTypes.Statemachine_2017);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Process4CreationTool_title,
-				Messages.Process4CreationTool_desc,
-				Collections
-						.singletonList(ComponentsElementTypes.Statemachine_3017));
+				Messages.Process4CreationTool_desc, types);
 		entry.setId("createProcess4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsDiagramEditorPlugin
 				.findImageDescriptor("/ac.soton.eventb.emf.components.edit/icons/full/obj16/ProcessStatemachine.gif")); //$NON-NLS-1$
@@ -135,11 +138,12 @@ public class ComponentsPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createWakeQueue5CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(ComponentsElementTypes.WakeQueue_3018);
+		types.add(ComponentsElementTypes.WakeQueue_2009);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.WakeQueue5CreationTool_title,
-				Messages.WakeQueue5CreationTool_desc,
-				Collections
-						.singletonList(ComponentsElementTypes.WakeQueue_3018));
+				Messages.WakeQueue5CreationTool_desc, types);
 		entry.setId("createWakeQueue5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsElementTypes
 				.getImageDescriptor(ComponentsElementTypes.WakeQueue_3018));
@@ -185,10 +189,12 @@ public class ComponentsPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPortWake9CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(ComponentsElementTypes.PortWake_3008);
+		types.add(ComponentsElementTypes.PortWake_2010);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.PortWake9CreationTool_title,
-				Messages.PortWake9CreationTool_desc,
-				Collections.singletonList(ComponentsElementTypes.PortWake_3008));
+				Messages.PortWake9CreationTool_desc, types);
 		entry.setId("createPortWake9CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsElementTypes
 				.getImageDescriptor(ComponentsElementTypes.PortWake_3008));
@@ -200,10 +206,12 @@ public class ComponentsPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSelfWake10CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(ComponentsElementTypes.SelfWake_3009);
+		types.add(ComponentsElementTypes.SelfWake_2011);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.SelfWake10CreationTool_title,
-				Messages.SelfWake10CreationTool_desc,
-				Collections.singletonList(ComponentsElementTypes.SelfWake_3009));
+				Messages.SelfWake10CreationTool_desc, types);
 		entry.setId("createSelfWake10CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsElementTypes
 				.getImageDescriptor(ComponentsElementTypes.SelfWake_3009));
@@ -215,10 +223,12 @@ public class ComponentsPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createMethod11CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(ComponentsElementTypes.Method_3010);
+		types.add(ComponentsElementTypes.Method_2012);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Method11CreationTool_title,
-				Messages.Method11CreationTool_desc,
-				Collections.singletonList(ComponentsElementTypes.Method_3010));
+				Messages.Method11CreationTool_desc, types);
 		entry.setId("createMethod11CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsElementTypes
 				.getImageDescriptor(ComponentsElementTypes.Method_3010));
@@ -230,10 +240,12 @@ public class ComponentsPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createExternal12CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(ComponentsElementTypes.External_3013);
+		types.add(ComponentsElementTypes.External_2013);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.External12CreationTool_title,
-				Messages.External12CreationTool_desc,
-				Collections.singletonList(ComponentsElementTypes.External_3013));
+				Messages.External12CreationTool_desc, types);
 		entry.setId("createExternal12CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsElementTypes
 				.getImageDescriptor(ComponentsElementTypes.External_3013));
@@ -245,11 +257,12 @@ public class ComponentsPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTransition13CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(ComponentsElementTypes.Transition_3014);
+		types.add(ComponentsElementTypes.Transition_2014);
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Transition13CreationTool_title,
-				Messages.Transition13CreationTool_desc,
-				Collections
-						.singletonList(ComponentsElementTypes.Transition_3014));
+				Messages.Transition13CreationTool_desc, types);
 		entry.setId("createTransition13CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(ComponentsElementTypes
 				.getImageDescriptor(ComponentsElementTypes.Transition_3014));

@@ -46,6 +46,15 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentAsynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentMethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentPortWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentProcessStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSelfWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentTransitionEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentWakeQueueEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -288,6 +297,54 @@ public class ComponentsNavigatorContentProvider implements
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					ComponentsVisualIDRegistry
 							.getType(OutPortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					ComponentsVisualIDRegistry
+							.getType(ParentPortWakeEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					ComponentsVisualIDRegistry
+							.getType(ParentSelfWakeEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					ComponentsVisualIDRegistry
+							.getType(ParentMethodEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					ComponentsVisualIDRegistry
+							.getType(ParentExternalEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					ComponentsVisualIDRegistry
+							.getType(ParentTransitionEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					ComponentsVisualIDRegistry
+							.getType(ParentWakeQueueEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					ComponentsVisualIDRegistry
+							.getType(ParentAsynchronousStatemachineEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					ComponentsVisualIDRegistry
+							.getType(ParentSynchronousStatemachineEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					ComponentsVisualIDRegistry
+							.getType(ParentProcessStatemachineEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getDiagramLinksByType(

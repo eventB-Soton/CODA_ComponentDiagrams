@@ -68,12 +68,13 @@ public class SubcomponentInPortCreateCommand extends EditElementCommand {
 		InPort newElement = ComponentsFactory.eINSTANCE.createInPort();
 
 		Component owner = (Component) getElementToEdit();
-		
+
 		//+++++ custom code added to set a default name
-		((EventBNamed)newElement).setName(NameUtils.getSafeName((EventBElement)newElement, "inpt_", owner, 
+		((EventBNamed) newElement).setName(NameUtils.getSafeName(
+				(EventBElement) newElement, "inpt_", owner,
 				ComponentsPackage.Literals.COMPONENT__IN_PORTS));
 		//-----
-		
+
 		owner.getInPorts().add(newElement);
 
 		doConfigure(newElement, monitor, info);

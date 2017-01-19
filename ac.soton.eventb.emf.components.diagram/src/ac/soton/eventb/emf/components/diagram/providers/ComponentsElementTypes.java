@@ -32,6 +32,15 @@ import ac.soton.eventb.emf.components.diagram.edit.parts.ExternalEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.InPortEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.MethodEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentAsynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentExternalEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentMethodEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentPortWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentProcessStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSelfWakeEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentSynchronousStatemachineEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentTransitionEditPart;
+import ac.soton.eventb.emf.components.diagram.edit.parts.ParentWakeQueueEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.PortWakeEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.ProcessStatemachineEditPart;
 import ac.soton.eventb.emf.components.diagram.edit.parts.SelfWakeEditPart;
@@ -94,6 +103,51 @@ public class ComponentsElementTypes {
 	 * @generated
 	 */
 	public static final IElementType OutPort_2008 = getElementType("ac.soton.eventb.emf.components.diagram.OutPort_2008"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType PortWake_2010 = getElementType("ac.soton.eventb.emf.components.diagram.PortWake_2010"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SelfWake_2011 = getElementType("ac.soton.eventb.emf.components.diagram.SelfWake_2011"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Method_2012 = getElementType("ac.soton.eventb.emf.components.diagram.Method_2012"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType External_2013 = getElementType("ac.soton.eventb.emf.components.diagram.External_2013"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Transition_2014 = getElementType("ac.soton.eventb.emf.components.diagram.Transition_2014"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType WakeQueue_2009 = getElementType("ac.soton.eventb.emf.components.diagram.WakeQueue_2009"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Statemachine_2015 = getElementType("ac.soton.eventb.emf.components.diagram.Statemachine_2015"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Statemachine_2016 = getElementType("ac.soton.eventb.emf.components.diagram.Statemachine_2016"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Statemachine_2017 = getElementType("ac.soton.eventb.emf.components.diagram.Statemachine_2017"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -212,6 +266,32 @@ public class ComponentsElementTypes {
 
 			elements.put(OutPort_2008, ComponentsPackage.eINSTANCE.getOutPort());
 
+			elements.put(PortWake_2010,
+					ComponentsPackage.eINSTANCE.getPortWake());
+
+			elements.put(SelfWake_2011,
+					ComponentsPackage.eINSTANCE.getSelfWake());
+
+			elements.put(Method_2012, ComponentsPackage.eINSTANCE.getMethod());
+
+			elements.put(External_2013,
+					ComponentsPackage.eINSTANCE.getExternal());
+
+			elements.put(Transition_2014,
+					ComponentsPackage.eINSTANCE.getTransition());
+
+			elements.put(WakeQueue_2009,
+					ComponentsPackage.eINSTANCE.getWakeQueue());
+
+			elements.put(Statemachine_2015,
+					StatemachinesPackage.eINSTANCE.getStatemachine());
+
+			elements.put(Statemachine_2016,
+					StatemachinesPackage.eINSTANCE.getStatemachine());
+
+			elements.put(Statemachine_2017,
+					StatemachinesPackage.eINSTANCE.getStatemachine());
+
 			elements.put(Statemachine_3015,
 					StatemachinesPackage.eINSTANCE.getStatemachine());
 
@@ -273,6 +353,15 @@ public class ComponentsElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Connector_2006);
 			KNOWN_ELEMENT_TYPES.add(InPort_2007);
 			KNOWN_ELEMENT_TYPES.add(OutPort_2008);
+			KNOWN_ELEMENT_TYPES.add(PortWake_2010);
+			KNOWN_ELEMENT_TYPES.add(SelfWake_2011);
+			KNOWN_ELEMENT_TYPES.add(Method_2012);
+			KNOWN_ELEMENT_TYPES.add(External_2013);
+			KNOWN_ELEMENT_TYPES.add(Transition_2014);
+			KNOWN_ELEMENT_TYPES.add(WakeQueue_2009);
+			KNOWN_ELEMENT_TYPES.add(Statemachine_2015);
+			KNOWN_ELEMENT_TYPES.add(Statemachine_2016);
+			KNOWN_ELEMENT_TYPES.add(Statemachine_2017);
 			KNOWN_ELEMENT_TYPES.add(Statemachine_3015);
 			KNOWN_ELEMENT_TYPES.add(Statemachine_3016);
 			KNOWN_ELEMENT_TYPES.add(Statemachine_3017);
@@ -306,6 +395,24 @@ public class ComponentsElementTypes {
 			return InPort_2007;
 		case OutPortEditPart.VISUAL_ID:
 			return OutPort_2008;
+		case ParentPortWakeEditPart.VISUAL_ID:
+			return PortWake_2010;
+		case ParentSelfWakeEditPart.VISUAL_ID:
+			return SelfWake_2011;
+		case ParentMethodEditPart.VISUAL_ID:
+			return Method_2012;
+		case ParentExternalEditPart.VISUAL_ID:
+			return External_2013;
+		case ParentTransitionEditPart.VISUAL_ID:
+			return Transition_2014;
+		case ParentWakeQueueEditPart.VISUAL_ID:
+			return WakeQueue_2009;
+		case ParentAsynchronousStatemachineEditPart.VISUAL_ID:
+			return Statemachine_2015;
+		case ParentSynchronousStatemachineEditPart.VISUAL_ID:
+			return Statemachine_2016;
+		case ParentProcessStatemachineEditPart.VISUAL_ID:
+			return Statemachine_2017;
 		case StatemachineEditPart.VISUAL_ID:
 			return Statemachine_3015;
 		case SynchronousStatemachineEditPart.VISUAL_ID:

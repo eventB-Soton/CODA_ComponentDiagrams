@@ -158,12 +158,12 @@ http://www.eclipse.org/legal/epl-v10.html
    </extension>
 
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <page
             category="ac.soton.eventb.iumlb"
-            class="ac.soton.eventb.emf.components.diagram.preferences.DiagramGeneralPreferencePage"
             id="ac.soton.eventb.emf.components.diagram.general"
-            name="%prefpage.ac.soton.eventb.emf.components.diagram.general">
+            name="%prefpage.ac.soton.eventb.emf.components.diagram.general"
+            class="ac.soton.eventb.emf.components.diagram.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
             id="ac.soton.eventb.emf.components.diagram.appearance"
@@ -192,7 +192,7 @@ http://www.eclipse.org/legal/epl-v10.html
    </extension>
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <propertyContributor
             contributorId="ac.soton.eventb.emf.components.diagram"
             labelProvider="ac.soton.eventb.emf.components.diagram.sheet.ComponentsSheetLabelProvider">
@@ -264,7 +264,7 @@ http://www.eclipse.org/legal/epl-v10.html
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Components"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2005,2006,2007,2008,3015,3016,3017,3008,3009,3010,3013,3014,3012,3018,3019,3020"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2005,2006,2007,2008,2010,2011,2012,2013,2014,2009,2015,2016,2017,3015,3016,3017,3008,3009,3010,3013,3014,3012,3018,3019,3020"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4008,4009"/>
       </viewProvider>
    </extension>
@@ -277,13 +277,13 @@ http://www.eclipse.org/legal/epl-v10.html
             <method name="getType()" value="Components"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2005,2006,2007,2008,3015,3016,3017,3008,3009,3010,3013,3014,3012,3018,3019,3020"/>
+            <method name="getType()" value="2005,2006,2007,2008,2010,2011,2012,2013,2014,2009,2015,2016,2017,3015,3016,3017,3008,3009,3010,3013,3014,3012,3018,3019,3020"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4008,4009"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5010,5011,5012,5013,5014,5015,5016"/>
+            <method name="getType()" value="5010,5011,5012,5013,5014,5018,5019,5020,5021,5022,5017,5023,5024,5025,5015,5016"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7004,7005,7006,7007"/>
@@ -319,6 +319,51 @@ http://www.eclipse.org/legal/epl-v10.html
          <Priority name="Lowest"/>
          <object class="ac.soton.eventb.emf.components.diagram.edit.parts.OutPortEditPart" id="OutPort_2008"/>
          <context elements="OutPort_2008"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfParentPortWakeEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.ParentPortWakeEditPart" id="PortWake_2010"/>
+         <context elements="PortWake_2010"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfParentSelfWakeEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.ParentSelfWakeEditPart" id="SelfWake_2011"/>
+         <context elements="SelfWake_2011"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfParentMethodEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.ParentMethodEditPart" id="Method_2012"/>
+         <context elements="Method_2012"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfParentExternalEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.ParentExternalEditPart" id="External_2013"/>
+         <context elements="External_2013"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfParentTransitionEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.ParentTransitionEditPart" id="Transition_2014"/>
+         <context elements="Transition_2014"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfParentWakeQueueEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.ParentWakeQueueEditPart" id="WakeQueue_2009"/>
+         <context elements="WakeQueue_2009"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfParentAsynchronousStatemachineEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.ParentAsynchronousStatemachineEditPart" id="Statemachine_2015"/>
+         <context elements="Statemachine_2015"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfParentSynchronousStatemachineEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.ParentSynchronousStatemachineEditPart" id="Statemachine_2016"/>
+         <context elements="Statemachine_2016"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfParentProcessStatemachineEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.ParentProcessStatemachineEditPart" id="Statemachine_2017"/>
+         <context elements="Statemachine_2017"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfStatemachineEditPart">
          <Priority name="Lowest"/>
@@ -372,12 +417,12 @@ http://www.eclipse.org/legal/epl-v10.html
       </modelingAssistantProvider>
             <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfSubcomponentInPortEditPart">
          <Priority name="Lowest"/>
-         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.InPort2EditPart" id="InPort_3019"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentInPortEditPart" id="InPort_3019"/>
          <context elements="InPort_3019"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="ac.soton.eventb.emf.components.diagram.providers.assistants.ComponentsModelingAssistantProviderOfSubcomponentOutPortEditPart">
          <Priority name="Lowest"/>
-         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.OutPort2EditPart" id="OutPort_3020"/>
+         <object class="ac.soton.eventb.emf.components.diagram.edit.parts.SubcomponentOutPortEditPart" id="OutPort_3020"/>
          <context elements="OutPort_3020"/>
       </modelingAssistantProvider>
       
@@ -403,7 +448,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <decoratorProvider class="ac.soton.eventb.emf.components.diagram.providers.ComponentsShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="2005,2006,2007,2008"/>
+            <method name="getType()" value="2005,2006,2007,2008,2010,2011,2012,2013,2014,2009,2015,2016,2017"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -456,6 +501,87 @@ http://www.eclipse.org/legal/epl-v10.html
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="ac.soton.eventb.emf.components.diagram.OutPort_3020"/>
             <param name="semanticHint" value="2008"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
+         <specializationType
+               id="ac.soton.eventb.emf.components.diagram.PortWake_2010"
+               name="%metatype.name.PortWake_2010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.emf.components.diagram.PortWake_3008"/>
+            <param name="semanticHint" value="2010"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
+         <specializationType
+               id="ac.soton.eventb.emf.components.diagram.SelfWake_2011"
+               name="%metatype.name.SelfWake_2011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.emf.components.diagram.SelfWake_3009"/>
+            <param name="semanticHint" value="2011"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
+         <specializationType
+               id="ac.soton.eventb.emf.components.diagram.Method_2012"
+               name="%metatype.name.Method_2012"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.emf.components.diagram.Method_3010"/>
+            <param name="semanticHint" value="2012"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
+         <specializationType
+               id="ac.soton.eventb.emf.components.diagram.External_2013"
+               name="%metatype.name.External_2013"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.emf.components.diagram.External_3013"/>
+            <param name="semanticHint" value="2013"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
+         <specializationType
+               id="ac.soton.eventb.emf.components.diagram.Transition_2014"
+               name="%metatype.name.Transition_2014"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.emf.components.diagram.Transition_3014"/>
+            <param name="semanticHint" value="2014"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/components/2016">
+         <specializationType
+               id="ac.soton.eventb.emf.components.diagram.WakeQueue_2009"
+               name="%metatype.name.WakeQueue_2009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.emf.components.diagram.WakeQueue_3018"/>
+            <param name="semanticHint" value="2009"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/statemachines/2014">
+         <specializationType
+               id="ac.soton.eventb.emf.components.diagram.Statemachine_2015"
+               name="%metatype.name.Statemachine_2015"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.emf.components.diagram.Statemachine_3015"/>
+            <param name="semanticHint" value="2015"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/statemachines/2014">
+         <specializationType
+               id="ac.soton.eventb.emf.components.diagram.Statemachine_2016"
+               name="%metatype.name.Statemachine_2016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.emf.components.diagram.Statemachine_3015"/>
+            <param name="semanticHint" value="2016"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/statemachines/2014">
+         <specializationType
+               id="ac.soton.eventb.emf.components.diagram.Statemachine_2017"
+               name="%metatype.name.Statemachine_2017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.emf.components.diagram.Statemachine_3015"/>
+            <param name="semanticHint" value="2017"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://soton.ac.uk/models/eventb/statemachines/2014">
@@ -610,6 +736,15 @@ http://www.eclipse.org/legal/epl-v10.html
          <elementType ref="ac.soton.eventb.emf.components.diagram.Connector_2006"/>
          <elementType ref="ac.soton.eventb.emf.components.diagram.InPort_2007"/>
          <elementType ref="ac.soton.eventb.emf.components.diagram.OutPort_2008"/>
+         <elementType ref="ac.soton.eventb.emf.components.diagram.PortWake_2010"/>
+         <elementType ref="ac.soton.eventb.emf.components.diagram.SelfWake_2011"/>
+         <elementType ref="ac.soton.eventb.emf.components.diagram.Method_2012"/>
+         <elementType ref="ac.soton.eventb.emf.components.diagram.External_2013"/>
+         <elementType ref="ac.soton.eventb.emf.components.diagram.Transition_2014"/>
+         <elementType ref="ac.soton.eventb.emf.components.diagram.WakeQueue_2009"/>
+         <elementType ref="ac.soton.eventb.emf.components.diagram.Statemachine_2015"/>
+         <elementType ref="ac.soton.eventb.emf.components.diagram.Statemachine_2016"/>
+         <elementType ref="ac.soton.eventb.emf.components.diagram.Statemachine_2017"/>
          <elementType ref="ac.soton.eventb.emf.components.diagram.Statemachine_3015"/>
          <elementType ref="ac.soton.eventb.emf.components.diagram.Statemachine_3016"/>
          <elementType ref="ac.soton.eventb.emf.components.diagram.Statemachine_3017"/>
@@ -836,7 +971,7 @@ http://www.eclipse.org/legal/epl-v10.html
          categoryId="ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorID"
          defaultHandler="ac.soton.eventb.emf.components.diagram.part.CreateShortcutAction"/>
       <command id="ac.soton.eventb.emf.components.diagram.OpenDiagramAction"
-         name="&amp;Open Diagram (CODA)"
+         name="Open Diagram  (CODA)"
          categoryId="ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorID"/>
    </extension>
 
@@ -1275,5 +1410,25 @@ http://www.eclipse.org/legal/epl-v10.html
    </extension>
 
 <!--Custom property sections end here-->
+
+
+
+<extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="false"?>
+      <!--objectContribution
+            id="ac.soton.eventb.emf.components.diagram.InitDiagram"
+            nameFilter="*.bum"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="ac.soton.eventb.emf.components.diagram.part.ComponentsInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="ac.soton.eventb.emf.components.diagram.InitDiagramAction">
+         </action>
+      </objectContribution-->
+   </extension>
+
+
       
 </plugin>
