@@ -623,8 +623,7 @@ public class ParentSelfWakeLabelEditPart extends LabelEditPart implements
 		 * @generated
 		 */
 		public ParentSelfWakeOperationLabelFigure() {
-			this.setText("<elaborates no events>");
-			this.setForegroundColor(ColorConstants.black);
+			this.setText("<elaborates?>");
 		}
 
 	}

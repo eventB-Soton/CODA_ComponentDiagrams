@@ -624,7 +624,6 @@ public class ParentSynchronousStatemachineNameEditPart extends LabelEditPart
 		 */
 		public ParentSynchronousStatemachineLabelFigure() {
 			this.setText("<name?>");
-			this.setForegroundColor(ColorConstants.black);
 		}
 
 	}

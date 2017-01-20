@@ -11,7 +11,9 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -36,9 +38,11 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout;
 import org.eclipse.swt.graphics.Color;
 
 import ac.soton.eventb.emf.components.diagram.edit.policies.ParentProcessStatemachineItemSemanticEditPolicy;
+import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorPlugin;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
 
 /**
@@ -124,14 +128,14 @@ public class ParentProcessStatemachineEditPart extends
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RoundedRectangle();
+		return primaryShape = new ParentProcessStatemachineFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public RoundedRectangle getPrimaryShape() {
-		return (RoundedRectangle) primaryShape;
+	public ParentProcessStatemachineFigure getPrimaryShape() {
+		return (ParentProcessStatemachineFigure) primaryShape;
 	}
 
 	/**
@@ -144,7 +148,7 @@ public class ParentProcessStatemachineEditPart extends
 			IBorderItemEditPart borderItemEditPart) {
 		if (borderItemEditPart instanceof ParentProcessStatemachineNameEditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.SOUTH);
+					PositionConstants.EAST);
 			locator.setBorderItemOffset(new Dimension(-2, 2));
 			borderItemContainer.add(borderItemEditPart.getFigure(), locator);
 		} else {
@@ -156,7 +160,7 @@ public class ParentProcessStatemachineEditPart extends
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(12, 12);
 		return result;
 	}
 
@@ -263,6 +267,50 @@ public class ParentProcessStatemachineEditPart extends
 			handleMajorSemanticChange();
 		} else {
 			super.handleNotificationEvent(event);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public class ParentProcessStatemachineFigure extends RectangleFigure {
+
+		/**
+		 * @generated
+		 */
+		public ParentProcessStatemachineFigure() {
+			this.setLayoutManager(new CenterLayout());
+			this.setFill(false);
+			this.setOutline(false);
+			this.setLineWidth(0);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(12)));
+			createContents();
+		}
+
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			ParentProcessStatemachineIcon parentProcessStatemachineIconImage0 = new ParentProcessStatemachineIcon();
+
+			this.add(parentProcessStatemachineIconImage0);
+
+		}
+
+	}
+
+	/**
+	 * @custom
+	 */
+	public class ParentProcessStatemachineIcon extends ImageFigure {
+		public ParentProcessStatemachineIcon() {
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/ProcessStatemachine.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
 	}
 

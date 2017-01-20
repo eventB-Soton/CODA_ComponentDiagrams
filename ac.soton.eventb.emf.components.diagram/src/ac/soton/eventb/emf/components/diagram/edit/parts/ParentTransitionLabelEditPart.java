@@ -623,8 +623,7 @@ public class ParentTransitionLabelEditPart extends LabelEditPart implements
 		 * @generated
 		 */
 		public ParentTransitionOperationLabelFigure() {
-			this.setText("<elaborates no events>");
-			this.setForegroundColor(ColorConstants.black);
+			this.setText("<elaborates?>");
 		}
 
 	}

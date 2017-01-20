@@ -642,7 +642,7 @@ public class SynchronousStatemachineEditPart extends CompartmentEditPart
 		 * @generated
 		 */
 		public SyncStatemachineFigure() {
-			this.setText("<...>");
+			this.setText("<name?>");
 		}
 
 	}

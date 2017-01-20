@@ -622,7 +622,7 @@ public class SelfWakeEditPart extends CompartmentEditPart implements
 		 * @generated
 		 */
 		public SelfWakeFigure() {
-			this.setText("<...>");
+			this.setText("<elaborates?>");
 		}
 
 	}

@@ -622,7 +622,7 @@ public class ExternalEditPart extends CompartmentEditPart implements
 		 * @generated
 		 */
 		public ExternalFigure() {
-			this.setText("<...>");
+			this.setText("<elaborates?>");
 		}
 
 	}

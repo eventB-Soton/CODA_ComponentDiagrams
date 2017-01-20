@@ -624,7 +624,6 @@ public class ParentProcessStatemachineNameEditPart extends LabelEditPart
 		 */
 		public ParentProcessStatemachineLabelFigure() {
 			this.setText("<name?>");
-			this.setForegroundColor(ColorConstants.black);
 		}
 
 	}

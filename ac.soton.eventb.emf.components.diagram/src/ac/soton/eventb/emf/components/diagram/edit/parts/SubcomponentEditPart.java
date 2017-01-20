@@ -610,7 +610,21 @@ public class SubcomponentEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new WrappingLabel();
+		return new SubcomponentFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class SubcomponentFigure extends WrappingLabel {
+
+		/**
+		 * @generated
+		 */
+		public SubcomponentFigure() {
+			this.setText("<name?>");
+		}
+
 	}
 
 	/**

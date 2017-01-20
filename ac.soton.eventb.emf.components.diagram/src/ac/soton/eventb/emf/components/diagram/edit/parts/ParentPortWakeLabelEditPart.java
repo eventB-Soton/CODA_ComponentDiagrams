@@ -623,8 +623,7 @@ public class ParentPortWakeLabelEditPart extends LabelEditPart implements
 		 * @generated
 		 */
 		public ParentPortWakeOperationLabelFigure() {
-			this.setText("<elaborates no events>");
-			this.setForegroundColor(ColorConstants.black);
+			this.setText("<elaborates?>");
 		}
 
 	}

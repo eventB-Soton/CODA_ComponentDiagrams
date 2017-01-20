@@ -11,7 +11,9 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -36,9 +38,11 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout;
 import org.eclipse.swt.graphics.Color;
 
 import ac.soton.eventb.emf.components.diagram.edit.policies.ParentSynchronousStatemachineItemSemanticEditPolicy;
+import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorPlugin;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
 
 /**
@@ -124,14 +128,14 @@ public class ParentSynchronousStatemachineEditPart extends
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RoundedRectangle();
+		return primaryShape = new ParentSynchronousStatemachineFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public RoundedRectangle getPrimaryShape() {
-		return (RoundedRectangle) primaryShape;
+	public ParentSynchronousStatemachineFigure getPrimaryShape() {
+		return (ParentSynchronousStatemachineFigure) primaryShape;
 	}
 
 	/**
@@ -263,6 +267,50 @@ public class ParentSynchronousStatemachineEditPart extends
 			handleMajorSemanticChange();
 		} else {
 			super.handleNotificationEvent(event);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public class ParentSynchronousStatemachineFigure extends RectangleFigure {
+
+		/**
+		 * @generated
+		 */
+		public ParentSynchronousStatemachineFigure() {
+			this.setLayoutManager(new CenterLayout());
+			this.setFill(false);
+			this.setOutline(false);
+			this.setLineWidth(0);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(12)));
+			createContents();
+		}
+
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			ParentSynchronousStatemachineIcon parentSynchronousStatemachineIconImage0 = new ParentSynchronousStatemachineIcon();
+
+			this.add(parentSynchronousStatemachineIconImage0);
+
+		}
+
+	}
+
+	/**
+	 * @custom
+	 */
+	public class ParentSynchronousStatemachineIcon extends ImageFigure {
+		public ParentSynchronousStatemachineIcon() {
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/SynchronousStatemachine.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
 	}
 

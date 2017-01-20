@@ -513,7 +513,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 
 			fFigureComponentNameLabelFigure = new WrappingLabel();
 
-			fFigureComponentNameLabelFigure.setText("<...>");
+			fFigureComponentNameLabelFigure.setText("<name?>");
 
 			GridData constraintFFigureComponentNameLabelFigure = new GridData();
 			constraintFFigureComponentNameLabelFigure.verticalAlignment = GridData.CENTER;

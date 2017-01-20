@@ -622,7 +622,7 @@ public class WakeQueueEditPart extends CompartmentEditPart implements
 		 * @generated
 		 */
 		public WakeQueueFigure() {
-			this.setText("<...>");
+			this.setText("<name?>");
 		}
 
 	}

@@ -53,7 +53,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="StatemachineFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StatemachineFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StatemachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StatemachineFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StatemachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <behaviour
           xsi:type="gmfgen:OpenDiagramBehaviour"
           editPolicyClassName="OpenStatemachineDiagramEditPolicy"
@@ -96,7 +96,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SyncStatemachineFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SyncStatemachineFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SyncStatemachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SyncStatemachineFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SyncStatemachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <behaviour
           xsi:type="gmfgen:OpenDiagramBehaviour"
           editPolicyClassName="OpenStatemachineDiagramEditPolicy"
@@ -136,7 +136,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ProcessStatemachineFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ProcessStatemachineFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ProcessStatemachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ProcessStatemachineFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ProcessStatemachineFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <behaviour
           xsi:type="gmfgen:OpenDiagramBehaviour"
           editPolicyClassName="OpenStatemachineDiagramEditPolicy"
@@ -177,7 +177,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="PortWakeFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PortWakeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PortWakeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PortWakeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PortWakeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/PortWake"/>
@@ -213,7 +213,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="SelfWakeFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SelfWakeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SelfWakeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SelfWakeFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SelfWakeFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/SelfWake"/>
@@ -249,7 +249,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="MethodFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MethodFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MethodFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MethodFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/Method"/>
@@ -285,7 +285,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ExternalFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ExternalFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ExternalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ExternalFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ExternalFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/External"/>
@@ -359,8 +359,9 @@
           xsi:type="gmfgen:SpecializationType"
           metamodelType="//@diagram/@elementType"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="SubcomponentFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SubcomponentFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SubcomponentFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/Component"/>
@@ -395,7 +396,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="WakeQueueFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WakeQueueFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WakeQueueFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WakeQueueFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WakeQueueFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
             href="components.genmodel#//components/WakeQueue"/>
@@ -552,7 +553,7 @@
           xsi:type="gmfgen:InnerClassViewmap"
           layoutType="TOOLBAR_LAYOUT"
           className="ComponentFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComponentFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureComponentNameLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureStatemachinesCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureOperationsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureSubcomponentsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureWakeQueuesCompartmentFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComponentFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(-1);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.RectangleFigure componentNameFigure0 = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;componentNameFigure0.setFill(false);&#xA;componentNameFigure0.setOutline(false);&#xA;&#xA;this.add(componentNameFigure0);&#xA;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutComponentNameFigure0 = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutComponentNameFigure0.numColumns = 1;&#xA;&#x9;layoutComponentNameFigure0.makeColumnsEqualWidth = true;&#xA;&#x9;componentNameFigure0.setLayoutManager(layoutComponentNameFigure0);&#xA;&#xA;&#xA;&#xA;fFigureComponentNameLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureComponentNameLabelFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureComponentNameLabelFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureComponentNameLabelFigure.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureComponentNameLabelFigure.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureComponentNameLabelFigure.horizontalIndent = 0;&#xA;constraintFFigureComponentNameLabelFigure.horizontalSpan = 1;&#xA;constraintFFigureComponentNameLabelFigure.verticalSpan = 1;&#xA;constraintFFigureComponentNameLabelFigure.grabExcessHorizontalSpace = true;&#xA;constraintFFigureComponentNameLabelFigure.grabExcessVerticalSpace = false;&#xA;componentNameFigure0.add(fFigureComponentNameLabelFigure, constraintFFigureComponentNameLabelFigure);&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;fFigureStatemachinesCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureStatemachinesCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fFigureOperationsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureOperationsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fFigureSubcomponentsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureSubcomponentsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fFigureWakeQueuesCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureWakeQueuesCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureComponentNameLabelFigure() {&#xA;&#x9;&#x9;return fFigureComponentNameLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureStatemachinesCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureStatemachinesCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureOperationsCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureOperationsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureSubcomponentsCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureSubcomponentsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureWakeQueuesCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureWakeQueuesCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComponentFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureComponentNameLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureStatemachinesCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureOperationsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureSubcomponentsCompartmentFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureWakeQueuesCompartmentFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComponentFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_TOPLEFT&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(-1);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.draw2d.RectangleFigure componentNameFigure0 = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;componentNameFigure0.setFill(false);&#xA;componentNameFigure0.setOutline(false);&#xA;&#xA;this.add(componentNameFigure0);&#xA;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutComponentNameFigure0 = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutComponentNameFigure0.numColumns = 1;&#xA;&#x9;layoutComponentNameFigure0.makeColumnsEqualWidth = true;&#xA;&#x9;componentNameFigure0.setLayoutManager(layoutComponentNameFigure0);&#xA;&#xA;&#xA;&#xA;fFigureComponentNameLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureComponentNameLabelFigure.setText(&quot;&lt;name?>&quot;);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureComponentNameLabelFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureComponentNameLabelFigure.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureComponentNameLabelFigure.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureComponentNameLabelFigure.horizontalIndent = 0;&#xA;constraintFFigureComponentNameLabelFigure.horizontalSpan = 1;&#xA;constraintFFigureComponentNameLabelFigure.verticalSpan = 1;&#xA;constraintFFigureComponentNameLabelFigure.grabExcessHorizontalSpace = true;&#xA;constraintFFigureComponentNameLabelFigure.grabExcessVerticalSpace = false;&#xA;componentNameFigure0.add(fFigureComponentNameLabelFigure, constraintFFigureComponentNameLabelFigure);&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;fFigureStatemachinesCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureStatemachinesCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fFigureOperationsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureOperationsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fFigureSubcomponentsCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureSubcomponentsCompartmentFigure);&#xA;&#xA;&#xA;&#xA;fFigureWakeQueuesCompartmentFigure = new org.eclipse.draw2d.RectangleFigure();&#xA;&#xA;&#xA;this.add(fFigureWakeQueuesCompartmentFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureComponentNameLabelFigure() {&#xA;&#x9;&#x9;return fFigureComponentNameLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureStatemachinesCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureStatemachinesCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureOperationsCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureOperationsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureSubcomponentsCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureSubcomponentsCompartmentFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureWakeQueuesCompartmentFigure() {&#xA;&#x9;&#x9;return fFigureWakeQueuesCompartmentFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"/>
       </viewmap>
@@ -609,7 +610,7 @@
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ConnectorFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ConnectorFigure extends org.eclipse.draw2d.ScalablePolygonShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureConnectorNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureConnectorTypeFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ConnectorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(25)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;this.setFill(true);&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureConnectorNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureConnectorNameFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureConnectorNameFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureConnectorNameFigure.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureConnectorNameFigure.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureConnectorNameFigure.horizontalIndent = 0;&#xA;constraintFFigureConnectorNameFigure.horizontalSpan = 1;&#xA;constraintFFigureConnectorNameFigure.verticalSpan = 1;&#xA;constraintFFigureConnectorNameFigure.grabExcessHorizontalSpace = true;&#xA;constraintFFigureConnectorNameFigure.grabExcessVerticalSpace = false;&#xA;this.add(fFigureConnectorNameFigure, constraintFFigureConnectorNameFigure);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureConnectorTypeFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureConnectorTypeFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;fFigureConnectorTypeFigure.setFont(FFIGURECONNECTORTYPEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureConnectorTypeFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureConnectorTypeFigure.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureConnectorTypeFigure.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureConnectorTypeFigure.horizontalIndent = 0;&#xA;constraintFFigureConnectorTypeFigure.horizontalSpan = 1;&#xA;constraintFFigureConnectorTypeFigure.verticalSpan = 1;&#xA;constraintFFigureConnectorTypeFigure.grabExcessHorizontalSpace = true;&#xA;constraintFFigureConnectorTypeFigure.grabExcessVerticalSpace = false;&#xA;this.add(fFigureConnectorTypeFigure, constraintFFigureConnectorTypeFigure);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureConnectorNameFigure() {&#xA;&#x9;&#x9;return fFigureConnectorNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureConnectorTypeFigure() {&#xA;&#x9;&#x9;return fFigureConnectorTypeFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECONNECTORTYPEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Brave Sans Mono&quot;, 11, org.eclipse.swt.SWT.NORMAL);&#xA;&#xA;">
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ConnectorFigure extends org.eclipse.draw2d.ScalablePolygonShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureConnectorNameFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureConnectorTypeFigure; &#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ConnectorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(25)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(20)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;this.setFill(true);&#xA;&#xA;this.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(5)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(5)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureConnectorNameFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureConnectorNameFigure.setText(&quot;&lt;name?>&quot;);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureConnectorNameFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureConnectorNameFigure.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureConnectorNameFigure.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureConnectorNameFigure.horizontalIndent = 0;&#xA;constraintFFigureConnectorNameFigure.horizontalSpan = 1;&#xA;constraintFFigureConnectorNameFigure.verticalSpan = 1;&#xA;constraintFFigureConnectorNameFigure.grabExcessHorizontalSpace = true;&#xA;constraintFFigureConnectorNameFigure.grabExcessVerticalSpace = false;&#xA;this.add(fFigureConnectorNameFigure, constraintFFigureConnectorNameFigure);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureConnectorTypeFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureConnectorTypeFigure.setText(&quot;&lt;type?>&quot;);&#xA;&#xA;fFigureConnectorTypeFigure.setFont(FFIGURECONNECTORTYPEFIGURE_FONT);&#xA;&#xA;&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureConnectorTypeFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureConnectorTypeFigure.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureConnectorTypeFigure.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureConnectorTypeFigure.horizontalIndent = 0;&#xA;constraintFFigureConnectorTypeFigure.horizontalSpan = 1;&#xA;constraintFFigureConnectorTypeFigure.verticalSpan = 1;&#xA;constraintFFigureConnectorTypeFigure.grabExcessHorizontalSpace = true;&#xA;constraintFFigureConnectorTypeFigure.grabExcessVerticalSpace = false;&#xA;this.add(fFigureConnectorTypeFigure, constraintFFigureConnectorTypeFigure);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureConnectorNameFigure() {&#xA;&#x9;&#x9;return fFigureConnectorNameFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureConnectorTypeFigure() {&#xA;&#x9;&#x9;return fFigureConnectorTypeFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Font FFIGURECONNECTORTYPEFIGURE_FONT = new org.eclipse.swt.graphics.Font(org.eclipse.swt.widgets.Display.getCurrent(), &quot;Brave Sans Mono&quot;, 11, org.eclipse.swt.SWT.NORMAL);&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:StyleAttributes"/>
       </viewmap>
@@ -819,7 +820,7 @@
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="ParentPortWakeOperationLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentPortWakeOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentPortWakeOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentPortWakeOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentPortWakeOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedForeground="true"/>
@@ -876,7 +877,7 @@
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="ParentSelfWakeOperationLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentSelfWakeOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentSelfWakeOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentSelfWakeOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentSelfWakeOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedForeground="true"/>
@@ -933,7 +934,7 @@
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="ParentMethodOperationLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentMethodOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentMethodOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentMethodOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentMethodOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedForeground="true"/>
@@ -990,7 +991,7 @@
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="ParentExternalOperationLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentExternalOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentExternalOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentExternalOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentExternalOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedForeground="true"/>
@@ -1050,7 +1051,7 @@
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="ParentTransitionOperationLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentTransitionOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentTransitionOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates no events>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentTransitionOperationLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentTransitionOperationLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;elaborates?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedForeground="true"/>
@@ -1138,10 +1139,15 @@
           xsi:type="gmfgen:SpecializationType"
           metamodelType="//@diagram/@childNodes.0/@elementType"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RoundedRectangle">
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentAsynchronousStatemachineFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentAsynchronousStatemachineFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentAsynchronousStatemachineFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;ParentAsynchronousStatemachineIcon parentAsynchronousStatemachineIconImage0 = new ParentAsynchronousStatemachineIcon();&#xA;&#xA;&#xA;this.add(parentAsynchronousStatemachineIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -1162,7 +1168,7 @@
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="ParentAsynchronousStatemachineLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentAsynchronousStatemachineLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentAsynchronousStatemachineLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentAsynchronousStatemachineLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentAsynchronousStatemachineLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedForeground="true"/>
@@ -1191,10 +1197,15 @@
           xsi:type="gmfgen:SpecializationType"
           metamodelType="//@diagram/@childNodes.0/@elementType"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RoundedRectangle">
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentSynchronousStatemachineFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentSynchronousStatemachineFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentSynchronousStatemachineFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;ParentSynchronousStatemachineIcon parentSynchronousStatemachineIconImage0 = new ParentSynchronousStatemachineIcon();&#xA;&#xA;&#xA;this.add(parentSynchronousStatemachineIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -1215,7 +1226,7 @@
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="ParentSynchronousStatemachineLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentSynchronousStatemachineLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentSynchronousStatemachineLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentSynchronousStatemachineLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentSynchronousStatemachineLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedForeground="true"/>
@@ -1244,10 +1255,15 @@
           xsi:type="gmfgen:SpecializationType"
           metamodelType="//@diagram/@childNodes.0/@elementType"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.RoundedRectangle">
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParentProcessStatemachineFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentProcessStatemachineFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentProcessStatemachineFigure() {&#xA;&#x9;&#x9;this.setLayoutManager(new org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout());&#xA;&#x9;&#x9;this.setFill(false);&#xA;this.setOutline(false);&#xA;this.setLineWidth(0);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(12)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;ParentProcessStatemachineIcon parentProcessStatemachineIconImage0 = new ParentProcessStatemachineIcon();&#xA;&#xA;&#xA;this.add(parentProcessStatemachineIconImage0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
         <attributes
             xsi:type="gmfgen:ResizeConstraints"/>
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="12"
+            height="12"/>
       </viewmap>
       <modelFacet>
         <metaClass
@@ -1268,7 +1284,7 @@
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="ParentProcessStatemachineLabelFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentProcessStatemachineLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentProcessStatemachineLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;this.setForegroundColor(org.eclipse.draw2d.ColorConstants.black);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParentProcessStatemachineLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParentProcessStatemachineLabelFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;name?>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedForeground="true"/>
@@ -1406,6 +1422,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="Asynchronous"
             description="Create new Asynchronous Statemachine"
+            smallIconPath="/ac.soton.eventb.emf.components.edit/icons/full/obj16/AsynchronousStatemachine.gif"
             genNodes="//@diagram/@childNodes.0 //@diagram/@topLevelNodes.10"/>
         <entries
             xsi:type="gmfgen:ToolEntry"

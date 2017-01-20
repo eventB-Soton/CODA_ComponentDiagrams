@@ -20,9 +20,9 @@
         title="Asynchronous"
         description="Create new Asynchronous Statemachine">
       <smallIcon
-          xsi:type="gmftool:DefaultImage"/>
-      <largeIcon
-          xsi:type="gmftool:DefaultImage"/>
+          xsi:type="gmftool:BundleImage"
+          path="/icons/full/obj16/AsynchronousStatemachine.gif"
+          bundle="ac.soton.eventb.emf.components.edit"/>
     </tools>
     <tools
         xsi:type="gmftool:CreationTool"

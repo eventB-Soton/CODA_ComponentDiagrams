@@ -622,7 +622,7 @@ public class PortWakeEditPart extends CompartmentEditPart implements
 		 * @generated
 		 */
 		public PortWakeFigure() {
-			this.setText("<...>");
+			this.setText("<elaborates?>");
 		}
 
 	}

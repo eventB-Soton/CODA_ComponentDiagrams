@@ -296,18 +296,18 @@ public class ParentMethodEditPart extends AbstractBorderedShapeEditPart {
 		}
 
 	}
-	
+
 	/**
 	 * @custom
 	 */
 	public class ParentMethodOperationIcon extends ImageFigure {
-
 		public ParentMethodOperationIcon() {
-			super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(
-					ComponentsDiagramEditorPlugin.ID, "icons/obj16/Method.gif")
-					.createImage(), 0);
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/Method.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
-
 	}
 
 }

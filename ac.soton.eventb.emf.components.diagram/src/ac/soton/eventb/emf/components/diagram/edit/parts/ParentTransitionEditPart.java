@@ -38,7 +38,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Color;
 
 import ac.soton.eventb.emf.components.diagram.edit.policies.ParentTransitionItemSemanticEditPolicy;
@@ -136,7 +135,6 @@ public class ParentTransitionEditPart extends AbstractBorderedShapeEditPart {
 	public ParentTransitionOperationFigure getPrimaryShape() {
 		return (ParentTransitionOperationFigure) primaryShape;
 	}
-
 
 	/**
 	 * CUSTOMISED by cfs: the label BorderItemOffset has been changed from -20, -20 to -2, 2
@@ -298,18 +296,18 @@ public class ParentTransitionEditPart extends AbstractBorderedShapeEditPart {
 		}
 
 	}
-	
+
 	/**
 	 * @custom
 	 */
 	public class ParentTransitionOperationIcon extends ImageFigure {
-
 		public ParentTransitionOperationIcon() {
-
-			super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(
-					ComponentsDiagramEditorPlugin.ID, "icons/obj16/Transition.gif")
-					.createImage(), 0);
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/Transition.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
-
 	}
+
 }

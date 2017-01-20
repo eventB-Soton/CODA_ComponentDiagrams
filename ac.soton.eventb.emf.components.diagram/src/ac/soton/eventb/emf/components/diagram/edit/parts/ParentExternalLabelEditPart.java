@@ -623,8 +623,7 @@ public class ParentExternalLabelEditPart extends LabelEditPart implements
 		 * @generated
 		 */
 		public ParentExternalOperationLabelFigure() {
-			this.setText("<elaborates no events>");
-			this.setForegroundColor(ColorConstants.black);
+			this.setText("<elaborates?>");
 		}
 
 	}

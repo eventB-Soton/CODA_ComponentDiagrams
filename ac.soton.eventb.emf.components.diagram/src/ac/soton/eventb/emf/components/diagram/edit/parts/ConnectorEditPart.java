@@ -379,7 +379,7 @@ public class ConnectorEditPart extends ShapeNodeEditPart {
 
 			fFigureConnectorNameFigure = new WrappingLabel();
 
-			fFigureConnectorNameFigure.setText("<...>");
+			fFigureConnectorNameFigure.setText("<name?>");
 
 			GridData constraintFFigureConnectorNameFigure = new GridData();
 			constraintFFigureConnectorNameFigure.verticalAlignment = GridData.CENTER;
@@ -394,7 +394,7 @@ public class ConnectorEditPart extends ShapeNodeEditPart {
 
 			fFigureConnectorTypeFigure = new WrappingLabel();
 
-			fFigureConnectorTypeFigure.setText("<...>");
+			fFigureConnectorTypeFigure.setText("<type?>");
 
 			fFigureConnectorTypeFigure.setFont(FFIGURECONNECTORTYPEFIGURE_FONT);
 

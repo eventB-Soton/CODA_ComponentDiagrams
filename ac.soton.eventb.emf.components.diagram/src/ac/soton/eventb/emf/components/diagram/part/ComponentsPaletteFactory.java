@@ -94,8 +94,8 @@ public class ComponentsPaletteFactory {
 				Messages.Asynchronous2CreationTool_title,
 				Messages.Asynchronous2CreationTool_desc, types);
 		entry.setId("createAsynchronous2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(ComponentsElementTypes
-				.getImageDescriptor(ComponentsElementTypes.Statemachine_3015));
+		entry.setSmallIcon(ComponentsDiagramEditorPlugin
+				.findImageDescriptor("/ac.soton.eventb.emf.components.edit/icons/full/obj16/AsynchronousStatemachine.gif")); //$NON-NLS-1$
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

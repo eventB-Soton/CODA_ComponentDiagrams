@@ -642,7 +642,7 @@ public class ProcessStatemachineEditPart extends CompartmentEditPart implements
 		 * @generated
 		 */
 		public ProcessStatemachineFigure() {
-			this.setText("<...>");
+			this.setText("<name?>");
 		}
 
 	}

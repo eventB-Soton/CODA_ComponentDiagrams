@@ -37,7 +37,7 @@
           <children
               xsi:type="gmfgraph:Label"
               name="ComponentNameLabelFigure"
-              text="&lt;...>">
+              text="&lt;name?>">
             <layoutData
                 xsi:type="gmfgraph:GridLayoutData"
                 grabExcessHorizontalSpace="true"/>
@@ -81,7 +81,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ConnectorNameFigure"
-            text="&lt;...>">
+            text="&lt;name?>">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
               grabExcessHorizontalSpace="true"/>
@@ -89,7 +89,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ConnectorTypeFigure"
-            text="&lt;...>">
+            text="&lt;type?>">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"
               grabExcessHorizontalSpace="true"/>
@@ -124,34 +124,35 @@
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="StatemachineLabelFigure"
-          text="&lt;...>"/>
+          text="&lt;name?>"/>
     </descriptors>
     <descriptors
         name="MethodFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="MethodLabelFigure"
-          text="&lt;...>"/>
+          text="&lt;elaborates?>"/>
     </descriptors>
     <descriptors
         name="PortWakeFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="PortWakeLabelFigure"
-          text="&lt;...>"/>
+          text="&lt;elaborates?>"/>
     </descriptors>
     <descriptors
         name="SelfWakeFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="SelfWakeLabelFigure"
-          text="&lt;...>"/>
+          text="&lt;elaborates?>"/>
     </descriptors>
     <descriptors
         name="SubcomponentFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
-          name="SubcomponentLabelFigure"/>
+          name="SubcomponentLabelFigure"
+          text="&lt;name?>"/>
     </descriptors>
     <descriptors
         name="SenderConnectionFigure">
@@ -173,7 +174,7 @@
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="ExternalLabelFigure"
-          text="&lt;...>"/>
+          text="&lt;elaborates?>"/>
     </descriptors>
     <descriptors
         name="TransitionOpFigure">
@@ -187,21 +188,21 @@
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="SyncStatemachineLabelFigure"
-          text="&lt;...>"/>
+          text="&lt;name?>"/>
     </descriptors>
     <descriptors
         name="ProcessStatemachineFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="ProcessStatemachineLabelFigure"
-          text="&lt;...>"/>
+          text="&lt;name?>"/>
     </descriptors>
     <descriptors
         name="WakeQueueFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="WakeQueueLabelFigure"
-          text="&lt;...>"/>
+          text="&lt;name?>"/>
     </descriptors>
     <descriptors
         name="SubcomponentInPortLabelFigure">
@@ -284,35 +285,35 @@
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="ParentPortWakeOperationLabel"
-          text="&lt;elaborates no events>"/>
+          text="&lt;elaborates?>"/>
     </descriptors>
     <descriptors
         name="ParentSelfWakeOperationLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="ParentSelfWakeOperationLabel"
-          text="&lt;elaborates no events>"/>
+          text="&lt;elaborates?>"/>
     </descriptors>
     <descriptors
         name="ParentMethodOperationLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="ParentMethodOperationLabel"
-          text="&lt;elaborates no events>"/>
+          text="&lt;elaborates?>"/>
     </descriptors>
     <descriptors
         name="ParentExternalOperationLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="ParentExternalOperationLabel"
-          text="&lt;elaborates no events>"/>
+          text="&lt;elaborates?>"/>
     </descriptors>
     <descriptors
         name="ParentTransitionOperationLabelFigure">
       <actualFigure
           xsi:type="gmfgraph:Label"
           name="ParentTransitionOperationLabel"
-          text="&lt;elaborates no events>"/>
+          text="&lt;elaborates?>"/>
     </descriptors>
     <descriptors
         name="ParentWakeQueueLabelFigure">

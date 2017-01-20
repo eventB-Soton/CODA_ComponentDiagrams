@@ -301,13 +301,13 @@ public class ParentPortWakeEditPart extends AbstractBorderedShapeEditPart {
 	 * @custom
 	 */
 	public class ParentPortWakeOperationIcon extends ImageFigure {
-
 		public ParentPortWakeOperationIcon() {
-			super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(
-					ComponentsDiagramEditorPlugin.ID, "icons/obj16/PortWake.gif")
-					.createImage(), 0);
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/PortWake.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
-
 	}
-	
+
 }

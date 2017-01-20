@@ -303,12 +303,13 @@ public class ParentWakeQueueEditPart extends AbstractBorderedShapeEditPart {
 	 * @custom
 	 */
 	public class ParentWakeQueueIcon extends ImageFigure {
-
 		public ParentWakeQueueIcon() {
-			super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(
-					ComponentsDiagramEditorPlugin.ID, "icons/obj16/WakeQueue.gif")
-					.createImage(), 0);
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/WakeQueue.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
-
 	}
+
 }

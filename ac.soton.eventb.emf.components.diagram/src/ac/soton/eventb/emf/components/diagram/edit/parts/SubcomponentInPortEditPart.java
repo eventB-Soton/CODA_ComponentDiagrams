@@ -277,13 +277,13 @@ public class SubcomponentInPortEditPart extends BorderedBorderItemEditPart {
 	 * @custom
 	 */
 	public class SubcomponentInPortIcon extends ImageFigure {
-
 		public SubcomponentInPortIcon() {
-			super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(
-					ComponentsDiagramEditorPlugin.ID, "icons/obj16/InPort.gif")
-					.createImage(), 0);
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/InPort.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
-
 	}
 
 }

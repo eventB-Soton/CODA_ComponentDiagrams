@@ -31,7 +31,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -278,14 +277,13 @@ public class SubcomponentOutPortEditPart extends BorderedBorderItemEditPart {
 	 * @custom
 	 */
 	public class SubcomponentOutPortIcon extends ImageFigure {
-
 		public SubcomponentOutPortIcon() {
-			super(ComponentsDiagramEditorPlugin
-					.imageDescriptorFromPlugin(
-							ComponentsDiagramEditorPlugin.ID,
-							"icons/obj16/OutPort.gif").createImage(), 0);
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/OutPort.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
-
 	}
 
 }

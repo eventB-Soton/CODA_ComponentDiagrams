@@ -625,7 +625,7 @@ public class StatemachineEditPart extends CompartmentEditPart implements
 		 * @generated
 		 */
 		public StatemachineFigure() {
-			this.setText("<...>");
+			this.setText("<name?>");
 		}
 
 	}

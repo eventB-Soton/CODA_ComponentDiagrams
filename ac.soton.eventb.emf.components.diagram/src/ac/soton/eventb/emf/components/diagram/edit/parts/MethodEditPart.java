@@ -622,7 +622,7 @@ public class MethodEditPart extends CompartmentEditPart implements
 		 * @generated
 		 */
 		public MethodFigure() {
-			this.setText("<...>");
+			this.setText("<elaborates?>");
 		}
 
 	}

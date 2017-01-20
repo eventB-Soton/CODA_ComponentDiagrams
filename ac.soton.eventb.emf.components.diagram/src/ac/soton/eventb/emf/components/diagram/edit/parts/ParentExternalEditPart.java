@@ -137,7 +137,6 @@ public class ParentExternalEditPart extends AbstractBorderedShapeEditPart {
 		return (ParentExternalOperationFigure) primaryShape;
 	}
 
-
 	/**
 	 * CUSTOMISED by cfs: the label BorderItemOffset has been changed from -20, -20 to -2, 2
 	 * (could not find a way to do this in gmfgraph)
@@ -298,18 +297,18 @@ public class ParentExternalEditPart extends AbstractBorderedShapeEditPart {
 		}
 
 	}
-	
+
 	/**
 	 * @custom
 	 */
 	public class ParentExternalOperationIcon extends ImageFigure {
-
 		public ParentExternalOperationIcon() {
-			super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(
-					ComponentsDiagramEditorPlugin.ID, "icons/obj16/External.gif")
-					.createImage(), 0);
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/External.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
-
 	}
 
 }

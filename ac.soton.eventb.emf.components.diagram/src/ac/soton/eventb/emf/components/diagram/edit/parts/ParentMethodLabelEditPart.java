@@ -623,8 +623,7 @@ public class ParentMethodLabelEditPart extends LabelEditPart implements
 		 * @generated
 		 */
 		public ParentMethodOperationLabelFigure() {
-			this.setText("<elaborates no events>");
-			this.setForegroundColor(ColorConstants.black);
+			this.setText("<elaborates?>");
 		}
 
 	}

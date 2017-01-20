@@ -301,12 +301,13 @@ public class ParentSelfWakeEditPart extends AbstractBorderedShapeEditPart {
 	 * @custom
 	 */
 	public class ParentSelfWakeOperationIcon extends ImageFigure {
-
 		public ParentSelfWakeOperationIcon() {
-			super(ComponentsDiagramEditorPlugin.imageDescriptorFromPlugin(
-					ComponentsDiagramEditorPlugin.ID, "icons/obj16/SelfWake.gif")
-					.createImage(), 0);
+			super(
+					ComponentsDiagramEditorPlugin
+							.findImageDescriptor(
+									"/ac.soton.eventb.emf.components.edit/icons/full/obj16/SelfWake.gif")
+							.createImage(), 0); //$NON-NLS-1$
 		}
-
 	}
+
 }
