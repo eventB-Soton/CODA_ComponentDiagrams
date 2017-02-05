@@ -5,8 +5,7 @@
     templateDirectory="/org.eventb.emf.core/templates" dynamicTemplates="true" modelName="Components"
     testsDirectory="" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
     complianceLevel="7.0" editPluginID="ac.soton.eventb.emf.components.edit" editorPluginID="ac.soton.eventb.emf.components.editor"
-    tableProviders="true" language="" usedGenPackages="../../ac.soton.eventb.emf.diagrams/model/diagrams.genmodel#//diagrams platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eventb.emf.core/model/eventbcore.genmodel#//core ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension ../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines"
-    runtimePlatform="GWT">
+    tableProviders="true" language="" usedGenPackages="../../ac.soton.eventb.emf.decomposition/model/decomposition.genmodel#//decomposition ../../ac.soton.eventb.emf.diagrams/model/diagrams.genmodel#//diagrams platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eventb.emf.core/model/eventbcore.genmodel#//core ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension ../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines">
   <foreignModel>components.ecore</foreignModel>
   <genPackages prefix="Components" basePackage="ac.soton.eventb.emf" disposableProviderFactory="true"
       extensibleProviderFactory="true" childCreationExtenders="true" fileExtensions="comp"
