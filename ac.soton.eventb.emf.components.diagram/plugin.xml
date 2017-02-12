@@ -1248,14 +1248,22 @@ http://www.eclipse.org/legal/epl-v10.html
                id="property.section.elaborates"
                tab="property.tab.overview">
          </propertySection>
-         <!--propertySection
-               afterSection="property.section.label"
-               class="ac.soton.eventb.emf.components.diagram.sheet.custom.InheritsConnectorPropertySection"
+         <propertySection 
+               afterSection="property.section.comment"
+               class="ac.soton.eventb.emf.components.diagram.sheet.custom.StatemachineKindPropertySection"
                enablesFor="1"
-               filter="ac.soton.eventb.emf.components.diagram.sheet.custom.ComponentsSheetPropertyFilter$InheritedConnectorFilter"
-               id="property.section.inheritsConnector"
+               filter="ac.soton.eventb.emf.components.diagram.sheet.custom.StatemachineKindPropertySection$Filter"
+               id="property.section.statemachineKind"
                tab="property.tab.overview">
-         </propertySection-->
+         </propertySection> 
+         <propertySection
+               afterSection="property.section.statemachineKind"
+               class="ac.soton.eventb.emf.diagrams.sheet.ReadyPropertySection"
+               enablesFor="1"
+               filter="ac.soton.eventb.emf.diagrams.sheet.ReadyPropertySection$Filter"
+               id="property.section.ready"
+               tab="property.tab.overview">
+         </propertySection>
          <!--propertySection
                afterSection="property.section.label"
                class="ac.soton.eventb.emf.components.diagram.sheet.custom.RefinesComponentPropertySection"
@@ -1396,14 +1404,7 @@ http://www.eclipse.org/legal/epl-v10.html
                id="property.section.wakeEvents"
                tab="property.tab.wakeEvents">
          </propertySection>
-         <propertySection 
-               afterSection="property.section.comment"
-               class="ac.soton.eventb.emf.components.diagram.sheet.custom.StatemachineKindPropertySection"
-               enablesFor="1"
-               filter="ac.soton.eventb.emf.components.diagram.sheet.custom.StatemachineKindPropertySection$Filter"
-               id="property.section.statemachineKind"
-               tab="property.tab.overview">
-         </propertySection>         
+        
                 
       </propertySections>
             
