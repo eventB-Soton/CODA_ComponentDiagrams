@@ -48,6 +48,7 @@ public class RootComponentRule extends AbstractRule  implements IRule {
 	protected static final EReference sets = ContextPackage.Literals.CONTEXT__SETS;
 	protected static final EReference constants = ContextPackage.Literals.CONTEXT__CONSTANTS;
 	protected static final EReference axioms = ContextPackage.Literals.CONTEXT__AXIOMS;
+	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
 			
 	@Override
 	public boolean enabled(EventBElement sourceElement) throws Exception{

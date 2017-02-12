@@ -16,11 +16,14 @@ package ac.soton.eventb.emf.components.generator.rules;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EReference;
 import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 
+import ac.soton.eventb.decomposition.DecompositionPackage;
 import ac.soton.eventb.emf.components.Connector;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
 import ac.soton.eventb.emf.diagrams.generator.AbstractRule;
@@ -31,6 +34,9 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 
 public class ConnectorRule extends AbstractRule implements IRule {
 
+	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+	protected static final EAttribute machineName = DecompositionPackage.Literals.ABSTRACT_REGION__MACHINE_NAME;
+	
 	@Override
 	public boolean enabled(EventBElement sourceElement) throws Exception{
 		assert(sourceElement instanceof Connector);

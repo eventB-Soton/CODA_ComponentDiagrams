@@ -16,12 +16,14 @@ package ac.soton.eventb.emf.components.generator.rules;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.context.Context;
 import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 
+import ac.soton.eventb.decomposition.DecompositionPackage;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentAxiom;
 import ac.soton.eventb.emf.components.ComponentConstant;
@@ -39,6 +41,8 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 
 public class ComponentRule extends AbstractRule implements IRule {
 
+	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+	
 	private Context context = null;
 	
 	@Override
