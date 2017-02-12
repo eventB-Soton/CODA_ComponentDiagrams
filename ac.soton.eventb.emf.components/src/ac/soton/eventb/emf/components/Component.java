@@ -10,6 +10,7 @@
  */
 package ac.soton.eventb.emf.components;
 
+import ac.soton.eventb.decomposition.AbstractRegion;
 import org.eclipse.emf.common.util.EList;
 import org.eventb.emf.core.AbstractExtension;
 import org.eventb.emf.core.EventBNamedCommentedElement;
@@ -48,13 +49,13 @@ import ac.soton.eventb.statemachines.Statemachine;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasName'"
  * @generated
  */
-public interface Component extends EventBNamedCommentedElement, AbstractComponentModel, AbstractExtension, Diagram {
+public interface Component extends EventBNamedCommentedElement, AbstractComponentModel, AbstractExtension, Diagram, AbstractRegion {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * Returns the value of the '<em><b>Refines</b></em>' reference.

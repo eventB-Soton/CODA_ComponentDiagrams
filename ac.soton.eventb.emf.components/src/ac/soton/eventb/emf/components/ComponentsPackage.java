@@ -45,7 +45,7 @@ public interface ComponentsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * The package name.
@@ -235,13 +235,67 @@ public interface ComponentsPackage extends EPackage {
 	int COMPONENT__EXTENSION_ID = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Ready</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__READY = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Project Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__PROJECT_NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Context Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__CONTEXT_NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Allocated Variables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__ALLOCATED_VARIABLES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Allocated Extensions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__ALLOCATED_EXTENSIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Machine Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__MACHINE_NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The feature id for the '<em><b>Refines</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__REFINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 3;
+	int COMPONENT__REFINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -250,7 +304,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__OPERATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT__OPERATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Wake Queues</b></em>' containment reference list.
@@ -259,7 +313,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__WAKE_QUEUES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 5;
+	int COMPONENT__WAKE_QUEUES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Asynchronous Statemachines</b></em>' containment reference list.
@@ -268,7 +322,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__ASYNCHRONOUS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 6;
+	int COMPONENT__ASYNCHRONOUS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Synchronous Statemachines</b></em>' containment reference list.
@@ -277,7 +331,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SYNCHRONOUS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 7;
+	int COMPONENT__SYNCHRONOUS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Process Statemachines</b></em>' containment reference list.
@@ -286,7 +340,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PROCESS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 8;
+	int COMPONENT__PROCESS_STATEMACHINES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Invariants</b></em>' containment reference list.
@@ -295,7 +349,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__INVARIANTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 9;
+	int COMPONENT__INVARIANTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -304,7 +358,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__VARIABLES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 10;
+	int COMPONENT__VARIABLES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Initialisations</b></em>' containment reference list.
@@ -313,7 +367,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__INITIALISATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 11;
+	int COMPONENT__INITIALISATIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Sets</b></em>' containment reference list.
@@ -322,7 +376,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SETS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 12;
+	int COMPONENT__SETS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Axioms</b></em>' containment reference list.
@@ -331,7 +385,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__AXIOMS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 13;
+	int COMPONENT__AXIOMS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Constants</b></em>' containment reference list.
@@ -340,7 +394,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__CONSTANTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 14;
+	int COMPONENT__CONSTANTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>In Ports</b></em>' containment reference list.
@@ -349,7 +403,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__IN_PORTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 15;
+	int COMPONENT__IN_PORTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Out Ports</b></em>' containment reference list.
@@ -358,7 +412,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__OUT_PORTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 16;
+	int COMPONENT__OUT_PORTS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>In Connectors</b></em>' reference list.
@@ -367,7 +421,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__IN_CONNECTORS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 17;
+	int COMPONENT__IN_CONNECTORS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Out Connectors</b></em>' reference list.
@@ -376,7 +430,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__OUT_CONNECTORS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 18;
+	int COMPONENT__OUT_CONNECTORS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 24;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -385,7 +439,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 19;
+	int COMPONENT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 25;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -524,13 +578,67 @@ public interface ComponentsPackage extends EPackage {
 	int CONNECTOR__SOURCE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Ready</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__READY = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Project Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__PROJECT_NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Context Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__CONTEXT_NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Allocated Variables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__ALLOCATED_VARIABLES = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Allocated Extensions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__ALLOCATED_EXTENSIONS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Machine Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__MACHINE_NAME = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
 	 * The feature id for the '<em><b>Initial Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__INITIAL_VALUE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 5;
+	int CONNECTOR__INITIAL_VALUE = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Receivers</b></em>' reference list.
@@ -539,7 +647,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__RECEIVERS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 6;
+	int CONNECTOR__RECEIVERS = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Sender</b></em>' reference.
@@ -548,7 +656,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR__SENDER = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 7;
+	int CONNECTOR__SENDER = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
@@ -557,7 +665,7 @@ public interface ComponentsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 8;
+	int CONNECTOR_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_ELEMENT_FEATURE_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.components.impl.AbstractComponentOperationImpl <em>Abstract Component Operation</em>}' class.

@@ -10,6 +10,7 @@
  */
 package ac.soton.eventb.emf.components.util;
 
+import ac.soton.eventb.decomposition.AbstractRegion;
 import ac.soton.eventb.emf.components.*;
 import java.util.List;
 
@@ -74,7 +75,7 @@ public class ComponentsSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * The cached model package
@@ -149,6 +150,7 @@ public class ComponentsSwitch<T> {
 				if (result == null) result = caseAbstractComponentModel(component);
 				if (result == null) result = caseAbstractExtension(component);
 				if (result == null) result = caseDiagram(component);
+				if (result == null) result = caseAbstractRegion(component);
 				if (result == null) result = caseEventBCommentedElement(component);
 				if (result == null) result = caseEventBNamed(component);
 				if (result == null) result = caseEventBElement(component);
@@ -162,6 +164,7 @@ public class ComponentsSwitch<T> {
 				T result = caseConnector(connector);
 				if (result == null) result = caseAbstractInSender(connector);
 				if (result == null) result = caseAbstractOutReceiver(connector);
+				if (result == null) result = caseAbstractRegion(connector);
 				if (result == null) result = caseEventBCommentedElement(connector);
 				if (result == null) result = caseEventBNamed(connector);
 				if (result == null) result = caseAbstractPort(connector);
@@ -1096,6 +1099,21 @@ public class ComponentsSwitch<T> {
 	 * @generated
 	 */
 	public T caseDiagram(Diagram object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Region</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Region</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractRegion(AbstractRegion object) {
 		return null;
 	}
 

@@ -10,6 +10,7 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
+import ac.soton.eventb.decomposition.DecompositionPackage;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -72,7 +73,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -338,6 +339,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		isInited = true;
 
 		// Initialize simple dependencies
+		DecompositionPackage.eINSTANCE.eClass();
 		StatemachinesPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -1261,6 +1263,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		// Obtain other dependent packages
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		DiagramsPackage theDiagramsPackage = (DiagramsPackage)EPackage.Registry.INSTANCE.getEPackage(DiagramsPackage.eNS_URI);
+		DecompositionPackage theDecompositionPackage = (DecompositionPackage)EPackage.Registry.INSTANCE.getEPackage(DecompositionPackage.eNS_URI);
 		StatemachinesPackage theStatemachinesPackage = (StatemachinesPackage)EPackage.Registry.INSTANCE.getEPackage(StatemachinesPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		CoreextensionPackage theCoreextensionPackage = (CoreextensionPackage)EPackage.Registry.INSTANCE.getEPackage(CoreextensionPackage.eNS_URI);
@@ -1275,9 +1278,11 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		componentEClass.getESuperTypes().add(this.getAbstractComponentModel());
 		componentEClass.getESuperTypes().add(theCorePackage.getAbstractExtension());
 		componentEClass.getESuperTypes().add(theDiagramsPackage.getDiagram());
+		componentEClass.getESuperTypes().add(theDecompositionPackage.getAbstractRegion());
 		connectorEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
 		connectorEClass.getESuperTypes().add(this.getAbstractInSender());
 		connectorEClass.getESuperTypes().add(this.getAbstractOutReceiver());
+		connectorEClass.getESuperTypes().add(theDecompositionPackage.getAbstractRegion());
 		abstractComponentOperationEClass.getESuperTypes().add(theCorePackage.getEventBCommentedElement());
 		abstractComponentOperationEClass.getESuperTypes().add(theCoreextensionPackage.getEventBLabeled());
 		methodEClass.getESuperTypes().add(this.getAbstractComponentOperation());

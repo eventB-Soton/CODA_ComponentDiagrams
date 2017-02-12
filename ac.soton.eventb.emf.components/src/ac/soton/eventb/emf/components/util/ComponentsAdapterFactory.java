@@ -10,6 +10,7 @@
  */
 package ac.soton.eventb.emf.components.util;
 
+import ac.soton.eventb.decomposition.AbstractRegion;
 import ac.soton.eventb.emf.components.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -69,7 +70,7 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * The cached model package.
@@ -269,6 +270,10 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDiagram(Diagram object) {
 				return createDiagramAdapter();
+			}
+			@Override
+			public Adapter caseAbstractRegion(AbstractRegion object) {
+				return createAbstractRegionAdapter();
 			}
 			@Override
 			public Adapter caseEventBLabeled(EventBLabeled object) {
@@ -847,6 +852,20 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDiagramAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.decomposition.AbstractRegion <em>Abstract Region</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ac.soton.eventb.decomposition.AbstractRegion
+	 * @generated
+	 */
+	public Adapter createAbstractRegionAdapter() {
 		return null;
 	}
 

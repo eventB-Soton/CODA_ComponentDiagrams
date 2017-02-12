@@ -10,6 +10,8 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
+import ac.soton.eventb.decomposition.AbstractRegion;
+import ac.soton.eventb.decomposition.DecompositionPackage;
 import ac.soton.eventb.emf.components.AbstractInReceiver;
 import ac.soton.eventb.emf.components.AbstractInSender;
 import ac.soton.eventb.emf.components.AbstractOutReceiver;
@@ -27,10 +29,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eventb.emf.core.AbstractExtension;
 import org.eventb.emf.core.impl.EventBNamedCommentedElementImpl;
 
+import org.eventb.emf.core.machine.Variable;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.Connector;
 
@@ -46,6 +51,12 @@ import ac.soton.eventb.emf.components.Connector;
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getConnector <em>Connector</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getDestinations <em>Destinations</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#isReady <em>Ready</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getProjectName <em>Project Name</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getContextName <em>Context Name</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getAllocatedVariables <em>Allocated Variables</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getAllocatedExtensions <em>Allocated Extensions</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getMachineName <em>Machine Name</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getReceivers <em>Receivers</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getSender <em>Sender</em>}</li>
@@ -60,7 +71,7 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -111,6 +122,106 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * @ordered
 	 */
 	protected AbstractOutSender source;
+
+	/**
+	 * The default value of the '{@link #isReady() <em>Ready</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReady()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReady() <em>Ready</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReady()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean ready = READY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProjectName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PROJECT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProjectName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String projectName = PROJECT_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getContextName() <em>Context Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTEXT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getContextName() <em>Context Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String contextName = CONTEXT_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAllocatedVariables() <em>Allocated Variables</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocatedVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Variable> allocatedVariables;
+
+	/**
+	 * The cached value of the '{@link #getAllocatedExtensions() <em>Allocated Extensions</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocatedExtensions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AbstractExtension> allocatedExtensions;
+
+	/**
+	 * The default value of the '{@link #getMachineName() <em>Machine Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMachineName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MACHINE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMachineName() <em>Machine Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMachineName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String machineName = MACHINE_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
@@ -360,7 +471,115 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__SOURCE, newSource, newSource));
 	}
 
-//	/**
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReady() {
+		return ready;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReady(boolean newReady) {
+		boolean oldReady = ready;
+		ready = newReady;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__READY, oldReady, ready));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getProjectName() {
+		return projectName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProjectName(String newProjectName) {
+		String oldProjectName = projectName;
+		projectName = newProjectName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__PROJECT_NAME, oldProjectName, projectName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getContextName() {
+		return contextName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContextName(String newContextName) {
+		String oldContextName = contextName;
+		contextName = newContextName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__CONTEXT_NAME, oldContextName, contextName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Variable> getAllocatedVariables() {
+		if (allocatedVariables == null) {
+			allocatedVariables = new EObjectResolvingEList<Variable>(Variable.class, this, ComponentsPackage.CONNECTOR__ALLOCATED_VARIABLES);
+		}
+		return allocatedVariables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<AbstractExtension> getAllocatedExtensions() {
+		if (allocatedExtensions == null) {
+			allocatedExtensions = new EObjectResolvingEList<AbstractExtension>(AbstractExtension.class, this, ComponentsPackage.CONNECTOR__ALLOCATED_EXTENSIONS);
+		}
+		return allocatedExtensions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMachineName() {
+		return machineName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMachineName(String newMachineName) {
+		String oldMachineName = machineName;
+		machineName = newMachineName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__MACHINE_NAME, oldMachineName, machineName));
+	}
+
+	//	/**
 //	 * <!-- begin-user-doc -->
 //	 * the name of this connector is set to be the same as the name of the connector it inherits from
 //	 * <!-- end-user-doc -->
@@ -453,6 +672,18 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 			case ComponentsPackage.CONNECTOR__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
+			case ComponentsPackage.CONNECTOR__READY:
+				return isReady();
+			case ComponentsPackage.CONNECTOR__PROJECT_NAME:
+				return getProjectName();
+			case ComponentsPackage.CONNECTOR__CONTEXT_NAME:
+				return getContextName();
+			case ComponentsPackage.CONNECTOR__ALLOCATED_VARIABLES:
+				return getAllocatedVariables();
+			case ComponentsPackage.CONNECTOR__ALLOCATED_EXTENSIONS:
+				return getAllocatedExtensions();
+			case ComponentsPackage.CONNECTOR__MACHINE_NAME:
+				return getMachineName();
 			case ComponentsPackage.CONNECTOR__INITIAL_VALUE:
 				return getInitialValue();
 			case ComponentsPackage.CONNECTOR__RECEIVERS:
@@ -486,6 +717,26 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 			case ComponentsPackage.CONNECTOR__SOURCE:
 				setSource((AbstractOutSender)newValue);
 				return;
+			case ComponentsPackage.CONNECTOR__READY:
+				setReady((Boolean)newValue);
+				return;
+			case ComponentsPackage.CONNECTOR__PROJECT_NAME:
+				setProjectName((String)newValue);
+				return;
+			case ComponentsPackage.CONNECTOR__CONTEXT_NAME:
+				setContextName((String)newValue);
+				return;
+			case ComponentsPackage.CONNECTOR__ALLOCATED_VARIABLES:
+				getAllocatedVariables().clear();
+				getAllocatedVariables().addAll((Collection<? extends Variable>)newValue);
+				return;
+			case ComponentsPackage.CONNECTOR__ALLOCATED_EXTENSIONS:
+				getAllocatedExtensions().clear();
+				getAllocatedExtensions().addAll((Collection<? extends AbstractExtension>)newValue);
+				return;
+			case ComponentsPackage.CONNECTOR__MACHINE_NAME:
+				setMachineName((String)newValue);
+				return;
 			case ComponentsPackage.CONNECTOR__INITIAL_VALUE:
 				setInitialValue((String)newValue);
 				return;
@@ -513,6 +764,24 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 			case ComponentsPackage.CONNECTOR__SOURCE:
 				setSource((AbstractOutSender)null);
 				return;
+			case ComponentsPackage.CONNECTOR__READY:
+				setReady(READY_EDEFAULT);
+				return;
+			case ComponentsPackage.CONNECTOR__PROJECT_NAME:
+				setProjectName(PROJECT_NAME_EDEFAULT);
+				return;
+			case ComponentsPackage.CONNECTOR__CONTEXT_NAME:
+				setContextName(CONTEXT_NAME_EDEFAULT);
+				return;
+			case ComponentsPackage.CONNECTOR__ALLOCATED_VARIABLES:
+				getAllocatedVariables().clear();
+				return;
+			case ComponentsPackage.CONNECTOR__ALLOCATED_EXTENSIONS:
+				getAllocatedExtensions().clear();
+				return;
+			case ComponentsPackage.CONNECTOR__MACHINE_NAME:
+				setMachineName(MACHINE_NAME_EDEFAULT);
+				return;
 			case ComponentsPackage.CONNECTOR__INITIAL_VALUE:
 				setInitialValue(INITIAL_VALUE_EDEFAULT);
 				return;
@@ -538,6 +807,18 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 				return destinations != null && !destinations.isEmpty();
 			case ComponentsPackage.CONNECTOR__SOURCE:
 				return source != null;
+			case ComponentsPackage.CONNECTOR__READY:
+				return ready != READY_EDEFAULT;
+			case ComponentsPackage.CONNECTOR__PROJECT_NAME:
+				return PROJECT_NAME_EDEFAULT == null ? projectName != null : !PROJECT_NAME_EDEFAULT.equals(projectName);
+			case ComponentsPackage.CONNECTOR__CONTEXT_NAME:
+				return CONTEXT_NAME_EDEFAULT == null ? contextName != null : !CONTEXT_NAME_EDEFAULT.equals(contextName);
+			case ComponentsPackage.CONNECTOR__ALLOCATED_VARIABLES:
+				return allocatedVariables != null && !allocatedVariables.isEmpty();
+			case ComponentsPackage.CONNECTOR__ALLOCATED_EXTENSIONS:
+				return allocatedExtensions != null && !allocatedExtensions.isEmpty();
+			case ComponentsPackage.CONNECTOR__MACHINE_NAME:
+				return MACHINE_NAME_EDEFAULT == null ? machineName != null : !MACHINE_NAME_EDEFAULT.equals(machineName);
 			case ComponentsPackage.CONNECTOR__INITIAL_VALUE:
 				return INITIAL_VALUE_EDEFAULT == null ? initialValue != null : !INITIAL_VALUE_EDEFAULT.equals(initialValue);
 			case ComponentsPackage.CONNECTOR__RECEIVERS:
@@ -575,6 +856,17 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 				default: return -1;
 			}
 		}
+		if (baseClass == AbstractRegion.class) {
+			switch (derivedFeatureID) {
+				case ComponentsPackage.CONNECTOR__READY: return DecompositionPackage.ABSTRACT_REGION__READY;
+				case ComponentsPackage.CONNECTOR__PROJECT_NAME: return DecompositionPackage.ABSTRACT_REGION__PROJECT_NAME;
+				case ComponentsPackage.CONNECTOR__CONTEXT_NAME: return DecompositionPackage.ABSTRACT_REGION__CONTEXT_NAME;
+				case ComponentsPackage.CONNECTOR__ALLOCATED_VARIABLES: return DecompositionPackage.ABSTRACT_REGION__ALLOCATED_VARIABLES;
+				case ComponentsPackage.CONNECTOR__ALLOCATED_EXTENSIONS: return DecompositionPackage.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+				case ComponentsPackage.CONNECTOR__MACHINE_NAME: return DecompositionPackage.ABSTRACT_REGION__MACHINE_NAME;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -605,6 +897,17 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 				default: return -1;
 			}
 		}
+		if (baseClass == AbstractRegion.class) {
+			switch (baseFeatureID) {
+				case DecompositionPackage.ABSTRACT_REGION__READY: return ComponentsPackage.CONNECTOR__READY;
+				case DecompositionPackage.ABSTRACT_REGION__PROJECT_NAME: return ComponentsPackage.CONNECTOR__PROJECT_NAME;
+				case DecompositionPackage.ABSTRACT_REGION__CONTEXT_NAME: return ComponentsPackage.CONNECTOR__CONTEXT_NAME;
+				case DecompositionPackage.ABSTRACT_REGION__ALLOCATED_VARIABLES: return ComponentsPackage.CONNECTOR__ALLOCATED_VARIABLES;
+				case DecompositionPackage.ABSTRACT_REGION__ALLOCATED_EXTENSIONS: return ComponentsPackage.CONNECTOR__ALLOCATED_EXTENSIONS;
+				case DecompositionPackage.ABSTRACT_REGION__MACHINE_NAME: return ComponentsPackage.CONNECTOR__MACHINE_NAME;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -620,6 +923,14 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (type: ");
 		result.append(type);
+		result.append(", ready: ");
+		result.append(ready);
+		result.append(", projectName: ");
+		result.append(projectName);
+		result.append(", contextName: ");
+		result.append(contextName);
+		result.append(", machineName: ");
+		result.append(machineName);
 		result.append(", initialValue: ");
 		result.append(initialValue);
 		result.append(')');

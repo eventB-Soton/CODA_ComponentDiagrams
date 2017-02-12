@@ -10,6 +10,8 @@
  */
 package ac.soton.eventb.emf.components.impl;
 
+import ac.soton.eventb.decomposition.AbstractRegion;
+import ac.soton.eventb.decomposition.DecompositionPackage;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -21,12 +23,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eventb.emf.core.AbstractExtension;
 import org.eventb.emf.core.CorePackage;
 import org.eventb.emf.core.impl.EventBNamedCommentedElementImpl;
 
+import org.eventb.emf.core.machine.Variable;
 import ac.soton.eventb.emf.components.AbstractComponentModel;
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
 import ac.soton.eventb.emf.components.Component;
@@ -54,6 +58,12 @@ import ac.soton.eventb.statemachines.Statemachine;
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getConnectors <em>Connectors</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getExtensionId <em>Extension Id</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#isReady <em>Ready</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getProjectName <em>Project Name</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getContextName <em>Context Name</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getAllocatedVariables <em>Allocated Variables</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getAllocatedExtensions <em>Allocated Extensions</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getMachineName <em>Machine Name</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getRefines <em>Refines</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ComponentImpl#getWakeQueues <em>Wake Queues</em>}</li>
@@ -81,7 +91,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
@@ -122,6 +132,106 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	 * @ordered
 	 */
 	protected String extensionId = EXTENSION_ID_EDEFAULT+"."+EcoreUtil.generateUUID();
+
+	/**
+	 * The default value of the '{@link #isReady() <em>Ready</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReady()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean READY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReady() <em>Ready</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReady()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean ready = READY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProjectName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PROJECT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProjectName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String projectName = PROJECT_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getContextName() <em>Context Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONTEXT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getContextName() <em>Context Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String contextName = CONTEXT_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAllocatedVariables() <em>Allocated Variables</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocatedVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Variable> allocatedVariables;
+
+	/**
+	 * The cached value of the '{@link #getAllocatedExtensions() <em>Allocated Extensions</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocatedExtensions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AbstractExtension> allocatedExtensions;
+
+	/**
+	 * The default value of the '{@link #getMachineName() <em>Machine Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMachineName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MACHINE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMachineName() <em>Machine Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMachineName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String machineName = MACHINE_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRefines() <em>Refines</em>}' reference.
@@ -325,6 +435,118 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 		extensionId = newExtensionId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.COMPONENT__EXTENSION_ID, oldExtensionId, extensionId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isReady() {
+		return ready;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReady(boolean newReady) {
+		if (newReady==false){
+			this.getAllocatedVariables().clear();
+			this.getAllocatedExtensions().clear();
+		}
+		boolean oldReady = ready;
+		ready = newReady;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.COMPONENT__READY, oldReady, ready));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getProjectName() {
+		return projectName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProjectName(String newProjectName) {
+		String oldProjectName = projectName;
+		projectName = newProjectName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.COMPONENT__PROJECT_NAME, oldProjectName, projectName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getContextName() {
+		return contextName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContextName(String newContextName) {
+		String oldContextName = contextName;
+		contextName = newContextName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.COMPONENT__CONTEXT_NAME, oldContextName, contextName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Variable> getAllocatedVariables() {
+		if (allocatedVariables == null) {
+			allocatedVariables = new EObjectResolvingEList<Variable>(Variable.class, this, ComponentsPackage.COMPONENT__ALLOCATED_VARIABLES);
+		}
+		return allocatedVariables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<AbstractExtension> getAllocatedExtensions() {
+		if (allocatedExtensions == null) {
+			allocatedExtensions = new EObjectResolvingEList<AbstractExtension>(AbstractExtension.class, this, ComponentsPackage.COMPONENT__ALLOCATED_EXTENSIONS);
+		}
+		return allocatedExtensions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMachineName() {
+		return machineName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMachineName(String newMachineName) {
+		String oldMachineName = machineName;
+		machineName = newMachineName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.COMPONENT__MACHINE_NAME, oldMachineName, machineName));
 	}
 
 	/**
@@ -612,6 +834,18 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return getConnectors();
 			case ComponentsPackage.COMPONENT__EXTENSION_ID:
 				return getExtensionId();
+			case ComponentsPackage.COMPONENT__READY:
+				return isReady();
+			case ComponentsPackage.COMPONENT__PROJECT_NAME:
+				return getProjectName();
+			case ComponentsPackage.COMPONENT__CONTEXT_NAME:
+				return getContextName();
+			case ComponentsPackage.COMPONENT__ALLOCATED_VARIABLES:
+				return getAllocatedVariables();
+			case ComponentsPackage.COMPONENT__ALLOCATED_EXTENSIONS:
+				return getAllocatedExtensions();
+			case ComponentsPackage.COMPONENT__MACHINE_NAME:
+				return getMachineName();
 			case ComponentsPackage.COMPONENT__REFINES:
 				if (resolve) return getRefines();
 				return basicGetRefines();
@@ -668,6 +902,26 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return;
 			case ComponentsPackage.COMPONENT__EXTENSION_ID:
 				setExtensionId((String)newValue);
+				return;
+			case ComponentsPackage.COMPONENT__READY:
+				setReady((Boolean)newValue);
+				return;
+			case ComponentsPackage.COMPONENT__PROJECT_NAME:
+				setProjectName((String)newValue);
+				return;
+			case ComponentsPackage.COMPONENT__CONTEXT_NAME:
+				setContextName((String)newValue);
+				return;
+			case ComponentsPackage.COMPONENT__ALLOCATED_VARIABLES:
+				getAllocatedVariables().clear();
+				getAllocatedVariables().addAll((Collection<? extends Variable>)newValue);
+				return;
+			case ComponentsPackage.COMPONENT__ALLOCATED_EXTENSIONS:
+				getAllocatedExtensions().clear();
+				getAllocatedExtensions().addAll((Collection<? extends AbstractExtension>)newValue);
+				return;
+			case ComponentsPackage.COMPONENT__MACHINE_NAME:
+				setMachineName((String)newValue);
 				return;
 			case ComponentsPackage.COMPONENT__REFINES:
 				setRefines((Component)newValue);
@@ -745,6 +999,24 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 			case ComponentsPackage.COMPONENT__EXTENSION_ID:
 				setExtensionId(EXTENSION_ID_EDEFAULT);
 				return;
+			case ComponentsPackage.COMPONENT__READY:
+				setReady(READY_EDEFAULT);
+				return;
+			case ComponentsPackage.COMPONENT__PROJECT_NAME:
+				setProjectName(PROJECT_NAME_EDEFAULT);
+				return;
+			case ComponentsPackage.COMPONENT__CONTEXT_NAME:
+				setContextName(CONTEXT_NAME_EDEFAULT);
+				return;
+			case ComponentsPackage.COMPONENT__ALLOCATED_VARIABLES:
+				getAllocatedVariables().clear();
+				return;
+			case ComponentsPackage.COMPONENT__ALLOCATED_EXTENSIONS:
+				getAllocatedExtensions().clear();
+				return;
+			case ComponentsPackage.COMPONENT__MACHINE_NAME:
+				setMachineName(MACHINE_NAME_EDEFAULT);
+				return;
 			case ComponentsPackage.COMPONENT__REFINES:
 				setRefines((Component)null);
 				return;
@@ -805,6 +1077,18 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				return connectors != null && !connectors.isEmpty();
 			case ComponentsPackage.COMPONENT__EXTENSION_ID:
 				return EXTENSION_ID_EDEFAULT == null ? extensionId != null : !EXTENSION_ID_EDEFAULT.equals(extensionId);
+			case ComponentsPackage.COMPONENT__READY:
+				return ready != READY_EDEFAULT;
+			case ComponentsPackage.COMPONENT__PROJECT_NAME:
+				return PROJECT_NAME_EDEFAULT == null ? projectName != null : !PROJECT_NAME_EDEFAULT.equals(projectName);
+			case ComponentsPackage.COMPONENT__CONTEXT_NAME:
+				return CONTEXT_NAME_EDEFAULT == null ? contextName != null : !CONTEXT_NAME_EDEFAULT.equals(contextName);
+			case ComponentsPackage.COMPONENT__ALLOCATED_VARIABLES:
+				return allocatedVariables != null && !allocatedVariables.isEmpty();
+			case ComponentsPackage.COMPONENT__ALLOCATED_EXTENSIONS:
+				return allocatedExtensions != null && !allocatedExtensions.isEmpty();
+			case ComponentsPackage.COMPONENT__MACHINE_NAME:
+				return MACHINE_NAME_EDEFAULT == null ? machineName != null : !MACHINE_NAME_EDEFAULT.equals(machineName);
 			case ComponentsPackage.COMPONENT__REFINES:
 				return refines != null;
 			case ComponentsPackage.COMPONENT__OPERATIONS:
@@ -866,6 +1150,17 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				default: return -1;
 			}
 		}
+		if (baseClass == AbstractRegion.class) {
+			switch (derivedFeatureID) {
+				case ComponentsPackage.COMPONENT__READY: return DecompositionPackage.ABSTRACT_REGION__READY;
+				case ComponentsPackage.COMPONENT__PROJECT_NAME: return DecompositionPackage.ABSTRACT_REGION__PROJECT_NAME;
+				case ComponentsPackage.COMPONENT__CONTEXT_NAME: return DecompositionPackage.ABSTRACT_REGION__CONTEXT_NAME;
+				case ComponentsPackage.COMPONENT__ALLOCATED_VARIABLES: return DecompositionPackage.ABSTRACT_REGION__ALLOCATED_VARIABLES;
+				case ComponentsPackage.COMPONENT__ALLOCATED_EXTENSIONS: return DecompositionPackage.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+				case ComponentsPackage.COMPONENT__MACHINE_NAME: return DecompositionPackage.ABSTRACT_REGION__MACHINE_NAME;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -894,6 +1189,17 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 				default: return -1;
 			}
 		}
+		if (baseClass == AbstractRegion.class) {
+			switch (baseFeatureID) {
+				case DecompositionPackage.ABSTRACT_REGION__READY: return ComponentsPackage.COMPONENT__READY;
+				case DecompositionPackage.ABSTRACT_REGION__PROJECT_NAME: return ComponentsPackage.COMPONENT__PROJECT_NAME;
+				case DecompositionPackage.ABSTRACT_REGION__CONTEXT_NAME: return ComponentsPackage.COMPONENT__CONTEXT_NAME;
+				case DecompositionPackage.ABSTRACT_REGION__ALLOCATED_VARIABLES: return ComponentsPackage.COMPONENT__ALLOCATED_VARIABLES;
+				case DecompositionPackage.ABSTRACT_REGION__ALLOCATED_EXTENSIONS: return ComponentsPackage.COMPONENT__ALLOCATED_EXTENSIONS;
+				case DecompositionPackage.ABSTRACT_REGION__MACHINE_NAME: return ComponentsPackage.COMPONENT__MACHINE_NAME;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -909,8 +1215,36 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (extensionId: ");
 		result.append(extensionId);
+		result.append(", ready: ");
+		result.append(ready);
+		result.append(", projectName: ");
+		result.append(projectName);
+		result.append(", contextName: ");
+		result.append(contextName);
+		result.append(", machineName: ");
+		result.append(machineName);
 		result.append(')');
 		return result.toString();
 	}
-
+	
+//	/**
+//	 * 
+//	 * Overriden so that the MachineName of a region reflects the component name
+//	 * 
+//	 * @custom
+//	 */
+//	@Override
+//	public void setName(String newName){
+//		super.setName(newName);
+//		setMachineName(newName);
+//	}
+//
+//	
+//	private void updateRegionDetails(){
+//		getAllocatedExtensions().add(this);
+//		EList<Variable> allocatedVariables = getAllocatedVariables();
+//		for 
+//		allocatedVariables.add(e);
+//		
+//	}
 } //ComponentImpl
