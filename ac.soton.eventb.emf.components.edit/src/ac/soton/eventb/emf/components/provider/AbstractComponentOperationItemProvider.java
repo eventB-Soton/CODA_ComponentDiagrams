@@ -11,6 +11,7 @@
 package ac.soton.eventb.emf.components.provider;
 
 
+import ac.soton.eventb.decomposition.DecompositionFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class AbstractComponentOperationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -295,6 +296,11 @@ public class AbstractComponentOperationItemProvider
 			(createChildParameter
 				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
 				 ComponentsFactory.eINSTANCE.createComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 DecompositionFactory.eINSTANCE.createRegion()));
 
 		newChildDescriptors.add
 			(createChildParameter

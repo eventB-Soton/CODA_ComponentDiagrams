@@ -11,6 +11,8 @@
 package ac.soton.eventb.emf.components.provider;
 
 
+import ac.soton.eventb.decomposition.DecompositionFactory;
+import ac.soton.eventb.decomposition.DecompositionPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -55,7 +57,7 @@ public class ComponentItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -79,6 +81,12 @@ public class ComponentItemProvider
 			super.getPropertyDescriptors(object);
 
 			addExtensionIdPropertyDescriptor(object);
+			addReadyPropertyDescriptor(object);
+			addProjectNamePropertyDescriptor(object);
+			addContextNamePropertyDescriptor(object);
+			addAllocatedVariablesPropertyDescriptor(object);
+			addAllocatedExtensionsPropertyDescriptor(object);
+			addMachineNamePropertyDescriptor(object);
 			addRefinesPropertyDescriptor(object);
 			addInConnectorsPropertyDescriptor(object);
 			addOutConnectorsPropertyDescriptor(object);
@@ -100,6 +108,138 @@ public class ComponentItemProvider
 				 getString("_UI_AbstractExtension_extensionId_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractExtension_extensionId_feature", "_UI_AbstractExtension_type"),
 				 CorePackage.Literals.ABSTRACT_EXTENSION__EXTENSION_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ready feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReadyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractRegion_ready_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractRegion_ready_feature", "_UI_AbstractRegion_type"),
+				 DecompositionPackage.Literals.ABSTRACT_REGION__READY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Project Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProjectNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractRegion_projectName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractRegion_projectName_feature", "_UI_AbstractRegion_type"),
+				 DecompositionPackage.Literals.ABSTRACT_REGION__PROJECT_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Context Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContextNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractRegion_contextName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractRegion_contextName_feature", "_UI_AbstractRegion_type"),
+				 DecompositionPackage.Literals.ABSTRACT_REGION__CONTEXT_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Allocated Variables feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllocatedVariablesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractRegion_allocatedVariables_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractRegion_allocatedVariables_feature", "_UI_AbstractRegion_type"),
+				 DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Allocated Extensions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllocatedExtensionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractRegion_allocatedExtensions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractRegion_allocatedExtensions_feature", "_UI_AbstractRegion_type"),
+				 DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Machine Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMachineNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractRegion_machineName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractRegion_machineName_feature", "_UI_AbstractRegion_type"),
+				 DecompositionPackage.Literals.ABSTRACT_REGION__MACHINE_NAME,
 				 true,
 				 false,
 				 false,
@@ -256,6 +396,10 @@ public class ComponentItemProvider
 
 		switch (notification.getFeatureID(Component.class)) {
 			case ComponentsPackage.COMPONENT__EXTENSION_ID:
+			case ComponentsPackage.COMPONENT__READY:
+			case ComponentsPackage.COMPONENT__PROJECT_NAME:
+			case ComponentsPackage.COMPONENT__CONTEXT_NAME:
+			case ComponentsPackage.COMPONENT__MACHINE_NAME:
 			case ComponentsPackage.COMPONENT__REFINES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -295,6 +439,11 @@ public class ComponentItemProvider
 			(createChildParameter
 				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
 				 ComponentsFactory.eINSTANCE.createComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 DecompositionFactory.eINSTANCE.createRegion()));
 
 		newChildDescriptors.add
 			(createChildParameter

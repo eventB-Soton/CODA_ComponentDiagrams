@@ -10,6 +10,7 @@
  */
 package ac.soton.eventb.emf.components.provider;
 
+import ac.soton.eventb.decomposition.provider.DecompositionEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
@@ -31,7 +32,7 @@ public final class ComponentsEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = "Copyright (c) 2011-2016\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
 
 	/**
 	 * Keep track of the singleton.
@@ -58,6 +59,7 @@ public final class ComponentsEditPlugin extends EMFPlugin {
 	public ComponentsEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     DecompositionEditPlugin.INSTANCE,
 		     DiagramsEditPlugin.INSTANCE,
 		     EcoreEditPlugin.INSTANCE,
 		     EventbcoreEditPlugin.INSTANCE,

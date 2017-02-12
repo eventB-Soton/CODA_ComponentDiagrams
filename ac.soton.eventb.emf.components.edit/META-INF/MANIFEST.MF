@@ -12,6 +12,8 @@ Export-Package: ac.soton.eventb.emf.components.provider
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.7.0,4.0.0)",
  ac.soton.eventb.emf.components;bundle-version="[5.0.0,6.0.0)";visibility:=reexport,
  org.eclipse.emf.edit;bundle-version="[2.7.0,3.0.0)";visibility:=reexport,
+ ac.soton.eventb.emf.decomposition;visibility:=reexport,
+ ac.soton.eventb.emf.decomposition.edit;visibility:=reexport,
  org.eclipse.emf.ecore.edit;bundle-version="[2.7.0,3.0.0)";visibility:=reexport,
  org.eventb.emf.core;bundle-version="[4.1.0,5.0.0)";visibility:=reexport,
  org.eventb.emf.core.edit;bundle-version="[1.1.0,2.0.0)";visibility:=reexport,
