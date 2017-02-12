@@ -16,12 +16,14 @@ package ac.soton.eventb.emf.components.generator.rules;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 
 import ac.soton.eventb.emf.components.Component;
+import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
 import ac.soton.eventb.emf.components.util.ComponentsUtils;
 import ac.soton.eventb.emf.diagrams.generator.GenerationDescriptor;
@@ -31,6 +33,8 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 import ac.soton.eventb.statemachines.Statemachine;
 
 public class ProcessStatemachineRule extends AbstractProcessStatemachineRule  implements IRule {
+	
+	protected static final EClass component = ComponentsPackage.Literals.COMPONENT;
 	
 	private Event timerEvent = null;
 	
@@ -61,6 +65,8 @@ public class ProcessStatemachineRule extends AbstractProcessStatemachineRule  im
 		
 		//create the enabler flag for this state-machine
 		ret.add(Make.descriptor(machine,variables,Make.variable(Strings.ENBLSM_NAME(rootSm), "enable flag for statemachine"),5));
+		ret.add(Make.descriptor((Component)rootSm.getContaining(component), allocatedVariables, Make.variableProxyReference(machine, Strings.ENBLSM_NAME(rootSm)) , -10));
+
 		ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.ENBLSM_TYPE_NAME(rootSm), Strings.ENBLSM_TYPE_PRED(rootSm),""),5));
 		ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.ENBLSM_ACTION_NAME(rootSm), Strings.ENBLSM_FALSE_EXPR(rootSm)),5));
 		

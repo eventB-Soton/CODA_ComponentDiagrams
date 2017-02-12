@@ -23,6 +23,7 @@ import org.eventb.emf.core.machine.MachinePackage;
 
 import ac.soton.eventb.emf.components.AbstractComponentOperation;
 import ac.soton.eventb.emf.components.Component;
+import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.DataPacket;
 import ac.soton.eventb.emf.components.Method;
 import ac.soton.eventb.emf.components.PortWake;
@@ -85,7 +86,8 @@ public class AutonomousOperationRule extends AbstractRule  implements IRule {
 		
 		//create the synch flag for this operation
 		Event initialisation = (Event) Find.named(machine.getEvents(), "INITIALISATION");
-		ret.add(Make.descriptor(machine,variables,Make.variable(Strings.OS_NAME(op), "synch flag for operation"),1));
+		ret.add(Make.descriptor(machine,variables, Make.variable(Strings.OS_NAME(op), "synch flag for operation"),1));
+		ret.add(Make.descriptor((Component)op.getContaining(ComponentsPackage.Literals.COMPONENT), allocatedVariables, Make.variableProxyReference(machine, Strings.OS_NAME(op)) , -10));
 		if (sourceElement instanceof SelfWake){
 			ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.OS_TYPE_NAME(op), Strings.OS_TYPE_PRED_SELFWAKE(op, ((SelfWake)sourceElement).getQueue()),""),5)); //lower pri as needs queue 
 			ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.OS_ACTION_NAME(op), Strings.OS_EMPTY_EXPR(op)),5));			

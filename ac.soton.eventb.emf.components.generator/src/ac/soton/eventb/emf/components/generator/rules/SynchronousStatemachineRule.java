@@ -22,6 +22,7 @@ import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 
 import ac.soton.eventb.emf.components.Component;
+import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
 import ac.soton.eventb.emf.components.util.ComponentsUtils;
 import ac.soton.eventb.emf.diagrams.generator.GenerationDescriptor;
@@ -31,7 +32,8 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 import ac.soton.eventb.statemachines.Statemachine;
 
 public class SynchronousStatemachineRule extends AbstractSynchronousStatemachineRule  implements IRule {
-	
+
+
 	private Event timerEvent = null;
 	
 	@Override
@@ -57,16 +59,21 @@ public class SynchronousStatemachineRule extends AbstractSynchronousStatemachine
 
 		//find the machine 
 		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
+		Component component = (Component)sourceElement.getContaining(ComponentsPackage.Literals.COMPONENT);
 		Event initialisation = (Event) Find.named(machine.getEvents(), "INITIALISATION");
 		
 		//create the enabler flag for this state-machine
 		ret.add(Make.descriptor(machine,variables,Make.variable(Strings.ENBLSM_NAME(rootSm), "enable flag for statemachine"),5));
+		ret.add(Make.descriptor(component, allocatedVariables, Make.variableProxyReference(machine, Strings.ENBLSM_NAME(rootSm)) , -10));
+
 		ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.ENBLSM_TYPE_NAME(rootSm), Strings.ENBLSM_TYPE_PRED(rootSm),""),5));
 		ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.ENBLSM_ACTION_NAME(rootSm), Strings.ENBLSM_FALSE_EXPR(rootSm)),5));
 		
 		
 		//create the synch flag for this state-machine
 		ret.add(Make.descriptor(machine,variables,Make.variable(Strings.SYNCSM_NAME(rootSm), "synch flag for statemachine"),5));
+		ret.add(Make.descriptor(component, allocatedVariables, Make.variableProxyReference(machine, Strings.SYNCSM_NAME(rootSm)) , -10));
+
 		ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.SYNCSM_TYPE_NAME(rootSm), Strings.SYNCSM_TYPE_PRED(rootSm),""),5));
 		ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.SYNCSM_ACTION_NAME(rootSm), Strings.SYNCSM_FALSE_EXPR(rootSm)),5));
 		

@@ -14,18 +14,24 @@
 package ac.soton.eventb.emf.components.generator.rules;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eventb.emf.core.CorePackage;
 import org.eventb.emf.core.EventBElement;
+import org.eventb.emf.core.EventBObject;
 import org.eventb.emf.core.Project;
 import org.eventb.emf.core.context.Context;
 import org.eventb.emf.core.context.ContextPackage;
 import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
+import org.eventb.emf.core.machine.Variable;
 
+import ac.soton.eventb.decomposition.AbstractRegion;
+import ac.soton.eventb.decomposition.DecompositionPackage;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
 import ac.soton.eventb.emf.components.util.ComponentsUtils;
@@ -55,10 +61,13 @@ public class RootComponentRule extends AbstractRule  implements IRule {
 		Component rootComponent = (Component) sourceElement;
 		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
 		
-		
 		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
+		ret.addAll(removeAllocatedVariables(machine, rootComponent));
+		
 		Event initialisation = (Event) Find.named(machine.getEvents(), "INITIALISATION");
 		ret.add(Make.descriptor(machine,variables,Make.variable(Strings.CT_NAME(rootComponent), "current time for component"),1));
+		ret.add(Make.descriptor(rootComponent, allocatedVariables, Make.variableProxyReference(machine, Strings.CT_NAME(rootComponent)) , -10));
+		ret.addAll(allocateVariableToAllRegions(machine, rootComponent,Strings.CT_NAME(rootComponent)));
 		ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.CT_TYPE_NAME(rootComponent), Strings.CT_TYPE_PRED(rootComponent),""),1));
 		ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.CT_INIT_NAME(rootComponent), Strings.CT_INIT_EXPR(rootComponent), ""),1));
 		
@@ -97,6 +106,47 @@ public class RootComponentRule extends AbstractRule  implements IRule {
 			ret.add(Make.descriptor(context, axioms, Make.axiom(Strings.WK_ENUM_NAME(rootComponent), Strings.WK_ENUM_PRED(rootComponent), ""),1));			
 		}
 		return ret;
+	}
+
+	/**
+	 * removes all the allocated variable references from abstract regions as they
+	 * will not be deleted by the generator (i.e. references cannot be tagged with the generator id)
+	 * 
+	 * @param machine
+	 * @param root
+	 * @return
+	 */
+	private Collection<? extends GenerationDescriptor> removeAllocatedVariables(Machine machine, EventBObject root) {
+		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+		for (EObject eObject : root.getAllContained(DecompositionPackage.Literals.ABSTRACT_REGION, false)){
+			if (eObject instanceof AbstractRegion){
+				AbstractRegion region =(AbstractRegion)eObject;
+				for (Variable v : region.getAllocatedVariables()){
+					ret.add(Make.descriptor(region, allocatedVariables, v, true));
+				}
+			}
+		}
+		return ret;
+	}
+
+	/**
+	 * adds a specific variable reference to all contained abstractRegions
+	 * 
+	 * @param machine
+	 * @param root
+	 * @param variableName
+	 * @return
+	 */
+	private Collection<? extends GenerationDescriptor> allocateVariableToAllRegions(Machine machine, EventBObject root, String variableName) {
+		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+		for (EObject eObject : root.getAllContained(DecompositionPackage.Literals.ABSTRACT_REGION, false)){
+			if (eObject instanceof AbstractRegion){
+				AbstractRegion region =(AbstractRegion)eObject;
+				ret.add(Make.descriptor(region, allocatedVariables, Make.variableProxyReference(machine, variableName), -10));
+			}
+		}
+		return ret;
+		
 	}	
 	
 }

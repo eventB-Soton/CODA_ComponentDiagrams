@@ -65,7 +65,8 @@ public class ComponentRule extends AbstractRule implements IRule {
 		
 		//generate users component variables 
 		for (ComponentVariable v : cp.getVariables()){
-			ret.add(Make.descriptor(machine,variables,Make.variable(Strings.USER_VARIABLE_NAME(v), v.getComment()),10));				
+			ret.add(Make.descriptor(machine,variables,Make.variable(Strings.USER_VARIABLE_NAME(v), v.getComment()),10));
+			ret.add(Make.descriptor(cp, allocatedVariables, Make.variableProxyReference(machine, Strings.USER_VARIABLE_NAME(v)) , -10));
 		}
 		//generate users component invariants
 		for (ComponentInvariant i : cp.getInvariants()){

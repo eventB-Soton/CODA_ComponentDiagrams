@@ -16,11 +16,14 @@ package ac.soton.eventb.emf.components.generator.rules;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EClass;
 import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 
+import ac.soton.eventb.emf.components.Component;
+import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.WakeQueue;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
 import ac.soton.eventb.emf.diagrams.generator.AbstractRule;
@@ -30,6 +33,7 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Find;
 import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 
 public class WakeQueueRule extends AbstractRule implements IRule {
+
 
 	@Override
 	public boolean enabled(EventBElement sourceElement) throws Exception{
@@ -43,9 +47,13 @@ public class WakeQueueRule extends AbstractRule implements IRule {
 		WakeQueue wq = (WakeQueue) sourceElement;
 		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
 		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
+		Component component = (Component)wq.getContaining(ComponentsPackage.Literals.COMPONENT);
 		Event initialisation = (Event) Find.named(machine.getEvents(), "INITIALISATION");
 		ret.add(Make.descriptor(machine,variables,Make.variable(Strings.WU_NAME(wq), "wakequeue"),3));
+		ret.add(Make.descriptor(component, allocatedVariables, Make.variableProxyReference(machine, Strings.WU_NAME(wq)) , -10));
+		
 		ret.add(Make.descriptor(machine,variables,Make.variable(Strings.WU_MAX_NAME(wq), "wakequeue_max"),3));
+		ret.add(Make.descriptor(component, allocatedVariables, Make.variableProxyReference(machine, Strings.WU_MAX_NAME(wq)) , -10));
 
 		ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.WU_INIT_NAME(wq), Strings.WU_INIT_EXPR(wq), ""),3));
 		ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.WU_MAX_INIT_NAME(wq), Strings.WU_MAX_INIT_EXPR(wq), ""),3));
