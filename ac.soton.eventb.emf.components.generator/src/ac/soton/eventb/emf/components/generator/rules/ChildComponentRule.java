@@ -38,7 +38,7 @@ import ac.soton.eventb.statemachines.TranslationKind;
 
 public class ChildComponentRule extends AbstractRule implements IRule {
 
-	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
 	protected static final EReference allocatedExtensions = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
 	protected static final EAttribute machineName = DecompositionPackage.Literals.ABSTRACT_REGION__MACHINE_NAME;
 
@@ -62,10 +62,6 @@ public class ChildComponentRule extends AbstractRule implements IRule {
 		Component cp = (Component) sourceElement;
 		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
 		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
-		
-		//set up the components decomposition region data	
-		ret.add(Make.descriptor(cp,machineName, cp.getName(), 0));
-		ret.add(Make.descriptor(cp,allocatedExtensions, cp, -10));
 		
 		//allocate variables for any contained statemachines (as these are not allocated by the state-machine generator rules
 		for (EObject eo : cp.eContents()){

@@ -16,6 +16,7 @@ package ac.soton.eventb.emf.components.generator.rules;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.context.Context;
@@ -41,7 +42,9 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 
 public class ComponentRule extends AbstractRule implements IRule {
 
-	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
+	protected static final EReference allocatedExtensions = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+	protected static final EAttribute machineName = DecompositionPackage.Literals.ABSTRACT_REGION__MACHINE_NAME;
 	
 	private Context context = null;
 	
@@ -66,6 +69,10 @@ public class ComponentRule extends AbstractRule implements IRule {
 		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
 		
 		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
+		
+		//set up the components decomposition region data	
+		ret.add(Make.descriptor(cp,machineName, cp.getName(), 0));
+		ret.add(Make.descriptor(cp,allocatedExtensions, cp, -10));
 		
 		//generate users component variables 
 		for (ComponentVariable v : cp.getVariables()){
