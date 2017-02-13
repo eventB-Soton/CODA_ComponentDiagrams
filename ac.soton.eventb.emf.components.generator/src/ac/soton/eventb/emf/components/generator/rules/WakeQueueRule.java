@@ -35,7 +35,7 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 
 public class WakeQueueRule extends AbstractRule implements IRule {
 
-	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
 	
 	@Override
 	public boolean enabled(EventBElement sourceElement) throws Exception{

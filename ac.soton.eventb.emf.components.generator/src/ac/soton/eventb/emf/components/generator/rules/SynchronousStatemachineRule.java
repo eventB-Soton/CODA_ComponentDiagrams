@@ -35,7 +35,7 @@ import ac.soton.eventb.statemachines.Statemachine;
 
 public class SynchronousStatemachineRule extends AbstractSynchronousStatemachineRule  implements IRule {
 
-	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
 
 	private Event timerEvent = null;
 	

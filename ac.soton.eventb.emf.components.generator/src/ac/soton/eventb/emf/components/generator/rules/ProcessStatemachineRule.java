@@ -36,7 +36,7 @@ import ac.soton.eventb.statemachines.Statemachine;
 
 public class ProcessStatemachineRule extends AbstractProcessStatemachineRule  implements IRule {
 	
-	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
 	
 	protected static final EClass component = ComponentsPackage.Literals.COMPONENT;
 	
