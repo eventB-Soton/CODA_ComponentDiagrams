@@ -19,6 +19,9 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eventb.emf.core.Attribute;
+import org.eventb.emf.core.AttributeType;
+import org.eventb.emf.core.CoreFactory;
 import org.eventb.emf.core.CorePackage;
 import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.EventBObject;
@@ -29,7 +32,6 @@ import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 import org.eventb.emf.core.machine.Variable;
-
 import ac.soton.eventb.decomposition.AbstractRegion;
 import ac.soton.eventb.decomposition.DecompositionPackage;
 import ac.soton.eventb.emf.components.Component;
@@ -48,7 +50,8 @@ public class RootComponentRule extends AbstractRule  implements IRule {
 	protected static final EReference sets = ContextPackage.Literals.CONTEXT__SETS;
 	protected static final EReference constants = ContextPackage.Literals.CONTEXT__CONSTANTS;
 	protected static final EReference axioms = ContextPackage.Literals.CONTEXT__AXIOMS;
-	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
+	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
+	private static final String UNIVERSAL_VARIABLE_ATTRIBUTE_ID = "ac.soton.eventb.emf.decomposition.generator.universalVariable";
 			
 	@Override
 	public boolean enabled(EventBElement sourceElement) throws Exception{
@@ -66,9 +69,19 @@ public class RootComponentRule extends AbstractRule  implements IRule {
 		ret.addAll(removeAllocatedVariables(machine, rootComponent));
 		
 		Event initialisation = (Event) Find.named(machine.getEvents(), "INITIALISATION");
-		ret.add(Make.descriptor(machine,variables,Make.variable(Strings.CT_NAME(rootComponent), "current time for component"),1));
+		//make the current time variable
+		Variable currentTimeVar = Make.variable(Strings.CT_NAME(rootComponent), "current time for component");
+		// add an attribute to indicate this is a variable that can be shared by components
+		Attribute shared =   CoreFactory.eINSTANCE.createAttribute();
+		shared.setValue(Strings.CT_NAME(rootComponent));
+		shared.setType(AttributeType.STRING);
+		currentTimeVar.getAttributes().put(UNIVERSAL_VARIABLE_ATTRIBUTE_ID ,shared);
+		// add the current time variable to the machine
+		ret.add(Make.descriptor(machine,variables,currentTimeVar,1));
+		// allocate the current time variable to the root component and all sub component regions
 		ret.add(Make.descriptor(rootComponent, allocatedVariables, Make.variableProxyReference(machine, Strings.CT_NAME(rootComponent)) , -10));
 		ret.addAll(allocateVariableToAllRegions(machine, rootComponent,Strings.CT_NAME(rootComponent)));
+		
 		ret.add(Make.descriptor(machine,invariants,Make.invariant(Strings.CT_TYPE_NAME(rootComponent), Strings.CT_TYPE_PRED(rootComponent),""),1));
 		ret.add(Make.descriptor(initialisation,actions,Make.action(Strings.CT_INIT_NAME(rootComponent), Strings.CT_INIT_EXPR(rootComponent), ""),1));
 		
