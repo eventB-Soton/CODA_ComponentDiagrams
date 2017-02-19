@@ -35,6 +35,7 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Make;
 public class ConnectorRule extends AbstractRule implements IRule {
 
 	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
+	protected static final EReference allocatedExtensions = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
 	protected static final EAttribute machineName = DecompositionPackage.Literals.ABSTRACT_REGION__MACHINE_NAME;
 	
 	@Override
@@ -62,6 +63,7 @@ public class ConnectorRule extends AbstractRule implements IRule {
 		
 		//set up the connectors decomposition region data
 		ret.add(Make.descriptor(cn,machineName, cn.getName(), 0));
+		ret.add(Make.descriptor(cn,allocatedExtensions, cn, -10));
 		
 		return ret;
 	}

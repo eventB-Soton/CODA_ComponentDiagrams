@@ -79,6 +79,7 @@ public class ConnectorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addExtensionIdPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addInheritsPropertyDescriptor(object);
 			addConnectorPropertyDescriptor(object);
@@ -95,6 +96,28 @@ public class ConnectorItemProvider
 			addSenderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Extension Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExtensionIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractExtension_extensionId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractExtension_extensionId_feature", "_UI_AbstractExtension_type"),
+				 CorePackage.Literals.ABSTRACT_EXTENSION__EXTENSION_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -442,6 +465,7 @@ public class ConnectorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Connector.class)) {
+			case ComponentsPackage.CONNECTOR__EXTENSION_ID:
 			case ComponentsPackage.CONNECTOR__TYPE:
 			case ComponentsPackage.CONNECTOR__READY:
 			case ComponentsPackage.CONNECTOR__PROJECT_NAME:
@@ -469,6 +493,11 @@ public class ConnectorItemProvider
 			(createChildParameter
 				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
 				 ComponentsFactory.eINSTANCE.createComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 ComponentsFactory.eINSTANCE.createConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter

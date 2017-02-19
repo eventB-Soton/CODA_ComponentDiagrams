@@ -443,6 +443,11 @@ public class ComponentItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 ComponentsFactory.eINSTANCE.createConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
 				 DecompositionFactory.eINSTANCE.createRegion()));
 
 		newChildDescriptors.add
@@ -560,6 +565,7 @@ public class ComponentItemProvider
 		boolean qualify =
 			childFeature == CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS ||
 			childFeature == ComponentsPackage.Literals.ABSTRACT_COMPONENT_MODEL__COMPONENTS ||
+			childFeature == ComponentsPackage.Literals.ABSTRACT_COMPONENT_MODEL__CONNECTORS ||
 			childFeature == ComponentsPackage.Literals.COMPONENT__ASYNCHRONOUS_STATEMACHINES ||
 			childFeature == ComponentsPackage.Literals.COMPONENT__SYNCHRONOUS_STATEMACHINES ||
 			childFeature == ComponentsPackage.Literals.COMPONENT__PROCESS_STATEMACHINES;

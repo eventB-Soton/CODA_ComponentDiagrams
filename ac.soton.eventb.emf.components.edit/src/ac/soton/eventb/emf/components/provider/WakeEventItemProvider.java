@@ -242,6 +242,11 @@ public class WakeEventItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 ComponentsFactory.eINSTANCE.createConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
 				 DecompositionFactory.eINSTANCE.createRegion()));
 
 		newChildDescriptors.add

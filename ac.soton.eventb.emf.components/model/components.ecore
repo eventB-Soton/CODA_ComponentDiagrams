@@ -60,7 +60,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="outConnectors" upperBound="-1"
         eType="#//Connector" changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement #//AbstractInSender #//AbstractOutReceiver ../../ac.soton.eventb.emf.decomposition/model/decomposition.ecore#//AbstractRegion">
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement ../../org.eventb.emf.core/model/eventbcore.ecore#//AbstractExtension #//AbstractInSender #//AbstractOutReceiver ../../ac.soton.eventb.emf.decomposition/model/decomposition.ecore#//AbstractRegion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="hasName&#xA;hasType&#xA;hasInitialValue&#xA;hasSender&#xA;hasReceiver"/>
     </eAnnotations>

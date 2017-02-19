@@ -162,6 +162,7 @@ public class ComponentsSwitch<T> {
 			case ComponentsPackage.CONNECTOR: {
 				Connector connector = (Connector)theEObject;
 				T result = caseConnector(connector);
+				if (result == null) result = caseAbstractExtension(connector);
 				if (result == null) result = caseAbstractInSender(connector);
 				if (result == null) result = caseAbstractOutReceiver(connector);
 				if (result == null) result = caseAbstractRegion(connector);

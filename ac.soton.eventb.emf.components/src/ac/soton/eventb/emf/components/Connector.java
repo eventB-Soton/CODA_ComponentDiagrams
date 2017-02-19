@@ -12,6 +12,7 @@ package ac.soton.eventb.emf.components;
 
 import ac.soton.eventb.decomposition.AbstractRegion;
 import org.eclipse.emf.common.util.EList;
+import org.eventb.emf.core.AbstractExtension;
 import org.eventb.emf.core.EventBNamedCommentedElement;
 
 /**
@@ -32,7 +33,7 @@ import org.eventb.emf.core.EventBNamedCommentedElement;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasName\nhasType\nhasInitialValue\nhasSender\nhasReceiver'"
  * @generated
  */
-public interface Connector extends EventBNamedCommentedElement, AbstractInSender, AbstractOutReceiver, AbstractRegion {
+public interface Connector extends EventBNamedCommentedElement, AbstractExtension, AbstractInSender, AbstractOutReceiver, AbstractRegion {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

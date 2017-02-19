@@ -452,10 +452,6 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	 * @generated
 	 */
 	public void setReady(boolean newReady) {
-		if (newReady==false){
-			this.getAllocatedVariables().clear();
-			this.getAllocatedExtensions().clear();
-		}
 		boolean oldReady = ready;
 		ready = newReady;
 		if (eNotificationRequired())

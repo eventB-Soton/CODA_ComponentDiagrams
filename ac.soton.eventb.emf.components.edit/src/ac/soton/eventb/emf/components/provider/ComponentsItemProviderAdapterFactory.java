@@ -941,6 +941,14 @@ public class ComponentsItemProviderAdapterFactory extends ComponentsAdapterFacto
 							(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
 							 ComponentsFactory.eINSTANCE.createComponent()));
 
+				
+				annotation = ComponentsPackage.Literals.CONNECTOR.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
+				if (annotation == null  || annotation.getReferences().contains(object.eClass()))
+					newChildDescriptors.add
+						(createChildParameter
+							(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+							 ComponentsFactory.eINSTANCE.createConnector()));
+
 				return null;
 			}
  

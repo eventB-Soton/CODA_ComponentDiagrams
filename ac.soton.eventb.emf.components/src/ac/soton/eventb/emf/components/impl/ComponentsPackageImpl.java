@@ -1280,6 +1280,7 @@ public class ComponentsPackageImpl extends EPackageImpl implements ComponentsPac
 		componentEClass.getESuperTypes().add(theDiagramsPackage.getDiagram());
 		componentEClass.getESuperTypes().add(theDecompositionPackage.getAbstractRegion());
 		connectorEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
+		connectorEClass.getESuperTypes().add(theCorePackage.getAbstractExtension());
 		connectorEClass.getESuperTypes().add(this.getAbstractInSender());
 		connectorEClass.getESuperTypes().add(this.getAbstractOutReceiver());
 		connectorEClass.getESuperTypes().add(theDecompositionPackage.getAbstractRegion());

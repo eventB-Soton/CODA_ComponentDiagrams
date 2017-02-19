@@ -13,6 +13,12 @@
                rodin_id="ac.soton.eventb.emf.core.extension.persistence.serialisedExtension"
                synchroniser_class="ac.soton.eventb.emf.core.extension.persistence.SerialisedExtensionSynchroniser">
          </synchroniser>
+         <synchroniser
+               emf_class="Connector"
+               name="Connector Synchroniser"
+               rodin_id="ac.soton.eventb.emf.core.extension.persistence.serialisedExtension"
+               synchroniser_class="ac.soton.eventb.emf.core.extension.persistence.SerialisedExtensionSynchroniser">
+         </synchroniser>
       </emfPackage>
    </extension>
 

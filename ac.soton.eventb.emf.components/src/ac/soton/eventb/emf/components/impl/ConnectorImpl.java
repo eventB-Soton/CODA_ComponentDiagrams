@@ -31,8 +31,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eventb.emf.core.AbstractExtension;
+import org.eventb.emf.core.CorePackage;
 import org.eventb.emf.core.impl.EventBNamedCommentedElementImpl;
 
 import org.eventb.emf.core.machine.Variable;
@@ -46,6 +48,7 @@ import ac.soton.eventb.emf.components.Connector;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getExtensionId <em>Extension Id</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getType <em>Type</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getInherits <em>Inherits</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.components.impl.ConnectorImpl#getConnector <em>Connector</em>}</li>
@@ -72,6 +75,26 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
+
+	/**
+	 * The default value of the '{@link #getExtensionId() <em>Extension Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtensionId()
+	 * @generated NOT
+	 * @ordered
+	 */
+	protected static final String EXTENSION_ID_EDEFAULT = ComponentsPackage.COMPONENTS_EXTENSION_ID;
+
+	/**
+	 * The cached value of the '{@link #getExtensionId() <em>Extension Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtensionId()
+	 * @generated NOT
+	 * @ordered
+	 */
+	protected String extensionId = EXTENSION_ID_EDEFAULT+"."+EcoreUtil.generateUUID();
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -260,6 +283,27 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	protected EClass eStaticClass() {
 		return ComponentsPackage.Literals.CONNECTOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getExtensionId() {
+		return extensionId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExtensionId(String newExtensionId) {
+		String oldExtensionId = extensionId;
+		extensionId = newExtensionId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__EXTENSION_ID, oldExtensionId, extensionId));
 	}
 
 	/**
@@ -659,6 +703,8 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ComponentsPackage.CONNECTOR__EXTENSION_ID:
+				return getExtensionId();
 			case ComponentsPackage.CONNECTOR__TYPE:
 				return getType();
 			case ComponentsPackage.CONNECTOR__INHERITS:
@@ -704,6 +750,9 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ComponentsPackage.CONNECTOR__EXTENSION_ID:
+				setExtensionId((String)newValue);
+				return;
 			case ComponentsPackage.CONNECTOR__TYPE:
 				setType((String)newValue);
 				return;
@@ -752,6 +801,9 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ComponentsPackage.CONNECTOR__EXTENSION_ID:
+				setExtensionId(EXTENSION_ID_EDEFAULT);
+				return;
 			case ComponentsPackage.CONNECTOR__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
@@ -797,6 +849,8 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ComponentsPackage.CONNECTOR__EXTENSION_ID:
+				return EXTENSION_ID_EDEFAULT == null ? extensionId != null : !EXTENSION_ID_EDEFAULT.equals(extensionId);
 			case ComponentsPackage.CONNECTOR__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case ComponentsPackage.CONNECTOR__INHERITS:
@@ -836,6 +890,12 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == AbstractExtension.class) {
+			switch (derivedFeatureID) {
+				case ComponentsPackage.CONNECTOR__EXTENSION_ID: return CorePackage.ABSTRACT_EXTENSION__EXTENSION_ID;
+				default: return -1;
+			}
+		}
 		if (baseClass == AbstractPort.class) {
 			switch (derivedFeatureID) {
 				case ComponentsPackage.CONNECTOR__TYPE: return ComponentsPackage.ABSTRACT_PORT__TYPE;
@@ -877,6 +937,12 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == AbstractExtension.class) {
+			switch (baseFeatureID) {
+				case CorePackage.ABSTRACT_EXTENSION__EXTENSION_ID: return ComponentsPackage.CONNECTOR__EXTENSION_ID;
+				default: return -1;
+			}
+		}
 		if (baseClass == AbstractPort.class) {
 			switch (baseFeatureID) {
 				case ComponentsPackage.ABSTRACT_PORT__TYPE: return ComponentsPackage.CONNECTOR__TYPE;
@@ -921,7 +987,9 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
+		result.append(" (extensionId: ");
+		result.append(extensionId);
+		result.append(", type: ");
 		result.append(type);
 		result.append(", ready: ");
 		result.append(ready);
