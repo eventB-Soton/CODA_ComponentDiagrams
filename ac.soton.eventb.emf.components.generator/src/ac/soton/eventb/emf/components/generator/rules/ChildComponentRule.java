@@ -74,21 +74,32 @@ public class ChildComponentRule extends AbstractRule implements IRule {
 		return ret;
 	}
 
-	private Collection<? extends GenerationDescriptor> getStatemachineVariables(Component cp, Machine machine, Statemachine sm, TranslationKind tk) {
+	/**
+	 * recursively searches the containment tree from the given eObject looking for statemachines
+	 * for each statemachine creates a make descriptor to add the statemachines relevant generated variables (as a proxy reference)
+	 * to the given components allocatedVariables collection. The translation kind is passed as a parameter to enable recursion.
+	 * 
+	 * @param cp
+	 * @param machine
+	 * @param eObject
+	 * @param tk
+	 * @return
+	 */
+	private Collection<? extends GenerationDescriptor> getStatemachineVariables(Component cp, Machine machine, EObject eObject, TranslationKind tk) {
 		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
-		if (tk == TranslationKind.SINGLEVAR){
-			ret.add(Make.descriptor(cp, allocatedVariables, Make.variableProxyReference(machine, sm.getName()) , -10));
-		}else{
-			for (EObject state : sm.getAllContained(StatemachinesPackage.Literals.STATE, true)){
-				if (state instanceof State){
-					ret.add(Make.descriptor(cp, allocatedVariables, Make.variableProxyReference(machine, ((State)state).getName()) , -10));							
+		if (eObject instanceof Statemachine){
+			if (tk == TranslationKind.SINGLEVAR){
+				ret.add(Make.descriptor(cp, allocatedVariables, Make.variableProxyReference(machine, ((Statemachine)eObject).getName()) , -10));
+			}else{
+				for (EObject state : ((Statemachine)eObject).getAllContained(StatemachinesPackage.Literals.STATE, true)){
+					if (state instanceof State){
+						ret.add(Make.descriptor(cp, allocatedVariables, Make.variableProxyReference(machine, ((State)state).getName()) , -10));							
+					}
 				}
 			}
 		}
-		for (EObject eo : sm.eContents()){
-			if (eo instanceof Statemachine){
-				ret.addAll(getStatemachineVariables(cp, machine, (Statemachine)eo, tk));
-			}
+		for (EObject eo : eObject.eContents()){
+			ret.addAll(getStatemachineVariables(cp, machine, eo, tk));
 		}
 		return ret;
 	}
