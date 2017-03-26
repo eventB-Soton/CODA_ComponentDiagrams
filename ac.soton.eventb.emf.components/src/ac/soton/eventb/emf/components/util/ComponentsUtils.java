@@ -21,13 +21,14 @@ import ac.soton.eventb.emf.components.AbstractComponentOperation;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.Connector;
+import ac.soton.eventb.emf.components.InPort;
+import ac.soton.eventb.emf.components.OutPort;
 import ac.soton.eventb.statemachines.Statemachine;
 import ac.soton.eventb.statemachines.StatemachinesPackage;
 
 public class ComponentsUtils {
 
-	public static String getUniqueName(EventBElement parent,
-			EReference reference, String name) {
+	public static String getUniqueName(EventBElement parent, EReference reference, String name) {
 		int i = 0;
 		while (checkForNameClash(parent, reference, name + i))
 			i++;
@@ -35,13 +36,11 @@ public class ComponentsUtils {
 	}
 
 	@SuppressWarnings("unchecked")
-	private static Boolean checkForNameClash(EventBElement parent,
-			EReference reference, String name) {
+	private static Boolean checkForNameClash(EventBElement parent, EReference reference, String name) {
 		Object referenceValues = parent.eGet(reference);
 		if (referenceValues instanceof EList<?> && name != null) {
 			for (EObject dp : (EList<EObject>) referenceValues) {
-				if (dp instanceof EventBNamed
-						&& name.equals(((EventBNamed) dp).getName())) {
+				if (dp instanceof EventBNamed && name.equals(((EventBNamed) dp).getName())) {
 					return true;
 				}
 			}
@@ -53,8 +52,7 @@ public class ComponentsUtils {
 	public static Component getRootComponent(EObject element) {
 		if (!(element instanceof EventBObject))
 			return null;
-		return (Component) getRootContainerOfType(
-				ComponentsPackage.Literals.COMPONENT, (EventBElement) element);
+		return (Component) getRootContainerOfType(ComponentsPackage.Literals.COMPONENT, (EventBElement) element);
 
 		// if (element != null &&
 		// element.eClass().getEPackage().equals(ComponentsPackage.eINSTANCE)){
@@ -70,13 +68,11 @@ public class ComponentsUtils {
 	public static Statemachine getRootStatemachine(EObject element) {
 		if (!(element instanceof EventBObject))
 			return null;
-		return (Statemachine) getRootContainerOfType(
-				StatemachinesPackage.Literals.STATEMACHINE,
+		return (Statemachine) getRootContainerOfType(StatemachinesPackage.Literals.STATEMACHINE,
 				(EventBElement) element);
 	}
 
-	public static EventBObject getRootContainerOfType(EClass eClass,
-			EObject element) {
+	public static EventBObject getRootContainerOfType(EClass eClass, EObject element) {
 		if (!(element instanceof EventBObject))
 			return null;
 		EventBObject root = (EventBObject) element;
@@ -86,20 +82,16 @@ public class ComponentsUtils {
 		return root;
 	}
 
-	private static EventBObject getContainerofType(EClass eClass,
-			EventBObject el) {
+	private static EventBObject getContainerofType(EClass eClass, EventBObject el) {
 		if (el.eClass() == eClass)
 			el = (EventBObject) el.eContainer();
 		return el.getContaining(eClass);
 	}
 
-	public static AbstractComponentOperation MorphAbstractOperation(
-			EditingDomain domain, AbstractComponentOperation source,
-			EClass newClass) {
-		if (newClass.getEAllSuperTypes().contains(
-				ComponentsPackage.eINSTANCE.getAbstractComponentOperation())) {
-			AbstractComponentOperation target = (AbstractComponentOperation) EcoreUtil
-					.create(newClass);
+	public static AbstractComponentOperation MorphAbstractOperation(EditingDomain domain,
+			AbstractComponentOperation source, EClass newClass) {
+		if (newClass.getEAllSuperTypes().contains(ComponentsPackage.eINSTANCE.getAbstractComponentOperation())) {
+			AbstractComponentOperation target = (AbstractComponentOperation) EcoreUtil.create(newClass);
 			target.setComment(source.getComment());
 			target.setGenerated(source.isGenerated());
 			if (source.isSetLocalGenerated())
@@ -162,15 +154,15 @@ public class ComponentsUtils {
 	}
 
 	/**
-	 * returns a subset of the given connectors that are also inputs to the given component
-	 * the component is not assumed to be loaded in the same resource as the list of connectors
+	 * returns a subset of the given connectors that are also inputs to the
+	 * given component the component is not assumed to be loaded in the same
+	 * resource as the list of connectors
 	 * 
 	 * @param component
 	 * @param connectors
 	 * @return
 	 */
-	public static Connector[] getInputConnector(Component component,
-			Connector[] connectors) {
+	public static Connector[] getInputConnector(Component component, Connector[] connectors) {
 		List<Connector> result = new ArrayList<Connector>();
 
 		for (Connector connector : connectors) {
@@ -184,24 +176,24 @@ public class ComponentsUtils {
 	}
 
 	/**
-	 * returns a subset of the given connectors that are also outputs from the given component
-	 * the component is not assumed to be loaded in the same resource as the list of connectors
+	 * returns a subset of the given connectors that are also outputs from the
+	 * given component the component is not assumed to be loaded in the same
+	 * resource as the list of connectors
 	 * 
 	 * @param component
 	 * @param connectors
 	 * @return
 	 */
-	public static Connector[] getOutputConnector(Component component,
-			Connector[] connectors) {
+	public static Connector[] getOutputConnector(Component component, Connector[] connectors) {
 		List<Connector> result = new ArrayList<Connector>();
-		
+
 		for (Connector connector : connectors) {
 			Component sender = connector.getSender();
 			if (isSame(sender, component)) {
 				result.add(connector);
 			}
 		}
-		
+
 		return result.toArray(new Connector[result.size()]);
 	}
 
@@ -210,8 +202,7 @@ public class ComponentsUtils {
 	 * @param component
 	 * @return
 	 */
-	private static boolean isContains(Collection<Component> components,
-			Component component) {
+	private static boolean isContains(Collection<Component> components, Component component) {
 		for (Component comp : components) {
 			if (isSame(comp, component))
 				return true;
@@ -228,6 +219,16 @@ public class ComponentsUtils {
 		URI uri1 = EcoreUtil.getURI(component1);
 		URI uri2 = EcoreUtil.getURI(component2);
 		return uri1.equals(uri2);
+	}
+
+	public static InPort[] getInPorts(Component component) {
+		EList<EObject> inPorts = component.getAllContained(ComponentsPackage.eINSTANCE.getInPort(), true);
+		return inPorts.toArray(new InPort[inPorts.size()]);
+	}
+
+	public static OutPort[] getOutPorts(Component component) {
+		EList<EObject> outPorts = component.getAllContained(ComponentsPackage.eINSTANCE.getOutPort(), true);
+		return outPorts.toArray(new OutPort[outPorts.size()]);
 	}
 
 }
