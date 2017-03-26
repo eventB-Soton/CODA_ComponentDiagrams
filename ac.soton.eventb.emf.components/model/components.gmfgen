@@ -8,7 +8,7 @@
     domainFileExtension="bum"
     dynamicTemplates="true"
     templateDirectory="/ac.soton.eventb.emf.components/templates/gmf"
-    copyrightText="Copyright (c) 2011-2017 University of Southampton.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html">
+    copyrightText="(c) Crown owned copyright (2011-2017) (UK Ministry of Defence)&#xA; &#xA; All rights reserved. This program and the accompanying materials  are &#xA; made available under the terms of the Eclipse Public License v1.0 which&#xA; accompanies this distribution, and is available at&#xA; http://www.eclipse.org/legal/epl-v10.html&#xA; &#xA; This is to identify the UK Ministry of Defence as owners along with the&#xA;  license rights provided.&#xA; &#xA; Contributors:&#xA; &#x9;&#x9;&#x9;University of Southampton - Initial implementation&#xA;&#xA;">
   <diagram
       visualID="1000"
       editPartClassName="ComponentDiagramEditPart"
