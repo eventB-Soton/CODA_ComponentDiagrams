@@ -22,7 +22,7 @@ p9
 c__builtin__
 str
 p10
-S'&images/img-0003.png-depth;'
+S'&images/img-0067.png-depth;'
 p11
 tp12
 Rp13
@@ -39,7 +39,7 @@ p18
 g2
 (g9
 g10
-S'&images/img-0003.png-height;'
+S'&images/img-0067.png-height;'
 p19
 tp20
 Rp21
@@ -51,7 +51,7 @@ p23
 g2
 (g9
 g10
-S'&images/img-0003.png-width;'
+S'&images/img-0067.png-width;'
 p24
 tp25
 Rp26
@@ -60,7 +60,7 @@ g15
 g16
 sbsS'filename'
 p28
-Vimages/img-0003.png
+Vimages/img-0067.png
 p29
 sS'_cropped'
 p30
@@ -71,7 +71,7 @@ S'\xa4\xe1\xe4a\x19\x1d\xd9\r\xb6\xfejY\xbcd5\x0c'
 p32
 sS'path'
 p33
-V/Users/cfs/git/coda/CODA/code/ac.soton.eventb.emf.components.doc/html/images/img-0003.png
+V/Volumes/CODA/code/code/ac.soton.eventb.emf.components.doc/html/images/img-0067.png
 p34
 sS'alt'
 p35
@@ -1806,7 +1806,7 @@ g8
 g2
 (g9
 g10
-S'&images/img-0002.png-depth;'
+S'&images/img-0066.png-depth;'
 p410
 tp411
 Rp412
@@ -1819,7 +1819,7 @@ sg18
 g2
 (g9
 g10
-S'&images/img-0002.png-height;'
+S'&images/img-0066.png-height;'
 p414
 tp415
 Rp416
@@ -1830,7 +1830,7 @@ sbsg23
 g2
 (g9
 g10
-S'&images/img-0002.png-width;'
+S'&images/img-0066.png-width;'
 p418
 tp419
 Rp420
@@ -1838,7 +1838,7 @@ Rp420
 g15
 g16
 sbsg28
-Vimages/img-0002.png
+Vimages/img-0066.png
 p422
 sg30
 I00
@@ -1846,7 +1846,7 @@ sg31
 S"@m\x80'\xa7\xed\xa2K\xb0\x1d`\x9b<\xaf\xaa\x8e"
 p423
 sg33
-V/Users/cfs/git/coda/CODA/code/ac.soton.eventb.emf.components.doc/html/images/img-0002.png
+V/Volumes/CODA/code/code/ac.soton.eventb.emf.components.doc/html/images/img-0066.png
 p424
 sg35
 Nsg36
@@ -1866,7 +1866,7 @@ g8
 g2
 (g9
 g10
-S'&images/img-0001.png-depth;'
+S'&images/img-0028.png-depth;'
 p429
 tp430
 Rp431
@@ -1879,7 +1879,7 @@ sg18
 g2
 (g9
 g10
-S'&images/img-0001.png-height;'
+S'&images/img-0028.png-height;'
 p433
 tp434
 Rp435
@@ -1890,7 +1890,7 @@ sbsg23
 g2
 (g9
 g10
-S'&images/img-0001.png-width;'
+S'&images/img-0028.png-width;'
 p437
 tp438
 Rp439
@@ -1898,7 +1898,7 @@ Rp439
 g15
 g16
 sbsg28
-Vimages/img-0001.png
+Vimages/img-0028.png
 p441
 sg30
 I00
@@ -1906,7 +1906,7 @@ sg31
 S'\xd6,\xea\xa0B\x93\x06@\xe5\x16i\x95\x94\x97[4'
 p442
 sg33
-V/Users/cfs/git/coda/CODA/code/ac.soton.eventb.emf.components.doc/html/images/img-0001.png
+V/Volumes/CODA/code/code/ac.soton.eventb.emf.components.doc/html/images/img-0028.png
 p443
 sg35
 Nsg36

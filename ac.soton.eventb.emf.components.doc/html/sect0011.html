@@ -9,18 +9,18 @@
 <link rel="index" title="Index" />
 <link href="sect0012.html" rel="next" />
 <link href="sect0010.html" rel="prev" />
-<link href="sec-component_diagrams-refactoring.html" rel="parent" />
+<link href="sec-component_diagrams-enhancements.html" rel="parent" />
 <meta name="aesop" content="information" />
-<title>8.2 Automatic Archiving</title>
+<title>8.2 Non-determinism in delay of Self Wake event</title>
 </head>
 <body>
 <div class="navigation">
 <div id="top-navigation-panel" xml:id="top-navigation-panel">
 <table align="center" width="100%" cellpadding="0" cellspacing="2">
 <tr>
-<td class="online-navigation"><a title="8.1 Enabling Refactoring" href="sect0010.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
-<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
-<td class="online-navigation"><a title="Decorator" href="sect0012.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8.1 Multiple Self Wake queues" href="sect0010.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Process State-machines" href="sect0012.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
 <td align="center" width="100%">CODA Component Diagrams User Manual</td>
 <td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
 <td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
@@ -28,19 +28,19 @@
 </tr></table>
 <div class="online-navigation">
 <span><b class="navlabel">Previous:</b>
-<a href="sect0010.html" class="sectref" rel="prev">Enabling Refactoring</a></span>
+<a href="sect0010.html" class="sectref" rel="prev">Multiple Self Wake queues</a></span>
 <span><b class="navlabel">Up:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="parent">Enhancements to CODA in version 4.0.0</a></span>
 <span><b class="navlabel">Next:</b>
-<a href="sect0012.html" class="sectref" rel="next">Decorator</a></span>
+<a href="sect0012.html" class="sectref" rel="next">Process State-machines</a></span>
 </div>
 <hr /></div>
 </div>
 
 
 
-<div><h2 id="a0000000012">8.2 Automatic Archiving</h2>
-<p> An archive of the complete project including any change records and reports is made before a commit is attempted. This is in case an unexpected event such as power failure should cause the commit to fail leaving the model in a corrupted state. In this case the project should be deleted and restored from the archive using the standard Eclipse import facility (<b class="bfseries"><tt class="ttfamily">Import - General - Existing Projects into Workspace - Select archive file</tt></b>). </p></div>
+<div><h2 id="a0000000012">8.2 Non-determinism in delay of Self Wake event</h2>
+<p> An event in a self wake queue now consists of two time values in order to specify a time interval during which the event must be dealt with by a self wake operation (Figure <a href="sect0010.html#fig:OperationsThatSetWakeEventsMustSpecifyWhichWakeQueueTheEventIsSetIn">53</a>). </p></div>
 
 
 
@@ -49,9 +49,9 @@
 <hr />
 <table align="center" width="100%" cellpadding="0" cellspacing="2">
 <tr>
-<td class="online-navigation"><a title="8.1 Enabling Refactoring" href="sect0010.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
-<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
-<td class="online-navigation"><a title="Decorator" href="sect0012.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8.1 Multiple Self Wake queues" href="sect0010.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Process State-machines" href="sect0012.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
 <td align="center" width="100%">CODA Component Diagrams User Manual</td>
 <td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
 <td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
@@ -59,11 +59,11 @@
 </tr></table>
 <div class="online-navigation">
 <span><b class="navlabel">Previous:</b>
-<a href="sect0010.html" class="sectref" rel="prev">Enabling Refactoring</a></span>
+<a href="sect0010.html" class="sectref" rel="prev">Multiple Self Wake queues</a></span>
 <span><b class="navlabel">Up:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="parent">Enhancements to CODA in version 4.0.0</a></span>
 <span><b class="navlabel">Next:</b>
-<a href="sect0012.html" class="sectref" rel="next">Decorator</a></span>
+<a href="sect0012.html" class="sectref" rel="next">Process State-machines</a></span>
 </div>
 </div>
 <hr />

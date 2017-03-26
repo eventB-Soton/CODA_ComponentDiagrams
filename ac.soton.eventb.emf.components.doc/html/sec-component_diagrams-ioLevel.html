@@ -7,7 +7,7 @@
 <link href="index.html" title="CODA Component Diagrams User Manual" rel="first" />
 <link href="index.html" rel="contents" title="Contents" />
 <link rel="index" title="Index" />
-<link href="sec-component_diagrams-refactoring.html" rel="next" />
+<link href="sec-component_diagrams-enhancements.html" rel="next" />
 <link href="sect0009.html" rel="prev" />
 <link href="index.html" rel="parent" />
 <meta name="aesop" content="information" />
@@ -20,7 +20,7 @@
 <tr>
 <td class="online-navigation"><a title="6.8 Conclusion" href="sect0009.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
 <td class="online-navigation"><a title="CODA Component Diagrams User Manual" href="index.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
-<td class="online-navigation"><a title="Refactoring" href="sec-component_diagrams-refactoring.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td class="online-navigation"><a title="Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
 <td align="center" width="100%">CODA Component Diagrams User Manual</td>
 <td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
 <td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
@@ -32,7 +32,7 @@
 <span><b class="navlabel">Up:</b>
 <a href="index.html" class="sectref" rel="parent">CODA Component Diagrams User Manual</a></span>
 <span><b class="navlabel">Next:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="next">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="next">Enhancements to CODA in version 4.0.0</a></span>
 </div>
 <hr /></div>
 </div>
@@ -40,7 +40,10 @@
 
 
 <div><h1 id="sec:component_diagrams-ioLevel">7 I/O level Refinement</h1>
-<p>The tutorial in the previous section demonstrates how to perform abstract modelling and refinement using the CODA component diagram tools. This section illustrates how a refinement can be introduced which models the hardware I/O level behaviour. The model uses a synchronised state-machine, which allows a sequence of clock synchronised I/O events to be performed in order to achieve an abstract data transmission. </p><p>Figure 49 - Abstract Model of a Controller Sending an Enable Message to a Device </p><p>In the abstract model, shown in Figure 49, a Controller component sends data to enable a Device component. This is modelled as a port-send belonging to a self-wake operation SendData, a connector chan and a port-wake operation Enable. The self-wake is scheduled by the RecvPowerUp operation, so that its timing represents the completion of an envisaged concrete operation which takes time to complete. </p><p>Figure 50 - Refined Model : Controller Sending a Bit Level Signal to a Device </p><p>In the refined model, shown in Figure 50, the concrete data transmission operations are introduced. In this example, two connectors are used, A for the data bit stream and B for a data ready semaphore. Operations, SetA, SetB, ResetA and ResetB send 1 and 0 on these connector channels respectively. In order to ensure these operations are invoked in the desired iterative sequence, a synchronised state-machine IO is attached to the Controller component. </p><p>Figure 51 - Refined Model : I/O Level State-machine </p><p>The transitions of this state-machine, Figure 51, are linked to the same events as the component operations that send the data bits. Hence these operations are constrained to execute in the iterative sequence defined by the state-machine. Furthermore, because this is a synchronised state-machine, it is forced to fire exactly one transition on each clock cycle while it is enabled. The state-machine becomes enabled when the initial transition is taken and this is linked to a method operation of the Controller component that is called by the RecvPowerUp operation. Guards and Actions in the bit sending operations allow the state-machine to complete 16 cyclic sequences before taking the FinishIO transition that disables the state-machine. The data sent by the operation SendData was calculated to be received by operation Enable at the same clock cycle as the last bit is received on connector A representing the end of the bit level transmission. In this refinement the abstract data connector and associated operation behaviour have been retained although they are now redundant because they are replaced by the I/O level connector behaviour. It would be tempting to remove the abstract data connector and prove that the I/O level is a refinement of it. However, it may be useful to retain the abstract data connector for later generation of temporal assertions in generated output such as VHDL. </p></div>
+<p>The tutorial in the previous section demonstrates how to perform abstract modelling and refinement using the CODA component diagram tools. This section illustrates how a refinement can be introduced which models the hardware I/O level behaviour. The model uses a synchronised state-machine, which allows a sequence of clock synchronised I/O events to be performed in order to achieve an abstract data transmission. </p><div id="fig:AbstractModelOfAControllerSendingAnEnableMessageToADevice" class="figure"><center>
+<img src="images/img-0053.png" alt="\includegraphics[width=1024]{figures/image53.png}" style="width:1024" /> <div class="caption"><b>Figure 48</b>: <span>Abstract Model of a Controller Sending an Enable Message to a Device</span></div>  </center></div><p>In the abstract model, shown in Figure <a href="sec-component_diagrams-ioLevel.html#fig:AbstractModelOfAControllerSendingAnEnableMessageToADevice">48</a>, a Controller component sends data to enable a Device component. This is modelled as a port-send belonging to a self-wake operation SendData, a connector chan and a port-wake operation Enable. The self-wake is scheduled by the RecvPowerUp operation, so that its timing represents the completion of an envisaged concrete operation which takes time to complete. </p><div id="fig:RefinedModelControllerSendingABitLevelSignalToADevice" class="figure"><center>
+<img src="images/img-0054.png" alt="\includegraphics[width=1024]{figures/image54.png}" style="width:1024" /> <div class="caption"><b>Figure 49</b>: <span>Refined Model : Controller Sending a Bit Level Signal to a Device</span></div>  </center></div><p>In the refined model, shown in Figure <a href="sec-component_diagrams-ioLevel.html#fig:RefinedModelControllerSendingABitLevelSignalToADevice">49</a>, the concrete data transmission operations are introduced. In this example, two connectors are used, A for the data bit stream and B for a data ready semaphore. Operations, SetA, SetB, ResetA and ResetB send 1 and 0 on these connector channels respectively. In order to ensure these operations are invoked in the desired iterative sequence, a synchronised state-machine IO is attached to the Controller component. </p><div id="RefinedModelIOLevelStatemachine" class="figure"><center>
+<img src="images/img-0055.png" alt="\includegraphics[width=1024]{figures/image55.png}" style="width:1024" /> <div class="caption"><b>Figure 50</b>: <span>Refined Model : I/O Level State-machine</span></div>  </center></div><p>The transitions of this state-machine, Figure <a href="sec-component_diagrams-ioLevel.html#RefinedModelIOLevelStatemachine">50</a>, are linked to the same events as the component operations that send the data bits. Hence these operations are constrained to execute in the iterative sequence defined by the state-machine. Furthermore, because this is a synchronised state-machine, it is forced to fire exactly one transition on each clock cycle while it is enabled. The state-machine becomes enabled when the initial transition is taken and this is linked to a method operation of the Controller component that is called by the RecvPowerUp operation. Guards and Actions in the bit sending operations allow the state-machine to complete 16 cyclic sequences before taking the FinishIO transition that disables the state-machine. The data sent by the operation SendData was calculated to be received by operation Enable at the same clock cycle as the last bit is received on connector A representing the end of the bit level transmission. In this refinement the abstract data connector and associated operation behaviour have been retained although they are now redundant because they are replaced by the I/O level connector behaviour. It would be tempting to remove the abstract data connector and prove that the I/O level is a refinement of it. However, it may be useful to retain the abstract data connector for later generation of temporal assertions in generated output such as VHDL. </p></div>
 
 
 
@@ -51,7 +54,7 @@
 <tr>
 <td class="online-navigation"><a title="6.8 Conclusion" href="sect0009.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
 <td class="online-navigation"><a title="CODA Component Diagrams User Manual" href="index.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
-<td class="online-navigation"><a title="Refactoring" href="sec-component_diagrams-refactoring.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td class="online-navigation"><a title="Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
 <td align="center" width="100%">CODA Component Diagrams User Manual</td>
 <td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
 <td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
@@ -63,7 +66,7 @@
 <span><b class="navlabel">Up:</b>
 <a href="index.html" class="sectref" rel="parent">CODA Component Diagrams User Manual</a></span>
 <span><b class="navlabel">Next:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="next">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="next">Enhancements to CODA in version 4.0.0</a></span>
 </div>
 </div>
 <hr />

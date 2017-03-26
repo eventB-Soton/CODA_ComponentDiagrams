@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="shortcut icon" href="icons/pyfav.png" type="image/png" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="start" />
+<link href="index.html" title="CODA Component Diagrams User Manual" rel="first" />
+<link href="index.html" rel="contents" title="Contents" />
+<link rel="index" title="Index" />
+<link href="sec-component_diagrams-translation.html" rel="next" />
+<link href="sect0022.html" rel="prev" />
+<link href="sec-component_diagrams-refactoring.html" rel="parent" />
+<meta name="aesop" content="information" />
+<title>9.5 Resources: Change Records and Reporting</title>
+</head>
+<body>
+<div class="navigation">
+<div id="top-navigation-panel" xml:id="top-navigation-panel">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="9.4 Refactoring Menu: Commit and Revert" href="sect0022.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="9 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Translation to Event-B" href="sec-component_diagrams-translation.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sect0022.html" class="sectref" rel="prev">Refactoring Menu: Commit and Revert</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-translation.html" class="sectref" rel="next">Translation to Event-B</a></span>
+</div>
+<hr /></div>
+</div>
+
+
+
+<div><h2 id="a0000000024">9.5 Resources: Change Records and Reporting</h2>
+<p>Various resources are created to support refactoring. In normal use it is not necessary to access these resources and they are not visible in the Event-B Explorer by default. If it is wished to examine the generated reports or the change records they can be viewed either by opening a standard Eclipse workspace file navigator or Project Explorer (using Window-Show View) or by un-selecting the All files and folders filter of the Event-B Explorer. (The second method is shown in Figure <a href="sect0023.html#fig:RemovingAllFilesAndFoldersFilterForEventBExplorer">60</a>). </p><div id="fig:RemovingAllFilesAndFoldersFilterForEventBExplorer" class="figure"><center>
+<img src="images/img-0065.png" alt="\includegraphics[width=1024]{figures/image65.png}" style="width:1024" /> <div class="caption"><b>Figure 60</b>: <span>Removing ‘All files and folders’ Filter for Event-B Explorer</span></div>  </center></div><p>The various resources that are generated (Figure <a href="sect0023.html#fig:ChangesResourcesProducedForRefactoring">61</a>) are as follows. As soon as a supported editor is opened two files will appear in a folder called /iumlb/changes/ within the project. These are: <img src="images/img-0066.png" alt="$&lt;$" style="vertical-align:&images/img-0066.png-depth;&px;; 
+                                     width:&images/img-0066.png-width;&px;; 
+                                     height:&images/img-0066.png-height;&px;" class="math gen" />myMachine<img src="images/img-0067.png" alt="$&gt;$" style="vertical-align:&images/img-0067.png-depth;&px;; 
+                                     width:&images/img-0067.png-width;&px;; 
+                                     height:&images/img-0067.png-height;&px;" class="math gen" />_bum.xmb - a copy of the pre-change state of the model, <img src="images/img-0066.png" alt="$&lt;$" style="vertical-align:&images/img-0066.png-depth;&px;; 
+                                     width:&images/img-0066.png-width;&px;; 
+                                     height:&images/img-0066.png-height;&px;" class="math gen" />myMachine<img src="images/img-0067.png" alt="$&gt;$" style="vertical-align:&images/img-0067.png-depth;&px;; 
+                                     width:&images/img-0067.png-width;&px;; 
+                                     height:&images/img-0067.png-height;&px;" class="math gen" />_bum.equivmap - a map from the elements in the xmb file to the corresponding elements in the Rodin model. These files can be opened for examination but if they are edited the refactoring process is likely to fail. The xmb file can be opened with an EMF editor such as Rose. The equivmap file can be opened with a normal text editor. As soon as some changes to the diagram are saved a change record will appear in the same folder, <img src="images/img-0066.png" alt="$&lt;$" style="vertical-align:&images/img-0066.png-depth;&px;; 
+                                     width:&images/img-0066.png-width;&px;; 
+                                     height:&images/img-0066.png-height;&px;" class="math gen" />myMachine<img src="images/img-0067.png" alt="$&gt;$" style="vertical-align:&images/img-0067.png-depth;&px;; 
+                                     width:&images/img-0067.png-width;&px;; 
+                                     height:&images/img-0067.png-height;&px;" class="math gen" />_bum.changes. Again, the file can be opened with an EMF editor such as Rose but any alterations are likely to cause the refactoring process to fail. </p><div id="fig:ChangesResourcesProducedForRefactoring" class="figure"><center>
+<img src="images/img-0068.png" alt="\includegraphics[width=1024]{figures/image66.png}" style="width:1024" /> <div class="caption"><b>Figure 61</b>: <span>Changes Resources Produced for Refactoring</span></div>  </center></div><p>Note: If these three files are deleted the project will be left in its current state with no record of changes. This can be useful if for some reason it is wished to neither commit nor revert the changes but to leave the models as they are with the abstract model edited but the changes not propagated. If the changes are reverted, once the revert process has completed, these three files are deleted. If the changes are committed, once the commit has completed, these three files are deleted and a file <img src="images/img-0066.png" alt="$&lt;$" style="vertical-align:&images/img-0066.png-depth;&px;; 
+                                     width:&images/img-0066.png-width;&px;; 
+                                     height:&images/img-0066.png-height;&px;" class="math gen" />myMachine<img src="images/img-0067.png" alt="$&gt;$" style="vertical-align:&images/img-0067.png-depth;&px;; 
+                                     width:&images/img-0067.png-width;&px;; 
+                                     height:&images/img-0067.png-height;&px;" class="math gen" />_bum.<img src="images/img-0066.png" alt="$&lt;$" style="vertical-align:&images/img-0066.png-depth;&px;; 
+                                     width:&images/img-0066.png-width;&px;; 
+                                     height:&images/img-0066.png-height;&px;" class="math gen" />timestamp<img src="images/img-0067.png" alt="$&gt;$" style="vertical-align:&images/img-0067.png-depth;&px;; 
+                                     width:&images/img-0067.png-width;&px;; 
+                                     height:&images/img-0067.png-height;&px;" class="math gen" />.report is created in the folder /iumlb/reports/. This is a text file giving a detailed record of the changes made down the refinement chain (Figure <a href="sect0023.html#fig:ReportsProducedByRefactoring">62</a>). </p><div id="fig:ReportsProducedByRefactoring" class="figure"><center>
+<img src="images/img-0069.png" alt="\includegraphics[width=1024]{figures/image67.png}" style="width:1024" /> <div class="caption"><b>Figure 62</b>: <span>Reports Produced by Refactoring</span></div>  </center></div></div>
+
+
+
+<div class="navigation">
+<div class="online-navigation">
+<hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class="online-navigation"><a title="9.4 Refactoring Menu: Commit and Revert" href="sect0022.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="9 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Translation to Event-B" href="sec-component_diagrams-translation.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td align="center" width="100%">CODA Component Diagrams User Manual</td>
+<td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
+<td class="online-navigation"><img src="icons/blank.png" border="0" height="32" width="32" /></td>
+</tr></table>
+<div class="online-navigation">
+<span><b class="navlabel">Previous:</b>
+<a href="sect0022.html" class="sectref" rel="prev">Refactoring Menu: Commit and Revert</a></span>
+<span><b class="navlabel">Up:</b>
+<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<span><b class="navlabel">Next:</b>
+<a href="sec-component_diagrams-translation.html" class="sectref" rel="next">Translation to Event-B</a></span>
+</div>
+</div>
+<hr />
+<!--
+<span class="release-info">Release 2.4.3, documentation updated on 29 March 2006.</span>
+-->
+</div>
+<!--End of Navigation Panel-->
+<!--
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+-->
+</body>
+</html>

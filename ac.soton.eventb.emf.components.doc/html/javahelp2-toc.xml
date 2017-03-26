@@ -1,19 +1,4 @@
 <?xml version='1.0' encoding='ISO-8859-1' ?>
-<!--
-     (c) Crown owned copyright 2011, 2017 (UK Ministry of Defence)
-     
-     All rights reserved. This program and the accompanying materials  are 
-     made available under the terms of the Eclipse Public License v1.0 which
-     accompanies this distribution, and is available at
-     http://www.eclipse.org/legal/epl-v10.html
-     
-     This is to identify the UK Ministry of Defence as owners along with the
-      license rights provided.
-     
-     Contributors:
-     			University of Southampton - Initial implementation
- -->
-
 <!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD  JavaHelp TOC Version 2.0//EN"
   "http://java.sun.com/products/javahelp/toc_2_0.dtd">
 <toc version="2.0">
@@ -24,10 +9,12 @@
         <tocitem target="a0000000004" text="Static Validation of diagram" /><tocitem target="a0000000005" text="Model checking using ProB" /><tocitem target="a0000000006" text="State-machine Animation" /><tocitem target="a0000000007" text="Simulation of Component model" />
     </tocitem><tocitem target="sec:component_diagrams-tutorial" text="Tutorial">
         <tocitem target="sec:component_diagrams-tutorial_topLevelAbstractModel" text="The Top-level Abstract Model" /><tocitem target="sec:component_diagrams-tutorial_firstRefinement" text="The First Refinement" /><tocitem target="sec:component_diagrams-tutorial_secondRefinement" text="The Second Refinement" /><tocitem target="sec:component_diagrams-tutorial_thirdRefinement" text="The Third Refinement" /><tocitem target="sec:component_diagrams-tutorial_fourthRefinement" text="The Fourth Refinement" /><tocitem target="a0000000008" text="Further Refinements" /><tocitem target="a0000000009" text="Running the Oracle Simulator" /><tocitem target="a0000000010" text="Conclusion" />
-    </tocitem><tocitem target="sec:component_diagrams-ioLevel" text="I/O level Refinement" /><tocitem target="sec:component_diagrams-refactoring" text="Refactoring">
-        <tocitem target="a0000000011" text="Enabling Refactoring" /><tocitem target="a0000000012" text="Automatic Archiving" /><tocitem target="a0000000013" text="Decorator" /><tocitem target="a0000000014" text="Refactoring Menu: Commit and Revert" /><tocitem target="a0000000015" text="Resources: Change Records and Reporting" />
+    </tocitem><tocitem target="sec:component_diagrams-ioLevel" text="I/O level Refinement" /><tocitem target="sec:component_diagrams-enhancements" text="Enhancements to CODA in version 4.0.0">
+        <tocitem target="a0000000011" text="Multiple Self Wake queues" /><tocitem target="a0000000012" text="Non-determinism in delay of Self Wake event" /><tocitem target="a0000000013" text="Process State-machines" /><tocitem target="a0000000014" text="Morphing State-machines from one kind to another" /><tocitem target="a0000000015" text="Renaming refined components" /><tocitem target="a0000000016" text="Appearance preferences" /><tocitem target="a0000000017" text="Resetting between groups of Port Wakes" /><tocitem target="a0000000018" text="New features of iUML-B State-machines" /><tocitem target="a0000000019" text="Limitations" />
+    </tocitem><tocitem target="sec:component_diagrams-refactoring" text="Refactoring">
+        <tocitem target="a0000000020" text="Enabling Refactoring" /><tocitem target="a0000000021" text="Automatic Archiving" /><tocitem target="a0000000022" text="Decorator" /><tocitem target="a0000000023" text="Refactoring Menu: Commit and Revert" /><tocitem target="a0000000024" text="Resources: Change Records and Reporting" />
     </tocitem><tocitem target="sec:component_diagrams-translation" text="Translation to Event-B">
-        <tocitem target="a0000000016" text="Current time" />
+        <tocitem target="a0000000025" text="Current time" />
     </tocitem>
 </tocitem>
 </toc>

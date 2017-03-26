@@ -22,13 +22,23 @@
 <mapID target="a0000000009" url="sect0008.html" />
 <mapID target="a0000000010" url="sect0009.html" />
 <mapID target="sec:component_diagrams-ioLevel" url="sec-component_diagrams-ioLevel.html" />
-<mapID target="sec:component_diagrams-refactoring" url="sec-component_diagrams-refactoring.html" />
+<mapID target="sec:component_diagrams-enhancements" url="sec-component_diagrams-enhancements.html" />
 <mapID target="a0000000011" url="sect0010.html" />
 <mapID target="a0000000012" url="sect0011.html" />
 <mapID target="a0000000013" url="sect0012.html" />
 <mapID target="a0000000014" url="sect0013.html" />
 <mapID target="a0000000015" url="sect0014.html" />
-<mapID target="sec:component_diagrams-translation" url="sec-component_diagrams-translation.html" />
 <mapID target="a0000000016" url="sect0015.html" />
+<mapID target="a0000000017" url="sect0016.html" />
+<mapID target="a0000000018" url="sect0017.html" />
+<mapID target="a0000000019" url="sect0018.html" />
+<mapID target="sec:component_diagrams-refactoring" url="sec-component_diagrams-refactoring.html" />
+<mapID target="a0000000020" url="sect0019.html" />
+<mapID target="a0000000021" url="sect0020.html" />
+<mapID target="a0000000022" url="sect0021.html" />
+<mapID target="a0000000023" url="sect0022.html" />
+<mapID target="a0000000024" url="sect0023.html" />
+<mapID target="sec:component_diagrams-translation" url="sec-component_diagrams-translation.html" />
+<mapID target="a0000000025" url="sect0024.html" />
 </mapID>
 </map>

@@ -170,6 +170,78 @@
       
       
       <li><object type="text/sitemap">
+          <param name="Name" value="Enhancements to CODA in version 4.0.0">
+          <param name="Local" value="sec-component_diagrams-enhancements.html">
+          
+      </object></li>
+      <ul>
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Multiple Self Wake queues">
+             <param name="Local" value="sect0010.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Non-determinism in delay of Self Wake event">
+             <param name="Local" value="sect0011.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Process State-machines">
+             <param name="Local" value="sect0012.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Morphing State-machines from one kind to another">
+             <param name="Local" value="sect0013.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Renaming refined components">
+             <param name="Local" value="sect0014.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Appearance preferences">
+             <param name="Local" value="sect0015.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Resetting between groups of Port Wakes">
+             <param name="Local" value="sect0016.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="New features of iUML-B State-machines">
+             <param name="Local" value="sect0017.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+         <li><object type="text/sitemap">
+             <param name="Name" value="Limitations">
+             <param name="Local" value="sect0018.html">
+             <param name="ImageNumber" value="11">
+         </object></li>
+         
+         
+      </ul>
+      
+      <li><object type="text/sitemap">
           <param name="Name" value="Refactoring">
           <param name="Local" value="sec-component_diagrams-refactoring.html">
           
@@ -178,35 +250,35 @@
          
          <li><object type="text/sitemap">
              <param name="Name" value="Enabling Refactoring">
-             <param name="Local" value="sect0010.html">
+             <param name="Local" value="sect0019.html">
              <param name="ImageNumber" value="11">
          </object></li>
          
          
          <li><object type="text/sitemap">
              <param name="Name" value="Automatic Archiving">
-             <param name="Local" value="sect0011.html">
+             <param name="Local" value="sect0020.html">
              <param name="ImageNumber" value="11">
          </object></li>
          
          
          <li><object type="text/sitemap">
              <param name="Name" value="Decorator">
-             <param name="Local" value="sect0012.html">
+             <param name="Local" value="sect0021.html">
              <param name="ImageNumber" value="11">
          </object></li>
          
          
          <li><object type="text/sitemap">
              <param name="Name" value="Refactoring Menu: Commit and Revert">
-             <param name="Local" value="sect0013.html">
+             <param name="Local" value="sect0022.html">
              <param name="ImageNumber" value="11">
          </object></li>
          
          
          <li><object type="text/sitemap">
              <param name="Name" value="Resources: Change Records and Reporting">
-             <param name="Local" value="sect0014.html">
+             <param name="Local" value="sect0023.html">
              <param name="ImageNumber" value="11">
          </object></li>
          
@@ -222,7 +294,7 @@
          
          <li><object type="text/sitemap">
              <param name="Name" value="Current time">
-             <param name="Local" value="sect0015.html">
+             <param name="Local" value="sect0024.html">
              <param name="ImageNumber" value="11">
          </object></li>
          

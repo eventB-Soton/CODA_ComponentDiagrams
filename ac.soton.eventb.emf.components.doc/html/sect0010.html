@@ -8,19 +8,19 @@
 <link href="index.html" rel="contents" title="Contents" />
 <link rel="index" title="Index" />
 <link href="sect0011.html" rel="next" />
-<link href="sec-component_diagrams-refactoring.html" rel="prev" />
-<link href="sec-component_diagrams-refactoring.html" rel="parent" />
+<link href="sec-component_diagrams-enhancements.html" rel="prev" />
+<link href="sec-component_diagrams-enhancements.html" rel="parent" />
 <meta name="aesop" content="information" />
-<title>8.1 Enabling Refactoring</title>
+<title>8.1 Multiple Self Wake queues</title>
 </head>
 <body>
 <div class="navigation">
 <div id="top-navigation-panel" xml:id="top-navigation-panel">
 <table align="center" width="100%" cellpadding="0" cellspacing="2">
 <tr>
-<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
-<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
-<td class="online-navigation"><a title="Automatic Archiving" href="sect0011.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Non-determinism in delay of Self Wake event" href="sect0011.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
 <td align="center" width="100%">CODA Component Diagrams User Manual</td>
 <td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
 <td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
@@ -28,19 +28,22 @@
 </tr></table>
 <div class="online-navigation">
 <span><b class="navlabel">Previous:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="prev">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="prev">Enhancements to CODA in version 4.0.0</a></span>
 <span><b class="navlabel">Up:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="parent">Enhancements to CODA in version 4.0.0</a></span>
 <span><b class="navlabel">Next:</b>
-<a href="sect0011.html" class="sectref" rel="next">Automatic Archiving</a></span>
+<a href="sect0011.html" class="sectref" rel="next">Non-determinism in delay of Self Wake event</a></span>
 </div>
 <hr /></div>
 </div>
 
 
 
-<div><h2 id="a0000000011">8.1 Enabling Refactoring</h2>
-<p> The refactoring facility may be enabled or disabled in the iUML-B preferences menu. The current default is DISABLED. WARNING: If this preference is disabled while there are outstanding, uncommitted changes, and the associated model is then edited without refactoring being enabled, those change records will become invalid and wont be able to be propagated at a later stage. </p><p>Figure 55 - Preference for enabling refactoring. </p></div>
+<div><h2 id="a0000000011">8.1 Multiple Self Wake queues</h2>
+<p> In previous CODA versions, a component owned one implicit queue of wake events. This meant that it was not possible to distinguish between wake events sent for different (domain level) purposes. A component may now own several different wake queues, which are added by the user to represent different self-wake semantics (Figure <a href="sect0010.html#fig:Wake QueuesAreAddedToAComponentUsingThePalette">51</a>). SelfWake operations must specify which of the component’s wake queues they wake on (Figure <a href="sect0010.html#fig:SelfWakeOperationsMustSpecifyWhichOfTheComponentsWakeQueuesTheyWakeOn">52</a>), and Operations that set a wake event must specify which wake queue the event is set in (Figure <a href="sect0010.html#fig:OperationsThatSetWakeEventsMustSpecifyWhichWakeQueueTheEventIsSetIn">53</a>). </p><div id="fig:Wake QueuesAreAddedToAComponentUsingThePalette" class="figure"><center>
+<img src="images/img-0056.png" alt="\includegraphics[width=1024]{figures/image56.png}" style="width:1024" /> <div class="caption"><b>Figure 51</b>: <span>Wake Queues are added to a component using the palette</span></div>  </center></div><div id="fig:SelfWakeOperationsMustSpecifyWhichOfTheComponentsWakeQueuesTheyWakeOn" class="figure"><center>
+<img src="images/img-0057.png" alt="\includegraphics[width=1024]{figures/image57.png}" style="width:1024" /> <div class="caption"><b>Figure 52</b>: <span>SelfWake operations must specify which of the component’s wake queues they wake on</span></div>  </center></div><div id="fig:OperationsThatSetWakeEventsMustSpecifyWhichWakeQueueTheEventIsSetIn" class="figure"><center>
+<img src="images/img-0058.png" alt="\includegraphics[width=1024]{figures/image58.png}" style="width:1024" /> <div class="caption"><b>Figure 53</b>: <span>Operations that set wake events must specify which wake queue the event is set in and min and max values for the period in which the event must be dealt with by a SelfWake operation</span></div>  </center></div></div>
 
 
 
@@ -49,9 +52,9 @@
 <hr />
 <table align="center" width="100%" cellpadding="0" cellspacing="2">
 <tr>
-<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
-<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
-<td class="online-navigation"><a title="Automatic Archiving" href="sect0011.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Non-determinism in delay of Self Wake event" href="sect0011.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
 <td align="center" width="100%">CODA Component Diagrams User Manual</td>
 <td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
 <td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
@@ -59,11 +62,11 @@
 </tr></table>
 <div class="online-navigation">
 <span><b class="navlabel">Previous:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="prev">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="prev">Enhancements to CODA in version 4.0.0</a></span>
 <span><b class="navlabel">Up:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="parent">Enhancements to CODA in version 4.0.0</a></span>
 <span><b class="navlabel">Next:</b>
-<a href="sect0011.html" class="sectref" rel="next">Automatic Archiving</a></span>
+<a href="sect0011.html" class="sectref" rel="next">Non-determinism in delay of Self Wake event</a></span>
 </div>
 </div>
 <hr />

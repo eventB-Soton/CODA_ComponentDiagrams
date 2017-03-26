@@ -1,19 +1,4 @@
 <?xml version='1.0' encoding='ISO-8859-1' ?>
-<!--
-     (c) Crown owned copyright 2011, 2017 (UK Ministry of Defence)
-     
-     All rights reserved. This program and the accompanying materials  are 
-     made available under the terms of the Eclipse Public License v1.0 which
-     accompanies this distribution, and is available at
-     http://www.eclipse.org/legal/epl-v10.html
-     
-     This is to identify the UK Ministry of Defence as owners along with the
-      license rights provided.
-     
-     Contributors:
-     			University of Southampton - Initial implementation
- -->
-
 <toc version="1.0"> 
 <tocitem>CODA Component Diagrams User Manual
     <tocitem target="sec:component_diagrams-context">Context
@@ -58,20 +43,40 @@
         </tocitem>
     </tocitem><tocitem target="sec:component_diagrams-ioLevel">I/O level Refinement
         
+    </tocitem><tocitem target="sec:component_diagrams-enhancements">Enhancements to CODA in version 4.0.0
+        <tocitem target="a0000000011">Multiple Self Wake queues
+            
+        </tocitem><tocitem target="a0000000012">Non-determinism in delay of Self Wake event
+            
+        </tocitem><tocitem target="a0000000013">Process State-machines
+            
+        </tocitem><tocitem target="a0000000014">Morphing State-machines from one kind to another
+            
+        </tocitem><tocitem target="a0000000015">Renaming refined components
+            
+        </tocitem><tocitem target="a0000000016">Appearance preferences
+            
+        </tocitem><tocitem target="a0000000017">Resetting between groups of Port Wakes
+            
+        </tocitem><tocitem target="a0000000018">New features of iUML-B State-machines
+            
+        </tocitem><tocitem target="a0000000019">Limitations
+            
+        </tocitem>
     </tocitem><tocitem target="sec:component_diagrams-refactoring">Refactoring
-        <tocitem target="a0000000011">Enabling Refactoring
+        <tocitem target="a0000000020">Enabling Refactoring
             
-        </tocitem><tocitem target="a0000000012">Automatic Archiving
+        </tocitem><tocitem target="a0000000021">Automatic Archiving
             
-        </tocitem><tocitem target="a0000000013">Decorator
+        </tocitem><tocitem target="a0000000022">Decorator
             
-        </tocitem><tocitem target="a0000000014">Refactoring Menu: Commit and Revert
+        </tocitem><tocitem target="a0000000023">Refactoring Menu: Commit and Revert
             
-        </tocitem><tocitem target="a0000000015">Resources: Change Records and Reporting
+        </tocitem><tocitem target="a0000000024">Resources: Change Records and Reporting
             
         </tocitem>
     </tocitem><tocitem target="sec:component_diagrams-translation">Translation to Event-B
-        <tocitem target="a0000000016">Current time
+        <tocitem target="a0000000025">Current time
             
         </tocitem>
     </tocitem>

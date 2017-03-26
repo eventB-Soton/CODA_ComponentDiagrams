@@ -9,18 +9,18 @@
 <link rel="index" title="Index" />
 <link href="sect0013.html" rel="next" />
 <link href="sect0011.html" rel="prev" />
-<link href="sec-component_diagrams-refactoring.html" rel="parent" />
+<link href="sec-component_diagrams-enhancements.html" rel="parent" />
 <meta name="aesop" content="information" />
-<title>8.3 Decorator</title>
+<title>8.3 Process State-machines</title>
 </head>
 <body>
 <div class="navigation">
 <div id="top-navigation-panel" xml:id="top-navigation-panel">
 <table align="center" width="100%" cellpadding="0" cellspacing="2">
 <tr>
-<td class="online-navigation"><a title="8.2 Automatic Archiving" href="sect0011.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
-<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
-<td class="online-navigation"><a title="Refactoring Menu: Commit and Revert" href="sect0013.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8.2 Non-determinism in delay of Self Wake event" href="sect0011.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Morphing State-machines from one kind to another" href="sect0013.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
 <td align="center" width="100%">CODA Component Diagrams User Manual</td>
 <td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
 <td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
@@ -28,19 +28,19 @@
 </tr></table>
 <div class="online-navigation">
 <span><b class="navlabel">Previous:</b>
-<a href="sect0011.html" class="sectref" rel="prev">Automatic Archiving</a></span>
+<a href="sect0011.html" class="sectref" rel="prev">Non-determinism in delay of Self Wake event</a></span>
 <span><b class="navlabel">Up:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="parent">Enhancements to CODA in version 4.0.0</a></span>
 <span><b class="navlabel">Next:</b>
-<a href="sect0013.html" class="sectref" rel="next">Refactoring Menu: Commit and Revert</a></span>
+<a href="sect0013.html" class="sectref" rel="next">Morphing State-machines from one kind to another</a></span>
 </div>
 <hr /></div>
 </div>
 
 
 
-<div><h2 id="a0000000013">8.3 Decorator</h2>
-<p> Machines with outstanding, uncommitted changes are decorated in the Event-B Explorer. </p><p>Figure 56 - Decorator indicating outstanding recorded changes (see M0). </p></div>
+<div><h2 id="a0000000013">8.3 Process State-machines</h2>
+<p> A third kind of state-machine is now available in CODA. Process state-machines represent a sequence of actions that make up a process and hence must complete before the next clock tick. Once a process state-machine is initiated (by linking its initial transition with an operation of the component) the timer event is disabled until it completes one of its final transitions. </p></div>
 
 
 
@@ -49,9 +49,9 @@
 <hr />
 <table align="center" width="100%" cellpadding="0" cellspacing="2">
 <tr>
-<td class="online-navigation"><a title="8.2 Automatic Archiving" href="sect0011.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
-<td class="online-navigation"><a title="8 Refactoring" href="sec-component_diagrams-refactoring.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
-<td class="online-navigation"><a title="Refactoring Menu: Commit and Revert" href="sect0013.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8.2 Non-determinism in delay of Self Wake event" href="sect0011.html" rel="prev"><img src="icons/previous.png" border="0" height="32" alt="Previous Page" width="32" /></a></td>
+<td class="online-navigation"><a title="8 Enhancements to CODA in version 4.0.0" href="sec-component_diagrams-enhancements.html" rel="parent"><img src="icons/up.png" border="0" height="32" alt="Up One Level" width="32" /></a></td>
+<td class="online-navigation"><a title="Morphing State-machines from one kind to another" href="sect0013.html" rel="next"><img src="icons/next.png" border="0" height="32" alt="Next Page" width="32" /></a></td>
 <td align="center" width="100%">CODA Component Diagrams User Manual</td>
 <td class="online-navigation"><a href="index.html" rel="contents" title="Table of Contents"><img src="icons/contents.png" border="0" height="32" alt="Contents" width="32" /></a></td>
 <td class="online-navigation"><img src="icons/blank.png" border="0" height="32" alt="" width="32" /></td>
@@ -59,11 +59,11 @@
 </tr></table>
 <div class="online-navigation">
 <span><b class="navlabel">Previous:</b>
-<a href="sect0011.html" class="sectref" rel="prev">Automatic Archiving</a></span>
+<a href="sect0011.html" class="sectref" rel="prev">Non-determinism in delay of Self Wake event</a></span>
 <span><b class="navlabel">Up:</b>
-<a href="sec-component_diagrams-refactoring.html" class="sectref" rel="parent">Refactoring</a></span>
+<a href="sec-component_diagrams-enhancements.html" class="sectref" rel="parent">Enhancements to CODA in version 4.0.0</a></span>
 <span><b class="navlabel">Next:</b>
-<a href="sect0013.html" class="sectref" rel="next">Refactoring Menu: Commit and Revert</a></span>
+<a href="sect0013.html" class="sectref" rel="next">Morphing State-machines from one kind to another</a></span>
 </div>
 </div>
 <hr />
