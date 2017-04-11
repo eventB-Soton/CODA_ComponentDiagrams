@@ -337,48 +337,72 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * if inherits is set and not a proxy (getInherits will have tried to resolve it but may have failed)
+	 * 		copies the type of the inherited connector to the local type field
+	 * 		and then returns the type
+	 *	otherwise just returns the type	 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getType() {
-		if (getInherits() instanceof Connector)	return ((Connector)getInherits()).getType();
-		else return type;
+		inherits = getInherits();
+		if (inherits!=null && !inherits.eIsProxy()) {
+			String oldType = type;
+			type = getInherits().getType();
+			if (eNotificationRequired())
+				if (oldType != type) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__TYPE, oldType, type));
+
+		}
+		return type;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * if inherits is set, the type cannot be changed and is always set to the same type as the inherited connector
+	 * setting type is disabled if inherits
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void setType(String newType) {
+		if (inherits!=null)	return;
 		String oldType = type;
-		type = (getInherits() instanceof Connector)? ((Connector)getInherits()).getType() : newType;
+		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__TYPE, oldType, type));
+			if (oldType != type) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__TYPE, oldType, type));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * if inherits is set and not a proxy (getInherits will have tried to resolve it but may have failed)
+	 * 		copies the initialValue of the inherited connector to the local initialValue field
+	 * 		and then returns the initialValue
+	 *	otherwise just returns the initialValue	 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getInitialValue() {
-		if (getInherits() instanceof Connector)	return ((Connector)getInherits()).getInitialValue();
+		inherits = getInherits();
+		if (inherits!=null && !inherits.eIsProxy()) {
+			String oldInitialValue = initialValue;
+			initialValue = ((Connector)getInherits()).getInitialValue();
+			if (eNotificationRequired())
+				if (oldInitialValue != initialValue) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, initialValue));
+
+		}
 		return initialValue;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * 	if inherits is set, the initial value cannot be changed and is always set to the same as the inherited connector
+	 * setting initialValue is disabled if inherits
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void setInitialValue(String newInitialValue) {
+	public void setInitialValue(String newinitialValue) {
+		if (inherits!=null)	return;
 		String oldInitialValue = initialValue;
-		initialValue = (getInherits() instanceof Connector)? ((Connector)getInherits()).getInitialValue() : newInitialValue;
+		initialValue = newinitialValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, initialValue));
+			if (oldInitialValue != initialValue) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, initialValue));
 	}
 
 	/**
@@ -387,15 +411,26 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	 * @generated
 	 */
 	public AbstractPort getInherits() {
-		if (inherits != null && inherits.eIsProxy()) {
-			InternalEObject oldInherits = (InternalEObject)inherits;
-			inherits = (AbstractPort)eResolveProxy(oldInherits);
-			if (inherits != oldInherits) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
-			}
+		String oldInitialValue = initialValue;
+		String oldType = type;
+		String oldName = name;
+		Connector oldInherits = (Connector)inherits;
+		if (inherits!=null && inherits.eIsProxy()) {
+			inherits = (AbstractPort)eResolveProxy((InternalEObject) inherits);
+		}
+		if (inherits!=null && !inherits.eIsProxy()){
+			type = inherits.getType();
+			name = inherits.getName();
+			initialValue =  ((Connector)inherits).getInitialValue();
+		}
+		if (eNotificationRequired()) {
+			if (oldInherits != inherits) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
+			if (oldType != type) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__TYPE, oldType, type));
+			if (oldName != name) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__NAME, oldName, name));
+			if (oldInitialValue != initialValue) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, initialValue));	
 		}
 		return inherits;
+		
 	}
 
 	/**
@@ -409,21 +444,29 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * changed to notify changes to all the things that are inherited (name, type, initialValue)
+	 * NOTE: newInherits must be a Connector
+	 * when inherits is set, the local values of the name, type and initialValue attributes are
+	 *  automatically set to the corresponding attribute value from the inherited Connector
+	 * notification is given of changes to all the things that are inherited as well as inherits
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void setInherits(AbstractPort newInherits) {
-		AbstractPort oldInherits = inherits;
-		String oldName = this.getName();
-		String oldType = getType();
-		String oldInitialValue = this.getInitialValue();
-		inherits = newInherits;
-		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__NAME, oldName, getName()));
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__TYPE, oldType, getType()));
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, getInitialValue()));
+		if (newInherits == null || newInherits instanceof Connector){
+			AbstractPort oldInherits = inherits;
+			String oldName = name;
+			String oldType = type;
+			String oldInitialValue = initialValue;
+			inherits = newInherits;
+			name = getName();
+			type = getType();
+			initialValue = getInitialValue();
+			if (eNotificationRequired()) {
+				if (oldInherits != inherits) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INHERITS, oldInherits, inherits));
+				if (oldName != name) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__NAME, oldName, getName()));
+				if (oldType != type) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__TYPE, oldType, getType()));
+				if (oldInitialValue != initialValue) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.CONNECTOR__INITIAL_VALUE, oldInitialValue, getInitialValue()));
+			}
 		}
 	}
 
@@ -1012,29 +1055,37 @@ public class ConnectorImpl extends EventBNamedCommentedElementImpl implements Co
 	
 	/**
 	 * <!-- begin-user-doc -->
-	 * if inherits is set this copies the name from the inherited element
-	 * otherwise set the name of this element.
+	 * 	if inherits is set, the name cannot be changed and 
+	 * is always set to the same as the inherited port
 	 * <!-- end-user-doc -->
 	 * @custom
 	 */
 	@Override
 	public void setName(String name) {
-		if (getInherits() instanceof Connector)	super.setName(inherits.getName()); 
+		if (inherits!=null)	return;
 		else super.setName(name);
 	}
 	
 	/**
 	 * <!-- begin-user-doc -->
-	 * if inherits is set this gets the name from the inherited element
-	 * otherwise gets the name of this element.
+	 * if inherits is set, 
+	 * 		copies the name of the inherited Port to the local name field
+	 * 		and then returns the name
+	 *	otherwise just returns the name
 	 * <!-- end-user-doc -->
 	 * @custom
 	 */
 	@Override
 	public String getName(){
-		if (getInherits() instanceof Connector) return inherits.getName();
-		else return super.getName();
+		inherits = getInherits();
+		if (inherits!=null && !inherits.eIsProxy()) {
+			String oldName = name;
+			name = getInherits().getName();
+			if (eNotificationRequired())
+				if (oldName != name) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__NAME, oldName, name));
+
+		}
+		return super.getName();
 	}
-	
 	
 } //ConnectorImpl

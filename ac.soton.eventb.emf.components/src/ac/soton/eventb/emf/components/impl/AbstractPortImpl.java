@@ -101,13 +101,23 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * if inherits, type is obtained from the inherited abstract port
+	 * if inherits is set and not a proxy (getInherits will have tried to resolve it but may have failed)
+	 * 		copies the type of the inherited Port to the local type field
+	 * 		and then returns the type
+	 *	otherwise just returns the type	 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getType() {
-		if (getInherits() instanceof AbstractPort)	return ((AbstractPort)getInherits()).getType();
-		else return type;
+		inherits = getInherits();
+		if (inherits!=null && !inherits.eIsProxy()) {
+			String oldType = type;
+			type = getInherits().getType();
+			if (eNotificationRequired())
+				if (oldType != type) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__TYPE, oldType, type));
+
+		}
+		return type;
 	}
 
 	/**
@@ -117,26 +127,37 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 	 * @generated NOT
 	 */
 	public void setType(String newType) {
-		if (getInherits() instanceof Connector)	return;
+		if (inherits!=null)	return;
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__TYPE, oldType, type));
+			if (oldType != type) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__TYPE, oldType, type));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * if inherits is a proxy try to resolve it
+	 * if inherits is now resolved set the local type from the inherited type
+	 * return inherits
+	 * 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AbstractPort getInherits() {
-		if (inherits != null && inherits.eIsProxy()) {
-			InternalEObject oldInherits = (InternalEObject)inherits;
-			inherits = (AbstractPort)eResolveProxy(oldInherits);
-			if (inherits != oldInherits) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ComponentsPackage.ABSTRACT_PORT__INHERITS, oldInherits, inherits));
-			}
+		String oldType = type;
+		String oldName = name;
+		AbstractPort oldInherits = inherits;
+		if (inherits!=null && inherits.eIsProxy()) {
+			inherits = (AbstractPort)eResolveProxy((InternalEObject) inherits);
+		}
+		if (inherits!=null && !inherits.eIsProxy()){
+			type = inherits.getType();
+			name = inherits.getName();
+		}
+		if (eNotificationRequired()) {
+			if (oldInherits != inherits) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__INHERITS, oldInherits, inherits));
+			if (oldType != type) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__TYPE, oldType, type));
+			if (oldName != name) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__NAME, oldName, name));
 		}
 		return inherits;
 	}
@@ -152,17 +173,23 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * this has been changed to also notify that the type changes (becomes inherited)
+	 * when inherits is set, the local value of the type and name attributes are
+	 * automatically set to the corresponding attribute value from the inherited Port.
+	 * notification is given of changes to all the things that are inherited as well as inherits
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void setInherits(AbstractPort newInherits) {
+		String oldType = type;
+		String oldName = name;
 		AbstractPort oldInherits = inherits;
-		String oldType = getType();
 		inherits = newInherits;
+		type = getType();
+		name = getName();
 		if (eNotificationRequired()) {
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__INHERITS, oldInherits, inherits));
-			eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__TYPE, oldType, getType()));
+			if (oldInherits != inherits) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__INHERITS, oldInherits, inherits));
+			if (oldType != type) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__TYPE, oldType, type));
+			if (oldName != name) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__NAME, oldName, name));
 		}
 	}
 
@@ -280,4 +307,39 @@ public abstract class AbstractPortImpl extends EventBNamedCommentedElementImpl i
 		return result.toString();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * 	if inherits is set, the name cannot be changed and 
+	 * is always set to the same as the inherited port
+	 * <!-- end-user-doc -->
+	 * @custom
+	 */
+	@Override
+	public void setName(String name) {
+		if (inherits!=null)	return;
+		else super.setName(name);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * if inherits is set, 
+	 * 		copies the name of the inherited Port to the local name field
+	 * 		and then returns the name
+	 *	otherwise just returns the name
+	 * <!-- end-user-doc -->
+	 * @custom
+	 */
+	@Override
+	public String getName(){
+		inherits = getInherits();
+		if (inherits!=null && !inherits.eIsProxy()) {
+			String oldName = name;
+			name = getInherits().getName();
+			if (eNotificationRequired())
+				if (oldName != name) eNotify(new ENotificationImpl(this, Notification.SET, ComponentsPackage.ABSTRACT_PORT__NAME, oldName, name));
+
+		}
+		return super.getName();
+	}
+	
 } //AbstractPortImpl
