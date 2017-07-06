@@ -6,7 +6,7 @@ Bundle-SymbolicName: ac.soton.eventb.emf.components.navigator;singleton:=true
 Bundle-Version: 3.2.3.quantifier
 Bundle-Activator: ac.soton.eventb.emf.components.navigator.ComponentsNavigatorPlugin
 Bundle-Vendor: %providerName
-Require-Bundle:  org.eclipse.gmf.runtime.diagram.ui;bundle-version="[1.5.0,2.0.0)",
+Require-Bundle: org.eclipse.gmf.runtime.diagram.ui;bundle-version="[1.5.0,2.0.0)",
  org.rodinp.core;bundle-version="[1.7.0,2.0.0)",
  org.eventb.core;bundle-version="[3.1.0,4.0.0)",
  org.eventb.ui;bundle-version="[3.0.0,4.0.0)",
