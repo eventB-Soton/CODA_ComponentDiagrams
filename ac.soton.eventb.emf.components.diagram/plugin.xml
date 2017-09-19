@@ -1265,9 +1265,9 @@
          </propertySection> 
          <propertySection
                afterSection="property.section.statemachineKind"
-               class="ac.soton.eventb.emf.diagrams.sheet.ReadyPropertySection"
+               class="ac.soton.eventb.emf.components.diagram.sheet.custom.ReadyPropertySection"
                enablesFor="1"
-               filter="ac.soton.eventb.emf.diagrams.sheet.ReadyPropertySection$Filter"
+               filter="ac.soton.eventb.emf.components.diagram.sheet.custom.ReadyPropertySection$Filter"
                id="property.section.ready"
                tab="property.tab.overview">
          </propertySection>
