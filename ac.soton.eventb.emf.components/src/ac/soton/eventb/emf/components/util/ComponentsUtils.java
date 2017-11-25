@@ -108,8 +108,7 @@ public class ComponentsUtils {
 			AbstractComponentOperation target = (AbstractComponentOperation) EcoreUtil.create(newClass);
 			target.setComment(source.getComment());
 			target.setGenerated(source.isGenerated());
-			if (source.isSetLocalGenerated())
-				target.setLocalGenerated(source.isLocalGenerated());
+			target.setLocalGenerated(source.isLocalGenerated());
 			if (source.isSetConvergence())
 				target.setConvergence(source.getConvergence());
 			if (source.isSetExtended())
