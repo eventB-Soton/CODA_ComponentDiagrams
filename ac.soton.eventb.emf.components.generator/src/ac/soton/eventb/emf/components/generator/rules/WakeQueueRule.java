@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EReference;
-import org.eventb.emf.core.EventBElement;
+import org.eclipse.emf.ecore.EObject;
 import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
@@ -25,28 +25,28 @@ import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.WakeQueue;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
-import ac.soton.eventb.emf.diagrams.generator.AbstractRule;
-import ac.soton.eventb.emf.diagrams.generator.GenerationDescriptor;
-import ac.soton.eventb.emf.diagrams.generator.IRule;
-import ac.soton.eventb.emf.diagrams.generator.utils.Find;
-import ac.soton.eventb.emf.diagrams.generator.utils.Make;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
+import ac.soton.emf.translator.TranslationDescriptor;
+import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.utils.Find;
+import ac.soton.emf.translator.eventb.utils.Make;
 
-public class WakeQueueRule extends AbstractRule implements IRule {
+public class WakeQueueRule extends AbstractEventBGeneratorRule implements IRule {
 
 	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
 	
 	@Override
-	public boolean enabled(EventBElement sourceElement) throws Exception{
+	public boolean enabled(EObject sourceElement) throws Exception{
 		assert(sourceElement instanceof WakeQueue);
 		return true;
 	}
 	
 	@Override
-	public List<GenerationDescriptor> fire(EventBElement sourceElement, List<GenerationDescriptor> generatedElements) throws Exception {
+	public List<TranslationDescriptor> fire(EObject sourceElement, List<TranslationDescriptor> generatedElements) throws Exception {
 		assert(enabled(sourceElement));
 		WakeQueue wq = (WakeQueue) sourceElement;
-		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
-		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
+		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
+		Machine machine = (Machine)wq.getContaining(MachinePackage.Literals.MACHINE);
 		Component component = (Component)wq.getContaining(ComponentsPackage.Literals.COMPONENT);
 		Event initialisation = (Event) Find.named(machine.getEvents(), "INITIALISATION");
 		ret.add(Make.descriptor(machine,variables,Make.variable(Strings.WU_NAME(wq), "wakequeue"),3));

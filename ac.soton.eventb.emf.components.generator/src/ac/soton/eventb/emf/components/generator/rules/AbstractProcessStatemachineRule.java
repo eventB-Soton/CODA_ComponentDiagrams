@@ -11,20 +11,20 @@
  *******************************************************************************/
 package ac.soton.eventb.emf.components.generator.rules;
 
-import org.eventb.emf.core.EventBElement;
+import org.eclipse.emf.ecore.EObject;
 
+import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.util.ComponentsUtils;
-import ac.soton.eventb.emf.diagrams.generator.AbstractRule;
-import ac.soton.eventb.emf.diagrams.generator.IRule;
 import ac.soton.eventb.statemachines.Statemachine;
 
-public abstract class AbstractProcessStatemachineRule extends AbstractRule  implements IRule {
+public abstract class AbstractProcessStatemachineRule extends AbstractEventBGeneratorRule  implements IRule {
 	
 	protected Statemachine rootSm = null;
 	
 	@Override
-	public boolean enabled(EventBElement sourceElement) throws Exception {
+	public boolean enabled(EObject sourceElement) throws Exception {
 		rootSm = ComponentsUtils.getRootStatemachine(sourceElement);
 		return  
 				//sourceElement is inside a state machine that is owned by a component (not necessarily directly owned)
@@ -34,6 +34,4 @@ public abstract class AbstractProcessStatemachineRule extends AbstractRule  impl
 				rootSm.eContainingFeature() == ComponentsPackage.Literals.COMPONENT__PROCESS_STATEMACHINES;
 	}
 		
-
-
 }

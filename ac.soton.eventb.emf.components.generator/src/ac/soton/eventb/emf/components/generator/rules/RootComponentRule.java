@@ -21,7 +21,6 @@ import org.eventb.emf.core.Attribute;
 import org.eventb.emf.core.AttributeType;
 import org.eventb.emf.core.CoreFactory;
 import org.eventb.emf.core.CorePackage;
-import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.EventBObject;
 import org.eventb.emf.core.Project;
 import org.eventb.emf.core.context.Context;
@@ -35,13 +34,13 @@ import ac.soton.eventb.decomposition.DecompositionPackage;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
 import ac.soton.eventb.emf.components.util.ComponentsUtils;
-import ac.soton.eventb.emf.diagrams.generator.AbstractRule;
-import ac.soton.eventb.emf.diagrams.generator.GenerationDescriptor;
-import ac.soton.eventb.emf.diagrams.generator.IRule;
-import ac.soton.eventb.emf.diagrams.generator.utils.Find;
-import ac.soton.eventb.emf.diagrams.generator.utils.Make;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
+import ac.soton.emf.translator.TranslationDescriptor;
+import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.utils.Find;
+import ac.soton.emf.translator.eventb.utils.Make;
 
-public class RootComponentRule extends AbstractRule  implements IRule {
+public class RootComponentRule extends AbstractEventBGeneratorRule  implements IRule {
 
 	protected static final EReference components = CorePackage.Literals.PROJECT__COMPONENTS;
 	protected static final EReference sees = MachinePackage.Literals.MACHINE__SEES;
@@ -52,18 +51,18 @@ public class RootComponentRule extends AbstractRule  implements IRule {
 	private static final String UNIVERSAL_VARIABLE_ATTRIBUTE_ID = "ac.soton.eventb.emf.decomposition.generator.universalVariable";
 			
 	@Override
-	public boolean enabled(EventBElement sourceElement) throws Exception{
+	public boolean enabled(EObject sourceElement) throws Exception{
 		assert(sourceElement instanceof Component);
 		return sourceElement == ComponentsUtils.getRootComponent(sourceElement);	//!(sourceElement.eContainer().eClass().getEPackage().equals(ComponentsPackage.eINSTANCE)) ;
 	}
 
 	@Override
-	public List<GenerationDescriptor> fire(EventBElement sourceElement, List<GenerationDescriptor> generatedElements) throws Exception {
+	public List<TranslationDescriptor> fire(EObject sourceElement, List<TranslationDescriptor> generatedElements) throws Exception {
 		assert(enabled(sourceElement));
 		Component rootComponent = (Component) sourceElement;
-		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 		
-		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
+		Machine machine = (Machine)rootComponent.getContaining(MachinePackage.Literals.MACHINE);
 		ret.addAll(removeAllocatedVariables(machine, rootComponent));
 		
 		Event initialisation = (Event) Find.named(machine.getEvents(), "INITIALISATION");
@@ -128,8 +127,8 @@ public class RootComponentRule extends AbstractRule  implements IRule {
 	 * @param root
 	 * @return
 	 */
-	private Collection<? extends GenerationDescriptor> removeAllocatedVariables(Machine machine, EventBObject root) {
-		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+	private Collection<? extends TranslationDescriptor> removeAllocatedVariables(Machine machine, EventBObject root) {
+		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 		for (EObject eObject : root.getAllContained(DecompositionPackage.Literals.ABSTRACT_REGION, false)){
 			if (eObject instanceof AbstractRegion){
 				AbstractRegion region =(AbstractRegion)eObject;
@@ -149,8 +148,8 @@ public class RootComponentRule extends AbstractRule  implements IRule {
 	 * @param variableName
 	 * @return
 	 */
-	private Collection<? extends GenerationDescriptor> allocateVariableToAllRegions(Machine machine, EventBObject root, String variableName) {
-		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+	private Collection<? extends TranslationDescriptor> allocateVariableToAllRegions(Machine machine, EventBObject root, String variableName) {
+		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 		for (EObject eObject : root.getAllContained(DecompositionPackage.Literals.ABSTRACT_REGION, false)){
 			if (eObject instanceof AbstractRegion){
 				AbstractRegion region =(AbstractRegion)eObject;
