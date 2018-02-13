@@ -17,9 +17,9 @@ Require-Bundle: org.eclipse.gmf.runtime.diagram.ui;bundle-version="[1.5.0,2.0.0)
  ac.soton.eventb.emf.core.extension.navigator;bundle-version="[4.1.0,5.0.0)",
  ac.soton.eventb.emf.diagrams;bundle-version="[4.0.1,5.0.0)",
  ac.soton.eventb.emf.diagrams.navigator;bundle-version="[3.0.0,4.0.0)",
- ac.soton.eventb.emf.components;bundle-version="[5.0.0,6.0.0)",
- ac.soton.eventb.emf.components.edit;bundle-version="[5.0.0,6.0.0)",
- ac.soton.eventb.emf.components.diagram;bundle-version="[5.0.0,6.0.0)",
+ ac.soton.eventb.emf.components;bundle-version="[6.0.0,7.0.0)",
+ ac.soton.eventb.emf.components.edit;bundle-version="[6.0.0,7.0.0)",
+ ac.soton.eventb.emf.components.diagram;bundle-version="[6.0.0,7.0.0)",
  ac.soton.eventb.statemachines.navigator;bundle-version="[2.0.0,3.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
