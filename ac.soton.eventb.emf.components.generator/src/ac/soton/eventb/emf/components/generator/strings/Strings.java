@@ -52,12 +52,12 @@ public final class Strings {
  //////////////context////////////
 
 /**
- * properties for creating the context for a component
+ * properties for creating the context for a root component
  **/
- public static String CTXT_NAME;
- public static String CTXT_NAME(Component cp) {
+public static String CTXT_NAME;
+public static String CTXT_NAME(Component cp) {
 	 String mname = ((Machine) cp.getContaining(MachinePackage.Literals.MACHINE)).getName();
-	 return bind(CTXT_NAME, rootComponentPrefix(cp), mname);
+	 return bind(CTXT_NAME, mname, cp.getName());
  }
  
  /**
