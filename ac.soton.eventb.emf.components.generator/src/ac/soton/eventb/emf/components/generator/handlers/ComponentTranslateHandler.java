@@ -87,8 +87,6 @@ public class ComponentTranslateHandler extends IUMLBTranslateHandler {
 						status.merge(validationStatus);
 					}
 					submonitor.worked(2);
-				}else{
-					status.merge(new Status(IStatus.CANCEL, Activator.PLUGIN_ID, CannotTranslateMessage+smname));
 				}
 			}
 		}
