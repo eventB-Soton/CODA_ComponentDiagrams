@@ -14,7 +14,7 @@ package ac.soton.eventb.emf.components.generator.rules;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eventb.emf.core.EventBElement;
+import org.eclipse.emf.ecore.EObject;
 import org.eventb.emf.core.machine.Event;
 
 import ac.soton.eventb.emf.components.AbstractPort;
@@ -24,10 +24,10 @@ import ac.soton.eventb.emf.components.DataPacket;
 import ac.soton.eventb.emf.components.InPort;
 import ac.soton.eventb.emf.components.PortWake;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
-import ac.soton.eventb.emf.diagrams.generator.AbstractRule;
-import ac.soton.eventb.emf.diagrams.generator.GenerationDescriptor;
-import ac.soton.eventb.emf.diagrams.generator.IRule;
-import ac.soton.eventb.emf.diagrams.generator.utils.Make;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
+import ac.soton.emf.translator.TranslationDescriptor;
+import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.utils.Make;
 
 /**
  * 
@@ -43,13 +43,13 @@ import ac.soton.eventb.emf.diagrams.generator.utils.Make;
  * @see
  * @since
  */
-public class PortWakeRule extends AbstractRule  implements IRule {
+public class PortWakeRule extends AbstractEventBGeneratorRule  implements IRule {
 	
 	
 	@Override
-	public List<GenerationDescriptor> fire(EventBElement sourceElement, List<GenerationDescriptor> generatedElements) throws Exception {
+	public List<TranslationDescriptor> fire(EObject sourceElement, List<TranslationDescriptor> generatedElements) throws Exception {
 		assert(enabled(sourceElement));
-		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 		
 		PortWake pw = (PortWake) sourceElement;
 		

@@ -16,7 +16,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EReference;
-import org.eventb.emf.core.EventBElement;
+import org.eclipse.emf.ecore.EObject;
 import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
@@ -26,10 +26,10 @@ import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
 import ac.soton.eventb.emf.components.util.ComponentsUtils;
-import ac.soton.eventb.emf.diagrams.generator.GenerationDescriptor;
-import ac.soton.eventb.emf.diagrams.generator.IRule;
-import ac.soton.eventb.emf.diagrams.generator.utils.Find;
-import ac.soton.eventb.emf.diagrams.generator.utils.Make;
+import ac.soton.emf.translator.TranslationDescriptor;
+import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.utils.Find;
+import ac.soton.emf.translator.eventb.utils.Make;
 import ac.soton.eventb.statemachines.Statemachine;
 
 public class ProcessStatemachineRule extends AbstractProcessStatemachineRule  implements IRule {
@@ -41,28 +41,28 @@ public class ProcessStatemachineRule extends AbstractProcessStatemachineRule  im
 	private Event timerEvent = null;
 	
 	@Override
-	public boolean enabled(EventBElement sourceElement) throws Exception {
+	public boolean enabled(EObject sourceElement) throws Exception {
 		assert(sourceElement instanceof Statemachine);
 		return super.enabled(sourceElement) &&
 				rootSm == sourceElement;		//a top level process state machine of a component
 	}
 		
 	@Override
-	public boolean dependenciesOK(EventBElement sourceElement, List<GenerationDescriptor> generatedElements) throws Exception{
-		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
+	public boolean dependenciesOK(EObject sourceElement, List<TranslationDescriptor> generatedElements) throws Exception{
+		Machine machine = (Machine)((Statemachine)sourceElement).getContaining(MachinePackage.Literals.MACHINE);
 		Component root = (Component) ComponentsUtils.getRootComponent(sourceElement);
 		timerEvent = (Event) Find.generatedElement(generatedElements,machine,events,Strings.TE_NAME(root));
 		return timerEvent!=null;
 	}
 	
 	@Override
-	public List<GenerationDescriptor> fire(EventBElement sourceElement, List<GenerationDescriptor> generatedElements) throws Exception {
+	public List<TranslationDescriptor> fire(EObject sourceElement, List<TranslationDescriptor> generatedElements) throws Exception {
 		assert(enabled(sourceElement));
 		if (!dependenciesOK(sourceElement,generatedElements)) throw new Exception("rule fired before dependencies available (sourceElement:"+sourceElement+", rule:"+ProcessStatemachineRule.class+")");
-		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 
 		//find the machine 
-		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
+		Machine machine = (Machine)((Statemachine)sourceElement).getContaining(MachinePackage.Literals.MACHINE);
 		Event initialisation = (Event) Find.named(machine.getEvents(), "INITIALISATION");
 		
 		//create the enabler flag for this state-machine

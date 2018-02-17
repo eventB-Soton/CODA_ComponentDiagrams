@@ -16,7 +16,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
-import org.eventb.emf.core.EventBElement;
+import org.eclipse.emf.ecore.EObject;
 import org.eventb.emf.core.machine.Event;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
@@ -24,31 +24,31 @@ import org.eventb.emf.core.machine.MachinePackage;
 import ac.soton.eventb.decomposition.DecompositionPackage;
 import ac.soton.eventb.emf.components.Connector;
 import ac.soton.eventb.emf.components.generator.strings.Strings;
-import ac.soton.eventb.emf.diagrams.generator.AbstractRule;
-import ac.soton.eventb.emf.diagrams.generator.GenerationDescriptor;
-import ac.soton.eventb.emf.diagrams.generator.IRule;
-import ac.soton.eventb.emf.diagrams.generator.utils.Find;
-import ac.soton.eventb.emf.diagrams.generator.utils.Make;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
+import ac.soton.emf.translator.TranslationDescriptor;
+import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.utils.Find;
+import ac.soton.emf.translator.eventb.utils.Make;
 
-public class ConnectorRule extends AbstractRule implements IRule {
+public class ConnectorRule extends AbstractEventBGeneratorRule implements IRule {
 
 	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
 	protected static final EReference allocatedExtensions = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
 	protected static final EAttribute machineName = DecompositionPackage.Literals.ABSTRACT_REGION__MACHINE_NAME;
 	
 	@Override
-	public boolean enabled(EventBElement sourceElement) throws Exception{
+	public boolean enabled(EObject sourceElement) throws Exception{
 		assert(sourceElement instanceof Connector);
 		return true;
 	}
 	
 	@Override
-	public List<GenerationDescriptor> fire(EventBElement sourceElement, List<GenerationDescriptor> generatedElements) throws Exception {
+	public List<TranslationDescriptor> fire(EObject sourceElement, List<TranslationDescriptor> generatedElements) throws Exception {
 		assert(enabled(sourceElement));
 		Connector cn = (Connector) sourceElement;
-		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 		
-		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
+		Machine machine = (Machine)cn.getContaining(MachinePackage.Literals.MACHINE);
 		Event initialisation = (Event) Find.named(machine.getEvents(), "INITIALISATION");
 		ret.add(Make.descriptor(machine,variables,Make.variable(cn.getName(), "connector"),3));
 		ret.add(Make.descriptor(cn, allocatedVariables, Make.variableProxyReference(machine, cn.getName()) , -10));

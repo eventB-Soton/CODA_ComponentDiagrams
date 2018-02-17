@@ -18,23 +18,22 @@ import java.util.List;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 
 import ac.soton.eventb.decomposition.DecompositionPackage;
 import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.util.ComponentsUtils;
-import ac.soton.eventb.emf.diagrams.generator.AbstractRule;
-import ac.soton.eventb.emf.diagrams.generator.GenerationDescriptor;
-import ac.soton.eventb.emf.diagrams.generator.IRule;
-import ac.soton.eventb.emf.diagrams.generator.utils.Make;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
+import ac.soton.emf.translator.TranslationDescriptor;
+import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.utils.Make;
 import ac.soton.eventb.statemachines.State;
 import ac.soton.eventb.statemachines.Statemachine;
 import ac.soton.eventb.statemachines.StatemachinesPackage;
 import ac.soton.eventb.statemachines.TranslationKind;
 
-public class ChildComponentRule extends AbstractRule implements IRule {
+public class ChildComponentRule extends AbstractEventBGeneratorRule implements IRule {
 
 	protected static final EReference allocatedVariables = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_VARIABLES;
 	protected static final EReference allocatedExtensions = DecompositionPackage.Literals.ABSTRACT_REGION__ALLOCATED_EXTENSIONS;
@@ -49,17 +48,17 @@ public class ChildComponentRule extends AbstractRule implements IRule {
 	 */
 	
 	@Override
-	public boolean enabled(EventBElement sourceElement) throws Exception{
+	public boolean enabled(EObject sourceElement) throws Exception{
 		assert(sourceElement instanceof Component);
 		return sourceElement != ComponentsUtils.getRootComponent(sourceElement);
 	}
 	
 	@Override
-	public List<GenerationDescriptor> fire(EventBElement sourceElement, List<GenerationDescriptor> generatedElements) throws Exception {
+	public List<TranslationDescriptor> fire(EObject sourceElement, List<TranslationDescriptor> generatedElements) throws Exception {
 		assert(enabled(sourceElement));
 		Component cp = (Component) sourceElement;
-		Machine machine = (Machine)sourceElement.getContaining(MachinePackage.Literals.MACHINE);
-		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+		Machine machine = (Machine)cp.getContaining(MachinePackage.Literals.MACHINE);
+		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 		
 		//allocate variables for any contained statemachines (as these are not allocated by the state-machine generator rules
 		for (EObject eo : cp.eContents()){
@@ -83,8 +82,8 @@ public class ChildComponentRule extends AbstractRule implements IRule {
 	 * @param tk
 	 * @return
 	 */
-	private Collection<? extends GenerationDescriptor> getStatemachineVariables(Component cp, Machine machine, EObject eObject, TranslationKind tk) {
-		List<GenerationDescriptor> ret = new ArrayList<GenerationDescriptor>();
+	private Collection<? extends TranslationDescriptor> getStatemachineVariables(Component cp, Machine machine, EObject eObject, TranslationKind tk) {
+		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 		if (eObject instanceof Statemachine){
 			if (tk == TranslationKind.SINGLEVAR){
 				ret.add(Make.descriptor(cp, allocatedVariables, Make.variableProxyReference(machine, ((Statemachine)eObject).getName()) , -10));
