@@ -27,6 +27,10 @@
       %featureCopyright
    </copyright>
 
+   <url>
+      <update label="%updateSiteName" url="http://rodin-b-sharp.sourceforge.net/updates"/>
+   </url>
+
    <requires>
       <import plugin="org.eclipse.core.runtime" version="3.7.0" match="compatible"/>
       <import plugin="org.eclipse.emf.ecore" version="2.7.0" match="compatible"/>
@@ -59,6 +63,8 @@
       <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide" version="1.2.0" match="compatible"/>
       <import plugin="org.eclipse.gmf.tooling.runtime" version="3.2.0" match="compatible"/>
       <import plugin="org.eclipse.gmf.runtime.draw2d.ui" version="1.5.0" match="compatible"/>
+      <import plugin="ac.soton.eventb.emf.components" version="6.0.0" match="compatible"/>
+      <import plugin="ac.soton.eventb.emf.components.edit" version="6.0.0" match="compatible"/>
       <import plugin="ac.soton.eventb.emf.diagrams.edit" version="2.2.0" match="compatible"/>
       <import plugin="org.eclipse.emf.ecore.edit" version="2.7.0" match="compatible"/>
       <import plugin="org.eventb.emf.core.edit" version="1.1.0" match="compatible"/>
@@ -81,6 +87,7 @@
       <import plugin="ac.soton.eventb.emf.core.extension.persistence" version="2.0.0" match="compatible"/>
       <import plugin="ac.soton.eventb.emf.core.extension.navigator" version="4.1.0" match="compatible"/>
       <import plugin="ac.soton.eventb.emf.diagrams.navigator" version="3.0.0" match="compatible"/>
+      <import plugin="ac.soton.eventb.emf.components.diagram" version="6.0.0" match="compatible"/>
       <import plugin="ac.soton.eventb.statemachines.navigator" version="2.0.0" match="compatible"/>
       <import plugin="org.eclipse.ui" version="3.7.0" match="compatible"/>
       <import plugin="org.eclipse.emf.transaction" version="1.4.0" match="compatible"/>
@@ -89,9 +96,6 @@
       <import plugin="ac.soton.emf.translator" version="3.0.0" match="compatible"/>
       <import plugin="ac.soton.emf.translator.eventb" version="0.0.1" match="compatible"/>
       <import feature="ac.soton.eventb.statemachines.feature" version="3.2.0"/>
-      <import plugin="ac.soton.eventb.emf.components" version="6.0.0" match="compatible"/>
-      <import plugin="ac.soton.eventb.emf.components.edit" version="6.0.0" match="compatible"/>
-      <import plugin="ac.soton.eventb.emf.components.diagram" version="6.0.0" match="compatible"/>
    </requires>
 
    <plugin
