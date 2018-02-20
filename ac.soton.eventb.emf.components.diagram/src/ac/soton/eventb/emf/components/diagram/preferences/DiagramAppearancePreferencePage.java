@@ -47,11 +47,13 @@ public class DiagramAppearancePreferencePage extends AppearancePreferencePage {
 
 		setDefaultFontPreference(store);
 
-		Color fontColor = DiagramColorConstants.white;
+		Color fontColor = DiagramColorConstants.darkGray;
 		PreferenceConverter.setDefault(store,
 				IPreferenceConstants.PREF_FONT_COLOR, fontColor.getRGB());
 
-		Color fillColor = new Color(null, 1, 105, 115); //this is a dark blue-green;
+
+		Color fillColor = new Color(null, 135, 210, 200); //this is a light blue-green 
+		//old CODA colour was 1, 105, 115 - a dark blue-green
 		PreferenceConverter.setDefault(store,
 				IPreferenceConstants.PREF_FILL_COLOR, fillColor.getRGB());
 
