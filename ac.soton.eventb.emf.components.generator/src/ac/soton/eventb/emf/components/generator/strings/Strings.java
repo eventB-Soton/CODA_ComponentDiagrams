@@ -138,7 +138,7 @@ public static String CTXT_NAME(Component cp) {
  
  public static String TE_PW_READY_PARAM_NAME;
  public static String TE_PW_READY_PARAM_NAME(PortWake pw){
- 	return bind(TE_PW_READY_PARAM_NAME,OS_NAME(pw));
+ 	return bind(TE_PW_READY_PARAM_NAME, makeValidIdentifier(getOSNameFromOp(pw)));
  }
  public static String TE_PW_READY_GUARD_NAME;
  public static String TE_PW_READY_GUARD_NAME(PortWake pw){
