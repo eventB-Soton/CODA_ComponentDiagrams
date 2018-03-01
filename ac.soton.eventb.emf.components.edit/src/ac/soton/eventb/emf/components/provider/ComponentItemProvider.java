@@ -19,6 +19,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -37,6 +38,7 @@ import ac.soton.eventb.emf.components.Component;
 import ac.soton.eventb.emf.components.ComponentsFactory;
 import ac.soton.eventb.emf.components.ComponentsPackage;
 import ac.soton.eventb.statemachines.StatemachinesFactory;
+import ac.soton.eventb.statemachines.StatemachinesPackage;
 
 /**
  * This is the item provider adapter for a {@link ac.soton.eventb.emf.components.Component} object.
@@ -53,13 +55,6 @@ public class ComponentItemProvider
 		IItemLabelProvider,
 		IItemPropertySource,
 		ITableItemLabelProvider {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright (c) 2011-2017\rUniversity of Southampton.\rAll rights reserved. This program and the accompanying materials  are made\ravailable under the terms of the Eclipse Public License v1.0 which accompanies this \rdistribution, and is available at http://www.eclipse.org/legal/epl-v10.html\n";
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -435,121 +430,141 @@ public class ComponentItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
-				 ComponentsFactory.eINSTANCE.createComponent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
-				 ComponentsFactory.eINSTANCE.createConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
-				 DecompositionFactory.eINSTANCE.createRegion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
-				 StatemachinesFactory.eINSTANCE.createStatemachine()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.ABSTRACT_COMPONENT_MODEL__COMPONENTS,
-				 ComponentsFactory.eINSTANCE.createComponent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.ABSTRACT_COMPONENT_MODEL__CONNECTORS,
-				 ComponentsFactory.eINSTANCE.createConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
-				 ComponentsFactory.eINSTANCE.createMethod()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
-				 ComponentsFactory.eINSTANCE.createPortWake()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
-				 ComponentsFactory.eINSTANCE.createSelfWake()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
-				 ComponentsFactory.eINSTANCE.createExternal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
-				 ComponentsFactory.eINSTANCE.createTransition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__WAKE_QUEUES,
-				 ComponentsFactory.eINSTANCE.createWakeQueue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__ASYNCHRONOUS_STATEMACHINES,
-				 StatemachinesFactory.eINSTANCE.createStatemachine()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__SYNCHRONOUS_STATEMACHINES,
-				 StatemachinesFactory.eINSTANCE.createStatemachine()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__PROCESS_STATEMACHINES,
-				 StatemachinesFactory.eINSTANCE.createStatemachine()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__INVARIANTS,
-				 ComponentsFactory.eINSTANCE.createComponentInvariant()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__VARIABLES,
-				 ComponentsFactory.eINSTANCE.createComponentVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__INITIALISATIONS,
-				 ComponentsFactory.eINSTANCE.createComponentInitialisation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__SETS,
-				 ComponentsFactory.eINSTANCE.createComponentSet()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__AXIOMS,
-				 ComponentsFactory.eINSTANCE.createComponentAxiom()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__CONSTANTS,
-				 ComponentsFactory.eINSTANCE.createComponentConstant()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__IN_PORTS,
-				 ComponentsFactory.eINSTANCE.createInPort()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ComponentsPackage.Literals.COMPONENT__OUT_PORTS,
-				 ComponentsFactory.eINSTANCE.createOutPort()));
+		
+			
+		if (object instanceof EObject && 
+			ComponentsPackage.Literals.COMPONENT.getEAnnotation("org.eventb.emf.core.extendedMetaClasses") == null  || 
+			ComponentsPackage.Literals.COMPONENT.getEAnnotation("org.eventb.emf.core.extendedMetaClasses").getReferences().contains(((EObject)object).eClass()))
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 	ComponentsFactory.eINSTANCE.createComponent()));
+		
+			
+		if (object instanceof EObject && 
+			ComponentsPackage.Literals.CONNECTOR.getEAnnotation("org.eventb.emf.core.extendedMetaClasses") == null  || 
+			ComponentsPackage.Literals.CONNECTOR.getEAnnotation("org.eventb.emf.core.extendedMetaClasses").getReferences().contains(((EObject)object).eClass()))
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 	ComponentsFactory.eINSTANCE.createConnector()));
+		
+			
+		if (object instanceof EObject && 
+			DecompositionPackage.Literals.REGION.getEAnnotation("org.eventb.emf.core.extendedMetaClasses") == null  || 
+			DecompositionPackage.Literals.REGION.getEAnnotation("org.eventb.emf.core.extendedMetaClasses").getReferences().contains(((EObject)object).eClass()))
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 	DecompositionFactory.eINSTANCE.createRegion()));
+		
+			
+		if (object instanceof EObject && 
+			StatemachinesPackage.Literals.STATEMACHINE.getEAnnotation("org.eventb.emf.core.extendedMetaClasses") == null  || 
+			StatemachinesPackage.Literals.STATEMACHINE.getEAnnotation("org.eventb.emf.core.extendedMetaClasses").getReferences().contains(((EObject)object).eClass()))
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
+				 	StatemachinesFactory.eINSTANCE.createStatemachine()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.ABSTRACT_COMPONENT_MODEL__COMPONENTS,
+				 	ComponentsFactory.eINSTANCE.createComponent()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.ABSTRACT_COMPONENT_MODEL__CONNECTORS,
+				 	ComponentsFactory.eINSTANCE.createConnector()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
+				 	ComponentsFactory.eINSTANCE.createMethod()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
+				 	ComponentsFactory.eINSTANCE.createPortWake()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
+				 	ComponentsFactory.eINSTANCE.createSelfWake()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
+				 	ComponentsFactory.eINSTANCE.createExternal()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__OPERATIONS,
+				 	ComponentsFactory.eINSTANCE.createTransition()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__WAKE_QUEUES,
+				 	ComponentsFactory.eINSTANCE.createWakeQueue()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__ASYNCHRONOUS_STATEMACHINES,
+				 	StatemachinesFactory.eINSTANCE.createStatemachine()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__SYNCHRONOUS_STATEMACHINES,
+				 	StatemachinesFactory.eINSTANCE.createStatemachine()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__PROCESS_STATEMACHINES,
+				 	StatemachinesFactory.eINSTANCE.createStatemachine()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__INVARIANTS,
+				 	ComponentsFactory.eINSTANCE.createComponentInvariant()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__VARIABLES,
+				 	ComponentsFactory.eINSTANCE.createComponentVariable()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__INITIALISATIONS,
+				 	ComponentsFactory.eINSTANCE.createComponentInitialisation()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__SETS,
+				 	ComponentsFactory.eINSTANCE.createComponentSet()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__AXIOMS,
+				 	ComponentsFactory.eINSTANCE.createComponentAxiom()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__CONSTANTS,
+				 	ComponentsFactory.eINSTANCE.createComponentConstant()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__IN_PORTS,
+				 	ComponentsFactory.eINSTANCE.createInPort()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(ComponentsPackage.Literals.COMPONENT__OUT_PORTS,
+				 	ComponentsFactory.eINSTANCE.createOutPort()));
 	}
 
 	/**
