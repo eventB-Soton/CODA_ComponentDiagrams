@@ -36,9 +36,7 @@ import ac.soton.eventb.statemachines.StatemachinesPackage;
  * @since 4.0
  */
 public class ComponentTranslateHandler extends IUMLBTranslateHandler {	
-	
-	private final static String CannotTranslateMessage = "Translation cancelled because there is no translator for statemachine : ";
-	
+		
 	/**
 	 * For component diagrams we return the root translatable element irrespective of
 	 * type. This is because the component diagram can contain statemachines. 
