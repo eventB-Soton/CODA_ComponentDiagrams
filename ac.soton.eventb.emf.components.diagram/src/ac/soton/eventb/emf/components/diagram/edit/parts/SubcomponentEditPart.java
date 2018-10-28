@@ -619,6 +619,7 @@ public class SubcomponentEditPart extends CompartmentEditPart implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public class SubcomponentFigure extends WrappingLabel {
 

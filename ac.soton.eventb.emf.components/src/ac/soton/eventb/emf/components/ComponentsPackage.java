@@ -238,6 +238,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Ready</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -247,6 +248,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Project Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -256,6 +258,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Context Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -265,6 +268,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Allocated Variables</b></em>' reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -274,6 +278,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Allocated Extensions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -283,6 +288,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Machine Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -536,6 +542,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Extension Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -590,6 +597,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Ready</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -599,6 +607,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Project Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -608,6 +617,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Context Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -617,6 +627,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Allocated Variables</b></em>' reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -626,6 +637,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Allocated Extensions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -635,6 +647,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Machine Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -644,6 +657,7 @@ public interface ComponentsPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Initial Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered

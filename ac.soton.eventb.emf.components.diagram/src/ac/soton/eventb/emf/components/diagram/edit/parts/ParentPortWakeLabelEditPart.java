@@ -61,6 +61,7 @@ import ac.soton.eventb.emf.components.diagram.providers.ComponentsParserProvider
 
 /**
  * @generated
+ * @since 6.0
  */
 public class ParentPortWakeLabelEditPart extends LabelEditPart implements
 		ITextAwareEditPart, IBorderItemEditPart {

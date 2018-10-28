@@ -61,6 +61,7 @@ import ac.soton.eventb.emf.components.diagram.providers.ComponentsParserProvider
 
 /**
  * @generated
+ * @since 6.0
  */
 public class ParentTransitionLabelEditPart extends LabelEditPart implements
 		ITextAwareEditPart, IBorderItemEditPart {

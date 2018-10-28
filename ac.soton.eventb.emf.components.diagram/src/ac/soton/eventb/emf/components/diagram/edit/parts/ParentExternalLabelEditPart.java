@@ -14,7 +14,6 @@ package ac.soton.eventb.emf.components.diagram.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -61,6 +60,7 @@ import ac.soton.eventb.emf.components.diagram.providers.ComponentsParserProvider
 
 /**
  * @generated
+ * @since 6.0
  */
 public class ParentExternalLabelEditPart extends LabelEditPart implements
 		ITextAwareEditPart, IBorderItemEditPart {

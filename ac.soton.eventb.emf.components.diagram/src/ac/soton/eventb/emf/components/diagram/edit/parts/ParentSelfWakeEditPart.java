@@ -50,6 +50,7 @@ import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
 
 /**
  * @generated
+ * @since 6.0
  */
 public class ParentSelfWakeEditPart extends AbstractBorderedShapeEditPart {
 
