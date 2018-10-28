@@ -117,6 +117,7 @@ public class ComponentItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 * @since 6.0
 	 */
 	protected void addReadyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -139,6 +140,7 @@ public class ComponentItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 * @since 6.0
 	 */
 	protected void addProjectNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -161,6 +163,7 @@ public class ComponentItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 * @since 6.0
 	 */
 	protected void addContextNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -183,6 +186,7 @@ public class ComponentItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 * @since 6.0
 	 */
 	protected void addAllocatedVariablesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -205,6 +209,7 @@ public class ComponentItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 * @since 6.0
 	 */
 	protected void addAllocatedExtensionsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -227,6 +232,7 @@ public class ComponentItemProvider
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 * @since 6.0
 	 */
 	protected void addMachineNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add

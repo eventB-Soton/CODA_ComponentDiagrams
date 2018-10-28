@@ -640,6 +640,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public Node createPortWake_2010(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
@@ -691,6 +692,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public Node createSelfWake_2011(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
@@ -742,6 +744,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public Node createMethod_2012(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
@@ -793,6 +796,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public Node createExternal_2013(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
@@ -844,6 +848,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public Node createTransition_2014(EObject domainElement,
 			View containerView, int index, boolean persisted,
@@ -894,6 +899,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public Node createWakeQueue_2009(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
@@ -943,6 +949,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public Node createStatemachine_2015(EObject domainElement,
 			View containerView, int index, boolean persisted,
@@ -996,6 +1003,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public Node createStatemachine_2016(EObject domainElement,
 			View containerView, int index, boolean persisted,
@@ -1049,6 +1057,7 @@ public class ComponentsViewProvider extends AbstractProvider implements
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public Node createStatemachine_2017(EObject domainElement,
 			View containerView, int index, boolean persisted,

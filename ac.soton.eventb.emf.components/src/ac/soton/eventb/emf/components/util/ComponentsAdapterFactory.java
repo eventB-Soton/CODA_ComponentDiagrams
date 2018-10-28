@@ -861,6 +861,7 @@ public class ComponentsAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see ac.soton.eventb.decomposition.AbstractRegion
