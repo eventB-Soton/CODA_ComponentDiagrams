@@ -137,6 +137,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The default value of the '{@link #isReady() <em>Ready</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #isReady()
 	 * @generated
@@ -147,6 +148,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The cached value of the '{@link #isReady() <em>Ready</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #isReady()
 	 * @generated
@@ -157,6 +159,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The default value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #getProjectName()
 	 * @generated
@@ -167,6 +170,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The cached value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #getProjectName()
 	 * @generated
@@ -177,6 +181,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The default value of the '{@link #getContextName() <em>Context Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #getContextName()
 	 * @generated
@@ -187,6 +192,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The cached value of the '{@link #getContextName() <em>Context Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #getContextName()
 	 * @generated
@@ -197,6 +203,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The cached value of the '{@link #getAllocatedVariables() <em>Allocated Variables</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #getAllocatedVariables()
 	 * @generated
@@ -207,6 +214,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The cached value of the '{@link #getAllocatedExtensions() <em>Allocated Extensions</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #getAllocatedExtensions()
 	 * @generated
@@ -217,6 +225,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The default value of the '{@link #getMachineName() <em>Machine Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #getMachineName()
 	 * @generated
@@ -227,6 +236,7 @@ public class ComponentImpl extends EventBNamedCommentedElementImpl implements Co
 	/**
 	 * The cached value of the '{@link #getMachineName() <em>Machine Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 6.0
 	 * <!-- end-user-doc -->
 	 * @see #getMachineName()
 	 * @generated

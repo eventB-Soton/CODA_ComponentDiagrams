@@ -18,7 +18,6 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
-import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -51,6 +50,7 @@ import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
 
 /**
  * @generated
+ * @since 6.0
  */
 public class ParentAsynchronousStatemachineEditPart extends
 		AbstractBorderedShapeEditPart {

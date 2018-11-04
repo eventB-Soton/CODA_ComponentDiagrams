@@ -43,14 +43,13 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.draw2d.CenterLayout;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Image;
-
 import ac.soton.eventb.emf.components.diagram.edit.policies.ParentExternalItemSemanticEditPolicy;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsDiagramEditorPlugin;
 import ac.soton.eventb.emf.components.diagram.part.ComponentsVisualIDRegistry;
 
 /**
  * @generated
+ * @since 6.0
  */
 public class ParentExternalEditPart extends AbstractBorderedShapeEditPart {
 

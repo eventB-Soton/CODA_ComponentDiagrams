@@ -60,6 +60,7 @@ import ac.soton.eventb.statemachines.StatemachinesPackage;
 
 /**
  * @generated
+ * @since 6.0
  */
 public class ComponentsElementTypes {
 
@@ -110,46 +111,55 @@ public class ComponentsElementTypes {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static final IElementType PortWake_2010 = getElementType("ac.soton.eventb.emf.components.diagram.PortWake_2010"); //$NON-NLS-1$
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static final IElementType SelfWake_2011 = getElementType("ac.soton.eventb.emf.components.diagram.SelfWake_2011"); //$NON-NLS-1$
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static final IElementType Method_2012 = getElementType("ac.soton.eventb.emf.components.diagram.Method_2012"); //$NON-NLS-1$
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static final IElementType External_2013 = getElementType("ac.soton.eventb.emf.components.diagram.External_2013"); //$NON-NLS-1$
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static final IElementType Transition_2014 = getElementType("ac.soton.eventb.emf.components.diagram.Transition_2014"); //$NON-NLS-1$
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static final IElementType WakeQueue_2009 = getElementType("ac.soton.eventb.emf.components.diagram.WakeQueue_2009"); //$NON-NLS-1$
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static final IElementType Statemachine_2015 = getElementType("ac.soton.eventb.emf.components.diagram.Statemachine_2015"); //$NON-NLS-1$
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static final IElementType Statemachine_2016 = getElementType("ac.soton.eventb.emf.components.diagram.Statemachine_2016"); //$NON-NLS-1$
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static final IElementType Statemachine_2017 = getElementType("ac.soton.eventb.emf.components.diagram.Statemachine_2017"); //$NON-NLS-1$
 

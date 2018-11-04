@@ -635,6 +635,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getPortWake_2010ContainedLinks(
 			View view) {
@@ -643,6 +644,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getSelfWake_2011ContainedLinks(
 			View view) {
@@ -651,6 +653,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getMethod_2012ContainedLinks(
 			View view) {
@@ -659,6 +662,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getExternal_2013ContainedLinks(
 			View view) {
@@ -667,6 +671,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getTransition_2014ContainedLinks(
 			View view) {
@@ -675,6 +680,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getWakeQueue_2009ContainedLinks(
 			View view) {
@@ -683,6 +689,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_2015ContainedLinks(
 			View view) {
@@ -691,6 +698,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_2016ContainedLinks(
 			View view) {
@@ -699,6 +707,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_2017ContainedLinks(
 			View view) {
@@ -853,6 +862,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getPortWake_2010IncomingLinks(
 			View view) {
@@ -861,6 +871,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getSelfWake_2011IncomingLinks(
 			View view) {
@@ -869,6 +880,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getMethod_2012IncomingLinks(
 			View view) {
@@ -877,6 +889,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getExternal_2013IncomingLinks(
 			View view) {
@@ -885,6 +898,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getTransition_2014IncomingLinks(
 			View view) {
@@ -893,6 +907,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getWakeQueue_2009IncomingLinks(
 			View view) {
@@ -901,6 +916,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_2015IncomingLinks(
 			View view) {
@@ -909,6 +925,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_2016IncomingLinks(
 			View view) {
@@ -917,6 +934,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_2017IncomingLinks(
 			View view) {
@@ -1075,6 +1093,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getPortWake_2010OutgoingLinks(
 			View view) {
@@ -1083,6 +1102,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getSelfWake_2011OutgoingLinks(
 			View view) {
@@ -1091,6 +1111,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getMethod_2012OutgoingLinks(
 			View view) {
@@ -1099,6 +1120,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getExternal_2013OutgoingLinks(
 			View view) {
@@ -1107,6 +1129,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getTransition_2014OutgoingLinks(
 			View view) {
@@ -1115,6 +1138,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getWakeQueue_2009OutgoingLinks(
 			View view) {
@@ -1123,6 +1147,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_2015OutgoingLinks(
 			View view) {
@@ -1131,6 +1156,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_2016OutgoingLinks(
 			View view) {
@@ -1139,6 +1165,7 @@ public class ComponentsDiagramUpdater {
 
 	/**
 	 * @generated
+	 * @since 6.0
 	 */
 	public static List<ComponentsLinkDescriptor> getStatemachine_2017OutgoingLinks(
 			View view) {

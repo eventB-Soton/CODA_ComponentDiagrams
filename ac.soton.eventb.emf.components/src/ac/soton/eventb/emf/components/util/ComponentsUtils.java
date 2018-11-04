@@ -37,6 +37,9 @@ import ac.soton.eventb.emf.components.OutPort;
 import ac.soton.eventb.statemachines.Statemachine;
 import ac.soton.eventb.statemachines.StatemachinesPackage;
 
+/**
+ * @since 6.0
+ */
 public class ComponentsUtils {
 
 	public static String getUniqueName(EventBElement parent, EReference reference, String name) {
@@ -231,11 +234,17 @@ public class ComponentsUtils {
 		return uri1.equals(uri2);
 	}
 
+	/**
+	 * @since 6.0
+	 */
 	public static InPort[] getInPorts(Component component) {
 		EList<EObject> inPorts = component.getAllContained(ComponentsPackage.eINSTANCE.getInPort(), true);
 		return inPorts.toArray(new InPort[inPorts.size()]);
 	}
 
+	/**
+	 * @since 6.0
+	 */
 	public static OutPort[] getOutPorts(Component component) {
 		EList<EObject> outPorts = component.getAllContained(ComponentsPackage.eINSTANCE.getOutPort(), true);
 		return outPorts.toArray(new OutPort[outPorts.size()]);
