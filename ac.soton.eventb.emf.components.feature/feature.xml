@@ -11,7 +11,7 @@
          University of Southampton - Initial API and implementation
  -->
 <feature
-      id="ac.soton.eventb.components.feature"
+      id="ac.soton.eventb.emf.components.feature"
       label="%featureName"
       version="6.0.0.release"
       provider-name="%featureProvider"
