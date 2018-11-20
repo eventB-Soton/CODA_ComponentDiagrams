@@ -2,5 +2,5 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: ac.soton.eventb.emf.components.doc;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.0.1.release
 Bundle-Vendor: %pluginVendor
