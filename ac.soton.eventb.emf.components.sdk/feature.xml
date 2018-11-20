@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ac.soton.eventb.emf.components.sdk"
+      label="%featureName"
+      version="6.0.0.release"
+      provider-name="%featureVendor"
+      plugin="ac.soton.eventb.emf.components.branding"
+      license-feature="org.rodinp.license"
+      license-feature-version="1.0.0.release">
+
+   <description>
+      %featureDescription
+   </description>
+
+   <copyright>
+      %featureCopyright
+   </copyright>
+
+   <url>
+      <update label="%updateSiteName" url="http://rodin-b-sharp.sourceforge.net/updates"/>
+   </url>
+
+   <includes
+         id="ac.soton.eventb.emf.components.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="ac.soton.eventb.emf.components.source.feature"
+         version="0.0.0"/>
+
+</feature>
