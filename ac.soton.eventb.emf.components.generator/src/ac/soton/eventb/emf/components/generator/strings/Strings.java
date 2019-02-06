@@ -1,5 +1,5 @@
 /*******************************************************************************
- * (c) Crown owned copyright (2017) (UK Ministry of Defence)
+ * (c) Crown owned copyright (2017-2019) (UK Ministry of Defence)
  *
  * All rights reserved. This program and the accompanying materials are 
  * made available under the terms of the Eclipse Public License v1.0 which
@@ -299,7 +299,7 @@ public static String WU_TYPE_NAME(WakeQueue wq){
 }
 public static String WU_TYPE_PRED;
 public static String WU_TYPE_PRED(WakeQueue wq){
-	return bind(WU_TYPE_PRED,WU_NAME(wq));
+	return bind(WU_TYPE_PRED,WU_NAME(wq), rootComponentPrefix(ComponentsUtils.getRootComponent(wq)));
 }
 public static String WU_INIT_NAME;
 public static String WU_INIT_NAME(WakeQueue wq){
@@ -307,7 +307,7 @@ public static String WU_INIT_NAME(WakeQueue wq){
 }
 public static String WU_INIT_EXPR;
 public static String WU_INIT_EXPR(WakeQueue wq){
-	return bind(WU_INIT_EXPR,WU_NAME(wq));
+	return bind(WU_INIT_EXPR,WU_NAME(wq), rootComponentPrefix(ComponentsUtils.getRootComponent(wq)));
 }
  // max
 public static String WU_MAX_NAME;
@@ -350,8 +350,9 @@ public static String WU_SET_ACTION_EXPR;
 public static String WU_MIN_SET_ACTION_EXPR(WakeEvent we){
 	return bind(WU_SET_ACTION_EXPR,
 			WU_NAME(we.getQueue()),
-			CT_NAME((Component)ComponentsUtils.getRootComponent(we)),
-			we.getDelay_min(),we.getWakeKind());
+			CT_NAME(ComponentsUtils.getRootComponent(we)),
+			we.getDelay_min(),
+			rootComponentPrefix(ComponentsUtils.getRootComponent(we))+we.getWakeKind());
 }	
 public static String WU_MAX_SET_ACTION_NAME(WakeEvent we){
 	return bind(WU_SET_ACTION_NAME,we.getName(),we.getQueue().getName(),"max");
@@ -359,8 +360,9 @@ public static String WU_MAX_SET_ACTION_NAME(WakeEvent we){
 public static String WU_MAX_SET_ACTION_EXPR(WakeEvent we){
 	return bind(WU_SET_ACTION_EXPR,
 			WU_MAX_NAME(we.getQueue()),
-			CT_NAME((Component)ComponentsUtils.getRootComponent(we)),
-			we.getDelay_max(),CT_NAME((Component)ComponentsUtils.getRootComponent(we))+"+"+we.getDelay_min());
+			CT_NAME(ComponentsUtils.getRootComponent(we)),
+			we.getDelay_max(),
+			CT_NAME(ComponentsUtils.getRootComponent(we))+"+"+we.getDelay_min());
 }	
 
 /**
