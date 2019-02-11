@@ -13,11 +13,11 @@
 <feature
       id="ac.soton.eventb.emf.components.feature"
       label="%featureName"
-      version="6.0.0.release"
+      version="6.0.1.release"
       provider-name="%featureProvider"
       plugin="ac.soton.eventb.emf.components.branding"
       license-feature="ac.soton.coda.licence"
-      license-feature-version="1.1.1.release">
+      license-feature-version="1.1.2.release">
 
    <description>
       %featureDescription
