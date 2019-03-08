@@ -72,5 +72,11 @@
             ePackage="http://soton.ac.uk/models/eventb/components/2016">
       </refinementDefinition>
    </extension>
+   <extension
+         point="ac.soton.eventb.emf.core.extension.navigator.emfFileExtensions">
+      <model
+            extension="comp">
+      </model>
+   </extension>
 
 </plugin>
