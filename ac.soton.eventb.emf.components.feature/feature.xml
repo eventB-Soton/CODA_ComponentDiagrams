@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    (c) Crown owned copyright (2017) (UK Ministry of Defence)
+    (c) Crown owned copyright (2017-2019) (UK Ministry of Defence)
    
     All rights reserved. This program and the accompanying materials are 
     made available under the terms of the Eclipse Public License v1.0 which
@@ -13,7 +13,7 @@
 <feature
       id="ac.soton.eventb.emf.components.feature"
       label="%featureName"
-      version="6.0.1.release"
+      version="6.0.2.qualifier"
       provider-name="%featureProvider"
       plugin="ac.soton.eventb.emf.components.branding"
       license-feature="ac.soton.coda.licence"
