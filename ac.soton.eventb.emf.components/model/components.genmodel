@@ -9,7 +9,7 @@
     usedGenPackages="../../ac.soton.eventb.emf.decomposition/model/decomposition.genmodel#//decomposition ../../ac.soton.eventb.emf.diagrams/model/diagrams.genmodel#//diagrams platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eventb.emf.core/model/eventbcore.genmodel#//core ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension ../../ac.soton.eventb.statemachines/model/statemachines.genmodel#//statemachines">
   <foreignModel>components.ecore</foreignModel>
   <genPackages prefix="Components" basePackage="ac.soton.eventb.emf" disposableProviderFactory="true"
-      extensibleProviderFactory="true" childCreationExtenders="true" fileExtensions="comp"
+      extensibleProviderFactory="true" childCreationExtenders="true" fileExtensions="cmp"
       ecorePackage="components.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="components.ecore#//WakeKind">
       <genEnumLiterals ecoreEnumLiteral="components.ecore#//WakeKind/AddEvent"/>

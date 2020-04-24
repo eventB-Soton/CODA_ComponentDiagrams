@@ -34,4 +34,12 @@
       </emfPackage>
    </extension>
 
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <file-association
+            content-type="ac.soton.eventb.emf.core.extension.persistence.contentType"
+            file-extensions="cmp">
+      </file-association>
+   </extension>
+   
 </plugin>
