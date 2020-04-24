@@ -2,11 +2,11 @@
 <feature
       id="ac.soton.eventb.emf.components.sdk"
       label="%featureName"
-      version="6.0.2.release"
+      version="6.0.2.qualifier"
       provider-name="%featureVendor"
       plugin="ac.soton.eventb.emf.components.branding"
-      license-feature="org.rodinp.license"
-      license-feature-version="1.0.0.release">
+      license-feature="ac.soton.coda.licence"
+      license-feature-version="1.1.2.release">
 
    <description>
       %featureDescription
