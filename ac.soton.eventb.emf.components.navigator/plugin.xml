@@ -75,7 +75,7 @@
    <extension
          point="ac.soton.eventb.emf.core.extension.navigator.emfFileExtensions">
       <model
-            extension="comp">
+            extension="cmp">
       </model>
    </extension>
 
